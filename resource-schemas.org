@@ -1,0 +1,2687 @@
+# -*- mode: org -*-
+
+#+PROPERTY: mkdirp yes
+
+* Shipment Methods
+
+TBD
+
+* Order
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.order.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.order.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Order Collection",
+    "description": "items a buyer would like to purchase from a seller.",
+    "type": "object",
+    "properties" : {
+
+      "count": {
+        "description": "total number of items in the collection",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000
+      },
+
+      "description": {
+        "description": "human facing text describing the order collection",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "items": {
+        "description": "one or more things a buyer wishes a seller to provide ",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.order-item.0.0.1.json"
+        }
+      },
+
+      "remarks": {
+        "description": "human to human information",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+
+      "collectionRef": {
+        "description": "foreign system identification of an order",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "date": {
+        "description": "origination date of the order",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "dateExpected": {
+        "description": "date when the buyer expects the seller to deliver the order",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "buyer": {
+        "description": "buyer",
+        "$ref": "./vnd.eci.stg.buyer.0.0.1.json"
+      },
+
+      "seller": {
+        "description": "system function to identify a unique seller",
+        "$ref": "./vnd.eci.stg.seller.0.0.1.json"
+      },
+
+      "consumer": {
+        "description": "consumer",
+        "$ref": "./vnd.eci.stg.consumer.0.0.1.json"
+      },
+
+      "currency": {
+        "description": "currency",
+        "$ref": "./vnd.eci.stg.currency.0.0.1.json"
+      },
+
+      "billTo": {
+        "description": "party that will pay the seller for the buyer's order",
+        "$ref": "./vnd.eci.stg.buyer.0.0.1.json"
+      },
+
+      "shipTo": {
+        "description": "seller will deliver the order items to this location",
+        "$ref": "./vnd.eci.stg.contact.0.0.1.json"
+      },
+
+      "carrier": {
+        "description": "shipping will be provided by this carrier",
+        "$ref": "./vnd.eci.stg.shipping-carrier.0.0.1.json"
+      },
+
+      "optionAllowBackorder": {
+        "description": "default is true",
+        "type": "boolean"
+      },
+
+      "optionAllowCostChanges": {
+        "description": "default is true",
+        "type": "boolean"
+      },
+
+      "optionAllowPartialShipments": {
+        "description": "default is true",
+        "type": "boolean"
+      },
+
+      "optionAllowSubstitutions": {
+        "description": "default is true",
+        "type": "boolean"
+      },
+
+      "optionDropShip": {
+        "description": "default is false",
+        "type": "boolean"
+      },
+
+      "backorderedItems": {
+        "description": "unique items that the seller could not immediately provide",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.order-item.0.0.1.json"
+        }
+      },
+
+      "replacedItems": {
+        "description": "unique items that have permanently replaced items in the original order",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.order-item.0.0.1.json"
+        }
+      },
+
+      "substitutedItems": {
+        "description": "unique items that have been substituted for items in the original order",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.order-item.0.0.1.json"
+        }
+      }
+    },
+
+    "additionalProperties": false
+  }
+
+#+END_SRC
+
+* Order Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.order-item.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.order-item.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Order Item",
+    "description": "describes the items a buyer would like to purchase from a seller.",
+    "type": "object",
+    "properties" : {
+
+      "line": {
+        "description": "",
+        "type": "integer",
+        "minimum" : 1,
+        "maximum" : 500
+      },
+
+      "date": {
+        "description": "date and time when the count was recorded",
+        "type": "string",
+        "format": "date-time"
+      },
+
+      "dateExpected": {
+        "description": "",
+        "type": "string",
+        "format": "date-time"
+      },
+
+      "description": {
+        "description": "human facing text describing the item",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "item": {
+        "description": "foreign system identification of a unique item",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "quantity": {
+        "description": "the number of individual units in the measure e.g. Box of 20",
+        "type": "number",
+        "minimum" : 1,
+        "maximum" : 999999999.999999
+      },
+
+      "make": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "model": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "serialnumber": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "unitMeasure": {
+        "description": "unit measure of the item",
+        "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+      },
+
+      "remarks": {
+        "description": "human to human information",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+
+      "barcode": {
+        "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+        "type": "array",
+        "maxItems": 50,
+        "items": [{
+          "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+        }]
+      },
+
+      "order": {
+        "description": "foreign system identification of the original order",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "unitCost": {
+        "description": "",
+        "type": "number",
+        "minimum" : 0,
+        "maximum" : 999999999999.999999
+      }
+    },
+
+    "additionalProperties": false
+  }
+
+#+END_SRC
+
+* Order Acknowledgment
+
+Use the Order resource type
+
+* Shipment
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.shipment.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.shipment.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Collection of items in a shipment",
+    "description": "the items a seller has or will ship to a buyer",
+    "type": "object",
+    "properties" : {
+
+      "count": {
+        "description": "total number of items in the collection",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000
+      },
+
+      "description": {
+        "description": "human facing text describing the shipping receipt collection",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "items": {
+        "description": "the unique items that make up the items that have been or will be received",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.receipt-item.0.0.1.json"
+        }
+      },
+
+      "remarks": {
+        "description": "human to human information",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+
+      "collectionRef": {
+        "description": "foreign system identification of a unique shipping receipt",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "date": {
+        "description": "origination date of the shipping information",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "dateExpected": {
+        "description": "the date when the shipped items have or will arrive",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "orders": {
+        "description": "foreign system identification of a set of unique orders",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 100,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.reference.0.0.1.json"
+        }
+      },
+
+      "buyer": {
+        "description": "buyer",
+        "$ref": "./vnd.eci.stg.buyer.0.0.1.json"
+      },
+
+      "seller": {
+        "description": "system function to identify a unique seller",
+        "$ref": "./vnd.eci.stg.seller.0.0.1.json"
+      },
+
+      "shipTo": {
+        "description": "seller will deliver the order items to this location",
+        "$ref": "./vnd.eci.stg.contact.0.0.1.json"
+      },
+
+      "carrier": {
+        "description": "shipping has been provided by this carrier",
+        "$ref": "./vnd.eci.stg.shipping-carrier.0.0.1.json"
+      },
+
+      "carrierShipment": {
+        "description": "carrier function used to identify a shipment",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "optionDropShip": {
+        "description": "default is false",
+        "type": "boolean"
+      }
+    },
+
+    "additionalProperties": false
+  }
+#+END_SRC
+
+* Shipment Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.shipment-item.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.shipment-item.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Shipment Item",
+    "description": "describes the items a buyer would like to purchase from a seller.",
+    "type": "object",
+    "properties" : {
+
+      "line": {
+        "description": "",
+        "type": "integer",
+        "minimum" : 1,
+        "maximum" : 500
+      },
+
+      "date": {
+        "description": "date and time when the count was recorded",
+        "type": "string",
+        "format": "date-time"
+      },
+
+      "dateExpected": {
+        "description": "",
+        "type": "string",
+        "format": "date-time"
+      },
+
+      "description": {
+        "description": "human facing text describing the item",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "item": {
+        "description": "foreign system identification of a unique item",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "quantity": {
+        "description": "the number of individual units in the measure e.g. Box of 20",
+        "type": "number",
+        "minimum" : 1,
+        "maximum" : 999999999.999999
+      },
+
+      "make": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "model": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "serialnumber": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "unitMeasure": {
+        "description": "unit measure of the item",
+        "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+      },
+
+      "remarks": {
+        "description": "human to human information",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+
+      "barcode": {
+        "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+        "type": "array",
+        "maxItems": 50,
+        "items": [{
+          "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+        }]
+      },
+
+      "location": {
+        "description": "location of the item",
+        "$ref": "./vnd.eci.stg.address.0.0.1.json"
+      },
+
+      "agent": {
+        "description": "name or id or ? identifying the agent recoding the count",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      },
+
+      "order": {
+        "description": "foreign system identification of the original order",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      }
+    },
+
+    "additionalProperties": false
+  }
+#+END_SRC
+
+* Invoice
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.invoice.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.invoice.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Invoice Collection",
+    "description": "a collection of items a buyer has purchased from a seller",
+    "type": "object",
+    "properties" : {
+
+      "count": {
+        "description": "total number of seller shipping carriers in the items collection",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000
+      },
+
+      "description": {
+        "description": "human facing text describing the stock and cost collection",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "items": {
+        "description": "the unique items that make up the catalog's contents",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "anyOf": [
+            { "$ref" : "#/definitions/InvoiceItem" },
+            { "$ref" : "#/definitions/InvoiceItemReplacement" },
+            { "$ref" : "#/definitions/InvoiceItemSubstitution" }
+          ]
+        }
+      },
+
+      "remarks": {
+        "description": "human to human information",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+
+      "collectionRef": {
+        "description": "foreign system identification of a unique invoice",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "date": {
+        "description": "origination date of the invoice",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "dateExpected": {
+        "description": "date when the invoice is due",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "orders": {
+        "description": "foreign system identification of an order",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 100,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "./vnd.eci.stg.reference.0.0.1.json"
+        }
+      },
+
+      "buyer": {
+        "description": "buyer",
+        "$ref": "./vnd.eci.stg.buyer.0.0.1.json"
+      },
+
+      "seller": {
+        "description": "system function to identify a unique seller",
+        "$ref": "./vnd.eci.stg.buyer.0.0.1.json"
+      },
+
+      "consumer": {
+        "description": "consumer",
+        "$ref": "./vnd.eci.stg.consumer.0.0.1.json"
+      },
+
+      "currency": {
+        "description": "currency",
+        "$ref": "./vnd.eci.stg.currency.0.0.1.json"
+      },
+
+      "billTo": {
+        "description": "party that will pay the seller for the buyer's order",
+        "$ref": "./vnd.eci.stg.contact.0.0.1.json"
+      },
+
+      "shipTo": {
+        "description": "seller will deliver the order items to this location",
+        "$ref": "./vnd.eci.stg.contact.0.0.1.json"
+      },
+
+      "term": {
+        "description": "seller terms",
+        "$ref": "#/defintions/term"
+      },
+
+      "total": {
+        "description": "invoice total",
+        "$ref": "./vnd.eci.stg.total.0.0.1.json"
+      }
+    },
+
+    "additionalProperties": false,
+
+    "definitions" : {
+      "InvoiceItemReplacement": {
+        "allOf": [ { "$ref": "./vnd.eci.stg.invoice-item.0.0.1.json" } ]
+      },
+
+      "InvoiceItemSubstitution": {
+        "allOf": [ { "$ref": "./vnd.eci.stg.invoice-item.0.0.1.json" } ]
+      }
+    }
+  }
+#+END_SRC
+
+* Invoice Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.invoice-item.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.invoice-item.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Invoice Item",
+    "description": "describes the items a buyer would like to purchase from a seller.",
+    "type": "object",
+    "properties" : {
+
+      "line": {
+        "description": "",
+        "type": "integer",
+        "minimum" : 1,
+        "maximum" : 500
+      },
+
+      "date": {
+        "description": "date and time when the count was recorded",
+        "type": "string",
+        "format": "date-time"
+      },
+
+      "dateExpected": {
+        "description": "",
+        "type": "string",
+        "format": "date-time"
+      },
+
+      "description": {
+        "description": "human facing text describing the item",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "item": {
+        "description": "foreign system identification of a unique item",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "quantity": {
+        "description": "the number of individual units in the measure e.g. Box of 20",
+        "type": "number",
+        "minimum" : 1,
+        "maximum" : 999999999.999999
+      },
+
+      "make": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "model": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "serialnumber": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "unitMeasure": {
+        "description": "unit measure of the item",
+        "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+      },
+
+      "remarks": {
+        "description": "human to human information",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+
+      "barcode": {
+        "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+        "type": "array",
+        "maxItems": 50,
+        "items": [{
+          "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+        }]
+      },
+
+      "order": {
+        "description": "foreign system identification of the original order",
+        "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+      },
+
+      "total": {
+        "description": "",
+        "$ref": "./vnd.eci.stg.total.0.0.1.json"
+      }
+    },
+
+    "additionalProperties": false
+  }
+
+#+END_SRC
+
+* Address
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.address.0.0.1.json
+{
+  "id": "./vnd.eci.stg.address.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Address",
+  "description": "mail and freight addressing for the USPS. See Publication 28 for details.",
+  "type": "object",
+  "properties" : {
+
+    "moniker": {
+      "description": "used to identify the address to a human reader.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "msc": {
+      "description": "mail stop code",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "mtn": {
+      "description": "attention line",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "rcp": {
+      "description": "recipient or business name",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "alt": {
+      "description": "alternate location",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "dal": {
+      "description": "delivery address line",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "lst": {
+      "description": "last line (city X state X zip)",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "bin": {
+      "description": "the identity of the bin as defined by the inventory owner",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+
+    "warehouse": {
+      "description": "the identity of the warehouse as defined by the inventory owner",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Barcode
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.barcode.0.0.1.json
+{
+  "id": "./vnd.eci.stg.barcode.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Barcode",
+  "description": "function to locate a usable portion of a scanned value.",
+  "type": "object",
+  "properties" : {
+
+    "length": {
+      "description": "length of the usable portion of the barcode value",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "offset": {
+      "description": "zero index of the first character in the usable portion of the barcode",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "code": {
+      "description": "useable portion of the barcode",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Buyer
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.buyer.0.0.1.json
+{
+  "id": "./vnd.eci.stg.buyer.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Buyer",
+  "description": "The buyer has-a contact, has a tax number, and holds references from foreign systems.",
+  "type": "object",
+  "properties" : {
+
+    "address": {
+      "description": "buyer's address",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "email": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "name": {
+      "description": "human facing name of the buyer",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "phone": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "self-ref": {
+      "description": "system function to identify a unique buyer",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "taxid": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Catalog
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.catalog.0.0.1.json
+{
+  "id": "./vnd.eci.stg.catalog.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Catalog Collection",
+  "description": "Things a seller offers to buyers",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of catalog items in the items collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "description": {
+      "description": "human facing text describing the catalog",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "items": {
+      "description": "the unique items that make up the catalog",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.catalog-item.0.0.1.json"
+      }
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "collectionRef": {
+      "description": "system function to identify a unique catalog",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "date": {
+      "description": "origination date of the catalog collection",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date when the catalog collection expires.",
+      "type" : "string",
+      "format": "date-time"
+    }
+  },
+
+  "additionalProperties": false
+}
+#+END_SRC
+
+* Catalog Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.catalog-item.0.0.1.json
+{
+  "id": "./vnd.eci.stg.catalog-item.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Catalog Item",
+  "description": "A thing a specific seller offers to buyers, an analog to a physical catalog",
+  "type": "object",
+  "properties" : {
+
+    "line": {
+      "description": "",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "date and time when the item was added to the catalog",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "not used",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "values represent one or more barcodes sellers, buyers, and consumers can use to identify this item from a barcode on the item packaging.",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "unitCost": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "yield": {
+      "description": "expected yield or lifetime of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Consumer
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.consumer.0.0.1.json
+{
+  "id": "./vnd.eci.stg.consumer.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Consumer",
+  "description": "The consumer has-a contact, has a tax number, a contract, and holds references from foreign systems",
+  "type": "object",
+  "properties" : {
+
+    "address": {
+      "description": "consumer's address",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "email": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "name": {
+      "description": "human facing name of the consumer",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "phone": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "self-ref": {
+      "description": "system function to identify a unique consumer",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "taxid": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "buyerAssignedContractID": {
+      "description": "buyer function to identify a unique consumer contract",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Contact
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.contact.0.0.1.json
+{
+  "id": "./vnd.eci.stg.contact.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Contact",
+  "description": "allows a system or human to contact a human",
+  "type": "object",
+  "properties" : {
+
+    "address": {
+      "description": "address associated with the contact",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "email": {
+      "description": "email address of the contact",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "name": {
+      "description": "name of the contact",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "phone": {
+      "description": "phone number where the contact can be reached",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Count
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.count.0.0.1.json
+
+{
+  "id": "./vnd.eci.stg.count.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Count Collection",
+  "description": "relates a counting agent, date, location, and one or more instances of an item",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of items in the collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "description": {
+      "description": "human facing text describing the count collection",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "items": {
+      "description": "the unique items that have or will be counted",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.count-item.0.0.1.json"
+      }
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "collectionRef": {
+      "description": "system function to identify a unique count",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "date": {
+      "description": "origination date of the count collection",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date when the count collection should have been counted.",
+      "type" : "string",
+      "format": "date-time"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Count Item
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.count-item.0.0.1.json
+{
+  "id": "./vnd.eci.stg.count-item.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Count Item",
+  "description": "relates a counting agent, date, location, and one or more instances of an item",
+  "type": "object",
+  "properties" : {
+
+    "line": {
+      "description": "",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "date and time when the expected or actual count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date and time when the expected or actual count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "all known barcodes associated with this item",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "location": {
+      "description": "location of the item counted",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "agent": {
+      "description": "name or id or some string identifying the agent recording the count",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Currency
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.currency.0.0.1.json
+{
+  "id": "./vnd.eci.stg.currency.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Currency",
+  "description": "relates monetary value (number) to the type of currency.  https://www.iso.org/iso-4217-currency-codes.html",
+  "type": "object",
+
+  "properties" : {
+
+    "code": {
+      "description": "three letter code to describe the currency",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3
+    },
+
+    "number": {
+      "description": "three digit number of the currency, relates to location",
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 999
+    },
+
+    "precision": {
+      "description": "",
+      "type": "integer"
+    },
+
+    "scale": {
+      "description": "",
+      "type": "integer"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Error
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.error.0.0.1.json
+  {
+    "id": "./vnd.eci.stg.error.0.0.1.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "Error",
+    "description": "",
+    "type": "array",
+    "items": {
+      "properties" : {
+
+        "code": {
+          "description": "value used by machines to identify an error",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "description": {
+          "description": "human readable string describing the error",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+
+        "when": {
+          "description": "origination date of the error",
+          "type" : "string",
+          "format": "date-time"
+        },
+
+        "value": {
+          "description": "details of the error the may help users solve the problem",
+          "type": "string",
+          "minLength": 1,
+          "maxLength" : 1024
+        }
+      }
+    },
+
+    "additionalProperties": false
+  }
+
+#+END_SRC
+
+* Order Reference
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.order-reference.0.0.1.json
+{
+  "id": "./vnd.eci.stg.order-reference.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Reference",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "buyerRef": {
+      "description": "buyer function identifying a unique order in the buyer's system",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "consumerRef": {
+      "description": "consumer function identifying a unique order in the consumer's system",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "sellerRef": {
+      "description": "seller function identifying a unique order in the seller's system",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "lineRef": {
+      "description": "ordinal value representing the line in the original buyer's order document.",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "additionalProperties": false
+  }
+}
+
+#+END_SRC
+
+* Pack
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.pack.0.0.1.json
+{
+  "id": "./vnd.eci.stg.pack.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Pack Collection",
+  "description": "A collection of items that have been or will be packed.",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of items in the collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "description": {
+      "description": "human facing text describing the pack collection",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "items": {
+      "description": "the unique items that have or will be packed",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.pack-item.0.0.1.json"
+      }
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "collectionRef": {
+      "description": "system function to identify a unique packing list",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "date": {
+      "description": "origination date of the pack collection",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date when the items in the collection should have been packed.",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "orders": {
+      "description": "foreign system identification of a set of unique orders",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.reference.0.0.1.json"
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Pack Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.pack-item.0.0.1.json
+{
+  "id": "./vnd.eci.stg.pack-item.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Pack Item",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "line": {
+      "description": "",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "date and time when the count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "location": {
+      "description": "location of the item",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "agent": {
+      "description": "name or id or ? identifying the agent recoding the count",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "order": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.order-reference.0.0.1.json"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Pick
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.pick.0.0.1.json
+{
+  "id": "./vnd.eci.stg.pick.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Pick Collection",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of items in the collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "description": {
+      "description": "human facing text describing the pick collection",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "items": {
+      "description": "the unique items that have been or will be picked",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.pick-item.0.0.1.json"
+      }
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "collectionRef": {
+      "description": "system function to identify a unique picking list",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "date": {
+      "description": "origination date of the pick collection",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date when the items in the collection should have been picked.",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "orders": {
+      "description": "foreign system identification of a set of unique orders",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.reference.0.0.1.json"
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Pick Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.pick-item.0.0.1.json
+{
+  "id": "./vnd.eci.stg.pick-item.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "PickItem",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "line": {
+      "description": "",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "date and time when the count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "location": {
+      "description": "location of the item",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "agent": {
+      "description": "name or id or ? identifying the agent recoding the count",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "order": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.order-reference.0.0.1.json"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Reference
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.reference.0.0.1.json
+{
+  "id": "./vnd.eci.stg.reference.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Reference",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "buyerRef": {
+      "description": "buyer function identifying a unique buyer owned resource",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "consumerRef": {
+      "description": "consumer function identifying a unique consumer owned resource",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "manufacturerRef": {
+      "description": "system function to identify a unique manufacturer",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "sellerRef": {
+      "description": "seller function identifying a unique seller owned resource",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "self": {
+      "description": "system function identifying a unique system owned resource",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+
+    "additionalProperties": false
+  }
+}
+
+#+END_SRC
+
+* Restock
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.restock.0.0.1.json
+{
+  "id": "./vnd.eci.stg.restock.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Restock Collection",
+  "description": "A collection of items that have been or will be restocked",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of restock items in the collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "description": {
+      "description": "human facing text describing the restock collection",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "items": {
+      "description": "the unique items that have been or will be restocked",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.restock-item.0.0.1.json"
+      }
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "collectionRef": {
+      "description": "system function to identify a unique restock",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "date": {
+      "description": "origination date of the restock collection",
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date when the restock collection should have been restocked",
+      "type" : "string",
+      "format": "date-time"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Restock Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.restock-item.0.0.1.json
+{
+  "id": "./vnd.eci.stg.restock-item.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Restock Item",
+  "description": "",
+  "type": "object",
+  "properties": {
+
+    "line": {
+      "description": "",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "location": {
+      "description": "stocking destination for the item",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.address.0.0.1.json"
+      }]
+    },
+
+    "agent": {
+      "description": "name or id or ? identifying the agent recoding the count",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Seller
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.seller.0.0.1.json
+{
+  "id": "./vnd.eci.stg.seller.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Seller",
+  "description": "Records information about the seller required by the system or buyer.",
+  "type": "object",
+  "properties" : {
+
+    "address": {
+      "description": "seller's address",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "email": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "name": {
+      "description": "human facing name of the seller",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "phone": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "self-ref": {
+      "description": "system identification of a unique seller",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "taxid": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Shipping Carriers
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.shipping-carriers.0.0.1.json
+{
+  "id": "./vnd.eci.stg.shipping-carriers.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ShippingCarriers",
+  "description": "sellers may choose to list the shipping carriers all buyers can select for shipped orders.",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of seller shipping carriers in the items collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "items": {
+      "description": "the unique items that make up the catalog's contents",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.shipping-carrier.0.0.1.json"
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Shipping Carrier
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.shipping-carrier.0.0.1.json
+{
+  "id": "./vnd.eci.stg.shipping-carrier.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ShippingCarrier",
+  "description": "sellers may choose to list the shipping carriers all buyers can select for shipped orders.",
+  "type": "object",
+  "properties" : {
+
+    "self": {
+      "description": "foreign system identification of a shipping carrier",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "name": {
+      "description": "Name of the shipping carrier that will be displayed to human users",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Shipping Tracking
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.shipping-tracking.0.0.1.json
+{
+  "id": "./vnd.eci.stg.shipping-tracking.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ShippingTracking",
+  "description": "sellers may provide tracking information for fulfilled order",
+  "type": "object",
+  "properties" : {
+
+    "count": {
+      "description": "total number of seller shipping carriers in the items collection",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "items": {
+      "description": "the unique items that make up the catalog's contents",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.shipping-tracking-item.0.0.1.json"
+      }
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "orders": {
+      "description": "foreign system identification of an order",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "./vnd.eci.stg.reference.0.0.1.json"
+      }
+    },
+
+    "collectionRef": {
+      "description": "foreign system identification of a unique invoice",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Shipping Tracking Item
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.shipping-tracking-item.0.0.1.json
+{
+  "id": "./vnd.eci.stg.shipping-tracking-item.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Shipping Tracking Item",
+  "description": "sellers may provide tracking information for fulfilled order",
+  "type": "object",
+  "properties" : {
+
+    "line": {
+      "description": "ordinal value representing the item's place within the shipping tracking document",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "date and time when the count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "date and time when the count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "order": {
+      "description": "foreign system identification of the original order",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "carrier": {
+      "description": "shipping will be provided by this carrier",
+      "$ref": "./vnd.eci.stg.shipping-carrier.0.0.1.json"
+    },
+
+    "package": {
+      "description": "identifies a unique package within a shipment",
+      "type": "integer",
+      "minimum": 1
+    },
+
+    "shipment": {
+      "description": "identifies the shipment for the buyer's order.",
+      "type": "integer",
+      "minimum": 1
+    },
+
+    "tracking": {
+      "description": "shipper function used to identify a unique shipment",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Tax
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.tax.0.0.1.json
+{
+  "id": "./vnd.eci.stg.total.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Tax",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "amount": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "description": {
+      "description": "",
+      "type": "string",
+      "minLength" : 1,
+      "maxLength" : 128
+    },
+
+    "rate": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "authority": {
+      "description": "",
+      "type": "string",
+      "minLength" : 1,
+      "maxLength" : 32
+    },
+
+    "code": {
+      "description": "",
+      "type": "string",
+      "minLength" : 1,
+      "maxLength" : 32
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Term
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.term.0.0.1.json
+{
+  "id": "./vnd.eci.stg.total.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "discount terms",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "amount": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "description": {
+      "description": "",
+      "type": "string",
+      "minLength" : 1,
+      "maxLength" : 128
+    },
+
+    "rate": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "date": {
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "type" : "string",
+      "format": "date-time"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Total
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.total.0.0.1.json
+{
+  "id": "./vnd.eci.stg.total.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Total",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "amount": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "amountAfterTax": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "amountBeforeTax": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "amountSubjectToTerms": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "discountAmount": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "discountRate": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "freightAmount": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    },
+
+    "taxes": {
+      "description": "one or more tax values",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "$ref": "./vnd.eci.stg.tax.0.0.1.json"
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+
+* Unit Measure
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.unit-measure.0.0.1.json
+{
+  "id": "./vnd.eci.stg.unit-measure.0.0.1.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Unit Measure",
+  "description": "",
+  "type": "object",
+  "properties" : {
+
+    "code": {
+      "description": "value used by machines to identify a measure",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "description": {
+      "description": "human readable string describing the measure",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20 each",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    }
+  },
+
+  "additionalProperties": false
+}
+
+#+END_SRC
+* Test Results
+
+#+BEGIN_SRC shell :exports both :results verbatim
+  ./test-json.sh 2>&1
+#+END_SRC

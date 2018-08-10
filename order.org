@@ -1,0 +1,103 @@
+# -*- mode: org -*-
+
+#+PROPERTY: mkdirp yes
+
+* TODO Provide a non-technical overview of the business cases
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+officia deserunt mollit anim id est laborum.
+
+* Sequence of Events
+
+#+BEGIN_SRC plantuml :file ./images/order-sequence.puml.png :exports results
+@startuml order-sequence.png
+Buyer -> Seller: [ POST ] order
+Seller -> Buyer: order<U+0394> | error
+@enduml
+#+END_SRC
+
+In the following section, Use Cases, examples of data ( ~--data~ ) to be sent and
+received will be shown. It is assumed that the caller will make the actual /POST/
+call with the required headers e.g.
+
+#+BEGIN_SRC shell
+  curl --request POST \
+       --header "Content-Type: application/vnd.eci.stg.order.1.0.0.xml" \
+       --user user123:password123 \
+       --url http://vendor-host/vendor-order-endpoint
+       --data ''
+#+END_SRC
+
+* Versions
+
+** Version 1.0
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+** Version 2.0
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+* Use Cases
+
+** TODO
+
+Version 1.0
+
+*** Request
+
+In this example a buyer is
+
+**** JSON
+#+BEGIN_SRC json :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.0.0-request.json
+#+END_SRC
+
+**** XML
+#+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.0.0-cost-request.xml
+#+END_SRC
+
+*** Response
+
+The seller's response is intended to
+
+**** JSON
+#+BEGIN_SRC json :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.0.0-response.json
+#+END_SRC
+
+**** XML
+#+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.0.0-responses.xml
+#+END_SRC
+
+* Resource Schemas
+
+** Version 1.0
+
+*** JSON
+
+#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.order.1.0.0.json
+#+END_SRC
+
+*** XML
+
+#+BEGIN_SRC xml :tangle ./rsrc-schema/src/vnd.eci.stg.order.1.0.0.xsd
+#+END_SRC
+
+
+** Version 2.0
+
+*** JSON
+
+*** XML
+
+* Testing
+
+#+BEGIN_SRC shell :exports both :results verbatim
+  ./test-json.sh 2>&1
+  ./test-xml.sh 2>&1
+  xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.1.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.1.0.0*.xml
+#+END_SRC
+
+#+RESULTS:

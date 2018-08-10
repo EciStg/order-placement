@@ -1,0 +1,103 @@
+{
+  "id": "./vnd.eci.stg.stock-item.2.0.0.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Stock, Cost, Date Item",
+  "description": "describes the items a buyer would like to purchase from a seller.",
+  "type": "object",
+  "properties" : {
+
+    "line": {
+      "description": "",
+      "type": "integer",
+      "minimum" : 1,
+      "maximum" : 500
+    },
+
+    "date": {
+      "description": "date and time when the count was recorded",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "dateExpected": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "description": {
+      "description": "human facing text describing the item",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+
+    "item": {
+      "description": "foreign system identification of a unique item",
+      "$ref": "./vnd.eci.stg.reference.0.0.1.json"
+    },
+
+    "quantity": {
+      "description": "the number of individual units in the measure e.g. Box of 20",
+      "type": "number",
+      "minimum" : 1,
+      "maximum" : 999999999.999999
+    },
+
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "unitMeasure": {
+      "description": "unit measure of the item",
+      "$ref": "./vnd.eci.stg.unit-measure.0.0.1.json"
+    },
+
+    "remarks": {
+      "description": "human to human information",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+
+    "barcode": {
+      "description": "when delivered as output from the system this represents all known barcodes associated with id.buyerAssignedID. When submitted to the system as input the value represents one or more barcodes scanned by the scanning agent to determine the physical object's identity within the system.",
+      "type": "array",
+      "maxItems": 50,
+      "items": [{
+        "$ref" : "./vnd.eci.stg.barcode.0.0.1.json"
+      }]
+    },
+
+    "location": {
+      "description": "location of the item",
+      "$ref": "./vnd.eci.stg.address.0.0.1.json"
+    },
+
+    "unitCost": {
+      "description": "",
+      "type": "number",
+      "minimum" : 0,
+      "maximum" : 999999999999.999999
+    }
+  },
+
+  "additionalProperties": false
+}

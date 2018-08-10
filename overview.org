@@ -1,0 +1,111 @@
+# -*- mode: org -*-
+
+#+PROPERTY: mkdirp yes
+
+* TODO Provide a non-technical overview of the business cases.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+officia deserunt mollit anim id est laborum.
+
+* Actors
+
+Within the ECi Order Placement system a dealer typically takes on the role of
+/Buyer/. A vendor or supplier (typical readers of this document) take the role of
+/Seller/. A /Consumer/ is the dealer's customer, though there are nuances we will
+not attempt to explain right now.
+
+#+BEGIN_SRC plantuml :file ./images/buyer-usecases.puml.png :exports results
+@startuml sequence-buyer2seller.png
+Buyer -> (Place Order)
+Buyer -> (Select Shipment Method)
+Buyer -> (Stock, Cost, Date)
+@enduml
+#+END_SRC
+
+#+BEGIN_SRC plantuml :file ./images/seller-usecases.puml.png :exports results
+@startuml sequence-buyer2seller.png
+Seller -> (Invoice Shipment)
+Seller -> (Announce Shipment)
+Seller -> (Accept Order)
+Seller -> (Reject Order)
+@enduml
+#+END_SRC
+
+#+BEGIN_SRC plantuml :file ./images/consumer-usecases.puml.png :exports results
+@startuml sequence-buyer2seller.png
+Consumer -> (Todo)
+@enduml
+#+END_SRC
+
+* Endpoints
+
+There are six endpoints, three provided by the Seller's system
+
+#+BEGIN_SRC plantuml :file ./images/sequence-buyer2seller.puml.png :exports results
+@startuml sequence-buyer2seller.png
+Buyer -> Seller: [ POST ] stock
+Buyer -> Seller: [ GET ] shipment methods
+Buyer -> Seller: [ POST ] order
+@enduml
+#+END_SRC
+
+And three provided by the Buyer's system:
+
+#+BEGIN_SRC plantuml :file ./images/sequence-seller2buyer.puml.png :exports results
+@startuml sequence-seller2buyer.png
+Seller -> Buyer: [ POST ] order<U+0394> | error
+Seller -> Buyer: [ POST ] shipment
+Seller -> Buyer: [ POST ] invoice
+@enduml
+#+END_SRC
+
+* Connecting
+
+** HTTPS / TLS
+
+The ECi Order Placement services will always connect using a minimum of TLS 1.2.
+
+** Authentication
+
+*** Buyer -> Seller
+
+The Seller is responsible for providing participating dealers (Buyers) a user name
+and password which the ECi system will use to connect to the Seller's system. This
+information will be passed to the seller via HTTP Basic Authentication [[http://www.rfc-editor.org/info/rfc7617][RFC 7617]].
+Stock and Order resources allow for additional non-schema defined information
+(opaque) to be supplied by the Buyer and delivered to the Seller.
+
+*** Seller -> Buyer
+ECi is responsible for assigning and maintaining an ID and an API key to each of
+the Seller systems. This information will be passed to the buyer system via HTTP
+Basic Authentication. Stock and Order resources allow for additional non-schema
+defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
+
+* Resource Types
+
+There are six resource types exchanged between the Buyer's system and the Seller's system:
+
+#+BEGIN_SRC dot cmdline: -Kdot -Tpng :file ./images/resource-types.dot.png
+  digraph {
+    stockD [ label="stock&Delta;" ]
+    orderD [ label="order&Delta;" ]
+
+    stock -> error;
+    stock -> stockD;
+    stockD -> order;
+    shipment_method -> order;
+    order -> error;
+    order -> orderD;
+    orderD -> shipment;
+    orderD -> invoice;
+  }
+#+END_SRC
+
+Not all Seller systems support resources or endpoints for Shipment Methods, Order\Delta
+(accept/reject), or Shipment information. We have chosen to represent resources using
+JSON Schema and prefer Seller implementations also choose a JSON representation. The
+Buyer's system can be programmed to send and receive resources in other representations,
+though this is not part of the standard agreement and will need to be addressed separately.

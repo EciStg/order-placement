@@ -1,0 +1,62 @@
+{
+  "id": "./vnd.eci.stg.probe.1.0.0.json",
+  "$schema": "http://json-schema.org/draft-08/schema#",
+  "title": "Probe",
+  "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
+  "type": "array",
+  "items": {
+    "additionalProperties": false,
+    "required": ["self"],
+    "anyOf": [{"required": ["code"]},
+              {"required": ["description"]}],
+    "dependencies": {
+      "httpStatusCode": { "required": [ "when" ]},
+      "when": { "required": [ "httpStatusCode" ]}
+    },
+
+    "properties" : {
+
+      "self": {
+        "description": "system function identifying a unique system owned resource as a URL",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+
+      "code": {
+        "description": "machine facing value that uniquely identifies the probe",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "description": {
+        "description": "human readable string describing the probe's purpose",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "httpStatusCode": {
+        "description": "usually used bottom probe but may also be returned by api or application specific probes",
+        "type": "integer",
+        "default": 200,
+        "minimum": 100,
+        "maximum": 599
+      },
+
+      "value": {
+        "description": "details from the probe that may help users understand the health of an endpoint",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 1024
+      },
+
+      "when": {
+        "description": "date and time of probe execution",
+        "type" : "string",
+        "format": "date-time"
+      }
+    }
+  }
+}
