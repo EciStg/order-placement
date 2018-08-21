@@ -180,7 +180,7 @@ Not supported
 
 #+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json
   {
-    "id": "./vnd.eci.stg.probe.1.0.0.json",
+    "id": "./vnd.eci.stg.probe.1.5.0.json",
     "$schema": "http://json-schema.org/draft-08/schema#",
     "title": "Probe",
     "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",

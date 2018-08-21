@@ -33,7 +33,7 @@
     <xs:annotation>
       <xs:documentation>
         Every Product must have a unit cost that is equal to or greater than
-        0 and must cost just under one trillion monetary units. Version 1.0.0
+        0 and must cost just under one trillion monetary units. Version 1.5.0
         assumes the monetary unit is US Dollars.
       </xs:documentation>
     </xs:annotation>

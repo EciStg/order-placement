@@ -1,5 +1,5 @@
 {
-  "id": "./vnd.eci.stg.stock.1.0.0.json",
+  "id": "./vnd.eci.stg.stock.1.5.0.json",
   "title": "Stock, Cost, Date Collection",
   "description": "a collection items a buyer may purchase from a seller",
   "type": "object",
