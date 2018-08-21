@@ -53,13 +53,9 @@ aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in volup
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
 officia deserunt mollit anim id est laborum.
 
-* Use Cases
+* TODO Use Cases
 
-** TODO
-
-Version 1.0
-
-*** Request
+** Request
 
 In this example a buyer is
 
@@ -71,7 +67,7 @@ In this example a buyer is
 #+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-cost-request.xml
 #+END_SRC
 
-*** Response
+** Response
 
 The seller's response is intended to
 
@@ -283,5 +279,3 @@ No longer published
   xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml
   xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.2.0.0*.xml
 #+END_SRC
-
-#+RESULTS:
