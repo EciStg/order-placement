@@ -95,6 +95,12 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name='ItemsCollection'>
+    <xs:sequence minOccurs='1' maxOccurs='5000'>
+      <xs:element name='item' type='ItemType'/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name='MoneyType'>
     <xs:sequence>
       <xs:element name='Amount' type='xs:decimal'   />
