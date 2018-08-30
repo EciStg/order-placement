@@ -1,92 +1,103 @@
 
 # Table of Contents
 
-1.  [The Order Placement System](#org4e6d9d4)
-2.  [Overview](#org75038dd)
-    1.  [Provide a non-technical overview of the business cases.](#org8b160d2)
-    2.  [Actors](#orgb8fb040)
-    3.  [Endpoints](#org5281064)
-    4.  [Connecting](#org4589492)
-        1.  [HTTPS / TLS](#orgbc50119)
-        2.  [Authentication](#orgd6c55b4)
-    5.  [Resource Types](#orge16fb9e)
-3.  [Testing Schema files](#org2fb875a)
-    1.  [JSON](#org94f7700)
-    2.  [XML](#org189119a)
-4.  [Probes](#org8d77b64)
-    1.  [`./probes/top`](#org2f28baa)
-    2.  [`./probes/bottom`](#org92d0cea)
-        1.  [JSON](#org5cb6a2f)
-        2.  [XML](#orgd93389b)
-    3.  [`./probes`](#orgbd8e37e)
-        1.  [JSON](#orgcd73562)
-        2.  [XML](#orgd7164e8)
-    4.  [Resource Schema](#orgeaffdb3)
-        1.  [JSON](#org3637ecf)
-        2.  [XML](#orgec4dc78)
-    5.  [Test Results](#orgfefa798)
-5.  [Stock](#org7cdd392)
-    1.  [Provide a non-technical overview of the business cases.](#orgdb5d8ca)
-    2.  [Sequence of Events](#org709b2e4)
-    3.  [Versions](#orgdc4a23c)
-        1.  [Version 1.0](#org86c754f)
-        2.  [Version 2.0](#org26039b6)
-    4.  [Use Cases](#org591c21b)
-        1.  [As an unidentified buyer I would like to see the cost for one or more products](#org8c613fc)
-        2.  [As an unidentified buyer I would like to know if the seller has enough stock to satisfy my order](#org8eb3a9d)
-        3.  [As an unidentified buyer I would like to be able to specify a date when the order must be received.](#orgff8f986)
-        4.  [As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number](#org28158f6)
-        5.  [As a seller I would like to be able to provide a substitue when the item specified by the buyer is not in stock](#orgacae0b9)
-    5.  [Resource Schemas](#orgbd73b3a)
-        1.  [Version 1.0](#org0b33998)
-        2.  [Version 2.0](#orgf682399)
-    6.  [Testing](#org94b3651)
-6.  [Invoice](#org7312dbe)
-    1.  [Provide a non-technical overview of the business cases](#org486c374)
-    2.  [Sequence of Events](#org6a8dc32)
-    3.  [Versions](#org6a0957f)
-        1.  [Version 1.0](#org714cd81)
-        2.  [Version 2.0](#org6aca27f)
-    4.  [Use Cases](#orga349767)
-        1.  [](#orge150bd0)
-    5.  [Resource Schemas](#orgbeec026)
-        1.  [Version 1.0](#orgb1fd51f)
-        2.  [Version 2.0](#org395b56c)
-    6.  [Testing](#orgafd6adb)
-7.  [Order](#orgc77823c)
-    1.  [Provide a non-technical overview of the business cases](#orgeb1a2bc)
-    2.  [Sequence of Events](#orgc1dd417)
-    3.  [Versions](#org2d240b0)
-        1.  [Version 1.0](#org6c21c5d)
-        2.  [Version 2.0](#orgca90240)
-    4.  [Use Cases](#org699d538)
-        1.  [](#orgf63cde5)
-    5.  [Resource Schemas](#org8363a68)
-        1.  [Version 1.0](#org46f4ff3)
-        2.  [Version 2.0](#org71ca8f7)
-    6.  [Testing](#orgd40e67d)
-8.  [Ship Method](#org60cfc42)
-    1.  [Provide a non-technical overview of the business cases](#org06b85ec)
-    2.  [Sequence of Events](#orgfaf4f63)
-    3.  [Versions](#org3fa7151)
-        1.  [Version 1.0](#org5ea08ba)
-        2.  [Version 2.0](#org6cf73ff)
-    4.  [Use Cases](#org73a07a5)
-        1.  [](#org7027ef1)
-    5.  [Resource Schemas](#org586470e)
-        1.  [Version 1.0](#org995fa86)
-        2.  [Version 2.0](#orgdadb2a0)
-    6.  [Testing](#org1b0d402)
-9.  [About this document](#org3210f19)
-    1.  [Tangle](#orgecf588f)
-    2.  [Export](#orgaa4944c)
-10. [Resource Schemas](#orgbd0f007)
-    1.  [](#org96e4097)
-11. [Test Results](#orgff7eda8)
+1.  [The Order Placement System](#orgd6b08bb)
+2.  [Overview](#org968889d)
+    1.  [Provide a non-technical overview of the business cases.](#org359176b)
+    2.  [Actors](#orgc8a603c)
+    3.  [Endpoints](#orgb107c5f)
+    4.  [Connecting](#orgc2e83d4)
+        1.  [HTTPS / TLS](#org40d98d9)
+        2.  [Authentication](#org08cbc51)
+    5.  [Resource Types](#org9ee6c28)
+3.  [Testing Schema files](#org67f5276)
+    1.  [JSON](#orgc30170b)
+    2.  [XML](#orgbfabeb5)
+4.  [Probes](#org3403809)
+    1.  [`./probes/top`](#orgd584479)
+        1.  [Version 1.0 *unsupported*](#org44019f8)
+        2.  [Version 1.5 *required*](#org1d32a35)
+        3.  [Version 2.0](#org46de772)
+    2.  [`./probes/bottom`](#orga465fcf)
+        1.  [Version 1.0 *unsupported*](#org86f1109)
+        2.  [Version 1.5 *required*](#orgd84af03)
+        3.  [Version 2.0](#org8896480)
+    3.  [`./probes`](#org6dc8c52)
+        1.  [Version 1.0 *unsupported*](#orgfef2534)
+        2.  [Version 1.5 *optional*](#org37aa651)
+        3.  [Version 2.0](#orgd021337)
+    4.  [Resource Schema](#org7c83c24)
+        1.  [Version 1.0](#org1b1c468)
+        2.  [Version 1.5](#orge618e97)
+        3.  [Version 2.0](#org54a72b5)
+    5.  [Test Results](#orgc437792)
+5.  [Stock](#org7919e2f)
+    1.  [Provide a non-technical overview of the business cases.](#org6bd2e24)
+    2.  [Sequence of Events](#org3a3bf80)
+    3.  [Versions](#orgf923fb5)
+        1.  [Version 1.0](#orga99670b)
+        2.  [Version 1.5](#org92b1cfa)
+        3.  [Version 2.0](#org2c85cb3)
+    4.  [Use Cases](#org995030f)
+        1.  [As an unidentified buyer I would like to see the cost for one or more products](#org6ee250b)
+        2.  [As an unidentified buyer I would like to know if the seller has enough stock to satisfy my order](#org120a4f6)
+        3.  [As an unidentified buyer I would like to be able to specify a date when the order must be received.](#org4ef5ca2)
+        4.  [As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number](#org3fe5ff6)
+        5.  [As a seller I would like to be able to provide a substitue when the item specified by the buyer is not in stock](#orge689c8d)
+    5.  [Resource Schemas](#orgcf39714)
+        1.  [Version 1.0](#org9b26f5b)
+        2.  [Version 1.5](#org0bd3bbc)
+        3.  [Version 2.0](#org7d65527)
+    6.  [Testing](#org3650fa9)
+6.  [Invoice](#org40b0a09)
+    1.  [Provide a non-technical overview of the business cases](#org1f38914)
+    2.  [Sequence of Events](#org20c7721)
+    3.  [Versions](#orga3f3048)
+        1.  [Version 1.0](#orge8ef3f7)
+        2.  [Version 2.0](#org037b1b3)
+    4.  [Use Cases](#orgcd30d59)
+        1.  [](#orgd248dd7)
+    5.  [Resource Schemas](#orgb3feced)
+        1.  [Version 1.0](#org5d32756)
+        2.  [Version 2.0](#org9599f1b)
+    6.  [Testing](#org581e92c)
+7.  [Order](#org17d6ad4)
+    1.  [Provide a non-technical overview of the business cases](#org670db44)
+    2.  [Sequence of Events](#orgf4b6717)
+    3.  [Versions](#orge1a2975)
+        1.  [Version 1.0](#org4c9fb91)
+        2.  [Version 1.5](#orgb1292f1)
+        3.  [Version 2.0](#orgf83acfc)
+    4.  [Use Cases](#orgc946ef9)
+        1.  [Request](#org49840bc)
+        2.  [Response](#org14c7a00)
+    5.  [Resource Schemas](#orgae8ef7e)
+        1.  [Version 1.0](#org435137c)
+        2.  [Version 1.5](#org7c5b84c)
+        3.  [Version 2.0](#orgb432cf5)
+    6.  [Testing](#orgca18f17)
+8.  [Ship Method](#org5780c98)
+    1.  [Provide a non-technical overview of the business cases](#org63cd25b)
+    2.  [Sequence of Events](#org03f3c1d)
+    3.  [Versions](#org834f21c)
+        1.  [Version 1.0](#orga9250ce)
+        2.  [Version 2.0](#orge17aaf3)
+    4.  [Use Cases](#orgf9fe2f8)
+        1.  [](#org9da6440)
+    5.  [Resource Schemas](#orgffe1718)
+        1.  [Version 1.0](#org484d614)
+        2.  [Version 2.0](#org8c10cc1)
+    6.  [Testing](#org8d707fd)
+9.  [About this document](#orga9f9f0f)
+    1.  [Tangle](#org45af46a)
+    2.  [Export](#orgb0926fd)
+10. [Resource Schemas](#org270cbe9)
+    1.  [](#org328dc81)
+11. [Test Results](#orgd868990)
 
 
 
-<a id="org4e6d9d4"></a>
+<a id="orgd6b08bb"></a>
 
 # The Order Placement System
 
@@ -97,13 +108,13 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non pr
 qui officia deserunt mollit anim id est laborum.
 
 
-<a id="org75038dd"></a>
+<a id="org968889d"></a>
 
 # Overview
 
 
 
-<a id="org8b160d2"></a>
+<a id="org359176b"></a>
 
 ## TODO Provide a non-technical overview of the business cases.
 
@@ -114,7 +125,7 @@ dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 officia deserunt mollit anim id est laborum.
 
 
-<a id="orgb8fb040"></a>
+<a id="orgc8a603c"></a>
 
 ## Actors
 
@@ -130,7 +141,7 @@ not attempt to explain right now.
 ![img](./images/consumer-usecases.puml.png)
 
 
-<a id="org5281064"></a>
+<a id="orgb107c5f"></a>
 
 ## Endpoints
 
@@ -143,19 +154,19 @@ And three provided by the Buyer's system:
 ![img](./images/sequence-seller2buyer.puml.png)
 
 
-<a id="org4589492"></a>
+<a id="orgc2e83d4"></a>
 
 ## Connecting
 
 
-<a id="orgbc50119"></a>
+<a id="org40d98d9"></a>
 
 ### HTTPS / TLS
 
 The ECi Order Placement services will always connect using a minimum of TLS 1.2.
 
 
-<a id="orgd6c55b4"></a>
+<a id="org08cbc51"></a>
 
 ### Authentication
 
@@ -175,7 +186,7 @@ The ECi Order Placement services will always connect using a minimum of TLS 1.2.
     defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
 
 
-<a id="orge16fb9e"></a>
+<a id="org9ee6c28"></a>
 
 ## Resource Types
 
@@ -190,12 +201,12 @@ Buyer's system can be programmed to send and receive resources in other represen
 though this is not part of the standard agreement and will need to be addressed separately.
 
 
-<a id="org2fb875a"></a>
+<a id="org67f5276"></a>
 
 # Testing Schema files
 
 
-<a id="org94f7700"></a>
+<a id="orgc30170b"></a>
 
 ## JSON
 
@@ -211,7 +222,7 @@ though this is not part of the standard agreement and will need to be addressed 
     find ./rsrc-schema/tst ./rsrc-schema/src -type f -name '*.json' -exec jsonlint --quiet --compact {} \;
 
 
-<a id="org189119a"></a>
+<a id="orgbfabeb5"></a>
 
 ## XML
 
@@ -225,7 +236,7 @@ though this is not part of the standard agreement and will need to be addressed 
     find ./rsrc-schema/tst -type f -name '*.xml' -exec xmllint --noout {} \;
 
 
-<a id="org8d77b64"></a>
+<a id="org3403809"></a>
 
 # Probes
 
@@ -246,11 +257,19 @@ following HTTP headers:
     Expires: 0
 
 
-<a id="org2f28baa"></a>
+<a id="orgd584479"></a>
 
 ## `./probes/top`
 
-Version 1.0 *required*
+
+<a id="org44019f8"></a>
+
+### Version 1.0 *unsupported*
+
+
+<a id="org1d32a35"></a>
+
+### Version 1.5 *required*
 
 This probe MUST be a light weight indicator of API or application availability. QA/IT/Support and
 internal ( private network ) applications MUST be able to GET this low impact fast running probe.
@@ -261,11 +280,26 @@ MUST not be returned to the caller.
     curl -sw "%{http_code}\\n" http://localhost:3000/apis/v0/order/probes/top
 
 
-<a id="org92d0cea"></a>
+<a id="org46de772"></a>
+
+### Version 2.0
+
+No changes to date
+
+
+<a id="orga465fcf"></a>
 
 ## `./probes/bottom`
 
-Version 1.0 *required*
+
+<a id="org86f1109"></a>
+
+### Version 1.0 *unsupported*
+
+
+<a id="orgd84af03"></a>
+
+### Version 1.5 *required*
 
 This probe should test all of the layers of the API or application and all vital connections to
 required systems, APIs, databases, etc. QA/IT/Support staff and internal facing applications MUST be
@@ -274,54 +308,63 @@ per hour. Calling applications are required to check the HTTP status code as a p
 fail ( *500* ) indicator. A body is optional. If a body is provided by the endpoint it must contain
 an array of one or more probe resources, each of which will contain its own HTTP Status Code.
 
+1.  JSON
 
-<a id="org5cb6a2f"></a>
+        [
+          {
+            "self": "https://some.server/some.service/probes/bottom#auth",
+            "code" :"auth",
+            "httpStatusCode": 200,
+            "when": "2018-04-23T18:25:43.511Z"
+          },
+          {
+            "self": "https://some.server/some.service/probes/bottom",
+            "description": "database connection test",
+            "httpStatusCode": 400,
+            "value":"The database cannot be contacted. Ensure the database is running and network reachable.",
+            "when": "2018-04-23T18:25:44.511Z"
+          }
+        ]
 
-### JSON
+2.  XML
 
-    [
-      {
-        "self": "https://some.server/some.service/probes/bottom#auth",
-        "code" :"auth",
-        "httpStatusCode": 200,
-        "when": "2018-04-23T18:25:43.511Z"
-      },
-      {
-        "self": "https://some.server/some.service/probes/bottom",
-        "description": "database connection test",
-        "httpStatusCode": 400,
-        "value":"The database cannot be contacted. Ensure the database is running and network reachable.",
-        "when": "2018-04-23T18:25:44.511Z"
-      }
-    ]
-
-
-<a id="orgd93389b"></a>
-
-### XML
-
-    <probes>
-      <probe>
-        <self>https://some.server/some.service/probes/bottom#auth</self>
-        <code>auth</code>
-        <httpStatusCode>200</httpStatusCode>
-        <when>2018-04-23T18:25:43.511Z</when>
-      </probe>
-      <probe>
-        <self>https://some.server/some.service/probes/bottom</self>
-        <description>database connection test</description>
-        <httpStatusCode>400</httpStatusCode>
-        <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
-        <when>2018-04-23T18:25:44.511Z</when>
-      </probe>
-    </probes>
+        <probes>
+          <probe>
+            <self>https://some.server/some.service/probes/bottom#auth</self>
+            <code>auth</code>
+            <httpStatusCode>200</httpStatusCode>
+            <when>2018-04-23T18:25:43.511Z</when>
+          </probe>
+          <probe>
+            <self>https://some.server/some.service/probes/bottom</self>
+            <description>database connection test</description>
+            <httpStatusCode>400</httpStatusCode>
+            <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
+            <when>2018-04-23T18:25:44.511Z</when>
+          </probe>
+        </probes>
 
 
-<a id="orgbd8e37e"></a>
+<a id="org8896480"></a>
+
+### Version 2.0
+
+No changes to date
+
+
+<a id="org6dc8c52"></a>
 
 ## `./probes`
 
-Version 1.0 *optional*
+
+<a id="orgfef2534"></a>
+
+### Version 1.0 *unsupported*
+
+
+<a id="org37aa651"></a>
+
+### Version 1.5 *optional*
 
 APIs or Applications MAY choose to support individual probes outside of the top / bottom convention.
 QA/IT/Support staff and internal facing applications may attempt a GET on this URL and will expect
@@ -331,40 +374,41 @@ probe resources. These custom probes are expected to be run on demand, not routi
 network and application health monitoring systems as the duration and impact of the probe's execution
 is not defined.
 
+1.  JSON
 
-<a id="orgcd73562"></a>
+        [
+          {
+            "self": "https://some.server/some.service/probes/auth",
+            "code" :"auth"
+          },
+          {
+            "self": "https://some.server/some.service/probes/con-db",
+            "description": "database connection test"
+          }
+        ]
 
-### JSON
+2.  XML
 
-    [
-      {
-        "self": "https://some.server/some.service/probes/auth",
-        "code" :"auth"
-      },
-      {
-        "self": "https://some.server/some.service/probes/con-db",
-        "description": "database connection test"
-      }
-    ]
-
-
-<a id="orgd7164e8"></a>
-
-### XML
-
-    <probes>
-      <probe>
-        <self>https://some.server/some.service/probes/auth</self>
-        <code>auth</code>
-      </probe>
-      <probe>
-        <self>https://some.server/some.service/probes/con-db</self>
-        <description>database connection test</description>
-      </probe>
-    </probes>
+        <probes>
+          <probe>
+            <self>https://some.server/some.service/probes/auth</self>
+            <code>auth</code>
+          </probe>
+          <probe>
+            <self>https://some.server/some.service/probes/con-db</self>
+            <description>database connection test</description>
+          </probe>
+        </probes>
 
 
-<a id="orgeaffdb3"></a>
+<a id="orgd021337"></a>
+
+### Version 2.0
+
+No changes to date
+
+
+<a id="org7c83c24"></a>
 
 ## Resource Schema
 
@@ -394,126 +438,138 @@ should give the human user some idea of where the failure or warning is happenin
 and why it might be happening.
 
 
-<a id="org3637ecf"></a>
+<a id="org1b1c468"></a>
 
-### JSON
+### Version 1.0
 
-    {
-      "id": "./vnd.eci.stg.probe.1.0.0.json",
-      "$schema": "http://json-schema.org/draft-08/schema#",
-      "title": "Probe",
-      "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
-      "type": "array",
-      "items": {
-        "additionalProperties": false,
-        "required": ["self"],
-        "anyOf": [{"required": ["code"]},
-                  {"required": ["description"]}],
-        "dependencies": {
-          "httpStatusCode": { "required": [ "when" ]},
-          "when": { "required": [ "httpStatusCode" ]}
-        },
+Not supported
 
-        "properties" : {
 
-          "self": {
-            "description": "system function identifying a unique system owned resource as a URL",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 1024
-          },
+<a id="orge618e97"></a>
 
-          "code": {
-            "description": "machine facing value that uniquely identifies the probe",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+### Version 1.5
 
-          "description": {
-            "description": "human readable string describing the probe's purpose",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 128
-          },
+1.  JSON
 
-          "httpStatusCode": {
-            "description": "usually used bottom probe but may also be returned by api or application specific probes",
-            "type": "integer",
-            "default": 200,
-            "minimum": 100,
-            "maximum": 599
-          },
+        {
+          "id": "./vnd.eci.stg.probe.1.5.0.json",
+          "$schema": "http://json-schema.org/draft-08/schema#",
+          "title": "Probe",
+          "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "required": ["self"],
+            "anyOf": [{"required": ["code"]},
+                      {"required": ["description"]}],
+            "dependencies": {
+              "httpStatusCode": { "required": [ "when" ]},
+              "when": { "required": [ "httpStatusCode" ]}
+            },
 
-          "value": {
-            "description": "details from the probe that may help users understand the health of an endpoint",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 1024
-          },
+            "properties" : {
 
-          "when": {
-            "description": "date and time of probe execution",
-            "type" : "string",
-            "format": "date-time"
+              "self": {
+                "description": "system function identifying a unique system owned resource as a URL",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+
+              "code": {
+                "description": "machine facing value that uniquely identifies the probe",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32
+              },
+
+              "description": {
+                "description": "human readable string describing the probe's purpose",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+
+              "httpStatusCode": {
+                "description": "usually used bottom probe but may also be returned by api or application specific probes",
+                "type": "integer",
+                "default": 200,
+                "minimum": 100,
+                "maximum": 599
+              },
+
+              "value": {
+                "description": "details from the probe that may help users understand the health of an endpoint",
+                "type": "string",
+                "minLength": 1,
+                "maxLength" : 1024
+              },
+
+              "when": {
+                "description": "date and time of probe execution",
+                "type" : "string",
+                "format": "date-time"
+              }
+            }
           }
         }
-      }
-    }
+
+2.  XML
+
+        <?xml version='1.0' encoding='utf-8'?>
+
+        <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                   elementFormDefault='qualified'
+                   xml:lang='en'>
+
+          <xs:element name='probes'>
+            <xs:complexType>
+              <xs:sequence minOccurs='1' maxOccurs='50'>
+                <xs:element name='probe' type='ProbeType'/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:complexType name='ProbeType'>
+            <xs:sequence>
+              <xs:annotation>
+                <xs:documentation>
+                  TODO
+                </xs:documentation>
+              </xs:annotation>
+              <xs:element name='self' type='xs:string' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='code' type='xs:string' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='httpStatusCode' type='xs:integer' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='when' type='xs:dateTime' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='value' type='xs:string' minOccurs='0' maxOccurs='1'/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:schema>
 
 
-<a id="orgec4dc78"></a>
+<a id="org54a72b5"></a>
 
-### XML
-
-    <?xml version='1.0' encoding='utf-8'?>
-
-    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-               elementFormDefault='qualified'
-               xml:lang='en'>
-
-      <xs:element name='probes'>
-        <xs:complexType>
-          <xs:sequence minOccurs='1' maxOccurs='50'>
-            <xs:element name='probe' type='ProbeType'/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-
-      <xs:complexType name='ProbeType'>
-        <xs:sequence>
-          <xs:annotation>
-            <xs:documentation>
-              TODO
-            </xs:documentation>
-          </xs:annotation>
-          <xs:element name='self' type='xs:string' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='code' type='xs:string' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='httpStatusCode' type='xs:integer' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='when' type='xs:dateTime' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='value' type='xs:string' minOccurs='0' maxOccurs='1'/>
-        </xs:sequence>
-      </xs:complexType>
-    </xs:schema>
+### TODO Version 2.0
 
 
-<a id="orgfefa798"></a>
+<a id="orgc437792"></a>
 
 ## Test Results
 
     ./test-json.sh 2>&1
     ./test-xml.sh 2>&1
-    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.probe.1.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.probe.1.0.0*.xml
+    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ./rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml
+    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.probe.2.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.probe.2.0.0*.xml
 
 
-<a id="org7cdd392"></a>
+<a id="org7919e2f"></a>
 
 # Stock
 
 
 
-<a id="orgdb5d8ca"></a>
+<a id="org6bd2e24"></a>
 
 ## TODO Provide a non-technical overview of the business cases.
 
@@ -524,7 +580,7 @@ dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 officia deserunt mollit anim id est laborum.
 
 
-<a id="org709b2e4"></a>
+<a id="org3a3bf80"></a>
 
 ## Sequence of Events
 
@@ -535,41 +591,56 @@ received will be shown. It is assumed that the caller will make the actual *POST
 call with the required headers e.g.
 
     curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.stock.1.0.0.xml" \
+         --header "Content-Type: application/vnd.eci.stg.stock.1.5.0.xml" \
          --user user123:password123 \
          --url http://vendor-host/vendor-stock-endpoint
          --data ''
 
 
-<a id="orgdc4a23c"></a>
+<a id="orgf923fb5"></a>
 
 ## Versions
 
 
-<a id="org86c754f"></a>
+<a id="orga99670b"></a>
 
 ### Version 1.0
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+No longer published
 
 
-<a id="org26039b6"></a>
+<a id="org92b1cfa"></a>
 
-### Version 2.0
+### Version 1.5
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+officia deserunt mollit anim id est laborum.
 
 
-<a id="org591c21b"></a>
+<a id="org2c85cb3"></a>
+
+### TODO Version 2.0
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+officia deserunt mollit anim id est laborum.
+
+
+<a id="org995030f"></a>
 
 ## Use Cases
 
 
-<a id="org8c613fc"></a>
+<a id="org6ee250b"></a>
 
 ### As an unidentified buyer I would like to see the cost for one or more products
 
-Version 1.0
+Version 1.5
 
 1.  Request
 
@@ -606,11 +677,11 @@ Version 1.0
             </items>
 
 
-<a id="org8eb3a9d"></a>
+<a id="org120a4f6"></a>
 
 ### As an unidentified buyer I would like to know if the seller has enough stock to satisfy my order
 
-Version 1.0
+Version 1.5
 
 In this case the buyer's intent is to understand if the seller an supply the requested number of
 items ( *24* ) for a product known to the seller as *abc-123*.
@@ -712,7 +783,7 @@ items ( *24* ) for a product known to the seller as *abc-123*.
                     </items>
 
 
-<a id="orgff8f986"></a>
+<a id="org4ef5ca2"></a>
 
 ### As an unidentified buyer I would like to be able to specify a date when the order must be received.
 
@@ -758,7 +829,7 @@ when they would expect one of the line items in the order to be delivered ( 24 A
               "item": { "sellerRef": "abc-123" }}]}
 
 
-<a id="org28158f6"></a>
+<a id="org3fe5ff6"></a>
 
 ### As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
 
@@ -767,7 +838,7 @@ Version 2.0
 1.  TODO
 
 
-<a id="orgacae0b9"></a>
+<a id="orge689c8d"></a>
 
 ### As a seller I would like to be able to provide a substitue when the item specified by the buyer is not in stock
 
@@ -776,21 +847,28 @@ Version 2.0
 1.  TODO
 
 
-<a id="orgbd73b3a"></a>
+<a id="orgcf39714"></a>
 
 ## Resource Schemas
 
 
-<a id="org0b33998"></a>
+<a id="org9b26f5b"></a>
 
 ### Version 1.0
+
+No longer published
+
+
+<a id="org0bd3bbc"></a>
+
+### Version 1.5
 
 1.  Stock
 
     1.  JSON
 
             {
-              "id": "./vnd.eci.stg.stock.1.0.0.json",
+              "id": "./vnd.eci.stg.stock.1.5.0.json",
               "title": "Stock, Cost, Date Collection",
               "description": "a collection items a buyer may purchase from a seller",
               "type": "object",
@@ -881,7 +959,7 @@ Version 2.0
                 <xs:annotation>
                   <xs:documentation>
                     Every Product must have a unit cost that is equal to or greater than
-                    0 and must cost just under one trillion monetary units. Version 1.0.0
+                    0 and must cost just under one trillion monetary units. Version 1.5.0
                     assumes the monetary unit is US Dollars.
                   </xs:documentation>
                 </xs:annotation>
@@ -914,7 +992,7 @@ Version 2.0
             </xs:schema>
 
 
-<a id="orgf682399"></a>
+<a id="org7d65527"></a>
 
 ### Version 2.0
 
@@ -927,22 +1005,23 @@ Version 2.0
     1.  TODO
 
 
-<a id="org94b3651"></a>
+<a id="org3650fa9"></a>
 
 ## Testing
 
     ./test-json.sh 2>&1
     ./test-xml.sh 2>&1
-    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.stock.1.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.stock.1.0.0*.xml
+    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd ./rsrc-schema/tst/vnd.eci.stg.stock.1.5.0*.xml
+    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.stock.2.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.stock.2.0.0*.xml
 
 
-<a id="org7312dbe"></a>
+<a id="org40b0a09"></a>
 
 # Invoice
 
 
 
-<a id="org486c374"></a>
+<a id="org1f38914"></a>
 
 ## TODO Provide a non-technical overview of the business cases
 
@@ -953,7 +1032,7 @@ dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 officia deserunt mollit anim id est laborum.
 
 
-<a id="org6a8dc32"></a>
+<a id="org20c7721"></a>
 
 ## Sequence of Events
 
@@ -970,31 +1049,31 @@ call with the required headers e.g.
          --data ''
 
 
-<a id="org6a0957f"></a>
+<a id="orga3f3048"></a>
 
 ## Versions
 
 
-<a id="org714cd81"></a>
+<a id="orge8ef3f7"></a>
 
 ### Version 1.0
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-<a id="org6aca27f"></a>
+<a id="org037b1b3"></a>
 
 ### Version 2.0
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-<a id="orga349767"></a>
+<a id="orgcd30d59"></a>
 
 ## Use Cases
 
 
-<a id="orge150bd0"></a>
+<a id="orgd248dd7"></a>
 
 ### TODO
 
@@ -1017,12 +1096,12 @@ Version 1.0
     2.  XML
 
 
-<a id="orgbeec026"></a>
+<a id="orgb3feced"></a>
 
 ## Resource Schemas
 
 
-<a id="orgb1fd51f"></a>
+<a id="org5d32756"></a>
 
 ### Version 1.0
 
@@ -1031,7 +1110,7 @@ Version 1.0
 2.  XML
 
 
-<a id="org395b56c"></a>
+<a id="org9599f1b"></a>
 
 ### Version 2.0
 
@@ -1040,7 +1119,7 @@ Version 1.0
 2.  XML
 
 
-<a id="orgafd6adb"></a>
+<a id="org581e92c"></a>
 
 ## Testing
 
@@ -1049,13 +1128,13 @@ Version 1.0
     xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.invoice.1.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.invoice.1.0.0*.xml
 
 
-<a id="orgc77823c"></a>
+<a id="org17d6ad4"></a>
 
 # Order
 
 
 
-<a id="orgeb1a2bc"></a>
+<a id="org670db44"></a>
 
 ## TODO Provide a non-technical overview of the business cases
 
@@ -1066,7 +1145,7 @@ dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 officia deserunt mollit anim id est laborum.
 
 
-<a id="orgc1dd417"></a>
+<a id="orgf4b6717"></a>
 
 ## Sequence of Events
 
@@ -1077,98 +1156,288 @@ received will be shown. It is assumed that the caller will make the actual *POST
 call with the required headers e.g.
 
     curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.order.1.0.0.xml" \
+         --header "Content-Type: application/vnd.eci.stg.order.1.5.0.xml" \
          --user user123:password123 \
          --url http://vendor-host/vendor-order-endpoint
          --data ''
 
 
-<a id="org2d240b0"></a>
+<a id="orge1a2975"></a>
 
 ## Versions
 
 
-<a id="org6c21c5d"></a>
+<a id="org4c9fb91"></a>
 
 ### Version 1.0
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+No longer published
 
 
-<a id="orgca90240"></a>
+<a id="orgb1292f1"></a>
 
-### Version 2.0
+### TODO Version 1.5
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
-<a id="org699d538"></a>
-
-## Use Cases
-
-
-<a id="orgf63cde5"></a>
-
-### TODO
-
-Version 1.0
-
-1.  Request
-
-    In this example a buyer is
-
-    1.  JSON
-
-    2.  XML
-
-2.  Response
-
-    The seller's response is intended to
-
-    1.  JSON
-
-    2.  XML
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+officia deserunt mollit anim id est laborum.
 
 
-<a id="org8363a68"></a>
+<a id="orgf83acfc"></a>
+
+### TODO Version 2.0
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+officia deserunt mollit anim id est laborum.
+
+
+<a id="orgc946ef9"></a>
+
+## TODO Use Cases
+
+
+<a id="org49840bc"></a>
+
+### Request
+
+In this example a buyer is
+
+1.  JSON
+
+2.  XML
+
+
+<a id="org14c7a00"></a>
+
+### Response
+
+The seller's response is intended to
+
+1.  JSON
+
+2.  XML
+
+
+<a id="orgae8ef7e"></a>
 
 ## Resource Schemas
 
 
-<a id="org46f4ff3"></a>
+<a id="org435137c"></a>
 
 ### Version 1.0
 
-1.  JSON
-
-2.  XML
+No longer published
 
 
-<a id="org71ca8f7"></a>
+<a id="org7c5b84c"></a>
 
-### Version 2.0
+### TODO Version 1.5
 
 1.  JSON
 
 2.  XML
 
 
-<a id="orgd40e67d"></a>
+        <xs:schema attributeFormDefault='unqualified'
+                   elementFormDefault='qualified'
+                   xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+          <xs:element name='Order' type='Order'/>
+
+          <xs:complexType name='AddressType'>
+            <xs:sequence>
+              <xs:element name='AlternateLocation' type='xs:string' />
+              <xs:element name='Attention'         type='xs:string' />
+              <xs:element name='City'              type='xs:string' />
+              <xs:element name='Country'           type='xs:string' />
+              <xs:element name='MailStopCode'      type='xs:string' />
+              <xs:element name='Recipient'         type='xs:string' />
+              <xs:element name='Remarks'           type='xs:string' />
+              <xs:element name='State'             type='xs:string' />
+              <xs:element name='Street'            type='xs:string' />
+              <xs:element name='Tag'               type='xs:string' />
+              <xs:element name='Zip'               type='xs:string' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='BillToType'>
+            <xs:sequence>
+              <xs:element name='Address'   type='AddressType'   />
+              <xs:element name='Email'     type='xs:string'     />
+              <xs:element name='Name'      type='xs:string'     />
+              <xs:element name='Phone'     type='xs:string'     />
+              <xs:element name='Reference' type='ReferenceType' />
+              <xs:element name='Remarks'   type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='BuyerType'>
+            <xs:sequence>
+              <xs:element name='Address'   type='AddressType'   />
+              <xs:element name='Email'     type='xs:string'     />
+              <xs:element name='Name'      type='xs:string'     />
+              <xs:element name='Phone'     type='xs:string'     />
+              <xs:element name='Reference' type='ReferenceType' />
+              <xs:element name='Remarks'   type='xs:string'     />
+              <xs:element name='TaxNumber' type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='CarrierType'>
+            <xs:sequence>
+              <xs:element name='Name'    type='xs:string' />
+              <xs:element name='Remarks' type='xs:string' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ConsumerType'>
+            <xs:sequence>
+              <xs:element name='Address'    type='AddressType'   />
+              <xs:element name='ContractId' type='xs:string'     />
+              <xs:element name='Email'      type='xs:string'     />
+              <xs:element name='Name'       type='xs:string'     />
+              <xs:element name='Phone'      type='xs:string'     />
+              <xs:element name='Reference'  type='ReferenceType' />
+              <xs:element name='Remarks'    type='xs:string'     />
+              <xs:element name='TaxNumber'  type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='CurrencyType'>
+            <xs:sequence>
+              <xs:element name='Code'      type='xs:string'  />
+              <xs:element name='Number'    type='xs:integer' />
+              <xs:element name='Precision' type='xs:integer' />
+              <xs:element name='Scale'     type='xs:integer' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ItemType'>
+            <xs:sequence>
+              <xs:element name='Amount'               type='MoneyType'       />
+              <xs:element name='AmountSubjectToTerms' type='MoneyType'       />
+              <xs:element name='Description'          type='xs:string'       />
+              <xs:element name='Discount'             type='MoneyType'       />
+              <xs:element name='ExpectedDate'         type='xs:dateTime'     />
+              <xs:element name='Freight'              type='MoneyType'       />
+              <xs:element name='Id'                   type='xs:string'       />
+              <xs:element name='LineNumber'           type='xs:integer'      />
+              <xs:element name='Make'                 type='xs:string'       />
+              <xs:element name='Model'                type='xs:string'       />
+              <xs:element name='Quantity'             type='xs:float'        />
+              <xs:element name='QuantityAcknowledged' type='xs:decimal'      />
+              <xs:element name='Reference'            type='ReferenceType'   />
+              <xs:element name='Remarks'              type='xs:string'       />
+              <xs:element name='SerialNumber'         type='xs:string'       />
+              <xs:element name='Tax'                  type='MoneyType'       />
+              <xs:element name='Unit'                 type='UnitMeasureType' />
+              <xs:element name='UnitCost'             type='MoneyType'       />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ItemsCollection'>
+            <xs:sequence minOccurs='1' maxOccurs='5000'>
+              <xs:element name='item' type='ItemType'/>
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='MoneyType'>
+            <xs:sequence>
+              <xs:element name='Amount' type='xs:decimal'   />
+              <xs:element name='Type'   type='CurrencyType' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='Order'>
+            <xs:sequence>
+              <xs:element name='BillTo'                      type='BillToType'    />
+              <xs:element name='Buyer'                       type='BuyerType'     />
+              <xs:element name='BuyerReference'              type='xs:string'     />
+              <xs:element name='Carrier'                     type='CarrierType'   />
+              <xs:element name='Consumer'                    type='ConsumerType'  />
+              <xs:element name='CountEmbedded'               type='xs:integer'    />
+              <xs:element name='Currency'                    type='CurrencyType'  />
+              <xs:element name='Date'                        type='xs:dateTime'   />
+              <xs:element name='ExpectedDate'                type='xs:dateTime'   />
+              <xs:element name='Items'                       type='ItemType'      />
+              <xs:element name='OptionAllowBackorder'        type='xs:boolean'    />
+              <xs:element name='OptionAllowCostChanges'      type='xs:boolean'    />
+              <xs:element name='OptionAllowPartialShipments' type='xs:boolean'    />
+              <xs:element name='OptionAllowSubstitutions'    type='xs:boolean'    />
+              <xs:element name='OptionDropShip'              type='xs:boolean'    />
+              <xs:element name='Reference'                   type='ReferenceType' />
+              <xs:element name='Remarks'                     type='xs:string'     />
+              <xs:element name='SellerReference'             type='xs:string'     />
+              <xs:element name='ShipTo'                      type='ShipToType'    />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ReferenceType'>
+            <xs:sequence>
+              <xs:element name='BuyerReference'        type='xs:string' />
+              <xs:element name='ConsumerReference'     type='xs:string' />
+              <xs:element name='Description'           type='xs:string' />
+              <xs:element name='DocumentReference'     type='xs:string' />
+              <xs:element name='LineNumberReference'   type='xs:string' />
+              <xs:element name='ManufacturerReference' type='xs:string' />
+              <xs:element name='SellerReference'       type='xs:string' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ShipToType'>
+            <xs:sequence>
+              <xs:element name='Address'   type='AddressType'   />
+              <xs:element name='Email'     type='xs:string'     />
+              <xs:element name='Name'      type='xs:string'     />
+              <xs:element name='Phone'     type='xs:string'     />
+              <xs:element name='Reference' type='ReferenceType' />
+              <xs:element name='Remarks'   type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='UnitMeasureType'>
+            <xs:sequence>
+              <xs:element name='Description'     type='xs:string'  />
+              <xs:element name='MachineFacingID' type='xs:string'  />
+              <xs:element name='Quantity'        type='xs:decimal' />
+            </xs:sequence>
+          </xs:complexType>
+
+        </xs:schema>
+
+
+<a id="orgb432cf5"></a>
+
+### TODO Version 2.0
+
+1.  JSON
+
+2.  XML
+
+
+<a id="orgca18f17"></a>
 
 ## Testing
 
     ./test-json.sh 2>&1
     ./test-xml.sh 2>&1
-    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.1.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.1.0.0*.xml
+    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml
+    xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.2.0.0*.xml
 
 
-<a id="org60cfc42"></a>
+<a id="org5780c98"></a>
 
 # Ship Method
 
 
 
-<a id="org06b85ec"></a>
+<a id="org63cd25b"></a>
 
 ## TODO Provide a non-technical overview of the business cases
 
@@ -1179,7 +1448,7 @@ dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 officia deserunt mollit anim id est laborum.
 
 
-<a id="orgfaf4f63"></a>
+<a id="org03f3c1d"></a>
 
 ## Sequence of Events
 
@@ -1195,31 +1464,31 @@ call with the required headers e.g.
          --url http://vendor-host/vendor-shipmethod-endpoint
 
 
-<a id="org3fa7151"></a>
+<a id="org834f21c"></a>
 
 ## Versions
 
 
-<a id="org5ea08ba"></a>
+<a id="orga9250ce"></a>
 
 ### Version 1.0
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-<a id="org6cf73ff"></a>
+<a id="orge17aaf3"></a>
 
 ### Version 2.0
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-<a id="org73a07a5"></a>
+<a id="orgf9fe2f8"></a>
 
 ## Use Cases
 
 
-<a id="org7027ef1"></a>
+<a id="org9da6440"></a>
 
 ### TODO
 
@@ -1242,12 +1511,12 @@ Version 1.0
     2.  XML
 
 
-<a id="org586470e"></a>
+<a id="orgffe1718"></a>
 
 ## Resource Schemas
 
 
-<a id="org995fa86"></a>
+<a id="org484d614"></a>
 
 ### Version 1.0
 
@@ -1256,7 +1525,7 @@ Version 1.0
 2.  XML
 
 
-<a id="orgdadb2a0"></a>
+<a id="org8c10cc1"></a>
 
 ### Version 2.0
 
@@ -1265,7 +1534,7 @@ Version 1.0
 2.  XML
 
 
-<a id="org1b0d402"></a>
+<a id="org8d707fd"></a>
 
 ## Testing
 
@@ -1274,7 +1543,7 @@ Version 1.0
     xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.shipmethod.1.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0*.xml
 
 
-<a id="org3210f19"></a>
+<a id="orga9f9f0f"></a>
 
 # About this document
 
@@ -1297,14 +1566,14 @@ will be weaved or tangled but may execute "silently".
            (make-directory "./rsrc-schema/tst" t))
 
 
-<a id="orgecf588f"></a>
+<a id="org45af46a"></a>
 
 ## Tangle
 
 To tangle documents use the key binding **C-c C-v t**
 
 
-<a id="orgaa4944c"></a>
+<a id="orgb0926fd"></a>
 
 ## Export
 
@@ -1312,18 +1581,29 @@ To export documents use the key binding **C-c C-e** and choose your preferred ex
 project I am using Markdown e.g. **C-c C-e m m**
 
 
-<a id="orgbd0f007"></a>
+<a id="org270cbe9"></a>
 
 # Resource Schemas
 
 
-<a id="org96e4097"></a>
+<a id="org328dc81"></a>
 
 ## TODO
 
 
-<a id="orgff7eda8"></a>
+<a id="orgd868990"></a>
 
 # Test Results
 
     ./test-json.sh 2>&1
+
+    ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0-response.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/tst/vnd.eci.stg.invoice.1.0.0-response.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0-request.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/tst/vnd.eci.stg.invoice.1.0.0-request.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/src/vnd.eci.stg.invoice.1.0.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/src/vnd.eci.stg.shipmethod.1.0.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
+    ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
