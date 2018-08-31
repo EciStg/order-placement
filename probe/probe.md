@@ -1,0 +1,300 @@
+Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
+other applications the ability to proactively monitor the health of APIs and applications. It
+is expected that IT will be routinely calling the required probes with network and application
+health monitoring system many times throughout the day. These probes should also be made available
+to Customer Care ( Support ) where then can be executed on demand. The custom probes will be
+executed on demand by IT, QA, and Support staff. They are not expected to be used by frequent
+running software as they may cause strain on the system and have a negative impact on
+system users and systems.
+
+It is important that information returned from these probes is not cached. We recommend setting the
+following HTTP headers:
+
+    Cache-Control: no-cache, no-store, must-revalidate
+    Pragma: no-cache
+    Expires: 0
+
+
+# `./probes/top`
+
+
+## Version 1.0 *unsupported*
+
+
+## Version 1.5 *required*
+
+This probe MUST be a light weight indicator of API or application availability. QA/IT/Support and
+other applications MUST be able to GET this low impact fast running probe. It is expected that this
+probe will be called one or more times per minute. Calling applications are required to check the
+HTTP status code as a pass ( *200* ) or fail ( *500* ) indicator. A body MUST not be returned to
+the caller.
+
+    curl -sw "%{http_code}\\n" http://localhost:3000/apis/v0/order/probes/top
+
+
+## Version 2.0
+
+No changes to date
+
+
+# `./probes/bottom`
+
+
+## Version 1.0 *unsupported*
+
+
+## Version 1.5 *required*
+
+This probe should test all of the layers of the API or application and all vital connections to
+required systems, APIs, databases, etc. QA/IT/Support staff and other applications MUST be able to
+GET this modest impact probe. It is expected that this probe will be called several times per hour.
+Calling applications are required to check the HTTP status code as a pass ( *200* ) or fail ( *500* )
+indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
+or more probe resources, each of which will contain its own HTTP Status Code.
+
+
+### JSON
+
+    [
+      {
+        "self": "https://some.server/some.service/probes/bottom#auth",
+        "code" :"auth",
+        "httpStatusCode": 200,
+        "when": "2018-04-23T18:25:43.511Z"
+      },
+      {
+        "self": "https://some.server/some.service/probes/bottom",
+        "description": "database connection test",
+        "httpStatusCode": 400,
+        "value":"The database cannot be contacted. Ensure the database is running and network reachable.",
+        "when": "2018-04-23T18:25:44.511Z"
+      }
+    ]
+
+
+### XML
+
+    <probes>
+      <probe>
+        <self>https://some.server/some.service/probes/bottom#auth</self>
+        <code>auth</code>
+        <httpStatusCode>200</httpStatusCode>
+        <when>2018-04-23T18:25:43.511Z</when>
+      </probe>
+      <probe>
+        <self>https://some.server/some.service/probes/bottom</self>
+        <description>database connection test</description>
+        <httpStatusCode>400</httpStatusCode>
+        <when>2018-04-23T18:25:44.511Z</when>
+        <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
+      </probe>
+    </probes>
+
+
+## Version 2.0
+
+No changes to date
+
+
+# `./probes`
+
+
+## Version 1.0 *unsupported*
+
+
+## Version 1.5 *optional*
+
+APIs or Applications MAY choose to support individual probes outside of the top / bottom convention.
+QA/IT/Support staff and other applications may attempt a GET on this URL and will expect the endpoint
+to return an ordered list of probes the application can call ( HTTP GET ) to determine the pass
+( *200* ) or fail ( *500* ) state of the probe. The body must contain an array of one or more probe
+resources. These custom probes are expected to be run on demand, not routinely executed by IT network
+and application health monitoring systems as the duration and impact of the probe's execution is not
+defined.
+
+
+### JSON
+
+    [
+      {
+        "self": "https://some.server/some.service/probes/auth",
+        "code" :"auth"
+      },
+      {
+        "self": "https://some.server/some.service/probes/con-db",
+        "description": "database connection test"
+      }
+    ]
+
+
+### XML
+
+    <probes>
+      <probe>
+        <self>https://some.server/some.service/probes/auth</self>
+        <code>auth</code>
+      </probe>
+      <probe>
+        <self>https://some.server/some.service/probes/con-db</self>
+        <description>database connection test</description>
+      </probe>
+    </probes>
+
+
+## Version 2.0
+
+No changes to date
+
+
+# Resource Schema
+
+`self` Required. URL identifying the probe
+
+`code` Machine facing value that uniquely identifies the probe
+If `code` is not populated `description` MUST be populated
+
+`description` Human facing value that uniquely identifies the probe.
+If `description` is not populated `code` MUST be populated
+
+`httpStatusCode` HTTP Status Code
+This property is normally populated when used as the body of an HTTP GET on
+*./probes/bottom* and may be populated when executing custom API or application
+probes. Since the bottom probe may aggregate many probes we need a way to
+communicate pass (*200* ) or fail ( *500* ) status of each individual probe function
+aggregated by the bottom probe. If `httpStatusCode` is populated `when` MUST also
+be populated
+
+`when` The date and time of probe execution.
+If `when` is populated `httpStatusCode` MUST also be populated
+
+`value` Human facing text
+Generally populated when there is a failure or warning of some type but the
+implementor can use this field in any way they see fit. If populated the value
+should give the human user some idea of where the failure or warning is happening
+and why it might be happening.
+
+
+## Version 1.0
+
+Not supported
+
+
+## Version 1.5
+
+
+### JSON
+
+    {
+      "id": "./vnd.eci.stg.probe.1.5.0.json",
+      "$schema": "http://json-schema.org/draft-08/schema#",
+      "title": "Probe",
+      "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "required": ["self"],
+        "anyOf": [{"required": ["code"]},
+                  {"required": ["description"]}],
+        "dependencies": {
+          "httpStatusCode": { "required": [ "when" ]},
+          "when": { "required": [ "httpStatusCode" ]}
+        },
+
+        "properties" : {
+
+          "self": {
+            "description": "system function identifying a unique system owned resource as a URL",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+
+          "code": {
+            "description": "machine facing value that uniquely identifies the probe",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
+          "description": {
+            "description": "human readable string describing the probe's purpose",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+
+          "httpStatusCode": {
+            "description": "usually used bottom probe but may also be returned by api or application specific probes",
+            "type": "integer",
+            "default": 200,
+            "minimum": 100,
+            "maximum": 599
+          },
+
+          "value": {
+            "description": "details from the probe that may help users understand the health of an endpoint",
+            "type": "string",
+            "minLength": 1,
+            "maxLength" : 1024
+          },
+
+          "when": {
+            "description": "date and time of probe execution",
+            "type" : "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+
+
+### XML
+
+    <?xml version='1.0' encoding='utf-8'?>
+
+    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+               elementFormDefault='qualified'
+               xml:lang='en'>
+
+      <xs:element name='probes'>
+        <xs:complexType>
+          <xs:sequence minOccurs='1' maxOccurs='50'>
+            <xs:element name='probe' type='ProbeType'/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:complexType name='ProbeType'>
+        <xs:sequence>
+          <xs:annotation>
+            <xs:documentation>
+              TODO
+            </xs:documentation>
+          </xs:annotation>
+          <xs:element name='self' type='xs:string' minOccurs='0' maxOccurs='1'/>
+          <xs:element name='code' type='xs:string' minOccurs='0' maxOccurs='1'/>
+          <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1'/>
+          <xs:element name='httpStatusCode' type='xs:integer' minOccurs='0' maxOccurs='1'/>
+          <xs:element name='when' type='xs:dateTime' minOccurs='0' maxOccurs='1'/>
+          <xs:element name='value' type='xs:string' minOccurs='0' maxOccurs='1'/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+
+
+## Version 2.0
+
+
+### TODO
+
+
+# Test Results
+
+    ../test-json.sh 2>&1
+    ../test-xml.sh 2>&1
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml
+
+    find: ./rsrc-schema/tst: No such file or directory
+    find: ./rsrc-schema/src: No such file or directory
+    find: ./rsrc-schema/src: No such file or directory
+    find: ./rsrc-schema/tst: No such file or directory

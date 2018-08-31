@@ -1,12 +1,15 @@
+# -*- mode: org -*-
+
+#+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
 Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
-internal ( private network ) applications the ability to pro-actively monitor the health
-of APIs and applications. It is expected that IT will be routinely calling the required probes with
-network and application health monitoring system many times throughout the day. These probes should
-also be made available to Customer Care ( Support ) where then can be executed on demand. The custom
-probes will be executed on demand by IT, QA, and Support staff. They are not expected to be used by
-frequent running software as they may cause strain on the system and have a negative impact on
+other applications the ability to proactively monitor the health of APIs and applications. It
+is expected that IT will be routinely calling the required probes with network and application
+health monitoring system many times throughout the day. These probes should also be made available
+to Customer Care ( Support ) where then can be executed on demand. The custom probes will be
+executed on demand by IT, QA, and Support staff. They are not expected to be used by frequent
+running software as they may cause strain on the system and have a negative impact on
 system users and systems.
 
 It is important that information returned from these probes is not cached. We recommend setting the
@@ -25,10 +28,10 @@ Expires: 0
 ** Version 1.5 /required/
 
 This probe MUST be a light weight indicator of API or application availability. QA/IT/Support and
-internal ( private network ) applications MUST be able to GET this low impact fast running probe.
-It is expected that this probe will be called one or more times per minute. Calling applications are
-required to check the HTTP status code as a pass ( /200/ ) or fail ( /500/ ) indicator. A body
-MUST not be returned to the caller.
+other applications MUST be able to GET this low impact fast running probe. It is expected that this
+probe will be called one or more times per minute. Calling applications are required to check the
+HTTP status code as a pass ( /200/ ) or fail ( /500/ ) indicator. A body MUST not be returned to
+the caller.
 
 #+BEGIN_SRC shell :exports both
 curl -sw "%{http_code}\\n" http://localhost:3000/apis/v0/order/probes/top
@@ -45,15 +48,15 @@ No changes to date
 ** Version 1.5 /required/
 
 This probe should test all of the layers of the API or application and all vital connections to
-required systems, APIs, databases, etc. QA/IT/Support staff and internal facing applications MUST be
-able to GET this modest impact probe. It is expected that this probe will be called several times
-per hour. Calling applications are required to check the HTTP status code as a pass ( /200/ ) or
-fail ( /500/ ) indicator. A body is optional. If a body is provided by the endpoint it must contain
-an array of one or more probe resources, each of which will contain its own HTTP Status Code.
+required systems, APIs, databases, etc. QA/IT/Support staff and other applications MUST be able to
+GET this modest impact probe. It is expected that this probe will be called several times per hour.
+Calling applications are required to check the HTTP status code as a pass ( /200/ ) or fail ( /500/ )
+indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
+or more probe resources, each of which will contain its own HTTP Status Code.
 
 *** JSON
 
-#+BEGIN_SRC json :tangle ./rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
   [
     {
       "self": "https://some.server/some.service/probes/bottom#auth",
@@ -73,7 +76,7 @@ an array of one or more probe resources, each of which will contain its own HTTP
 
 *** XML
 
-#+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml
   <probes>
     <probe>
       <self>https://some.server/some.service/probes/bottom#auth</self>
@@ -85,8 +88,8 @@ an array of one or more probe resources, each of which will contain its own HTTP
       <self>https://some.server/some.service/probes/bottom</self>
       <description>database connection test</description>
       <httpStatusCode>400</httpStatusCode>
-      <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
       <when>2018-04-23T18:25:44.511Z</when>
+      <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
     </probe>
   </probes>
 #+END_SRC
@@ -101,16 +104,16 @@ No changes to date
 ** Version 1.5 /optional/
 
 APIs or Applications MAY choose to support individual probes outside of the top / bottom convention.
-QA/IT/Support staff and internal facing applications may attempt a GET on this URL and will expect
-the endpoint to return an ordered list of probes the application can call ( HTTP GET ) to determine
-the pass ( /200/ ) or fail ( /500/ ) state of the probe. The body must contain an array of one or more
-probe resources. These custom probes are expected to be run on demand, not routinely executed by IT
-network and application health monitoring systems as the duration and impact of the probe's execution
-is not defined.
+QA/IT/Support staff and other applications may attempt a GET on this URL and will expect the endpoint
+to return an ordered list of probes the application can call ( HTTP GET ) to determine the pass
+( /200/ ) or fail ( /500/ ) state of the probe. The body must contain an array of one or more probe
+resources. These custom probes are expected to be run on demand, not routinely executed by IT network
+and application health monitoring systems as the duration and impact of the probe's execution is not
+defined.
 
 *** JSON
 
-#+BEGIN_SRC json :tangle ./rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json
   [
     {
       "self": "https://some.server/some.service/probes/auth",
@@ -125,7 +128,7 @@ is not defined.
 
 *** XML
 
-#+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml
   <probes>
     <probe>
       <self>https://some.server/some.service/probes/auth</self>
@@ -178,7 +181,7 @@ Not supported
 
 *** JSON
 
-#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json
   {
     "id": "./vnd.eci.stg.probe.1.5.0.json",
     "$schema": "http://json-schema.org/draft-08/schema#",
@@ -246,7 +249,7 @@ Not supported
 
 *** XML
 
-#+BEGIN_SRC xml :tangle ./rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd
+#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd
   <?xml version='1.0' encoding='utf-8'?>
 
   <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
@@ -279,14 +282,14 @@ Not supported
   </xs:schema>
 
 #+END_SRC
-** TODO Version 2.0
+** Version 2.0
+*** TODO
 * Test Results
 
 #+BEGIN_SRC shell :exports both :results verbatim
-  ./test-json.sh 2>&1
-  ./test-xml.sh 2>&1
-  xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ./rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml
-  xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.probe.2.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.probe.2.0.0*.xml
+  ../test-json.sh 2>&1
+  ../test-xml.sh 2>&1
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml
 #+END_SRC
 
 #+RESULTS:

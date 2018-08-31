@@ -9,7 +9,7 @@
     <self>https://some.server/some.service/probes/bottom</self>
     <description>database connection test</description>
     <httpStatusCode>400</httpStatusCode>
-    <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
     <when>2018-04-23T18:25:44.511Z</when>
+    <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
   </probe>
 </probes>

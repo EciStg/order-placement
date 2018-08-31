@@ -1,23 +1,53 @@
 # -*- mode: org -*-
 
 #+EXPORT_FILE_NAME: ./README.md
+#+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
 * The Order Placement System
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 * Overview
 
 #+INCLUDE: "./overview.org"
 
-* Testing Schema files
+* Endpoints
+** Invoice
 
-** JSON
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Invoice [[./invoice/invoice.md][documentation]]
+
+** Order
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Order [[./order/order.md][documentation]]
+
+** Probes
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Probe [[./probe/probe.md][documentation]]
+
+** Ship Method
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Ship Method [[./ship-method/ship-method.md][documentation]]
+
+** Stock
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Stock [[./stock/stock.md][documentation]]
+
+* Testing
+
+** Schemas
+
+*** JSON
 
 #+BEGIN_SRC shell :tangle ./test-json.sh :tangle-mode (identity #o755)
 
@@ -33,7 +63,7 @@ qui officia deserunt mollit anim id est laborum.
 
 #+END_SRC
 
-** XML
+*** XML
 
 #+BEGIN_SRC shell :tangle ./test-xml.sh :tangle-mode (identity #o755)
 
@@ -47,28 +77,9 @@ qui officia deserunt mollit anim id est laborum.
 
 #+END_SRC
 
-* Probes
-
-#+INCLUDE: "./probe.org"
-
-* Stock
-
-#+INCLUDE: "./stock.org"
-
-* Invoice
-
-#+INCLUDE: "./invoice.org"
-
-* Order
-
-#+INCLUDE: "./order.org"
-
-* Ship Method
-
-#+INCLUDE: "./ship-method.org"
-
 * About this document
-These documents wer created using [[https://www.gnu.org/software/emacs/][emacs's]] org mode in a Literate Programming style with additional
+
+These documents were created using [[https://www.gnu.org/software/emacs/][emacs's]] org mode in a Literate Programming style with additional
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
@@ -97,10 +108,10 @@ To tangle documents use the key binding *C-c C-v t*
 
 To export documents use the key binding *C-c C-e* and choose your preferred export format. For this
 project I am using Markdown e.g. *C-c C-e m m*
-* Resource Schemas
-** TODO
+
 * Test Results
 
 #+BEGIN_SRC shell :exports both :results verbatim
   ./test-json.sh 2>&1
+  ./test-xml.sh 2>&1
 #+END_SRC

@@ -1,18 +1,15 @@
 # -*- mode: org -*-
 
+#+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
-* TODO Provide a non-technical overview of the business cases
+* Non-technical Overview
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-officia deserunt mollit anim id est laborum.
+** TODO provie a non-tecnical overview of the business cases
 
 * Sequence of Events
 
-#+BEGIN_SRC plantuml :file ./images/order-sequence.puml.png :exports results
+#+BEGIN_SRC plantuml :file ../images/order-sequence.puml.png :exports results
 @startuml order-sequence.png
 Buyer -> Seller: [ POST ] order
 Seller -> Buyer: order<U+0394> | error
@@ -25,7 +22,7 @@ call with the required headers e.g.
 
 #+BEGIN_SRC shell
   curl --request POST \
-       --header "Content-Type: application/vnd.eci.stg.order.1.5.0.xml" \
+       --header "Content-Type: application/vnd.eci.stg.order.1.5.0.xml; charset=utf-8" \
        --user user123:password123 \
        --url http://vendor-host/vendor-order-endpoint
        --data ''
@@ -37,34 +34,29 @@ call with the required headers e.g.
 
 No longer published
 
-** TODO Version 1.5
+** Version 1.5
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-officia deserunt mollit anim id est laborum.
+*** TODO provide reason, rationale, and expected lifetime of version 1.5
 
-** TODO Version 2.0
+** Version 2.0
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-officia deserunt mollit anim id est laborum.
+*** TODO provide reason, rationale, and expected lifetime of version 1.5
 
-* TODO Use Cases
+* Use Cases
 
 ** Request
 
 In this example a buyer is
 
 **** JSON
-#+BEGIN_SRC json :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json
+{}
 #+END_SRC
 
 **** XML
-#+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-cost-request.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml
+<?xml version='1.0' encoding='utf-8'?>
+<order/>
 #+END_SRC
 
 ** Response
@@ -72,11 +64,14 @@ In this example a buyer is
 The seller's response is intended to
 
 **** JSON
-#+BEGIN_SRC json :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json
+{}
 #+END_SRC
 
 **** XML
-#+BEGIN_SRC xml :tangle ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0-responses.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml
+<?xml version='1.0' encoding='utf-8'?>
+<order/>
 #+END_SRC
 
 * Resource Schemas
@@ -85,16 +80,18 @@ The seller's response is intended to
 
 No longer published
 
-** TODO Version 1.5
+** Version 1.5
 
 *** JSON
 
-#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.json
+**** TODO
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json
 #+END_SRC
 
 *** XML
 
-#+BEGIN_SRC xml :tangle ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd
+#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd
 
   <xs:schema attributeFormDefault='unqualified'
              elementFormDefault='qualified'
@@ -265,23 +262,29 @@ No longer published
 
 #+END_SRC
 
-** TODO Version 2.0
+** Version 2.0
 
 *** JSON
 
-#+BEGIN_SRC json :tangle ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.json
+**** TODO
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.json
 #+END_SRC
 
 *** XML
 
-#+BEGIN_SRC xml :tangle ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd
+**** TODO
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd
 #+END_SRC
 
 * Testing
 
 #+BEGIN_SRC shell :exports both :results verbatim
-  ./test-json.sh 2>&1
-  ./test-xml.sh 2>&1
-  xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml
-  xmllint --noout --schema ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd ./rsrc-schema/tst/vnd.eci.stg.order.2.0.0*.xml
+  ../test-json.sh 2>&1
+  ../test-xml.sh 2>&1
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order.2.0.0*.xml
 #+END_SRC
+
+#+RESULTS:

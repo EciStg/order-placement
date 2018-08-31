@@ -1,0 +1,113 @@
+# -*- mode: org -*-
+
+#+OPTIONS: toc:nil
+#+PROPERTY: mkdirp yes
+
+* Non-technical Overview
+
+** TODO
+
+* Sequence of Events
+
+#+BEGIN_SRC plantuml :file ../images/shipmethod-sequence.puml.png :exports results
+@startuml shipmethod-sequence.png
+Buyer -> Seller: [ GET ]
+Seller -> Buyer: shipmethod | error
+@enduml
+#+END_SRC
+
+In the following section, Use Cases, examples of data ( ~--data~ ) to be sent and
+received will be shown. It is assumed that the caller will make the actual /POST/
+call with the required headers e.g.
+
+#+BEGIN_SRC shell :exports both
+  curl --request GET \
+       --header "Accepts: application/vnd.eci.stg.shipmethod.1.5.0.xml; charset=utf-8" \
+       --user user123:password123 \
+       --url http://vendor-host/vendor-shipmethod-endpoint
+#+END_SRC
+
+* Versions
+
+** Version 1.0
+
+*** TODO
+
+** Version 1.5
+
+*** TODO
+
+** Version 2.0
+
+*** TODO
+
+* Use Cases
+
+** TODO
+
+Version 1.0
+
+*** Request
+
+In this example a buyer is
+
+**** JSON
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0-request.json
+{}
+#+END_SRC
+
+**** XML
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0-request.xml
+<?xml version='1.0' encoding='utf-8'?>
+<shipmethod/>
+#+END_SRC
+
+*** Response
+
+The seller's response is intended to
+
+**** JSON
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0-response.json
+{}
+#+END_SRC
+
+**** XML
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0-response.xml
+<?xml version='1.0' encoding='utf-8'?>
+<shipmethod/>
+#+END_SRC
+
+* Resource Schemas
+
+** Version 1.0
+
+No longer published
+
+** Version 1.5
+
+*** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json
+#+END_SRC
+
+*** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd
+#+END_SRC
+
+
+** Version 2.0
+
+*** JSON
+
+*** XML
+
+* Testing
+
+#+BEGIN_SRC shell :exports both :results verbatim
+  ../test-json.sh 2>&1
+  ../test-xml.sh 2>&1
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0*.xml
+#+END_SRC
+
+#+RESULTS:
