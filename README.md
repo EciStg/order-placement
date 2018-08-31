@@ -2,7 +2,7 @@
 
 # Test Results
 
-In the spirit of 'test first', here are the the test results of the latest build.
+In the spirit of 'test first' here are the the test results of the latest build.
 
     ./test-json.sh 2>&1
     ./test-xml.sh 2>&1
