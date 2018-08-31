@@ -87,6 +87,12 @@ No longer published
 
 1.  TODO
 
+        {
+          "id": "./vnd.eci.stg.order.1.5.0.json",
+          "$schema": "http://json-schema.org/draft-08/schema#",
+          "title": "Order"
+        }
+
 
 ### XML
 
@@ -266,10 +272,19 @@ No longer published
 
 1.  TODO
 
+        {
+          "id": "./vnd.eci.stg.order.2.0.0.json",
+          "$schema": "http://json-schema.org/draft-08/schema#",
+          "title": "Order"
+        }
+
 
 ### XML
 
 1.  TODO
+
+        <?xml version='1.0' encoding='utf-8'?>
+        <order/>
 
 
 # Testing

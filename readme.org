@@ -4,6 +4,15 @@
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
+* Test Results
+
+In the spirit of 'test first', here are the the test results of the latest build.
+
+#+BEGIN_SRC shell :exports both :results verbatim
+  ./test-json.sh 2>&1
+  ./test-xml.sh 2>&1
+#+END_SRC
+
 * The Order Placement System
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
@@ -108,10 +117,3 @@ To tangle documents use the key binding *C-c C-v t*
 
 To export documents use the key binding *C-c C-e* and choose your preferred export format. For this
 project I am using Markdown e.g. *C-c C-e m m*
-
-* Test Results
-
-#+BEGIN_SRC shell :exports both :results verbatim
-  ./test-json.sh 2>&1
-  ./test-xml.sh 2>&1
-#+END_SRC

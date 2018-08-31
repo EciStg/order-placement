@@ -90,8 +90,17 @@ No longer published
 
 ### JSON
 
+    {
+      "id": "./vnd.eci.stg.shipmethod.1.5.0.json",
+      "$schema": "http://json-schema.org/draft-08/schema#",
+      "title": "ShipMethod"
+    }
+
 
 ### XML
+
+    <?xml version='1.0' encoding='utf-8'?>
+    <shipmethod/>
 
 
 ## Version 2.0

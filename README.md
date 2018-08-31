@@ -1,5 +1,13 @@
 
 
+# Test Results
+
+In the spirit of 'test first', here are the the test results of the latest build.
+
+    ./test-json.sh 2>&1
+    ./test-xml.sh 2>&1
+
+
 # The Order Placement System
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
@@ -174,23 +182,3 @@ To tangle documents use the key binding **C-c C-v t**
 
 To export documents use the key binding **C-c C-e** and choose your preferred export format. For this
 project I am using Markdown e.g. **C-c C-e m m**
-
-
-# Test Results
-
-    ./test-json.sh 2>&1
-    ./test-xml.sh 2>&1
-
-    ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0-request.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0-response.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/src/vnd.eci.stg.invoice.1.0.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/src/vnd.eci.stg.order.1.5.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/src/vnd.eci.stg.shipmethod.1.0.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json: line 1, col 0, found: 'EOF' - expected: 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '['.
-    ./rsrc-schema/src/vnd.eci.stg.invoice.1.0.0.xsd:2: parser error : Start tag expected, '<' not found
-    ./rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd:2: parser error : Start tag expected, '<' not found
-    ./rsrc-schema/src/vnd.eci.stg.shipmethod.1.0.0.xsd:2: parser error : Start tag expected, '<' not found
-    ./rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd:2: parser error : Start tag expected, '<' not found
-    ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0-request.xml:2: parser error : Start tag expected, '<' not found
-    ./rsrc-schema/tst/vnd.eci.stg.shipmethod.1.0.0-response.xml:2: parser error : Start tag expected, '<' not found

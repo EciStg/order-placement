@@ -87,6 +87,11 @@ No longer published
 **** TODO
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json
+{
+  "id": "./vnd.eci.stg.order.1.5.0.json",
+  "$schema": "http://json-schema.org/draft-08/schema#",
+  "title": "Order"
+}
 #+END_SRC
 
 *** XML
@@ -269,6 +274,11 @@ No longer published
 **** TODO
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.json
+{
+  "id": "./vnd.eci.stg.order.2.0.0.json",
+  "$schema": "http://json-schema.org/draft-08/schema#",
+  "title": "Order"
+}
 #+END_SRC
 
 *** XML
@@ -276,6 +286,8 @@ No longer published
 **** TODO
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd
+<?xml version='1.0' encoding='utf-8'?>
+<order/>
 #+END_SRC
 
 * Testing

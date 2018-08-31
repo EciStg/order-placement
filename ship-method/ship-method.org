@@ -88,11 +88,18 @@ No longer published
 *** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json
+{
+  "id": "./vnd.eci.stg.shipmethod.1.5.0.json",
+  "$schema": "http://json-schema.org/draft-08/schema#",
+  "title": "ShipMethod"
+}
 #+END_SRC
 
 *** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd
+<?xml version='1.0' encoding='utf-8'?>
+<shipmethod/>
 #+END_SRC
 
 

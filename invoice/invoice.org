@@ -3,7 +3,7 @@
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
-* Non-technical overview
+* Non-technical Overview
 
 ** TODO
 
