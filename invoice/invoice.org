@@ -5,7 +5,7 @@
 
 * Non-technical Overview
 
-** TODO
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 * Sequence of Events
 
@@ -31,31 +31,35 @@ call with the required headers e.g.
 
 ** Version 1.0
 
-*** TODO
+No longer published
+
+** Version 1.5
+
+*** TODO provide reason, rationale, and expected lifetime of version 1.5
 
 ** Version 2.0
 
-*** TODO
+*** TODO provide reason, rationale, and expected lifetime of version 1.5
 
 * Use Cases
 
-** TODO
-
-Version 1.0
+** Version 1.0
 
 *** Request
 
 In this example a seller is
 
 **** JSON
+
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-request.json
-{}
+  {}
 #+END_SRC
 
 **** XML
+
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-request.xml
-<?xml version='1.0' encoding='utf-8'?>
-<invoice/>
+  <?xml version='1.0' encoding='utf-8'?>
+  <invoice/>
 #+END_SRC
 
 *** Response
@@ -63,14 +67,16 @@ In this example a seller is
 The buyer's response is intended to
 
 **** JSON
+
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-response.json
-{}
+  {}
 #+END_SRC
 
 **** XML
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-response.xml
-<?xml version='1.0' encoding='utf-8'?>
-<invoice/>
+
+#+Begin_src xml :tangle ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-response.xml
+  <?xml version='1.0' encoding='utf-8'?>
+  <invoice/>
 #+END_SRC
 
 * Resource Schemas
