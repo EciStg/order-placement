@@ -1,5 +1,6 @@
 # -*- mode: org -*-
 
+#+EXPORT_FILE_NAME: ./README.md
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
