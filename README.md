@@ -15,10 +15,11 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 ## Actors
 
-Within the ECi Order Placement system a dealer typically takes on the role of
-*Buyer*. A vendor or supplier (typical readers of this document) take the role of
-*Seller*. A *Consumer* is the dealer's customer, though there are nuances we will
-not attempt to explain right now.
+Within the ECi Order Placement system a dealer typically takes on the role of *Buyer*. A vendor or
+supplier (typical readers of this document) take the role of *Seller*. A *Consumer* is the buyer's
+customer and in rare cases, the buyer. There are nuances to be discussed, we will not attempt to
+explain right now rather we will take up the details for the specific use cases as we come across
+them.
 
 ![img](./images/buyer-usecases.puml.png)
 
@@ -64,7 +65,99 @@ The ECi Order Placement services will always connect using a minimum of TLS 1.2.
     defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
 
 
+## Code / Reference Type
+
+At the heart of the order placement 1.0 resource schema is the notion or concept of a code. A code
+is intended to describe a thing of interest to both humans and software and has the following three
+components:
+
+-   **code:** software facing identity function; used to identify the object to a software system
+-   **name:** human facing identity function; use to identify the object to human readers
+-   **desc:** human facing description providing more information than the name allows
+
+In version 1.5 and beyond the code type will be replaced with a reference type. The human facing
+elements are left in place and has an additional `remarks` field. The software facing `code` has
+been extended to allow us to identify a thing in many different systems.
+
+-   **codes:** an array of codes that identify the object in one or more software systems
+-   **desc:** human facing description providing more information than the name allows
+-   **name:** human facing identity function; use to identify the object to human readers
+-   **remarks:** non-schema human facing information sent back and forth between buyer and seller
+
+The array of `codes` will be be populated with one or more codes, where a code is defined as
+
+-   **code:** retains its definition above. the form changes but the concept remains i.e. software facing identity function; used to identify the object to one or more software systems
+-   **reference:** the actor system that 'owns' or the value.
+
+A contrived example, under my fingers is a keyboard. Using the reference type we can describe the
+keyboard from the viewpoint of different actor's actor systems:
+
+-   **desc:** four channel bluetooth Apple layout full size aluminum keyboard with backlit keys
+-   **name:** wireless keyboard
+-   **remarks:** requires two AAA batteries
+-   **codes:** [[ buyer : wbkbd2345 ] [ seller : kbdbt4cha ]]
+
+Or in other words, this keyboard is known as `wbkbd2345` in the buyer's system and as `kbdbt4cha`
+in the Seller's system.
+
+Example XML
+
+    <?xml version='1.0' encoding='utf-8'?>
+
+    <Reference>
+      <Desc>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</Desc>
+      <Name>wireless keyboard</Name>
+      <Remarks>requires two AAA batteries</Remarks>
+      <Codes>
+        <Code><Code>wbkbd2345</Code><Reference>Buyer</Reference></Code>
+        <Code><Code>kbdbt4cha</Code><Reference>Seller</Reference></Code>
+      </Codes>
+    </Reference>
+
+Example Schema
+
+    <xs:schema attributeFormDefault='unqualified'
+               elementFormDefault='qualified'
+               xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+      <xs:element name='Reference' type='ReferenceType'/>
+
+      <xs:complexType name='ReferenceType'>
+        <xs:sequence>
+          <xs:element name='Desc'    type='xs:string' />
+          <xs:element name='Name'    type='xs:string' />
+          <xs:element name='Remarks' type='xs:string' />
+          <xs:element name='Codes'   type='CodesType' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='CodesType'>
+        <xs:sequence minOccurs='1' maxOccurs='5000'>
+          <xs:element name='Code' type='CodeType'/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='CodeType'>
+        <xs:sequence>
+          <xs:element name='Code'      type='xs:string' />
+          <xs:element name='Reference' type='CodeRefType' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name='CodeRefType'>
+        <xs:restriction base='xs:string'>
+          <xs:enumeration value='Buyer'/>
+          <xs:enumeration value='Consumer'/>
+          <xs:enumeration value='Manufacturer'/>
+          <xs:enumeration value='Seller'/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+
+
 ## Resource Types
+
+These types are intended to represent data in flight and are not meant to represent data at rest.
 
 There are six resource types exchanged between the Buyer's system and the Seller's system:
 
