@@ -171,7 +171,7 @@ Buyer's system can be programmed to send and receive resources in other represen
 though this is not part of the standard agreement and will need to be addressed separately.
 
 
-## Endpoints
+## Endpoint Documentation
 
 
 ### Invoice
