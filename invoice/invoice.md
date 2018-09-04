@@ -197,7 +197,6 @@ No longer published
           <xs:element name='AmountSubjectToTerms'        type='MoneyType'       />
           <xs:element name='BillTo'                      type='BillToType'      />
           <xs:element name='Buyer'                       type='BuyerType'       />
-          <xs:element name='BuyerReference'              type='xs:string'       />
           <xs:element name='Carrier'                     type='CarrierType'     />
           <xs:element name='Code'                        type='CodeType'        />
           <xs:element name='Consumer'                    type='ConsumerType'    />
@@ -222,7 +221,7 @@ No longer published
           <xs:element name='QuantityAcknowledged'        type='xs:float'        />
           <xs:element name='Reference'                   type='ReferenceType'   />
           <xs:element name='Remarks'                     type='xs:string'       />
-          <xs:element name='SellerReference'             type='xs:string'       />
+          <xs:element name='SellerReference'             type='ReferenceType'   />
           <xs:element name='SerialNumber'                type='xs:string'       />
           <xs:element name='ShipTo'                      type='ShipToType'      />
           <xs:element name='Tax'                         type='TaxType'         />

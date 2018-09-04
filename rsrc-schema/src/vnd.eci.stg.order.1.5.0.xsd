@@ -2,7 +2,7 @@
            elementFormDefault='qualified'
            xmlns:xs='http://www.w3.org/2001/XMLSchema'>
 
-  <xs:element name='Order' type='Order'/>
+  <xs:element name='Order' type='OrderType'/>
 
   <xs:complexType name='AddressType'>
     <xs:sequence>
@@ -28,6 +28,7 @@
       <xs:element name='Phone'     type='xs:string'     />
       <xs:element name='Reference' type='ReferenceType' />
       <xs:element name='Remarks'   type='xs:string'     />
+      <xs:element name='TaxNumber' type='xs:string'     />
     </xs:sequence>
   </xs:complexType>
 
@@ -108,11 +109,10 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name='Order'>
+  <xs:complexType name='OrderType'>
     <xs:sequence>
       <xs:element name='BillTo'                      type='BillToType'    />
       <xs:element name='Buyer'                       type='BuyerType'     />
-      <xs:element name='BuyerReference'              type='xs:string'     />
       <xs:element name='Carrier'                     type='CarrierType'   />
       <xs:element name='Consumer'                    type='ConsumerType'  />
       <xs:element name='CountEmbedded'               type='xs:integer'    />
@@ -127,7 +127,7 @@
       <xs:element name='OptionDropShip'              type='xs:boolean'    />
       <xs:element name='Reference'                   type='ReferenceType' />
       <xs:element name='Remarks'                     type='xs:string'     />
-      <xs:element name='SellerReference'             type='xs:string'     />
+      <xs:element name='SellerReference'             type='ReferenceType' />
       <xs:element name='ShipTo'                      type='ShipToType'    />
     </xs:sequence>
   </xs:complexType>
