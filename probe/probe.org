@@ -3,14 +3,15 @@
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
 
+* Technical Overview
 Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
-other applications the ability to proactively monitor the health of APIs and applications. It
-is expected that IT will be routinely calling the required probes with network and application
-health monitoring system many times throughout the day. These probes should also be made available
-to Customer Care ( Support ) where then can be executed on demand. The custom probes will be
-executed on demand by IT, QA, and Support staff. They are not expected to be used by frequent
-running software as they may cause strain on the system and have a negative impact on
-system users and systems.
+other applications the ability to proactively monitor the health of APIs and applications. It is
+expected that IT will be routinely calling the required probes with network and application health
+monitoring system many times throughout the day. These probes should also be made available to
+Customer Care ( Support ) where then can be executed on demand. The custom probes will be executed
+on demand by IT, QA, and Support staff. They are not expected to be used by frequent running
+software as they may cause strain on the system and have a negative impact on system users and
+systems.
 
 It is important that information returned from these probes is not cached. We recommend setting the
 following HTTP headers:
