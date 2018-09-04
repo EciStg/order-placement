@@ -1,15 +1,15 @@
 [
   {
-    "self": "https://some.server/some.service/probes/bottom#auth",
-    "code" :"auth",
-    "httpStatusCode": 200,
-    "when": "2018-04-23T18:25:43.511Z"
+    "Self": "https://some.server/some.service/probes/bottom#auth",
+    "Code" :"auth",
+    "HttpStatusCode": 200,
+    "When": "2018-04-23T18:25:43.511Z"
   },
   {
-    "self": "https://some.server/some.service/probes/bottom",
-    "description": "database connection test",
-    "httpStatusCode": 400,
-    "value":"The database cannot be contacted. Ensure the database is running and network reachable.",
-    "when": "2018-04-23T18:25:44.511Z"
+    "Self": "https://some.server/some.service/probes/bottom",
+    "Name": "database connection test",
+    "Description":"The database cannot be contacted. Ensure the database is running and network reachable.",
+    "HttpStatusCode": 400,
+    "When": "2018-04-23T18:25:44.511Z"
   }
 ]

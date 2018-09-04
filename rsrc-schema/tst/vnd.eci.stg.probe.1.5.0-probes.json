@@ -1,10 +1,10 @@
 [
   {
-    "self": "https://some.server/some.service/probes/auth",
-    "code" :"auth"
+    "Self": "https://some.server/some.service/probes/auth",
+    "Code" :"auth"
   },
   {
-    "self": "https://some.server/some.service/probes/con-db",
-    "description": "database connection test"
+    "Self": "https://some.server/some.service/probes/con-db",
+    "Name": "database connection test"
   }
 ]

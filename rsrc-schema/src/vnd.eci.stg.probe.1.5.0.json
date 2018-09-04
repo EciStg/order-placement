@@ -6,38 +6,45 @@
   "type": "array",
   "items": {
     "additionalProperties": false,
-    "required": ["self"],
-    "anyOf": [{"required": ["code"]},
-              {"required": ["description"]}],
+    "required": ["Self"],
+    "anyOf": [{"required": ["Code"]},
+              {"required": ["Description"]}],
     "dependencies": {
-      "httpStatusCode": { "required": [ "when" ]},
-      "when": { "required": [ "httpStatusCode" ]}
+      "httpStatusCode": { "required": [ "When" ]},
+      "when": { "required": [ "HttpStatusCode" ]}
     },
 
     "properties" : {
 
-      "self": {
+      "Self": {
         "description": "system function identifying a unique system owned resource as a URL",
         "type": "string",
         "minLength": 1,
         "maxLength": 1024
       },
 
-      "code": {
-        "description": "machine facing value that uniquely identifies the probe",
+      "Code": {
+        "description": "software facing value that uniquely identifies the probe",
         "type": "string",
         "minLength": 1,
         "maxLength": 32
       },
 
-      "description": {
+      "Name": {
+        "description": "details from the probe that may help users understand the health of an endpoint",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 1024
+      },
+
+      "Description": {
         "description": "human readable string describing the probe's purpose",
         "type": "string",
         "minLength": 1,
         "maxLength": 128
       },
 
-      "httpStatusCode": {
+      "HttpStatusCode": {
         "description": "usually used bottom probe but may also be returned by api or application specific probes",
         "type": "integer",
         "default": 200,
@@ -45,14 +52,7 @@
         "maximum": 599
       },
 
-      "value": {
-        "description": "details from the probe that may help users understand the health of an endpoint",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 1024
-      },
-
-      "when": {
+      "When": {
         "description": "date and time of probe execution",
         "type" : "string",
         "format": "date-time"
