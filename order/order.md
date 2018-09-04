@@ -20,26 +20,6 @@ call with the required headers e.g.
          --data ''
 
 
-# Versions
-
-
-## Version 1.0
-
-No longer published
-
-
-## Version 1.5
-
-
-### TODO provide reason, rationale, and expected lifetime of version 1.5
-
-
-## Version 2.0
-
-
-### TODO provide reason, rationale, and expected lifetime of version 1.5
-
-
 # Use Cases
 
 

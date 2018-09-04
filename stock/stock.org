@@ -28,20 +28,6 @@ call with the required headers e.g.
        --data ''
 #+END_SRC
 
-* Versions
-
-** Version 1.0
-
-No longer published
-
-** Version 1.5
-
-*** TODO
-
-** Version 2.0
-
-*** TODO
-
 * Use Cases
 
 ** As an unidentified buyer I would like to see the cost for one or more products

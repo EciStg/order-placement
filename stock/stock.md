@@ -21,26 +21,6 @@ call with the required headers e.g.
          --data ''
 
 
-# Versions
-
-
-## Version 1.0
-
-No longer published
-
-
-## Version 1.5
-
-
-### TODO
-
-
-## Version 2.0
-
-
-### TODO
-
-
 # Use Cases
 
 
