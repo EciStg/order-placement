@@ -3,8 +3,10 @@
 #+EXPORT_FILE_NAME: ./README.md
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
+#+STARTUP: content
 
-* Test Results
+* Order Placement System
+** Test Results
 
 In the spirit of 'test first' here are the the test results of the latest build.
 
@@ -13,48 +15,48 @@ In the spirit of 'test first' here are the the test results of the latest build.
   ./test-xml.sh 2>&1
 #+END_SRC
 
-* The Order Placement System
+** Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 #+INCLUDE: "./overview.org"
 
-* Endpoints
-** Invoice
+** Endpoints
+*** Invoice
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Invoice [[./invoice/invoice.md][documentation]]
 
-** Order
+*** Order
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Order [[./order/order.md][documentation]]
 
-** Probes
+*** Probes
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Probe [[./probe/probe.md][documentation]]
 
-** Ship Method
+*** Ship Method
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Ship Method [[./ship-method/ship-method.md][documentation]]
 
-** Stock
+*** Stock
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Stock [[./stock/stock.md][documentation]]
 
-* Testing
+** Testing
 
-** Schemas
+*** Schemas
 
-*** JSON
+**** JSON
 
 #+BEGIN_SRC shell :tangle ./test-json.sh :tangle-mode (identity #o755)
 
@@ -70,7 +72,7 @@ Stock [[./stock/stock.md][documentation]]
 
 #+END_SRC
 
-*** XML
+**** XML
 
 #+BEGIN_SRC shell :tangle ./test-xml.sh :tangle-mode (identity #o755)
 
@@ -84,7 +86,7 @@ Stock [[./stock/stock.md][documentation]]
 
 #+END_SRC
 
-* About this document
+** About this document
 
 These documents were created using [[https://www.gnu.org/software/emacs/][emacs's]] org mode in a Literate Programming style with additional
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
@@ -107,11 +109,11 @@ will be weaved or tangled but may execute "silently".
          (make-directory "./rsrc-schema/tst" t))
 #+END_SRC
 
-** Tangle
+*** Tangle
 
 To tangle documents use the key binding *C-c C-v t*
 
-** Export
+*** Export
 
 To export documents use the key binding *C-c C-e* and choose your preferred export format. For this
 project I am using Markdown e.g. *C-c C-e m m*

@@ -3,12 +3,14 @@
 #+EXPORT_FILE_NAME: ./README.md
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
+#+STARTUP: content
 
-* Technical Overview
+* Order
+** Technical Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
-* Sequence of Events
+** Sequence of Events
 
 #+BEGIN_SRC plantuml :file ../images/order-sequence.puml.png :exports results
 @startuml order-sequence.png
@@ -29,9 +31,9 @@ call with the required headers e.g.
        --data ''
 #+END_SRC
 
-* Use Cases
+** Use Cases
 
-** Request
+*** Request
 
 In this example a buyer is
 
@@ -46,7 +48,7 @@ In this example a buyer is
 <order/>
 #+END_SRC
 
-** Response
+*** Response
 
 The seller's response is intended to
 
@@ -61,17 +63,17 @@ The seller's response is intended to
 <order/>
 #+END_SRC
 
-* Resource Schemas
+** Resource Schemas
 
-** Version 1.0
+*** Version 1.0
 
 No longer published
 
-** Version 1.5
+*** Version 1.5
 
-*** JSON
+**** JSON
 
-**** TODO
+***** TODO
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json
 {
@@ -81,7 +83,7 @@ No longer published
 }
 #+END_SRC
 
-*** XML
+**** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd
 
@@ -254,11 +256,11 @@ No longer published
 
 #+END_SRC
 
-** Version 2.0
+*** Version 2.0
 
-*** JSON
+**** JSON
 
-**** TODO
+***** TODO
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.json
 {
@@ -268,16 +270,16 @@ No longer published
 }
 #+END_SRC
 
-*** XML
+**** XML
 
-**** TODO
+***** TODO
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order.2.0.0.xsd
 <?xml version='1.0' encoding='utf-8'?>
 <order/>
 #+END_SRC
 
-* Testing
+** Testing
 
 #+BEGIN_SRC shell :exports both :results verbatim
   ../test-json.sh 2>&1

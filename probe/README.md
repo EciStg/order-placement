@@ -1,6 +1,9 @@
 
 
-# Technical Overview
+# Probe
+
+
+## Technical Overview
 
 Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
 other applications the ability to proactively monitor the health of APIs and applications. It is
@@ -19,13 +22,13 @@ following HTTP headers:
     Expires: 0
 
 
-# `./probes/top`
+## `./probes/top`
 
 
-## Version 1.0 *unsupported*
+### Version 1.0 *unsupported*
 
 
-## Version 1.5 *required*
+### Version 1.5 *required*
 
 This probe MUST be a light weight indicator of API or application availability. QA/IT/Support and
 other applications MUST be able to GET this low impact fast running probe. It is expected that this
@@ -36,18 +39,18 @@ the caller.
     curl -sw "%{http_code}\\n" http://localhost:3000/apis/v0/order/probes/top
 
 
-## Version 2.0
+### Version 2.0
 
 No changes to date
 
 
-# `./probes/bottom`
+## `./probes/bottom`
 
 
-## Version 1.0 *unsupported*
+### Version 1.0 *unsupported*
 
 
-## Version 1.5 *required*
+### Version 1.5 *required*
 
 This probe should test all of the layers of the API or application and all vital connections to
 required systems, APIs, databases, etc. QA/IT/Support staff and other applications MUST be able to
@@ -56,57 +59,55 @@ Calling applications are required to check the HTTP status code as a pass ( *200
 indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
 or more probe resources, each of which will contain its own HTTP Status Code.
 
+1.  JSON
 
-### JSON
+        [
+          {
+            "self": "https://some.server/some.service/probes/bottom#auth",
+            "code" :"auth",
+            "httpStatusCode": 200,
+            "when": "2018-04-23T18:25:43.511Z"
+          },
+          {
+            "self": "https://some.server/some.service/probes/bottom",
+            "description": "database connection test",
+            "httpStatusCode": 400,
+            "value":"The database cannot be contacted. Ensure the database is running and network reachable.",
+            "when": "2018-04-23T18:25:44.511Z"
+          }
+        ]
 
-    [
-      {
-        "self": "https://some.server/some.service/probes/bottom#auth",
-        "code" :"auth",
-        "httpStatusCode": 200,
-        "when": "2018-04-23T18:25:43.511Z"
-      },
-      {
-        "self": "https://some.server/some.service/probes/bottom",
-        "description": "database connection test",
-        "httpStatusCode": 400,
-        "value":"The database cannot be contacted. Ensure the database is running and network reachable.",
-        "when": "2018-04-23T18:25:44.511Z"
-      }
-    ]
+2.  XML
 
-
-### XML
-
-    <probes>
-      <probe>
-        <self>https://some.server/some.service/probes/bottom#auth</self>
-        <code>auth</code>
-        <httpStatusCode>200</httpStatusCode>
-        <when>2018-04-23T18:25:43.511Z</when>
-      </probe>
-      <probe>
-        <self>https://some.server/some.service/probes/bottom</self>
-        <description>database connection test</description>
-        <httpStatusCode>400</httpStatusCode>
-        <when>2018-04-23T18:25:44.511Z</when>
-        <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
-      </probe>
-    </probes>
+        <probes>
+          <probe>
+            <self>https://some.server/some.service/probes/bottom#auth</self>
+            <code>auth</code>
+            <httpStatusCode>200</httpStatusCode>
+            <when>2018-04-23T18:25:43.511Z</when>
+          </probe>
+          <probe>
+            <self>https://some.server/some.service/probes/bottom</self>
+            <description>database connection test</description>
+            <httpStatusCode>400</httpStatusCode>
+            <when>2018-04-23T18:25:44.511Z</when>
+            <value>The database cannot be contacted. Ensure the database is running and network reachable.</value>
+          </probe>
+        </probes>
 
 
-## Version 2.0
+### Version 2.0
 
 No changes to date
 
 
-# `./probes`
+## `./probes`
 
 
-## Version 1.0 *unsupported*
+### Version 1.0 *unsupported*
 
 
-## Version 1.5 *optional*
+### Version 1.5 *optional*
 
 APIs or Applications MAY choose to support individual probes outside of the top / bottom convention.
 QA/IT/Support staff and other applications may attempt a GET on this URL and will expect the endpoint
@@ -116,41 +117,39 @@ resources. These custom probes are expected to be run on demand, not routinely e
 and application health monitoring systems as the duration and impact of the probe's execution is not
 defined.
 
+1.  JSON
 
-### JSON
+        [
+          {
+            "self": "https://some.server/some.service/probes/auth",
+            "code" :"auth"
+          },
+          {
+            "self": "https://some.server/some.service/probes/con-db",
+            "description": "database connection test"
+          }
+        ]
 
-    [
-      {
-        "self": "https://some.server/some.service/probes/auth",
-        "code" :"auth"
-      },
-      {
-        "self": "https://some.server/some.service/probes/con-db",
-        "description": "database connection test"
-      }
-    ]
+2.  XML
 
-
-### XML
-
-    <probes>
-      <probe>
-        <self>https://some.server/some.service/probes/auth</self>
-        <code>auth</code>
-      </probe>
-      <probe>
-        <self>https://some.server/some.service/probes/con-db</self>
-        <description>database connection test</description>
-      </probe>
-    </probes>
+        <probes>
+          <probe>
+            <self>https://some.server/some.service/probes/auth</self>
+            <code>auth</code>
+          </probe>
+          <probe>
+            <self>https://some.server/some.service/probes/con-db</self>
+            <description>database connection test</description>
+          </probe>
+        </probes>
 
 
-## Version 2.0
+### Version 2.0
 
 No changes to date
 
 
-# Resource Schema
+## Resource Schema
 
 `self` Required. URL identifying the probe
 
@@ -178,121 +177,118 @@ should give the human user some idea of where the failure or warning is happenin
 and why it might be happening.
 
 
-## Version 1.0
+### Version 1.0
 
 Not supported
 
 
-## Version 1.5
+### Version 1.5
 
+1.  JSON
 
-### JSON
+        {
+          "id": "./vnd.eci.stg.probe.1.5.0.json",
+          "$schema": "http://json-schema.org/draft-08/schema#",
+          "title": "Probe",
+          "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "required": ["self"],
+            "anyOf": [{"required": ["code"]},
+                      {"required": ["description"]}],
+            "dependencies": {
+              "httpStatusCode": { "required": [ "when" ]},
+              "when": { "required": [ "httpStatusCode" ]}
+            },
 
-    {
-      "id": "./vnd.eci.stg.probe.1.5.0.json",
-      "$schema": "http://json-schema.org/draft-08/schema#",
-      "title": "Probe",
-      "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
-      "type": "array",
-      "items": {
-        "additionalProperties": false,
-        "required": ["self"],
-        "anyOf": [{"required": ["code"]},
-                  {"required": ["description"]}],
-        "dependencies": {
-          "httpStatusCode": { "required": [ "when" ]},
-          "when": { "required": [ "httpStatusCode" ]}
-        },
+            "properties" : {
 
-        "properties" : {
+              "self": {
+                "description": "system function identifying a unique system owned resource as a URL",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
 
-          "self": {
-            "description": "system function identifying a unique system owned resource as a URL",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 1024
-          },
+              "code": {
+                "description": "machine facing value that uniquely identifies the probe",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32
+              },
 
-          "code": {
-            "description": "machine facing value that uniquely identifies the probe",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+              "description": {
+                "description": "human readable string describing the probe's purpose",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
 
-          "description": {
-            "description": "human readable string describing the probe's purpose",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 128
-          },
+              "httpStatusCode": {
+                "description": "usually used bottom probe but may also be returned by api or application specific probes",
+                "type": "integer",
+                "default": 200,
+                "minimum": 100,
+                "maximum": 599
+              },
 
-          "httpStatusCode": {
-            "description": "usually used bottom probe but may also be returned by api or application specific probes",
-            "type": "integer",
-            "default": 200,
-            "minimum": 100,
-            "maximum": 599
-          },
+              "value": {
+                "description": "details from the probe that may help users understand the health of an endpoint",
+                "type": "string",
+                "minLength": 1,
+                "maxLength" : 1024
+              },
 
-          "value": {
-            "description": "details from the probe that may help users understand the health of an endpoint",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 1024
-          },
-
-          "when": {
-            "description": "date and time of probe execution",
-            "type" : "string",
-            "format": "date-time"
+              "when": {
+                "description": "date and time of probe execution",
+                "type" : "string",
+                "format": "date-time"
+              }
+            }
           }
         }
-      }
-    }
+
+2.  XML
+
+        <?xml version='1.0' encoding='utf-8'?>
+
+        <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                   elementFormDefault='qualified'
+                   xml:lang='en'>
+
+          <xs:element name='probes'>
+            <xs:complexType>
+              <xs:sequence minOccurs='1' maxOccurs='50'>
+                <xs:element name='probe' type='ProbeType'/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:complexType name='ProbeType'>
+            <xs:sequence>
+              <xs:annotation>
+                <xs:documentation>
+                  TODO
+                </xs:documentation>
+              </xs:annotation>
+              <xs:element name='self' type='xs:string' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='code' type='xs:string' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='httpStatusCode' type='xs:integer' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='when' type='xs:dateTime' minOccurs='0' maxOccurs='1'/>
+              <xs:element name='value' type='xs:string' minOccurs='0' maxOccurs='1'/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:schema>
 
 
-### XML
+### Version 2.0
 
-    <?xml version='1.0' encoding='utf-8'?>
-
-    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-               elementFormDefault='qualified'
-               xml:lang='en'>
-
-      <xs:element name='probes'>
-        <xs:complexType>
-          <xs:sequence minOccurs='1' maxOccurs='50'>
-            <xs:element name='probe' type='ProbeType'/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-
-      <xs:complexType name='ProbeType'>
-        <xs:sequence>
-          <xs:annotation>
-            <xs:documentation>
-              TODO
-            </xs:documentation>
-          </xs:annotation>
-          <xs:element name='self' type='xs:string' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='code' type='xs:string' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='httpStatusCode' type='xs:integer' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='when' type='xs:dateTime' minOccurs='0' maxOccurs='1'/>
-          <xs:element name='value' type='xs:string' minOccurs='0' maxOccurs='1'/>
-        </xs:sequence>
-      </xs:complexType>
-    </xs:schema>
+1.  TODO
 
 
-## Version 2.0
-
-
-### TODO
-
-
-# Test Results
+## Test Results
 
     ../test-json.sh 2>&1
     ../test-xml.sh 2>&1

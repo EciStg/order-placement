@@ -1,11 +1,14 @@
 
 
-# Technical Overview
+# Order
+
+
+## Technical Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 
-# Sequence of Events
+## Sequence of Events
 
 ![img](../images/order-sequence.puml.png)
 
@@ -20,10 +23,10 @@ call with the required headers e.g.
          --data ''
 
 
-# Use Cases
+## Use Cases
 
 
-## Request
+### Request
 
 In this example a buyer is
 
@@ -37,7 +40,7 @@ In this example a buyer is
         <order/>
 
 
-## Response
+### Response
 
 The seller's response is intended to
 
@@ -51,222 +54,218 @@ The seller's response is intended to
         <order/>
 
 
-# Resource Schemas
+## Resource Schemas
 
 
-## Version 1.0
+### Version 1.0
 
 No longer published
 
 
-## Version 1.5
+### Version 1.5
+
+1.  JSON
+
+    1.  TODO
+
+            {
+              "id": "./vnd.eci.stg.order.1.5.0.json",
+              "$schema": "http://json-schema.org/draft-08/schema#",
+              "title": "Order"
+            }
+
+2.  XML
 
 
-### JSON
+        <xs:schema attributeFormDefault='unqualified'
+                   elementFormDefault='qualified'
+                   xmlns:xs='http://www.w3.org/2001/XMLSchema'>
 
-1.  TODO
+          <xs:element name='Order' type='OrderType'/>
 
-        {
-          "id": "./vnd.eci.stg.order.1.5.0.json",
-          "$schema": "http://json-schema.org/draft-08/schema#",
-          "title": "Order"
-        }
+          <xs:complexType name='AddressType'>
+            <xs:sequence>
+              <xs:element name='AlternateLocation' type='xs:string' />
+              <xs:element name='Attention'         type='xs:string' />
+              <xs:element name='City'              type='xs:string' />
+              <xs:element name='Country'           type='xs:string' />
+              <xs:element name='MailStopCode'      type='xs:string' />
+              <xs:element name='Recipient'         type='xs:string' />
+              <xs:element name='Remarks'           type='xs:string' />
+              <xs:element name='State'             type='xs:string' />
+              <xs:element name='Street'            type='xs:string' />
+              <xs:element name='Tag'               type='xs:string' />
+              <xs:element name='Zip'               type='xs:string' />
+            </xs:sequence>
+          </xs:complexType>
 
+          <xs:complexType name='BillToType'>
+            <xs:sequence>
+              <xs:element name='Address'   type='AddressType'   />
+              <xs:element name='Email'     type='xs:string'     />
+              <xs:element name='Name'      type='xs:string'     />
+              <xs:element name='Phone'     type='xs:string'     />
+              <xs:element name='Reference' type='ReferenceType' />
+              <xs:element name='Remarks'   type='xs:string'     />
+              <xs:element name='TaxNumber' type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
 
-### XML
+          <xs:complexType name='BuyerType'>
+            <xs:sequence>
+              <xs:element name='Address'   type='AddressType'   />
+              <xs:element name='Email'     type='xs:string'     />
+              <xs:element name='Name'      type='xs:string'     />
+              <xs:element name='Phone'     type='xs:string'     />
+              <xs:element name='Reference' type='ReferenceType' />
+              <xs:element name='Remarks'   type='xs:string'     />
+              <xs:element name='TaxNumber' type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
 
+          <xs:complexType name='CarrierType'>
+            <xs:sequence>
+              <xs:element name='Name'    type='xs:string' />
+              <xs:element name='Remarks' type='xs:string' />
+            </xs:sequence>
+          </xs:complexType>
 
-    <xs:schema attributeFormDefault='unqualified'
-               elementFormDefault='qualified'
-               xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+          <xs:complexType name='ConsumerType'>
+            <xs:sequence>
+              <xs:element name='Address'    type='AddressType'   />
+              <xs:element name='ContractId' type='xs:string'     />
+              <xs:element name='Email'      type='xs:string'     />
+              <xs:element name='Name'       type='xs:string'     />
+              <xs:element name='Phone'      type='xs:string'     />
+              <xs:element name='Reference'  type='ReferenceType' />
+              <xs:element name='Remarks'    type='xs:string'     />
+              <xs:element name='TaxNumber'  type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:element name='Order' type='OrderType'/>
+          <xs:complexType name='CurrencyType'>
+            <xs:sequence>
+              <xs:element name='Code'      type='xs:string'  />
+              <xs:element name='Number'    type='xs:integer' />
+              <xs:element name='Precision' type='xs:integer' />
+              <xs:element name='Scale'     type='xs:integer' />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='AddressType'>
-        <xs:sequence>
-          <xs:element name='AlternateLocation' type='xs:string' />
-          <xs:element name='Attention'         type='xs:string' />
-          <xs:element name='City'              type='xs:string' />
-          <xs:element name='Country'           type='xs:string' />
-          <xs:element name='MailStopCode'      type='xs:string' />
-          <xs:element name='Recipient'         type='xs:string' />
-          <xs:element name='Remarks'           type='xs:string' />
-          <xs:element name='State'             type='xs:string' />
-          <xs:element name='Street'            type='xs:string' />
-          <xs:element name='Tag'               type='xs:string' />
-          <xs:element name='Zip'               type='xs:string' />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='ItemType'>
+            <xs:sequence>
+              <xs:element name='Amount'               type='MoneyType'       />
+              <xs:element name='AmountSubjectToTerms' type='MoneyType'       />
+              <xs:element name='Description'          type='xs:string'       />
+              <xs:element name='Discount'             type='MoneyType'       />
+              <xs:element name='ExpectedDate'         type='xs:dateTime'     />
+              <xs:element name='Freight'              type='MoneyType'       />
+              <xs:element name='Id'                   type='xs:string'       />
+              <xs:element name='LineNumber'           type='xs:integer'      />
+              <xs:element name='Make'                 type='xs:string'       />
+              <xs:element name='Model'                type='xs:string'       />
+              <xs:element name='Quantity'             type='xs:float'        />
+              <xs:element name='QuantityAcknowledged' type='xs:decimal'      />
+              <xs:element name='Reference'            type='ReferenceType'   />
+              <xs:element name='Remarks'              type='xs:string'       />
+              <xs:element name='SerialNumber'         type='xs:string'       />
+              <xs:element name='Tax'                  type='MoneyType'       />
+              <xs:element name='Unit'                 type='UnitMeasureType' />
+              <xs:element name='UnitCost'             type='MoneyType'       />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='BillToType'>
-        <xs:sequence>
-          <xs:element name='Address'   type='AddressType'   />
-          <xs:element name='Email'     type='xs:string'     />
-          <xs:element name='Name'      type='xs:string'     />
-          <xs:element name='Phone'     type='xs:string'     />
-          <xs:element name='Reference' type='ReferenceType' />
-          <xs:element name='Remarks'   type='xs:string'     />
-          <xs:element name='TaxNumber' type='xs:string'     />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='ItemsCollection'>
+            <xs:sequence minOccurs='1' maxOccurs='5000'>
+              <xs:element name='item' type='ItemType'/>
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='BuyerType'>
-        <xs:sequence>
-          <xs:element name='Address'   type='AddressType'   />
-          <xs:element name='Email'     type='xs:string'     />
-          <xs:element name='Name'      type='xs:string'     />
-          <xs:element name='Phone'     type='xs:string'     />
-          <xs:element name='Reference' type='ReferenceType' />
-          <xs:element name='Remarks'   type='xs:string'     />
-          <xs:element name='TaxNumber' type='xs:string'     />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='MoneyType'>
+            <xs:sequence>
+              <xs:element name='Amount' type='xs:decimal'   />
+              <xs:element name='Type'   type='CurrencyType' />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='CarrierType'>
-        <xs:sequence>
-          <xs:element name='Name'    type='xs:string' />
-          <xs:element name='Remarks' type='xs:string' />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='OrderType'>
+            <xs:sequence>
+              <xs:element name='BillTo'                      type='BillToType'    />
+              <xs:element name='Buyer'                       type='BuyerType'     />
+              <xs:element name='Carrier'                     type='CarrierType'   />
+              <xs:element name='Consumer'                    type='ConsumerType'  />
+              <xs:element name='CountEmbedded'               type='xs:integer'    />
+              <xs:element name='Currency'                    type='CurrencyType'  />
+              <xs:element name='Date'                        type='xs:dateTime'   />
+              <xs:element name='ExpectedDate'                type='xs:dateTime'   />
+              <xs:element name='Items'                       type='ItemType'      />
+              <xs:element name='OptionAllowBackorder'        type='xs:boolean'    />
+              <xs:element name='OptionAllowCostChanges'      type='xs:boolean'    />
+              <xs:element name='OptionAllowPartialShipments' type='xs:boolean'    />
+              <xs:element name='OptionAllowSubstitutions'    type='xs:boolean'    />
+              <xs:element name='OptionDropShip'              type='xs:boolean'    />
+              <xs:element name='Reference'                   type='ReferenceType' />
+              <xs:element name='Remarks'                     type='xs:string'     />
+              <xs:element name='SellerReference'             type='ReferenceType' />
+              <xs:element name='ShipTo'                      type='ShipToType'    />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='ConsumerType'>
-        <xs:sequence>
-          <xs:element name='Address'    type='AddressType'   />
-          <xs:element name='ContractId' type='xs:string'     />
-          <xs:element name='Email'      type='xs:string'     />
-          <xs:element name='Name'       type='xs:string'     />
-          <xs:element name='Phone'      type='xs:string'     />
-          <xs:element name='Reference'  type='ReferenceType' />
-          <xs:element name='Remarks'    type='xs:string'     />
-          <xs:element name='TaxNumber'  type='xs:string'     />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='ReferenceType'>
+            <xs:sequence>
+              <xs:element name='BuyerReference'        type='xs:string' />
+              <xs:element name='ConsumerReference'     type='xs:string' />
+              <xs:element name='Description'           type='xs:string' />
+              <xs:element name='DocumentReference'     type='xs:string' />
+              <xs:element name='LineNumberReference'   type='xs:string' />
+              <xs:element name='ManufacturerReference' type='xs:string' />
+              <xs:element name='SellerReference'       type='xs:string' />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='CurrencyType'>
-        <xs:sequence>
-          <xs:element name='Code'      type='xs:string'  />
-          <xs:element name='Number'    type='xs:integer' />
-          <xs:element name='Precision' type='xs:integer' />
-          <xs:element name='Scale'     type='xs:integer' />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='ShipToType'>
+            <xs:sequence>
+              <xs:element name='Address'   type='AddressType'   />
+              <xs:element name='Email'     type='xs:string'     />
+              <xs:element name='Name'      type='xs:string'     />
+              <xs:element name='Phone'     type='xs:string'     />
+              <xs:element name='Reference' type='ReferenceType' />
+              <xs:element name='Remarks'   type='xs:string'     />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='ItemType'>
-        <xs:sequence>
-          <xs:element name='Amount'               type='MoneyType'       />
-          <xs:element name='AmountSubjectToTerms' type='MoneyType'       />
-          <xs:element name='Description'          type='xs:string'       />
-          <xs:element name='Discount'             type='MoneyType'       />
-          <xs:element name='ExpectedDate'         type='xs:dateTime'     />
-          <xs:element name='Freight'              type='MoneyType'       />
-          <xs:element name='Id'                   type='xs:string'       />
-          <xs:element name='LineNumber'           type='xs:integer'      />
-          <xs:element name='Make'                 type='xs:string'       />
-          <xs:element name='Model'                type='xs:string'       />
-          <xs:element name='Quantity'             type='xs:float'        />
-          <xs:element name='QuantityAcknowledged' type='xs:decimal'      />
-          <xs:element name='Reference'            type='ReferenceType'   />
-          <xs:element name='Remarks'              type='xs:string'       />
-          <xs:element name='SerialNumber'         type='xs:string'       />
-          <xs:element name='Tax'                  type='MoneyType'       />
-          <xs:element name='Unit'                 type='UnitMeasureType' />
-          <xs:element name='UnitCost'             type='MoneyType'       />
-        </xs:sequence>
-      </xs:complexType>
+          <xs:complexType name='UnitMeasureType'>
+            <xs:sequence>
+              <xs:element name='Description'     type='xs:string'  />
+              <xs:element name='MachineFacingID' type='xs:string'  />
+              <xs:element name='Quantity'        type='xs:decimal' />
+            </xs:sequence>
+          </xs:complexType>
 
-      <xs:complexType name='ItemsCollection'>
-        <xs:sequence minOccurs='1' maxOccurs='5000'>
-          <xs:element name='item' type='ItemType'/>
-        </xs:sequence>
-      </xs:complexType>
-
-      <xs:complexType name='MoneyType'>
-        <xs:sequence>
-          <xs:element name='Amount' type='xs:decimal'   />
-          <xs:element name='Type'   type='CurrencyType' />
-        </xs:sequence>
-      </xs:complexType>
-
-      <xs:complexType name='OrderType'>
-        <xs:sequence>
-          <xs:element name='BillTo'                      type='BillToType'    />
-          <xs:element name='Buyer'                       type='BuyerType'     />
-          <xs:element name='Carrier'                     type='CarrierType'   />
-          <xs:element name='Consumer'                    type='ConsumerType'  />
-          <xs:element name='CountEmbedded'               type='xs:integer'    />
-          <xs:element name='Currency'                    type='CurrencyType'  />
-          <xs:element name='Date'                        type='xs:dateTime'   />
-          <xs:element name='ExpectedDate'                type='xs:dateTime'   />
-          <xs:element name='Items'                       type='ItemType'      />
-          <xs:element name='OptionAllowBackorder'        type='xs:boolean'    />
-          <xs:element name='OptionAllowCostChanges'      type='xs:boolean'    />
-          <xs:element name='OptionAllowPartialShipments' type='xs:boolean'    />
-          <xs:element name='OptionAllowSubstitutions'    type='xs:boolean'    />
-          <xs:element name='OptionDropShip'              type='xs:boolean'    />
-          <xs:element name='Reference'                   type='ReferenceType' />
-          <xs:element name='Remarks'                     type='xs:string'     />
-          <xs:element name='SellerReference'             type='ReferenceType' />
-          <xs:element name='ShipTo'                      type='ShipToType'    />
-        </xs:sequence>
-      </xs:complexType>
-
-      <xs:complexType name='ReferenceType'>
-        <xs:sequence>
-          <xs:element name='BuyerReference'        type='xs:string' />
-          <xs:element name='ConsumerReference'     type='xs:string' />
-          <xs:element name='Description'           type='xs:string' />
-          <xs:element name='DocumentReference'     type='xs:string' />
-          <xs:element name='LineNumberReference'   type='xs:string' />
-          <xs:element name='ManufacturerReference' type='xs:string' />
-          <xs:element name='SellerReference'       type='xs:string' />
-        </xs:sequence>
-      </xs:complexType>
-
-      <xs:complexType name='ShipToType'>
-        <xs:sequence>
-          <xs:element name='Address'   type='AddressType'   />
-          <xs:element name='Email'     type='xs:string'     />
-          <xs:element name='Name'      type='xs:string'     />
-          <xs:element name='Phone'     type='xs:string'     />
-          <xs:element name='Reference' type='ReferenceType' />
-          <xs:element name='Remarks'   type='xs:string'     />
-        </xs:sequence>
-      </xs:complexType>
-
-      <xs:complexType name='UnitMeasureType'>
-        <xs:sequence>
-          <xs:element name='Description'     type='xs:string'  />
-          <xs:element name='MachineFacingID' type='xs:string'  />
-          <xs:element name='Quantity'        type='xs:decimal' />
-        </xs:sequence>
-      </xs:complexType>
-
-    </xs:schema>
+        </xs:schema>
 
 
-## Version 2.0
+### Version 2.0
+
+1.  JSON
+
+    1.  TODO
+
+            {
+              "id": "./vnd.eci.stg.order.2.0.0.json",
+              "$schema": "http://json-schema.org/draft-08/schema#",
+              "title": "Order"
+            }
+
+2.  XML
+
+    1.  TODO
+
+            <?xml version='1.0' encoding='utf-8'?>
+            <order/>
 
 
-### JSON
-
-1.  TODO
-
-        {
-          "id": "./vnd.eci.stg.order.2.0.0.json",
-          "$schema": "http://json-schema.org/draft-08/schema#",
-          "title": "Order"
-        }
-
-
-### XML
-
-1.  TODO
-
-        <?xml version='1.0' encoding='utf-8'?>
-        <order/>
-
-
-# Testing
+## Testing
 
     ../test-json.sh 2>&1
     ../test-xml.sh 2>&1

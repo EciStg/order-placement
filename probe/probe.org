@@ -3,8 +3,10 @@
 #+EXPORT_FILE_NAME: ./README.md
 #+OPTIONS: toc:nil
 #+PROPERTY: mkdirp yes
+#+STARTUP: content
 
-* Technical Overview
+* Probe
+** Technical Overview
 Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
 other applications the ability to proactively monitor the health of APIs and applications. It is
 expected that IT will be routinely calling the required probes with network and application health
@@ -23,11 +25,11 @@ Pragma: no-cache
 Expires: 0
 #+END_SRC
 
-* ~./probes/top~
+** ~./probes/top~
 
-** Version 1.0 /unsupported/
+*** Version 1.0 /unsupported/
 
-** Version 1.5 /required/
+*** Version 1.5 /required/
 
 This probe MUST be a light weight indicator of API or application availability. QA/IT/Support and
 other applications MUST be able to GET this low impact fast running probe. It is expected that this
@@ -39,15 +41,15 @@ the caller.
 curl -sw "%{http_code}\\n" http://localhost:3000/apis/v0/order/probes/top
 #+END_SRC
 
-** Version 2.0
+*** Version 2.0
 
 No changes to date
 
-* ~./probes/bottom~
+** ~./probes/bottom~
 
-** Version 1.0 /unsupported/
+*** Version 1.0 /unsupported/
 
-** Version 1.5 /required/
+*** Version 1.5 /required/
 
 This probe should test all of the layers of the API or application and all vital connections to
 required systems, APIs, databases, etc. QA/IT/Support staff and other applications MUST be able to
@@ -56,7 +58,7 @@ Calling applications are required to check the HTTP status code as a pass ( /200
 indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
 or more probe resources, each of which will contain its own HTTP Status Code.
 
-*** JSON
+**** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
   [
@@ -76,7 +78,7 @@ or more probe resources, each of which will contain its own HTTP Status Code.
   ]
 #+END_SRC
 
-*** XML
+**** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml
   <probes>
@@ -96,14 +98,14 @@ or more probe resources, each of which will contain its own HTTP Status Code.
   </probes>
 #+END_SRC
 
-** Version 2.0
+*** Version 2.0
 
 No changes to date
 
-* ~./probes~
-** Version 1.0 /unsupported/
+** ~./probes~
+*** Version 1.0 /unsupported/
 
-** Version 1.5 /optional/
+*** Version 1.5 /optional/
 
 APIs or Applications MAY choose to support individual probes outside of the top / bottom convention.
 QA/IT/Support staff and other applications may attempt a GET on this URL and will expect the endpoint
@@ -113,7 +115,7 @@ resources. These custom probes are expected to be run on demand, not routinely e
 and application health monitoring systems as the duration and impact of the probe's execution is not
 defined.
 
-*** JSON
+**** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json
   [
@@ -128,7 +130,7 @@ defined.
   ]
 #+END_SRC
 
-*** XML
+**** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml
   <probes>
@@ -144,11 +146,11 @@ defined.
 
 #+END_SRC
 
-** Version 2.0
+*** Version 2.0
 
 No changes to date
 
-* Resource Schema
+** Resource Schema
 
 ~self~ Required. URL identifying the probe
 
@@ -175,13 +177,13 @@ implementor can use this field in any way they see fit. If populated the value
 should give the human user some idea of where the failure or warning is happening
 and why it might be happening.
 
-** Version 1.0
+*** Version 1.0
 
 Not supported
 
-** Version 1.5
+*** Version 1.5
 
-*** JSON
+**** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json
   {
@@ -249,7 +251,7 @@ Not supported
 
 #+END_SRC
 
-*** XML
+**** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd
   <?xml version='1.0' encoding='utf-8'?>
@@ -284,9 +286,9 @@ Not supported
   </xs:schema>
 
 #+END_SRC
-** Version 2.0
-*** TODO
-* Test Results
+*** Version 2.0
+**** TODO
+** Test Results
 
 #+BEGIN_SRC shell :exports both :results verbatim
   ../test-json.sh 2>&1

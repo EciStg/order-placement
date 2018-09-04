@@ -1,6 +1,9 @@
 
 
-# Test Results
+# Order Placement System
+
+
+## Test Results
 
 In the spirit of 'test first' here are the the test results of the latest build.
 
@@ -8,12 +11,12 @@ In the spirit of 'test first' here are the the test results of the latest build.
     ./test-xml.sh 2>&1
 
 
-# The Order Placement System
+## Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 
-## Actors
+### Actors
 
 Within the ECi Order Placement system a dealer typically takes on the role of *Buyer*. A vendor or
 supplier (typical readers of this document) take the role of *Seller*. A *Consumer* is the buyer's
@@ -28,7 +31,7 @@ them.
 ![img](./images/consumer-usecases.puml.png)
 
 
-## Endpoints
+### Endpoints
 
 There are six endpoints, three provided by the Seller's system
 
@@ -39,33 +42,31 @@ And three provided by the Buyer's system:
 ![img](./images/sequence-seller2buyer.puml.png)
 
 
-## Connecting
+### Connecting
+
+1.  HTTPS / TLS
+
+    The ECi Order Placement services will always connect using a minimum of TLS 1.2.
+
+2.  Authentication
+
+    1.  Buyer -> Seller
+
+        The Seller is responsible for providing participating dealers (Buyers) a user name
+        and password which the ECi system will use to connect to the Seller's system. This
+        information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
+        Stock and Order resources allow for additional non-schema defined information
+        (opaque) to be supplied by the Buyer and delivered to the Seller.
+
+    2.  Seller -> Buyer
+
+        ECi is responsible for assigning and maintaining an ID and an API key to each of
+        the Seller systems. This information will be passed to the buyer system via HTTP
+        Basic Authentication. Stock and Order resources allow for additional non-schema
+        defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
 
 
-### HTTPS / TLS
-
-The ECi Order Placement services will always connect using a minimum of TLS 1.2.
-
-
-### Authentication
-
-1.  Buyer -> Seller
-
-    The Seller is responsible for providing participating dealers (Buyers) a user name
-    and password which the ECi system will use to connect to the Seller's system. This
-    information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
-    Stock and Order resources allow for additional non-schema defined information
-    (opaque) to be supplied by the Buyer and delivered to the Seller.
-
-2.  Seller -> Buyer
-
-    ECi is responsible for assigning and maintaining an ID and an API key to each of
-    the Seller systems. This information will be passed to the buyer system via HTTP
-    Basic Authentication. Stock and Order resources allow for additional non-schema
-    defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
-
-
-## Code / Reference Type
+### Code / Reference Type
 
 At the heart of the order placement 1.0 resource schema is the notion or concept of a code. A code
 is intended to describe a thing of interest to both humans and software and has the following three
@@ -155,7 +156,7 @@ Example Schema
     </xs:schema>
 
 
-## Resource Types
+### Resource Types
 
 These types are intended to represent data in flight and are not meant to represent data at rest.
 
@@ -170,77 +171,75 @@ Buyer's system can be programmed to send and receive resources in other represen
 though this is not part of the standard agreement and will need to be addressed separately.
 
 
-# Endpoints
+## Endpoints
 
 
-## Invoice
+### Invoice
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Invoice [documentation](./invoice/invoice.md)
 
 
-## Order
+### Order
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Order [documentation](./order/order.md)
 
 
-## Probes
+### Probes
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Probe [documentation](./probe/probe.md)
 
 
-## Ship Method
+### Ship Method
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Ship Method [documentation](./ship-method/ship-method.md)
 
 
-## Stock
+### Stock
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Stock [documentation](./stock/stock.md)
 
 
-# Testing
+## Testing
 
 
-## Schemas
+### Schemas
+
+1.  JSON
 
 
-### JSON
+        #!/bin/bash
+        #
+        # brew install jsonlint
+        # npm install jsonlint -g
+        #
+
+        #
+        # make sure all of the files are well-formed JSON
+        find ./rsrc-schema/tst ./rsrc-schema/src -type f -name '*.json' -exec jsonlint --quiet --compact {} \;
+
+2.  XML
 
 
-    #!/bin/bash
-    #
-    # brew install jsonlint
-    # npm install jsonlint -g
-    #
+        #!/bin/bash
+        #
+        # brew install xmllint
 
-    #
-    # make sure all of the files are well-formed JSON
-    find ./rsrc-schema/tst ./rsrc-schema/src -type f -name '*.json' -exec jsonlint --quiet --compact {} \;
+        # make sure all of the files are well-formed xml
+        find ./rsrc-schema/src -type f -name '*.xsd' -exec xmllint --noout {} \;
+        find ./rsrc-schema/tst -type f -name '*.xml' -exec xmllint --noout {} \;
 
 
-### XML
-
-
-    #!/bin/bash
-    #
-    # brew install xmllint
-
-    # make sure all of the files are well-formed xml
-    find ./rsrc-schema/src -type f -name '*.xsd' -exec xmllint --noout {} \;
-    find ./rsrc-schema/tst -type f -name '*.xml' -exec xmllint --noout {} \;
-
-
-# About this document
+## About this document
 
 These documents were created using [emacs's](https://www.gnu.org/software/emacs/) org mode in a Literate Programming style with additional
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
@@ -261,12 +260,12 @@ will be weaved or tangled but may execute "silently".
            (make-directory "./rsrc-schema/tst" t))
 
 
-## Tangle
+### Tangle
 
 To tangle documents use the key binding **C-c C-v t**
 
 
-## Export
+### Export
 
 To export documents use the key binding **C-c C-e** and choose your preferred export format. For this
 project I am using Markdown e.g. **C-c C-e m m**

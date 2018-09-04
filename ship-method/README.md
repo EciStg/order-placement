@@ -1,11 +1,14 @@
 
 
-# Technical Overview
+# Ship Methods
+
+
+## Technical Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 
-# Sequence of Events
+## Sequence of Events
 
 ![img](../images/shipmethod-sequence.puml.png)
 
@@ -19,78 +22,72 @@ call with the required headers e.g.
          --url http://vendor-host/vendor-shipmethod-endpoint
 
 
-# Use Cases
+## Use Cases
 
 
-## TODO
+### TODO
 
 Version 1.0
 
+1.  Request
 
-### Request
+    In this example a buyer is
 
-In this example a buyer is
+    1.  JSON
 
-1.  JSON
+            {}
 
-        {}
+    2.  XML
 
-2.  XML
+            <?xml version='1.0' encoding='utf-8'?>
+            <shipmethod/>
 
-        <?xml version='1.0' encoding='utf-8'?>
-        <shipmethod/>
+2.  Response
 
+    The seller's response is intended to
 
-### Response
+    1.  JSON
 
-The seller's response is intended to
+            {}
 
-1.  JSON
+    2.  XML
 
-        {}
-
-2.  XML
-
-        <?xml version='1.0' encoding='utf-8'?>
-        <shipmethod/>
+            <?xml version='1.0' encoding='utf-8'?>
+            <shipmethod/>
 
 
-# Resource Schemas
+## Resource Schemas
 
 
-## Version 1.0
+### Version 1.0
 
 No longer published
 
 
-## Version 1.5
+### Version 1.5
+
+1.  JSON
+
+        {
+          "id": "./vnd.eci.stg.shipmethod.1.5.0.json",
+          "$schema": "http://json-schema.org/draft-08/schema#",
+          "title": "ShipMethod"
+        }
+
+2.  XML
+
+        <?xml version='1.0' encoding='utf-8'?>
+        <shipmethod/>
 
 
-### JSON
+### Version 2.0
 
-    {
-      "id": "./vnd.eci.stg.shipmethod.1.5.0.json",
-      "$schema": "http://json-schema.org/draft-08/schema#",
-      "title": "ShipMethod"
-    }
+1.  JSON
+
+2.  XML
 
 
-### XML
-
-    <?xml version='1.0' encoding='utf-8'?>
-    <shipmethod/>
-
-
-## Version 2.0
-
-
-### JSON
-
-
-### XML
-
-
-# Testing
+## Testing
 
     ../test-json.sh 2>&1
     ../test-xml.sh 2>&1
