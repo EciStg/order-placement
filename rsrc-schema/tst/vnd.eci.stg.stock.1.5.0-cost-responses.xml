@@ -1,6 +1,14 @@
-<items>
-  <item>
-    <sellerRef>abc-123</sellerRef>
-    <unitCost>99.99</unitCost>
-  </item>
-</items>
+<?xml version='1.0' encoding='utf-8'?>
+
+<Stock>
+  <Items>
+    <Item>
+      <Reference>
+        <SellerReference>abc-123</SellerReference>
+      </Reference>
+      <UnitCost>
+        <Amount>99.99</Amount>
+      </UnitCost>
+    </Item>
+  </Items>
+</Stock>

@@ -1,6 +1,12 @@
-<items>
-  <item>
-    <sellerRef>abc-123</sellerRef>
-    <quantity>12</quantity>
-  </item>
-</items>
+<?xml version='1.0' encoding='utf-8'?>
+
+<Stock>
+  <Items>
+    <Item>
+      <Quantity>12</Quantity>
+      <Reference>
+        <SellerReference>abc-123</SellerReference>
+      </Reference>
+    </Item>
+  </Items>
+</Stock>

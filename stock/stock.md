@@ -60,11 +60,17 @@ seller as *abc-123*.
 
 2.  XML
 
-        <items>
-          <item>
-            <sellerRef>abc-123</sellerRef>
-          </item>
-        </items>
+        <?xml version='1.0' encoding='utf-8'?>
+
+        <Stock>
+          <Items>
+            <Item>
+              <Reference>
+                <SellerReference>abc-123</SellerReference>
+              </Reference>
+            </Item>
+          </Items>
+        </Stock>
 
 
 ### Response
@@ -77,12 +83,20 @@ The seller's response is intended to inform the buyer that the the item will cos
 
 2.  XML
 
-        <items>
-          <item>
-            <sellerRef>abc-123</sellerRef>
-            <unitCost>99.99</unitCost>
-          </item>
-        </items>
+        <?xml version='1.0' encoding='utf-8'?>
+
+        <Stock>
+          <Items>
+            <Item>
+              <Reference>
+                <SellerReference>abc-123</SellerReference>
+              </Reference>
+              <UnitCost>
+                <Amount>99.99</Amount>
+              </UnitCost>
+            </Item>
+          </Items>
+        </Stock>
 
 
 ## As an unidentified buyer I would like to know if the seller has enough stock to satisfy my order
@@ -101,12 +115,18 @@ items ( *24* ) for a product known to the seller as *abc-123*.
 
 2.  XML
 
-        <items>
-          <item>
-            <sellerRef>abc-123</sellerRef>
-            <quantity>24</quantity>
-          </item>
-        </items>
+        <?xml version='1.0' encoding='utf-8'?>
+
+        <Stock>
+          <Items>
+            <Item>
+              <Quantity>24</Quantity>
+              <Reference>
+                <SellerReference>abc-123</SellerReference>
+              </Reference>
+            </Item>
+          </Items>
+        </Stock>
 
 
 ### Response
@@ -121,12 +141,18 @@ items ( *24* ) for a product known to the seller as *abc-123*.
 
         2.  XML
 
-                <items>
-                  <item>
-                    <sellerRef>abc-123</sellerRef>
-                    <quantity>24</quantity>
-                  </item>
-                </items>
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <Stock>
+                  <Items>
+                    <Item>
+                      <Quantity>24</Quantity>
+                      <Reference>
+                        <SellerReference>abc-123</SellerReference>
+                      </Reference>
+                    </Item>
+                  </Items>
+                </Stock>
 
     2.  the quantity on hand ( *103* )
 
@@ -136,12 +162,18 @@ items ( *24* ) for a product known to the seller as *abc-123*.
 
         2.  XML
 
-                <items>
-                  <item>
-                    <sellerRef>abc-123</sellerRef>
-                    <quantity>103</quantity>
-                  </item>
-                </items>
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <Stock>
+                  <Items>
+                    <Item>
+                      <Quantity>103</Quantity>
+                      <Reference>
+                        <SellerReference>abc-123</SellerReference>
+                      </Reference>
+                    </Item>
+                  </Items>
+                </Stock>
 
     3.  a fixed value e.g. *1,000*.
 
@@ -151,12 +183,18 @@ items ( *24* ) for a product known to the seller as *abc-123*.
 
         2.  XML
 
-                <items>
-                  <item>
-                    <sellerRef>abc-123</sellerRef>
-                    <quantity>1000</quantity>
-                  </item>
-                </items>
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <Stock>
+                  <Items>
+                    <Item>
+                      <Quantity>1000</Quantity>
+                      <Reference>
+                        <SellerReference>abc-123</SellerReference>
+                      </Reference>
+                    </Item>
+                  </Items>
+                </Stock>
 
 2.  If the seller cannot deliver the buyer's requested quantity ( *24* ) the seller may reply with
 
@@ -168,12 +206,18 @@ items ( *24* ) for a product known to the seller as *abc-123*.
 
         2.  XML
 
-                <items>
-                  <item>
-                    <sellerRef>abc-123</sellerRef>
-                    <quantity>12</quantity>
-                  </item>
-                </items>
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <Stock>
+                  <Items>
+                    <Item>
+                      <Quantity>12</Quantity>
+                      <Reference>
+                        <SellerReference>abc-123</SellerReference>
+                      </Reference>
+                    </Item>
+                  </Items>
+                </Stock>
 
     2.  a fixed value e.g. *0*.
 
@@ -183,12 +227,18 @@ items ( *24* ) for a product known to the seller as *abc-123*.
 
         2.  XML
 
-                <items>
-                  <item>
-                    <sellerRef>abc-123</sellerRef>
-                    <quantity>0</quantity>
-                  </item>
-                </items>
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <Stock>
+                  <Items>
+                    <Item>
+                      <Quantity>0</Quantity>
+                      <Reference>
+                        <SellerReference>abc-123</SellerReference>
+                      </Reference>
+                    </Item>
+                  </Items>
+                </Stock>
 
 
 ## As an unidentified buyer I would like to be able to specify a date when the order must be received.
@@ -264,133 +314,215 @@ No longer published
 ## Version 1.5
 
 
-### Stock
+### JSON
 
-1.  JSON
+    {
+      "id": "./vnd.eci.stg.stock.1.5.0.json",
+      "title": "Stock, Cost, Date Collection",
+      "description": "a collection items a buyer may purchase from a seller",
+      "type": "object",
+      "properties" : {
 
-        {
-          "id": "./vnd.eci.stg.stock.1.5.0.json",
-          "title": "Stock, Cost, Date Collection",
-          "description": "a collection items a buyer may purchase from a seller",
+        "items": {
+          "description": "the unique items that have or will have stock and cost information",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items" : {
+            "$ref" : "#/definitions/item"
+          }
+        }
+      },
+
+      "additionalProperties": false,
+
+      "definitions" : {
+        "item": {
+          "title": "Stock, Cost, Date Item",
+          "description": "describes the items a buyer would like to purchase from a seller.",
           "type": "object",
           "properties" : {
 
-            "items": {
-              "description": "the unique items that have or will have stock and cost information",
-              "type": "array",
-              "minItems": 1,
-              "maxItems": 1000,
-              "uniqueItems": true,
-              "items" : {
-                "$ref" : "#/definitions/item"
-              }
+            "sellerRef": {
+              "description": "seller function identifying a unique seller owned resource",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
+            "quantity": {
+              "description": "the number of individual units in the measure e.g. Box of 20",
+              "type": "number",
+              "minimum" : 1,
+              "maximum" : 999999999.999999
+            },
+
+            "unitCost": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
             }
           },
 
-          "additionalProperties": false,
-
-          "definitions" : {
-            "item": {
-              "title": "Stock, Cost, Date Item",
-              "description": "describes the items a buyer would like to purchase from a seller.",
-              "type": "object",
-              "properties" : {
-
-                "sellerRef": {
-                  "description": "seller function identifying a unique seller owned resource",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "quantity": {
-                  "description": "the number of individual units in the measure e.g. Box of 20",
-                  "type": "number",
-                  "minimum" : 1,
-                  "maximum" : 999999999.999999
-                },
-
-                "unitCost": {
-                  "description": "",
-                  "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
-                }
-              },
-
-              "additionalProperties": false
-            }
-          }
+          "additionalProperties": false
         }
+      }
+    }
 
-2.  XML
 
-        <?xml version='1.0' encoding='utf-8'?>
+### XML
 
-        <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-                   elementFormDefault='qualified'
-                   xml:lang='en'>
+    <?xml version='1.0' encoding='utf-8'?>
 
-          <xs:element name='items'>
-            <xs:complexType>
-              <xs:sequence minOccurs='1' maxOccurs='1000'>
-                <xs:element name='item' type='StockItemType'/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
+    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+               elementFormDefault='qualified'
+               xml:lang='en'>
 
-          <xs:complexType name='StockItemType'>
-            <xs:sequence>
-              <xs:annotation>
-                <xs:documentation>
-                  The set of returned products must not contain duplicate products (that
-                  is the nature of sets), and products, by defition, must have a unique
-                  ID. Currently we do not place a restriction on the number of products
-                  that can be requested at one time, but we should probably do that soon
-                  to protect both ECi and the Vendor.
-                </xs:documentation>
-              </xs:annotation>
-              <xs:element name='sellerRef' type='IDType' minOccurs='0' maxOccurs='1'/>
-              <xs:element name='quantity' type='QuantityType' minOccurs='0' maxOccurs='1'/>
-              <xs:element name='unitCost' type='CostType' minOccurs='0' maxOccurs='1'/>
-            </xs:sequence>
-          </xs:complexType>
+      <xs:element name='Stock' type='StockType'/>
 
-          <xs:simpleType name='CostType'>
-            <xs:annotation>
-              <xs:documentation>
-                Every Product must have a unit cost that is equal to or greater than
-                0 and must cost just under one trillion monetary units. Version 1.5.0
-                assumes the monetary unit is US Dollars.
-              </xs:documentation>
-            </xs:annotation>
-            <xs:restriction base='xs:decimal'>
-              <xs:minInclusive value='0'/>
-              <xs:maxInclusive value='999999999999.999999'/>
-              <xs:fractionDigits value='6'/>
-              <xs:totalDigits value='18'/>
-            </xs:restriction>
-          </xs:simpleType>
+      <xs:complexType name='AddressType'>
+        <xs:sequence>
+          <xs:element name='AlternateLocation' type='xs:string' />
+          <xs:element name='Attention'         type='xs:string' />
+          <xs:element name='City'              type='xs:string' />
+          <xs:element name='Country'           type='xs:string' />
+          <xs:element name='MailStopCode'      type='xs:string' />
+          <xs:element name='Recipient'         type='xs:string' />
+          <xs:element name='Remarks'           type='xs:string' />
+          <xs:element name='State'             type='xs:string' />
+          <xs:element name='Street'            type='xs:string' />
+          <xs:element name='Tag'               type='xs:string' />
+          <xs:element name='Zip'               type='xs:string' />
+        </xs:sequence>
+      </xs:complexType>
 
-          <xs:simpleType name='IDType'>
-            <xs:annotation>
-              <xs:documentation>
-                Every Product must have at least one ID and that ID must uniquely locate
-                only one product; a Product may have more than one ID but a ID must relate
-                to only a single product.
-              </xs:documentation>
-            </xs:annotation>
-            <xs:restriction base='xs:token'>
-              <xs:minLength value='1'/>
-              <xs:maxLength value='32'/>
-            </xs:restriction>
-          </xs:simpleType>
+      <xs:complexType name='BuyerType'>
+        <xs:sequence>
+          <xs:element name='Address'   type='AddressType'   />
+          <xs:element name='Email'     type='xs:string'     />
+          <xs:element name='Name'      type='xs:string'     />
+          <xs:element name='Phone'     type='xs:string'     />
+          <xs:element name='Reference' type='ReferenceType' />
+          <xs:element name='Remarks'   type='xs:string'     />
+          <xs:element name='TaxNumber' type='xs:string'     />
+        </xs:sequence>
+      </xs:complexType>
 
-          <xs:simpleType name='QuantityType'>
-            <xs:restriction base='xs:unsignedInt'/>
-          </xs:simpleType>
+      <xs:complexType name='CurrencyType'>
+        <xs:sequence>
+          <xs:element name='Code'      type='xs:string'  />
+          <xs:element name='Number'    type='xs:integer' />
+          <xs:element name='Precision' type='xs:integer' />
+          <xs:element name='Scale'     type='xs:integer' />
+        </xs:sequence>
+      </xs:complexType>
 
-        </xs:schema>
+      <xs:complexType name='ItemType'>
+        <xs:sequence>
+          <xs:element name='Amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='AmountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='Description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='Discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='ExpectedDate'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+          <xs:element name='Freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='LineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
+          <xs:element name='Make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='Model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='Quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
+          <xs:element name='QuantityAcknowledged' type='xs:decimal'      minOccurs='0' maxOccurs='1' />
+          <xs:element name='Reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
+          <xs:element name='Remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='SerialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='Tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
+          <xs:element name='Unit'                 type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+          <xs:element name='UnitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='ItemsType'>
+        <xs:sequence minOccurs='1' maxOccurs='5000'>
+          <xs:element name='Item' type='ItemType'/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='MoneyType'>
+        <xs:sequence>
+          <xs:element name='Amount'   type='xs:decimal'   maxOccurs='1' />
+          <xs:element name='Currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='ReferenceType'>
+        <xs:sequence>
+          <xs:element name='BuyerReference'        type='xs:string' minOccurs='0' maxOccurs='1' />
+          <xs:element name='ConsumerReference'     type='xs:string' minOccurs='0' maxOccurs='1' />
+          <xs:element name='Description'           type='xs:string' minOccurs='0' maxOccurs='1' />
+          <xs:element name='DocumentReference'     type='xs:string' minOccurs='0' maxOccurs='1' />
+          <xs:element name='LineNumberReference'   type='xs:string' minOccurs='0' maxOccurs='1' />
+          <xs:element name='ManufacturerReference' type='xs:string' minOccurs='0' maxOccurs='1' />
+          <xs:element name='SellerReference'       type='xs:string' minOccurs='0' maxOccurs='1' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='StockType'>
+        <xs:sequence>
+          <xs:element name='Buyer'           type='BuyerType'     minOccurs='0' maxOccurs='1' />
+          <xs:element name='CountEmbedded'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
+          <xs:element name='Currency'        type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+          <xs:element name='Date'            type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+          <xs:element name='DateExpected'    type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+          <xs:element name='Items'           type='ItemsType'     minOccurs='1' maxOccurs='1' />
+          <xs:element name='Reference'       type='ReferenceType' minOccurs='0' maxOccurs='1' />
+          <xs:element name='Remarks'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+          <xs:element name='SellerReference' type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name='UnitMeasureType'>
+        <xs:sequence>
+          <xs:element name='Description'     type='xs:string'  />
+          <xs:element name='MachineFacingID' type='xs:string'  />
+          <xs:element name='Quantity'        type='xs:decimal' />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name='CostType'>
+        <xs:annotation>
+          <xs:documentation>
+            Every Product must have a unit cost that is equal to or greater than
+            0 and must cost just under one trillion monetary units. Version 1.5.0
+            assumes the monetary unit is US Dollars.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base='xs:decimal'>
+          <xs:minInclusive value='0'/>
+          <xs:maxInclusive value='999999999999.999999'/>
+          <xs:fractionDigits value='6'/>
+          <xs:totalDigits value='18'/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name='IDType'>
+        <xs:annotation>
+          <xs:documentation>
+            Every Product must have at least one ID and that ID must uniquely locate
+            only one product; a Product may have more than one ID but a ID must relate
+            to only a single product.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base='xs:token'>
+          <xs:minLength value='1'/>
+          <xs:maxLength value='32'/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name='QuantityType'>
+        <xs:restriction base='xs:unsignedInt'/>
+      </xs:simpleType>
+
+    </xs:schema>
 
 
 ## Version 2.0
