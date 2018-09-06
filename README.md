@@ -72,31 +72,31 @@ At the heart of the order placement 1.0 resource schema is the notion or concept
 is intended to describe a thing of interest to both humans and software and has the following three
 components:
 
--   **code:** software facing identity function; used to identify the object to a software system
--   **name:** human facing identity function; use to identify the object to human readers
--   **desc:** human facing description providing more information than the name allows
+-   **Code:** software facing identity function; used to identify the object to a software system
+-   **Description:** human facing description providing more information than the name allows
+-   **Name:** human facing identity function; use to identify the object to human readers
 
 In version 1.5 and beyond the code type will be replaced with a reference type. The human facing
 elements are left in place and has an additional `remarks` field. The software facing `code` has
 been extended to allow us to identify a thing in many different systems.
 
--   **codes:** an array of codes that identify the object in one or more software systems
--   **desc:** human facing description providing more information than the name allows
--   **name:** human facing identity function; use to identify the object to human readers
--   **remarks:** non-schema human facing information sent back and forth between buyer and seller
+-   **Codes:** an array of codes that identify the object in one or more software systems
+-   **Description:** human facing description providing more information than the name allows
+-   **Name:** human facing identity function; use to identify the object to human readers
+-   **Remarks:** non-schema human facing information sent back and forth between buyer and seller
 
 The array of `codes` will be be populated with one or more codes, where a code is defined as
 
--   **code:** retains its definition above. the form changes but the concept remains i.e. software facing identity function; used to identify the object to one or more software systems
--   **reference:** the actor system that 'owns' or the value.
+-   **Code:** retains its definition above. the form changes but the concept remains i.e. software facing identity function; used to identify the object to one or more software systems
+-   **Reference:** the actor system that 'owns' or the value.
 
 A contrived example, under my fingers is a keyboard. Using the reference type we can describe the
 keyboard from the viewpoint of different actor's actor systems:
 
--   **desc:** four channel bluetooth Apple layout full size aluminum keyboard with backlit keys
--   **name:** wireless keyboard
--   **remarks:** requires two AAA batteries
--   **codes:** [[ buyer : wbkbd2345 ] [ seller : kbdbt4cha ]]
+-   **Codes:** [[ buyer : wbkbd2345 ] [ seller : kbdbt4cha ]]
+-   **Description:** four channel bluetooth Apple layout full size aluminum keyboard with backlit keys
+-   **Name:** wireless keyboard
+-   **Remarks:** requires two AAA batteries
 
 Or in other words, this keyboard is known as `wbkbd2345` in the buyer's system and as `kbdbt4cha`
 in the Seller's system.
@@ -106,13 +106,13 @@ Example XML
     <?xml version='1.0' encoding='utf-8'?>
 
     <Reference>
-      <Desc>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</Desc>
-      <Name>wireless keyboard</Name>
-      <Remarks>requires two AAA batteries</Remarks>
       <Codes>
         <Code><Code>wbkbd2345</Code><Reference>Buyer</Reference></Code>
         <Code><Code>kbdbt4cha</Code><Reference>Seller</Reference></Code>
       </Codes>
+      <Name>wireless keyboard</Name>
+      <Description>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</Description>
+      <Remarks>requires two AAA batteries</Remarks>
     </Reference>
 
 Example Schema
@@ -125,10 +125,10 @@ Example Schema
 
       <xs:complexType name='ReferenceType'>
         <xs:sequence>
-          <xs:element name='Desc'    type='xs:string' />
-          <xs:element name='Name'    type='xs:string' />
-          <xs:element name='Remarks' type='xs:string' />
-          <xs:element name='Codes'   type='CodesType' />
+          <xs:element name='Codes'       type='CodesType' />
+          <xs:element name='Name'        type='xs:string' />
+          <xs:element name='Description' type='xs:string' />
+          <xs:element name='Remarks'     type='xs:string' />
         </xs:sequence>
       </xs:complexType>
 
@@ -154,6 +154,104 @@ Example Schema
         </xs:restriction>
       </xs:simpleType>
     </xs:schema>
+
+
+### Errors
+
+1.  Defition of Terms
+
+    -   **Code:** Software facing value that uniquely identifies the error. If `Code` is not populated `Name` MUST be populated
+    -   **Description:** Human facing text. Generally populated when there is a failure or warning of some type. If populated the value should give the human user some idea of where the failure or warning is happening and why it might be happening.
+    -   **Name:** Human facing value that uniquely identifies the probe. If `Name` is not populated `Code` MUST be populated
+    -   **Remarks:** Human facing text. Generally populated with one or more actions the user can take to solve the problem
+    -   **When:** The date and time of probe execution. If `When` is populated `HttpStatusCode` MUST also be populated
+
+2.  Resource Schema
+
+    1.  JSON
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                       elementFormDefault='qualified'
+                       xml:lang='en'>
+
+              <xs:element name='Items'>
+                <xs:complexType>
+                  <xs:sequence minOccurs='1' maxOccurs='50'>
+                    <xs:element name='Error' type='ErrorType'/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:complexType name='ErrorType'>
+                <xs:sequence>
+                  <xs:annotation>
+                    <xs:documentation>
+                      TODO
+                    </xs:documentation>
+                  </xs:annotation>
+                  <xs:element name='Code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+                  <xs:element name='Name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+                  <xs:element name='Description' type='xs:string'   minOccurs='0' maxOccurs='1' />
+                  <xs:element name='When'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
+                  <xs:element name='Remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:schema>
+
+    2.  XML
+
+            {
+              "id": "./vnd.eci.stg.error.1.5.0.json",
+              "$schema": "http://json-schema.org/draft-08/schema#",
+              "title": "Error",
+              "description": "defines when an error occurred, what the error was, and perhaps how to resolve it.",
+              "type": "array",
+              "Items": {
+                "additionalProperties": false,
+                "anyOf": [{"required": ["Code"]},
+                          {"required": ["Name"]},
+                          {"required": ["When"]}],
+
+                "properties" : {
+
+                  "Code": {
+                    "description": "software facing value used to identify and respond to errors",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 32
+                  },
+
+                  "Name": {
+                    "description": "human facing value used to identify and respond to errors",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 32
+                  },
+
+                  "Description": {
+                    "description": "human readable string describing the error",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+
+                  "When": {
+                    "description": "origination date and time of the error",
+                    "type" : "string",
+                    "format": "date-time"
+                  },
+
+                  "Remarks": {
+                    "description": "details of the error that may help users solve the problem",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength" : 256
+                  }
+                }
+              }
+            }
 
 
 ### Resource Types
@@ -188,7 +286,7 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 Order [documentation](./order/README.md)
 
 
-### Probes
+### Probe
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 

@@ -4,7 +4,7 @@
            elementFormDefault='qualified'
            xml:lang='en'>
 
-  <xs:element name='Probes'>
+  <xs:element name='Items'>
     <xs:complexType>
       <xs:sequence minOccurs='1' maxOccurs='50'>
         <xs:element name='Probe' type='ProbeType'/>

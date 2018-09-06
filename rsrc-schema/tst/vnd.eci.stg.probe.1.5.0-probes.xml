@@ -1,4 +1,4 @@
-<Probes>
+<Items>
   <Probe>
     <Self>https://some.server/some.service/probes/auth</Self>
     <Code>auth</Code>
@@ -7,4 +7,4 @@
     <Self>https://some.server/some.service/probes/con-db</Self>
     <Name>database connection test</Name>
   </Probe>
-</Probes>
+</Items>

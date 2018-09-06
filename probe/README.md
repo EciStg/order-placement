@@ -24,17 +24,12 @@ following HTTP headers:
 
 ## Defition of Terms
 
--   **Code:** Machine facing value that uniquely identifies the probe. If `code` is not populated `description` MUST be populated
-
--   **Description:** Human facing value that uniquely identifies the probe. If `description` is not populated `code` MUST be populated
-
--   **HttpStatusCode:** This property is normally populated when used as the body of an HTTP GET on *./probes/bottom* and may be populated when executing custom API or application probes. Since the bottom probe may aggregate many probes we need a way to communicate pass (*200* ) or fail ( *500* ) status of each individual probe function aggregated by the bottom probe. If `httpStatusCode` is populated `when` MUST also be populated
-
--   **Name:** Human facing text. Generally populated when there is a failure or warning of some type but the implementor can use this field in any way they see fit. If populated the value should give the human user some idea of where the failure or warning is happening and why it might be happening.
-
+-   **Code:** Software facing value that uniquely identifies the probe. If `Code` is not populated `Name` MUST be populated
+-   **Description:** Human facing text. Generally populated when there is a failure or warning of some type but the implementor can use this field in any way they see fit. If populated the value should give the human user some idea of where the failure or warning is happening and why it might be happening.
+-   **HttpStatusCode:** This property is normally populated when used as the body of an HTTP GET on *./probes/bottom* and may be populated when executing custom API or application probes. Since the bottom probe may aggregate many probes we need a way to communicate pass (*200* ) or fail ( *500* ) status of each individual probe function aggregated by the bottom probe. If `HttpStatusCode` is populated `When` MUST also be populated
+-   **Name:** Human facing value that uniquely identifies the probe. If `Name` is not populated `Description` MUST be populated
 -   **Self:** Required. URL identifying the probe
-
--   **When:** The date and time of probe execution. If `when` is populated `httpStatusCode` MUST also be populated
+-   **When:** The date and time of probe execution. If `When` is populated `HttpStatusCode` MUST also be populated
 
 
 ## Details
@@ -92,7 +87,7 @@ following HTTP headers:
 
     2.  XML
 
-            <Probes>
+            <Items>
               <Probe>
                 <Self>https://some.server/some.service/probes/bottom#auth</Self>
                 <Code>auth</Code>
@@ -106,7 +101,7 @@ following HTTP headers:
                 <HttpStatusCode>400</HttpStatusCode>
                 <When>2018-04-23T18:25:44.511Z</When>
               </Probe>
-            </Probes>
+            </Items>
 
 3.  Version 2.0
 
@@ -142,7 +137,7 @@ following HTTP headers:
 
     2.  XML
 
-            <Probes>
+            <Items>
               <Probe>
                 <Self>https://some.server/some.service/probes/auth</Self>
                 <Code>auth</Code>
@@ -151,7 +146,7 @@ following HTTP headers:
                 <Self>https://some.server/some.service/probes/con-db</Self>
                 <Name>database connection test</Name>
               </Probe>
-            </Probes>
+            </Items>
 
 3.  Version 2.0
 
@@ -176,11 +171,11 @@ Not supported
           "title": "Probe",
           "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
           "type": "array",
-          "items": {
+          "Items": {
             "additionalProperties": false,
             "required": ["Self"],
             "anyOf": [{"required": ["Code"]},
-                      {"required": ["Description"]}],
+                      {"required": ["Name"]}],
             "dependencies": {
               "httpStatusCode": { "required": [ "When" ]},
               "when": { "required": [ "HttpStatusCode" ]}
@@ -203,17 +198,17 @@ Not supported
               },
 
               "Name": {
-                "description": "details from the probe that may help users understand the health of an endpoint",
-                "type": "string",
-                "minLength": 1,
-                "maxLength" : 1024
-              },
-
-              "Description": {
                 "description": "human readable string describing the probe's purpose",
                 "type": "string",
                 "minLength": 1,
-                "maxLength": 128
+                "maxLength": 32
+              },
+
+              "Description": {
+                "description": "details from the probe that may help users understand the health of an endpoint",
+                "type": "string",
+                "minLength": 1,
+                "maxLength" : 128
               },
 
               "HttpStatusCode": {
@@ -225,9 +220,16 @@ Not supported
               },
 
               "When": {
-                "description": "date and time of probe execution",
+                "description": "origination date and time of probe execution",
                 "type" : "string",
                 "format": "date-time"
+              },
+
+              "Remarks": {
+                "description": "details of the error that may help users solve the problem",
+                "type": "string",
+                "minLength": 1,
+                "maxLength" : 256
               }
             }
           }
@@ -241,7 +243,7 @@ Not supported
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='Probes'>
+          <xs:element name='Items'>
             <xs:complexType>
               <xs:sequence minOccurs='1' maxOccurs='50'>
                 <xs:element name='Probe' type='ProbeType'/>

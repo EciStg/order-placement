@@ -4,11 +4,11 @@
   "title": "Probe",
   "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
   "type": "array",
-  "items": {
+  "Items": {
     "additionalProperties": false,
     "required": ["Self"],
     "anyOf": [{"required": ["Code"]},
-              {"required": ["Description"]}],
+              {"required": ["Name"]}],
     "dependencies": {
       "httpStatusCode": { "required": [ "When" ]},
       "when": { "required": [ "HttpStatusCode" ]}
@@ -31,17 +31,17 @@
       },
 
       "Name": {
-        "description": "details from the probe that may help users understand the health of an endpoint",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 1024
-      },
-
-      "Description": {
         "description": "human readable string describing the probe's purpose",
         "type": "string",
         "minLength": 1,
-        "maxLength": 128
+        "maxLength": 32
+      },
+
+      "Description": {
+        "description": "details from the probe that may help users understand the health of an endpoint",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 128
       },
 
       "HttpStatusCode": {
@@ -53,9 +53,16 @@
       },
 
       "When": {
-        "description": "date and time of probe execution",
+        "description": "origination date and time of probe execution",
         "type" : "string",
         "format": "date-time"
+      },
+
+      "Remarks": {
+        "description": "details of the error that may help users solve the problem",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 256
       }
     }
   }

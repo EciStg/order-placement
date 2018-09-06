@@ -1,4 +1,4 @@
-<Probes>
+<Items>
   <Probe>
     <Self>https://some.server/some.service/probes/bottom#auth</Self>
     <Code>auth</Code>
@@ -12,4 +12,4 @@
     <HttpStatusCode>400</HttpStatusCode>
     <When>2018-04-23T18:25:44.511Z</When>
   </Probe>
-</Probes>
+</Items>
