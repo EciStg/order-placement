@@ -28,9 +28,21 @@ systems.
 ## Details
 
 A word about volume. The intended purpose is for ECi and Seller health monitoring systems to detect
-problems before Customers do. To decrease unwanted volume implementors may protect these routes
-by caching (see below ) and traditional DDOS mitigation measures. Some seller systems may require
-white listing, we are happy to accommodate this and other needs of our partners.
+problems before customers do. To decrease unwanted volume implementors may protect these routes
+by caching and traditional DDOS mitigation measures. Some seller systems may require white listing,
+we are happy to accommodate this and other needs of our partners.
+
+The information returned from probes which return a body may be cached by the client, the server,
+or both. If you do decide to cache please note these probe should be designed to be fetched ( HTTP GET )
+several times per hour. The means and length of time results should be cached are at the implementor's
+discretion. The cache time needs to be balanced against the purpose of the probes which is to alert
+IT systems and staff of problems before customers and customer support staff experience the problem.
+
+As an example, the implementor may instruct clients to cache results for a certain period of time,
+in this case 5 minutes, using HTTP/1.1 header and values indicating. Implementors may also include
+the HTTP/1.0 Expires header ( not shown ).
+
+    Cache-Control: public, max-age=300
 
 
 ### ./probes/top
@@ -64,19 +76,6 @@ white listing, we are happy to accommodate this and other needs of our partners.
     Calling applications are required to check the HTTP status code as a pass ( *200* ) or fail ( *500* )
     indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
     or more probe resources, each of which will contain its own HTTP Status Code.
-
-    The information returned from this may be cached. If you do decide to cache the results please note
-    that this probe is designed to be fetched ( HTTP GET ) several times per hour. The length of time
-    results should be cached are at the implementor's discretion. The cache time needs to be balanced
-    against the purpose of the probes which is to alert IT systems and staff of problems before customers
-    and customer support staff experience the problem. A secondary concern is that if a call comes into
-    customer support staff be able to perform some type of system check that returns meaningful data for
-    IT to act on and resolve the problem quickly.
-
-    Below is an example of the HTTP/1.1 header and values indicating that the results of the probe should
-    be cached for 5 minutes. Implementors may also include the HTTP/1.0 Expires header.
-
-        Cache-Control: public, max-age=300
 
     1.  JSON
 
