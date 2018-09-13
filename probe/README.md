@@ -6,7 +6,7 @@
 ## Technical Overview
 
 Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
-other applications the ability to proactively monitor the health of APIs and applications. It is
+other applications the ability to pro-actively monitor the health of APIs and applications. It is
 expected that IT will be routinely calling the required probes with network and application health
 monitoring system many times throughout the day. These probes should also be made available to
 Customer Care ( Support ) where then can be executed on demand. The custom probes will be executed
@@ -15,7 +15,7 @@ software as they may cause strain on the system and have a negative impact on sy
 systems.
 
 
-## Defition of Terms
+## Definition of Terms
 
 -   **Code:** Software facing value that uniquely identifies the probe. If `Code` is not populated `Name` MUST be populated
 -   **Description:** Human facing text. Generally populated when there is a failure or warning of some type but the implementor can use this field in any way they see fit. If populated the value should give the human user some idea of where the failure or warning is happening and why it might be happening.
@@ -27,6 +27,11 @@ systems.
 
 ## Details
 
+A word about volume. The intended purpose is for ECi and Seller health monitoring systems to detect
+problems before Customers do. To decrease unwanted volume implementors may protect these routes
+by caching (see below ) and traditional DDOS mitigation measures. Some seller systems may require
+white listing, we are happy to accommodate this and other needs of our partners.
+
 
 ### ./probes/top
 
@@ -34,23 +39,11 @@ systems.
 
 2.  Version 1.5 *required*
 
-    This probe MUST be a light weight indicator of API or application availability. QA/IT/Support and
-    other applications MUST be able to GET this low impact fast running probe. It is expected that this
+    This probe must be a light weight indicator of API or application availability. QA/IT/Support and
+    other applications must be able to GET this low impact fast running probe. It is expected that this
     probe will be called one or more times per minute. Calling applications are required to check the
-    HTTP status code as a pass ( *200* ) or fail ( *500* ) indicator. A body MUST not be returned to
+    HTTP status code as a pass ( *200* ) or fail ( *500* ) indicator. A body must not be returned to
     the caller.
-
-    The information returned from this should probably not be cached, reasonable people can and will
-    disagree. If you do decide to cache the results please note that it is designed to be hit one or
-    more times per minute. Below is an example of the headers and values indicating that the results
-    of the probe should not be cached.
-
-        Cache-Control: no-cache, no-store, must-revalidate
-        Pragma: no-cache
-        Expires: 0
-
-    For readers that want to test what the top probe is returning, you can do something like the
-    following, of course you will need to replace `locahost` with your host:
 
         curl -sw "%{http_code}\\n" http://localhost/apis/v0/order/probes/top
 
@@ -66,11 +59,27 @@ systems.
 2.  Version 1.5 *required*
 
     This probe should test all of the layers of the API or application and all vital connections to
-    required systems, APIs, databases, etc. QA/IT/Support staff and other applications MUST be able to
+    required systems, APIs, databases, etc. QA/IT/Support staff and other applications must be able to
     GET this modest impact probe. It is expected that this probe will be called several times per hour.
     Calling applications are required to check the HTTP status code as a pass ( *200* ) or fail ( *500* )
     indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
     or more probe resources, each of which will contain its own HTTP Status Code.
+
+    The information returned from this may be cached. If you do decide to cache the results please note
+    that this probe is designed to be fetched ( HTTP GET ) several times per hour. The length of time
+    results should be cached are at the implementor's discretion. The cache time needs to be balanced
+    against the purpose of the probes which is to alert IT systems and staff of problems before customers
+    and customer support staff experience the problem. A secondary concern is that if a call comes into
+    customer support staff be able to perform some type of system check that returns meaningful data for
+    IT to act on and resolve the problem quickly.
+
+    Below is an example of the HTTP/1.1 header and values indicating that the results of the probe should
+    be cached for 5 minutes. Implementors may also include the HTTP/1.0 Expires header.
+
+        Cache-Control: public, max-age=300
+
+    For readers that want to test what the top probe is returning, you can do something like the
+    following, of course you will need to replace `locahost` with your host:
 
     1.  JSON
 
