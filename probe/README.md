@@ -14,13 +14,6 @@ on demand by IT, QA, and Support staff. They are not expected to be used by freq
 software as they may cause strain on the system and have a negative impact on system users and
 systems.
 
-It is important that information returned from these probes is not cached. We recommend setting the
-following HTTP headers:
-
-    Cache-Control: no-cache, no-store, must-revalidate
-    Pragma: no-cache
-    Expires: 0
-
 
 ## Defition of Terms
 
@@ -47,7 +40,19 @@ following HTTP headers:
     HTTP status code as a pass ( *200* ) or fail ( *500* ) indicator. A body MUST not be returned to
     the caller.
 
-        curl -sw "%{http_code}\\n" http://localhost:3000/apis/v0/order/probes/top
+    The information returned from this should probably not be cached, reasonable people can and will
+    disagree. If you do decide to cache the results please note that it is designed to be hit one or
+    more times per minute. Below is an example of the headers and values indicating that the results
+    of the probe should not be cached.
+
+        Cache-Control: no-cache, no-store, must-revalidate
+        Pragma: no-cache
+        Expires: 0
+
+    For readers that want to test what the top probe is returning, you can do something like the
+    following, of course you will need to replace `locahost` with your host:
+
+        curl -sw "%{http_code}\\n" http://localhost/apis/v0/order/probes/top
 
 3.  Version 2.0
 
