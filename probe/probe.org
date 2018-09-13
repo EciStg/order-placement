@@ -81,9 +81,6 @@ be cached for 5 minutes. Implementors may also include the HTTP/1.0 Expires head
 Cache-Control: public, max-age=300
 #+END_EXAMPLE
 
-For readers that want to test what the top probe is returning, you can do something like the
-following, of course you will need to replace ~locahost~ with your host:
-
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json

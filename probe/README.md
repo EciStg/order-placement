@@ -78,9 +78,6 @@ white listing, we are happy to accommodate this and other needs of our partners.
 
         Cache-Control: public, max-age=300
 
-    For readers that want to test what the top probe is returning, you can do something like the
-    following, of course you will need to replace `locahost` with your host:
-
     1.  JSON
 
             [
