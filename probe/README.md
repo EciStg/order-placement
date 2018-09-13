@@ -5,7 +5,7 @@
 
 ## Technical Overview
 
-We reccommend Seller systems support two HTTP GET operations allowing QA/IT/Support and other
+We recommend Seller systems support two HTTP GET operations allowing QA/IT/Support and other
 applications the ability to pro-actively monitor the health of APIs and applications. ECi systems
 must support top and bottom probes.
 
@@ -34,14 +34,15 @@ by caching and traditional DDOS mitigation measures. Some seller systems may req
 we are happy to accommodate this and other needs of our partners.
 
 The information returned from probes which return a body may be cached by the client, the server,
-or both. If you do decide to cache please note these probe should be designed to be fetched ( HTTP GET )
-several times per hour. The means and length of time results should be cached are at the implementor's
-discretion. The cache time needs to be balanced against the purpose of the probes which is to alert
-IT systems and staff of problems before customers and customer support staff experience the problem.
+or both. If implementor decide to cache on the server please note these probe should be designed to
+be fetched ( HTTP GET ) several times per hour. The means and length of time results should be cached
+are at the implementor's discretion. The cache time needs to be balanced against the purpose of the
+probes which is to alert IT systems and staff of problems before customers and customer support staff
+experience the problem.
 
-As an example, the implementor may instruct clients to cache results for a certain period of time,
-in this case 5 minutes, using HTTP/1.1 header and values indicating. Implementors may also include
-the HTTP/1.0 Expires header ( not shown ).
+An example: implementors may instruct clients to cache results for a certain period of time, in this
+case 5 minutes, using HTTP/1.1 header and values indicating. Implementors may also include HTTP/1.0
+Expires header ( not shown ).
 
     Cache-Control: public, max-age=300
 
