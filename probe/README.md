@@ -5,14 +5,15 @@
 
 ## Technical Overview
 
-Each API or Application MUST support two HTTP GET operations that will allow QA/IT/Support and
-other applications the ability to pro-actively monitor the health of APIs and applications. It is
-expected that IT will be routinely calling the required probes with network and application health
+We reccommend Seller systems support two HTTP GET operations allowing QA/IT/Support and other
+applications the ability to pro-actively monitor the health of APIs and applications. ECi systems
+must support top and bottom probes.
+
+It is expected that IT will routinely call the required probes with network and application health
 monitoring system many times throughout the day. These probes should also be made available to
-Customer Care ( Support ) where then can be executed on demand. The custom probes will be executed
-on demand by IT, QA, and Support staff. They are not expected to be used by frequent running
-software as they may cause strain on the system and have a negative impact on system users and
-systems.
+Customer Care ( Support ) where they can execute probes on demand. Custom probes will be executed
+on demand by IT, QA, and Support staff and are not expected to be used by frequent running
+software as they may cause strain on the system and have a negative impact on users and systems.
 
 
 ## Definition of Terms
