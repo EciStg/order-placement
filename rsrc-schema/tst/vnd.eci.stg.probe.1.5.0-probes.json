@@ -16,7 +16,7 @@
   },
   {
     "Self": "https://some-host/some-api/probes/con-db",
-    "Code": "db",
+    "Code": "con-db",
     "Name": "database connection test"
   }
 ]
