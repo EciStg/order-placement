@@ -6,98 +6,138 @@
 #+STARTUP: content
 
 * Probe
-** Technical Overview
-We recommend Seller systems support two HTTP GET operations allowing QA/IT/Support and other
-applications the ability to pro-actively monitor the health of APIs and applications. ECi systems
-must support top and bottom probes.
 
-It is expected that IT will routinely call the required probes with network and application health
-monitoring system many times throughout the day. These probes should also be made available to
-Customer Care ( Support ) where they can execute probes on demand. Custom probes will be executed
-on demand by IT, QA, and Support staff and are not expected to be used by frequent running
-software as they may cause strain on the system and have a negative impact on users and systems.
+** Overview
 
-** Definition of Terms
+The intended purpose of a Probe is to allow ECi and Seller health monitoring systems and staff to
+detect problems before customers do and provide actionable information allowing problems to be
+identified and corrected as quickly as possible. It is expected that QA, IT, and Support health
+monitoring systems and staff will have access to required probes and will access them multiple
+times throughout the day.
 
-- Code :: Software facing value that uniquely identifies the probe. If ~Code~ is not populated ~Name~ MUST be populated
-- Description :: Human facing text. Generally populated when there is a failure or warning of some type but the implementor can use this field in any way they see fit. If populated the value should give the human user some idea of where the failure or warning is happening and why it might be happening.
-- HttpStatusCode :: This property is normally populated when used as the body of an HTTP GET on /./probes/bottom/ and may be populated when executing custom API or application probes. Since the bottom probe may aggregate many probes we need a way to communicate pass (/200/ ) or fail ( /500/ ) status of each individual probe function aggregated by the bottom probe. If ~HttpStatusCode~ is populated ~When~ MUST also be populated
-- Name :: Human facing value that uniquely identifies the probe. If ~Name~ is not populated ~Description~ MUST be populated
-- Self :: Required. URL identifying the probe
-- When :: The date and time of probe execution. If ~When~ is populated ~HttpStatusCode~ MUST also be populated
+Probe failures alert ECi and Sellers of problems or potential problems and provide IT staff the
+information they need to investigate and solve problems, hopefully, before customers experience
+them.
 
 ** Details
 
-A word about volume. The intended purpose is for ECi and Seller health monitoring systems to detect
-problems before customers do. To decrease unwanted volume implementors may protect these routes
-by caching and traditional DDOS mitigation measures. Some seller systems may require white listing,
-we are happy to accommodate this and other needs of our partners.
+There are three well-defined routes for each service and any number of custom or special purpose
+routes available. Discussion of the purpose of each route will be carried out in the Use Cases
+section of this file. The three routes are:
 
-The information returned from probes which return a body may be cached by the client, the server,
-or both. If implementor decide to cache on the server please note these probe should be designed to
-be fetched ( HTTP GET ) several times per hour. The means and length of time results should be cached
-are at the implementor's discretion. The cache time needs to be balanced against the purpose of the
-probes which is to alert IT systems and staff of problems before customers and customer support staff
-experience the problem.
+~./probes~
 
-An example: implementors may instruct clients to cache results for a certain period of time, in this
-case 5 minutes, using HTTP/1.1 header and values indicating. Implementors may also include HTTP/1.0
-Expires header ( not shown ).
+~./probes/top~
+
+~./probes/bottom~
+
+Information returned from probes which return a body may be cached by the client, the server, or
+both. If implementors decide to cache on the server please note these probes should be designed to
+be accessed (HTTP GET) several times per hour. The means and length of time results should be cached
+ are at the implementor's discretion. The cache time needs to be balanced against the purpose of the
+probes which is to alert IT systems and staff of problems before customers and customer support
+staff experience the problem.
+
+Custom probes will be executed on demand by IT, QA, and Support staff and are not expected to be
+used by frequent running software as they may cause strain on the system and have a negative impact
+on users and systems.
+
+Implementors may instruct clients to cache results for a certain period of time, in this example 5
+minutes, using HTTP/1.1 Cache-Control. Implementors may also include an HTTP/1.0 Expires header
+(not shown).
 
 #+BEGIN_EXAMPLE
 Cache-Control: public, max-age=300
 #+END_EXAMPLE
 
+To further decrease unwanted volume implementors may wish protect these routes by traditional DDOS
+mitigation measures including white listing.
+
+** Definition of Terms
+
+- Code :: Software facing value that uniquely identifies the probe. If ~Code~ is not populated ~Name~ must be populated.
+- Description :: Human facing text describing the purpose of the probe and the purpose of the activity or function being probed.
+- HttpStatusCode :: Normally populated when used in the body of an HTTP GET for /./probes/bottom/ and may be populated when executing custom probes. Since the bottom probe may aggregate many probes we need a way to communicate pass (/200/ ) or fail ( /500/ ) status of each individual probe function aggregated by the bottom probe. If ~HttpStatusCode~ is populated ~When~ must also be populated.
+- Name :: Human facing value that uniquely identifies the probe. If ~Name~ is not populated ~Description~ must be populated.
+- Remarks :: Human facing text, generally populated when there is a failure or warning. If populated, the ~Description~ should give the human user some idea of where and why the failure or warning is occurring.
+- Self :: Required URL identifying the probe that was executed.
+- When :: Date and time of probe execution. If ~When~ is populated ~HttpStatusCode~ must also be populated.
+
+** Use Cases
+
 *** ./probes/top
 
-**** Version 1.0 /unsupported/
+**** Version 1.0
 
-**** Version 1.5 /required/
+#+BEGIN_QUOTE
+Not supported.
+#+END_QUOTE
 
-This probe must be a light weight indicator of API or application availability. QA/IT/Support and
-other applications must be able to GET this low impact fast running probe. It is expected that this
-probe will be called one or more times per minute. Calling applications are required to check the
-HTTP status code as a pass ( /200/ ) or fail ( /500/ ) indicator. A body must not be returned to
-the caller.
+**** Version 1.5
+
+#+BEGIN_QUOTE
+Required for ECi implementations.
+
+Recommended for Seller implementations.
+#+END_QUOTE
+
+This probe must be a light weight fast, running indicator of API availability; think of it like
+a *ping*. It must do as little as possible yet still be able to announce that the api is up and
+running. It is expected this probe will be called one or more times per minute. Calling applications
+are required to check the HTTP Status Code and interpret it as pass *200* or fail *500*. A body must
+not be returned to the caller.
+
+Checking the HTTP Status Code for the top probe:
 
 #+BEGIN_SRC shell :exports both
-curl -sw "%{http_code}\\n" http://localhost/apis/v0/order/probes/top
+curl -sw "%{http_code}\\n" http://some-host/some-api/probes/top
 #+END_SRC
 
 **** Version 2.0
 
-No changes to date
-
+#+BEGIN_QUOTE
+TBD
+#+END_QUOTE
 
 *** ./probes/bottom
 
-**** Version 1.0 /unsupported/
+**** Version 1.0
 
-**** Version 1.5 /required/
+#+BEGIN_QUOTE
+Not supported.
+#+END_QUOTE
+
+**** Version 1.5
+
+#+BEGIN_QUOTE
+Required for ECi implementations.
+
+Recommended for Seller implementations.
+#+END_QUOTE
 
 This probe should test all of the layers of the API or application and all vital connections to
-required systems, APIs, databases, etc. QA/IT/Support staff and other applications must be able to
-GET this modest impact probe. It is expected that this probe will be called several times per hour.
-Calling applications are required to check the HTTP status code as a pass ( /200/ ) or fail ( /500/ )
-indicator. A body is optional. If a body is provided by the endpoint it must contain an array of one
-or more probe resources, each of which will contain its own HTTP Status Code.
+other systems, APIs, databases, etc. IT, QA, and Support staff and their applications must be able
+to GET this modest impact probe. This probe will be called several times per hour by automated
+systems and on demand by staff.
+
+Calling applications are required to check the HTTP status code and interpret it as pass *200* or
+fail *500*. A body is optional. If a body is provided it must contain an array of one or more probe
+resources, each of which will contain its own HTTP Status Code.
+
+Calling applications are required to read and obey HTTP/1.1 Cache-Control headers.
 
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
   [
     {
-      "Self": "https://some.server/some.service/probes/bottom#auth",
-      "Code" :"auth",
-      "HttpStatusCode": 200,
-      "When": "2018-04-23T18:25:43.511Z"
-    },
-    {
-      "Self": "https://some.server/some.service/probes/bottom",
-      "Name": "database connection test",
-      "Description":"The database cannot be contacted. Ensure the database is running and network reachable.",
-      "HttpStatusCode": 400,
-      "When": "2018-04-23T18:25:44.511Z"
+      "Code" :"bottom",
+      "Name": "Bottom Probe",
+      "Description":"Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
+      "Remarks":"The database cannot be contacted. Ensure the database is running and network reachable.",
+      "Self": "https://some-host/some-api/probes/bottom",
+      "HttpStatusCode": 500,
+      "When": "2018-04-23T18:25:40.611Z"
     }
   ]
 #+END_SRC
@@ -107,48 +147,66 @@ or more probe resources, each of which will contain its own HTTP Status Code.
 #+begin_src xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml
   <Items>
     <Probe>
-      <Self>https://some.server/some.service/probes/bottom#auth</Self>
-      <Code>auth</Code>
-      <HttpStatusCode>200</HttpStatusCode>
-      <When>2018-04-23T18:25:43.511Z</When>
-    </Probe>
-    <Probe>
-      <Self>https://some.server/some.service/probes/bottom</Self>
-      <Name>database connection test</Name>
+      <Code>bottom</Code>
+      <Name>Bottom Probe</Name>
       <Description>The database cannot be contacted. Ensure the database is running and network reachable.</Description>
-      <HttpStatusCode>400</HttpStatusCode>
-      <When>2018-04-23T18:25:44.511Z</When>
+      <Remarks>The database cannot be contacted. Ensure the database is running and network reachable.</Remarks>
+      <Self>https://some-host/some-api/probes/bottom</Self>
+      <HttpStatusCode>500</HttpStatusCode>
+      <When>2018-04-23T18:25:40.611Z</When>
     </Probe>
   </Items>
 #+END_SRC
 
 **** Version 2.0
 
-No changes to date
+#+BEGIN_QUOTE
+TBD
+#+END_QUOTE
 
 *** ./probes
-**** Version 1.0 /unsupported/
+**** Version 1.0
 
-**** Version 1.5 /optional/
+#+BEGIN_QUOTE
+Not supported.
+#+END_QUOTE
 
-APIs or Applications MAY choose to support individual probes outside of the top / bottom convention.
-QA/IT/Support staff and other applications may attempt a GET on this URL and will expect the endpoint
-to return an ordered list of probes the application can call ( HTTP GET ) to determine the pass
-( /200/ ) or fail ( /500/ ) state of the probe. The body must contain an array of one or more probe
-resources. These custom probes are expected to be run on demand, not routinely executed by IT network
-and application health monitoring systems as the duration and impact of the probe's execution is not
-defined.
+**** Version 1.5
+
+#+BEGIN_QUOTE
+Optional.
+#+END_QUOTE
+
+
+Implementors may choose to support individual probes outside of the top / bottom convention.
+IT, QA, and Support staff and other applications may attempt a GET on this URL and will expect the
+endpoint to return an ordered list of probes the application can call ( HTTP GET ) to determine the
+pass *200* or fail *500* status of the probe. The body must contain an array of one or more probe
+resources. These custom probes are expected to be run on demand by staff and will not be routinely
+executed by automated systems.
 
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json
   [
     {
-      "Self": "https://some.server/some.service/probes/auth",
+      "Self": "https://some-host/some-api/probes/top",
+      "Code": "top",
+      "Name": "Top Probe"
+    },
+    {
+      "Self": "https://some-host/some-api/probes/bottom",
+      "Code" :"bottom",
+      "Name": "Bottom Probe",
+      "Description":"The database cannot be contacted. Ensure the database is running and network reachable."
+    },
+    {
+      "Self": "https://some-host/some-api/probes/auth",
       "Code" :"auth"
     },
     {
-      "Self": "https://some.server/some.service/probes/con-db",
+      "Self": "https://some-host/some-api/probes/con-db",
+      "Code": "db",
       "Name": "database connection test"
     }
   ]
@@ -159,101 +217,114 @@ defined.
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml
   <Items>
     <Probe>
-      <Self>https://some.server/some.service/probes/auth</Self>
-      <Code>auth</Code>
+      <Code>top</Code>
+      <Name>Top Probe</Name>
+      <Self>https://some-host/some-api/probes/top</Self>
     </Probe>
     <Probe>
-      <Self>https://some.server/some.service/probes/con-db</Self>
+      <Code>bottom</Code>
+      <Name>Bottom Probe</Name>
+      <Description>The database cannot be contacted. Ensure the database is running and network reachable.</Description>
+      <Self>https://some-host/some-api/probes/bottom</Self>
+    </Probe>
+    <Probe>
+      <Code>auth</Code>
+      <Self>https://some-host/some-api/probes/auth</Self>
+    </Probe>
+    <Probe>
+      <Code>db</Code>
       <Name>database connection test</Name>
+      <Self>https://some-host/some-api/probes/con-db</Self>
     </Probe>
   </Items>
 #+END_SRC
 
 **** Version 2.0
 
-No changes to date
+#+BEGIN_QUOTE
+TBD
+#+END_QUOTE
 
 ** Resource Schema
 
 *** Version 1.0
 
-Not supported
+#+BEGIN_QUOTE
+Not supported.
+#+END_QUOTE
 
 *** Version 1.5
 
 **** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json
-  {
-    "id": "./vnd.eci.stg.probe.1.5.0.json",
-    "$schema": "http://json-schema.org/draft-08/schema#",
-    "title": "Probe",
-    "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
-    "type": "array",
-    "Items": {
-      "additionalProperties": false,
-      "required": ["Self"],
-      "anyOf": [{"required": ["Code"]},
-                {"required": ["Name"]}],
-      "dependencies": {
-        "httpStatusCode": { "required": [ "When" ]},
-        "when": { "required": [ "HttpStatusCode" ]}
-      },
-
-      "properties" : {
-
-        "Self": {
-          "description": "system function identifying a unique system owned resource as a URL",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 1024
+    {
+      "id": "./vnd.eci.stg.probe.1.5.0.json",
+      "$schema": "http://json-schema.org/draft-08/schema#",
+      "title": "Probe",
+      "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
+      "type": "array",
+      "Items": {
+        "additionalProperties": false,
+        "required": ["Self"],
+        "anyOf": [{"required": ["Code"]},
+                  {"required": ["Name"]}],
+        "dependencies": {
+          "httpStatusCode": { "required": [ "When" ]},
+          "when": { "required": [ "HttpStatusCode" ]}
         },
 
-        "Code": {
-          "description": "software facing value that uniquely identifies the probe",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32
-        },
+        "properties" : {
 
-        "Name": {
-          "description": "human readable string describing the probe's purpose",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 32
-        },
+          "Self": {
+            "description": "system function identifying a unique system owned resource as a URL",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
 
-        "Description": {
-          "description": "details from the probe that may help users understand the health of an endpoint",
-          "type": "string",
-          "minLength": 1,
-          "maxLength" : 128
-        },
+          "Code": {
+            "description": "software facing value that uniquely identifies the probe",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
-        "HttpStatusCode": {
-          "description": "usually used bottom probe but may also be returned by api or application specific probes",
-          "type": "integer",
-          "default": 200,
-          "minimum": 100,
-          "maximum": 599
-        },
+          "Name": {
+            "description": "human readable string describing the probe's purpose",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
-        "When": {
-          "description": "origination date and time of probe execution",
-          "type" : "string",
-          "format": "date-time"
-        },
+          "Description": {
+            "description": "details from the probe that may help users understand the health of an endpoint",
+            "type": "string",
+            "minLength": 1,
+            "maxLength" : 128
+          },
 
-        "Remarks": {
-          "description": "details of the error that may help users solve the problem",
-          "type": "string",
-          "minLength": 1,
-          "maxLength" : 256
+          "Remarks": {
+            "description": "details of the error that may help users solve the problem",
+            "type": "string",
+            "minLength": 1,
+            "maxLength" : 256
+          },
+          "HttpStatusCode": {
+            "description": "usually used bottom probe but may also be returned by api or application specific probes",
+            "type": "integer",
+            "default": 200,
+            "minimum": 100,
+            "maximum": 599
+          },
+          "When": {
+            "description": "origination date and time of probe execution",
+            "type" : "string",
+            "format": "date-time"
+          }
         }
       }
     }
-  }
-
 #+END_SRC
 
 **** XML
@@ -267,7 +338,7 @@ Not supported
 
     <xs:element name='Items'>
       <xs:complexType>
-        <xs:sequence minOccurs='1' maxOccurs='50'>
+        <xs:sequence minOccurs='1' maxOccurs='500'>
           <xs:element name='Probe' type='ProbeType'/>
         </xs:sequence>
       </xs:complexType>
@@ -280,10 +351,11 @@ Not supported
             TODO
           </xs:documentation>
         </xs:annotation>
-        <xs:element name='Self'           type='xs:string'   minOccurs='0' maxOccurs='1' />
         <xs:element name='Code'           type='xs:string'   minOccurs='0' maxOccurs='1' />
         <xs:element name='Name'           type='xs:string'   minOccurs='0' maxOccurs='1' />
         <xs:element name='Description'    type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='Remarks'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='Self'           type='xs:string'   minOccurs='0' maxOccurs='1' />
         <xs:element name='HttpStatusCode' type='xs:integer'  minOccurs='0' maxOccurs='1' />
         <xs:element name='When'           type='xs:dateTime' minOccurs='0' maxOccurs='1' />
       </xs:sequence>
@@ -293,7 +365,9 @@ Not supported
 #+END_SRC
 *** Version 2.0
 
-**** TODO
+#+BEGIN_QUOTE
+TBD
+#+END_QUOTE
 
 ** Test Results
 

@@ -1,15 +1,11 @@
 [
   {
-    "Self": "https://some.server/some.service/probes/bottom#auth",
-    "Code" :"auth",
-    "HttpStatusCode": 200,
-    "When": "2018-04-23T18:25:43.511Z"
-  },
-  {
-    "Self": "https://some.server/some.service/probes/bottom",
-    "Name": "database connection test",
-    "Description":"The database cannot be contacted. Ensure the database is running and network reachable.",
-    "HttpStatusCode": 400,
-    "When": "2018-04-23T18:25:44.511Z"
+    "Code" :"bottom",
+    "Name": "Bottom Probe",
+    "Description":"Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
+    "Remarks":"The database cannot be contacted. Ensure the database is running and network reachable.",
+    "Self": "https://some-host/some-api/probes/bottom",
+    "HttpStatusCode": 500,
+    "When": "2018-04-23T18:25:40.611Z"
   }
 ]

@@ -44,6 +44,12 @@
         "maxLength" : 128
       },
 
+      "Remarks": {
+        "description": "details of the error that may help users solve the problem",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 256
+      },
       "HttpStatusCode": {
         "description": "usually used bottom probe but may also be returned by api or application specific probes",
         "type": "integer",
@@ -51,18 +57,10 @@
         "minimum": 100,
         "maximum": 599
       },
-
       "When": {
         "description": "origination date and time of probe execution",
         "type" : "string",
         "format": "date-time"
-      },
-
-      "Remarks": {
-        "description": "details of the error that may help users solve the problem",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 256
       }
     }
   }

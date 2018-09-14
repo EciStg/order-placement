@@ -1,10 +1,22 @@
 <Items>
   <Probe>
-    <Self>https://some.server/some.service/probes/auth</Self>
-    <Code>auth</Code>
+    <Code>top</Code>
+    <Name>Top Probe</Name>
+    <Self>https://some-host/some-api/probes/top</Self>
   </Probe>
   <Probe>
-    <Self>https://some.server/some.service/probes/con-db</Self>
+    <Code>bottom</Code>
+    <Name>Bottom Probe</Name>
+    <Description>The database cannot be contacted. Ensure the database is running and network reachable.</Description>
+    <Self>https://some-host/some-api/probes/bottom</Self>
+  </Probe>
+  <Probe>
+    <Code>auth</Code>
+    <Self>https://some-host/some-api/probes/auth</Self>
+  </Probe>
+  <Probe>
+    <Code>db</Code>
     <Name>database connection test</Name>
+    <Self>https://some-host/some-api/probes/con-db</Self>
   </Probe>
 </Items>

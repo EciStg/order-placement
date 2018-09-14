@@ -1,10 +1,22 @@
 [
   {
-    "Self": "https://some.server/some.service/probes/auth",
+    "Self": "https://some-host/some-api/probes/top",
+    "Code": "top",
+    "Name": "Top Probe"
+  },
+  {
+    "Self": "https://some-host/some-api/probes/bottom",
+    "Code" :"bottom",
+    "Name": "Bottom Probe",
+    "Description":"The database cannot be contacted. Ensure the database is running and network reachable."
+  },
+  {
+    "Self": "https://some-host/some-api/probes/auth",
     "Code" :"auth"
   },
   {
-    "Self": "https://some.server/some.service/probes/con-db",
+    "Self": "https://some-host/some-api/probes/con-db",
+    "Code": "db",
     "Name": "database connection test"
   }
 ]
