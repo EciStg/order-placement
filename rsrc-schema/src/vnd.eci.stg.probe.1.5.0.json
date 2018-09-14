@@ -4,7 +4,8 @@
   "title": "Probe",
   "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
   "type": "array",
-  "Items": {
+  "items": {
+    "type": "object",
     "additionalProperties": false,
     "required": ["Self"],
     "anyOf": [{"required": ["Code"]},
@@ -15,14 +16,6 @@
     },
 
     "properties" : {
-
-      "Self": {
-        "description": "system function identifying a unique system owned resource as a URL",
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 1024
-      },
-
       "Code": {
         "description": "software facing value that uniquely identifies the probe",
         "type": "string",
@@ -50,6 +43,14 @@
         "minLength": 1,
         "maxLength" : 256
       },
+
+      "Self": {
+        "description": "system function identifying a unique system owned resource as a URL",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+
       "HttpStatusCode": {
         "description": "usually used bottom probe but may also be returned by api or application specific probes",
         "type": "integer",
@@ -57,6 +58,7 @@
         "minimum": 100,
         "maximum": 599
       },
+
       "When": {
         "description": "origination date and time of probe execution",
         "type" : "string",

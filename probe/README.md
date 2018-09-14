@@ -65,6 +65,12 @@ including white listing.
 
 ### ./probes/top
 
+This probe must be a light weight fast, running indicator of API availability; think of it like
+a **ping**. It must do as little as possible yet still be able to announce that the API is up and
+running. It is expected this probe will be called one or more times per minute. Calling applications
+are required to check the HTTP Status Code and interpret it as pass **200 - 299** or fail **400 - 599**.
+A body must not be returned to the caller.
+
 1.  Version 1.0
 
     > Not supported.
@@ -74,12 +80,6 @@ including white listing.
     > Required for ECi implementations.
     >
     > Recommended for Seller implementations.
-
-    This probe must be a light weight fast, running indicator of API availability; think of it like
-    a **ping**. It must do as little as possible yet still be able to announce that the API is up and
-    running. It is expected this probe will be called one or more times per minute. Calling applications
-    are required to check the HTTP Status Code and interpret it as pass **200** or fail **500**. A body must
-    not be returned to the caller.
 
     Checking the HTTP Status Code for the top probe:
 
@@ -92,6 +92,22 @@ including white listing.
 
 ### ./probes/bottom
 
+The bottom probe should test all of the layers of the API or application and all vital connections
+to other systems, APIs, databases, etc. IT, QA, and Support staff and their applications must be
+able to execute this modest impact probe by an HTTP GET. This probe will be called several times per
+hour by automated systems and on demand by staff.
+
+Implementors are required to return a valid, meaningful HTTP Status Code.
+
+Calling applications are required to check the HTTP Status Code. Calling applications are also
+required to read and obey HTTP/1.1 `Cache-Control` headers.
+
+A body is optional. When a body is provided it must contain an array of one or more probe objects,
+each of which will contain its own HTTP Status Code. If the array contains a single object the HTTP
+Status Code must match the value returned by the HTTP GET.
+
+The bottom probe's `Code` value must be `bottom`.
+
 1.  Version 1.0
 
     > Not supported.
@@ -101,22 +117,6 @@ including white listing.
     > Required for ECi implementations.
     >
     > Recommended for Seller implementations.
-
-    The bottom probe should test all of the layers of the API or application and all vital connections
-    to other systems, APIs, databases, etc. IT, QA, and Support staff and their applications must be
-    able to execute this modest impact probe by an HTTP GET. This probe will be called several times per
-    hour by automated systems and on demand by staff.
-
-    Implementors are required to return a valid, meaningful HTTP Status Code.
-
-    Calling applications are required to check the HTTP Status Code. Calling applications are also
-    required to read and obey HTTP/1.1 `Cache-Control` headers.
-
-    A body is optional. When a body is provided it must contain an array of one or more probe objects,
-    each of which will contain its own HTTP Status Code. If the array contains a single object the HTTP
-    Status Code must match the value returned by the HTTP GET.
-
-    The bottom probe's `Code` value must be `bottom`.
 
     1.  JSON
 
@@ -153,6 +153,15 @@ including white listing.
 
 ### ./probes
 
+In addition to top and bottom probes, implementors may choose to support additional probes that can
+provide useful information to QA, IT, and Support staff. The purpose of this route is to enumerate
+all of the probes supported by the API, including top and bottom. IT, QA, and Support staff and
+their applications will will expect the a list of probes they can execute. Each probe provides a
+unique URL, called `Self`. Users and applications will execute the probe my means of an HTTP GET.
+
+Custom probes should be run on demand by staff and should not be routinely executed by automated
+systems and applications.
+
 1.  Version 1.0
 
     > Not supported.
@@ -160,15 +169,6 @@ including white listing.
 2.  Version 1.5
 
     > Optional.
-
-    In addition to top and bottom probes, implementors may choose to support additional probes that can
-    provide useful information to QA, IT, and Support staff. The purpose of this route is to enumerate
-    all of the probes supported by the API, including top and bottom. IT, QA, and Support staff and
-    their applications will will expect the a list of probes they can execute. Each probe provides a
-    unique URL, called `Self`. Users and applications will execute the probe my means of an HTTP GET.
-
-    Custom probes should be run on demand by staff and should not be routinely executed by automated
-    systems and applications.
 
     1.  JSON
 
@@ -243,7 +243,8 @@ including white listing.
           "title": "Probe",
           "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
           "type": "array",
-          "Items": {
+          "items": {
+            "type": "object",
             "additionalProperties": false,
             "required": ["Self"],
             "anyOf": [{"required": ["Code"]},
@@ -254,14 +255,6 @@ including white listing.
             },
 
             "properties" : {
-
-              "Self": {
-                "description": "system function identifying a unique system owned resource as a URL",
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 1024
-              },
-
               "Code": {
                 "description": "software facing value that uniquely identifies the probe",
                 "type": "string",
@@ -289,6 +282,14 @@ including white listing.
                 "minLength": 1,
                 "maxLength" : 256
               },
+
+              "Self": {
+                "description": "system function identifying a unique system owned resource as a URL",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+
               "HttpStatusCode": {
                 "description": "usually used bottom probe but may also be returned by api or application specific probes",
                 "type": "integer",
@@ -296,6 +297,7 @@ including white listing.
                 "minimum": 100,
                 "maximum": 599
               },
+
               "When": {
                 "description": "origination date and time of probe execution",
                 "type" : "string",
