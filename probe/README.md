@@ -174,7 +174,7 @@ The bottom probe's `code` value must be `bottom`.
     > TBD
 
 
-### List custom probmes `./probes`
+### List custom probes `./probes`
 
 In addition to top and bottom probes, implementors may choose to support additional probes that can
 provide useful information to QA, IT, and Support staff. The purpose of this route is to enumerate
