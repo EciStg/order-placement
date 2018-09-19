@@ -1,22 +1,27 @@
-<Items>
-  <Probe>
-    <Code>top</Code>
-    <Name>Top Probe</Name>
-    <Self>https://some-host/some-api/probes/top</Self>
-  </Probe>
-  <Probe>
-    <Code>bottom</Code>
-    <Name>Bottom Probe</Name>
-    <Description>The database cannot be contacted. Ensure the database is running and network reachable.</Description>
-    <Self>https://some-host/some-api/probes/bottom</Self>
-  </Probe>
-  <Probe>
-    <Code>auth</Code>
-    <Self>https://some-host/some-api/probes/auth</Self>
-  </Probe>
-  <Probe>
-    <Code>db</Code>
-    <Name>database connection test</Name>
-    <Self>https://some-host/some-api/probes/con-db</Self>
-  </Probe>
-</Items>
+<item>
+  <code>probes</code>
+  <self>https://some-host/some-api/probes</self>
+  <itemCount>3</itemCount>
+  <items>
+    <item>
+      <code>top</code>
+      <name>Top Item</name>
+      <self>https://some-host/some-api/items/top</self>
+    </item>
+    <item>
+      <code>bottom</code>
+      <name>Bottom Item</name>
+      <description>The database cannot be contacted. Ensure the database is running and network reachable.</description>
+      <self>https://some-host/some-api/items/bottom</self>
+    </item>
+    <item>
+      <code>auth</code>
+      <self>https://some-host/some-api/items/auth</self>
+    </item>
+    <item>
+      <code>db</code>
+      <name>database connection test</name>
+      <self>https://some-host/some-api/items/con-db</self>
+    </item>
+  </items>
+</item>

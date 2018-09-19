@@ -1,11 +1,9 @@
-<Items>
-  <Probe>
-    <Code>bottom</Code>
-    <Name>Bottom Probe</Name>
-    <Description>The database cannot be contacted. Ensure the database is running and network reachable.</Description>
-    <Remarks>The database cannot be contacted. Ensure the database is running and network reachable.</Remarks>
-    <Self>https://some-host/some-api/probes/bottom</Self>
-    <HttpStatusCode>500</HttpStatusCode>
-    <When>2018-04-23T18:25:40.611Z</When>
-  </Probe>
-</Items>
+<item>
+  <code>bottom</code>
+  <name>Bottom Probe</name>
+  <description>The database cannot be contacted. Ensure the database is running and network reachable.</description>
+  <remarks>The database cannot be contacted. Ensure the database is running and network reachable.</remarks>
+  <self>https://some-host/some-api/probes/bottom</self>
+  <status>500</status>
+  <when>2018-04-23T18:25:40.611Z</when>
+</item>

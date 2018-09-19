@@ -1,22 +1,27 @@
-[
-  {
-    "Self": "https://some-host/some-api/probes/top",
-    "Code": "top",
-    "Name": "Top Probe"
-  },
-  {
-    "Self": "https://some-host/some-api/probes/bottom",
-    "Code" :"bottom",
-    "Name": "Bottom Probe",
-    "Description":"The database cannot be contacted. Ensure the database is running and network reachable."
-  },
-  {
-    "Self": "https://some-host/some-api/probes/auth",
-    "Code" :"auth"
-  },
-  {
-    "Self": "https://some-host/some-api/probes/con-db",
-    "Code": "con-db",
-    "Name": "database connection test"
-  }
-]
+{
+  "code": "probes",
+  "self": "https://some-host/some-api/probes",
+  "itemCount": 3,
+  "items": [
+    {
+      "self": "https://some-host/some-api/probes/top",
+      "code": "top",
+      "name": "Top Probe"
+    },
+    {
+      "self": "https://some-host/some-api/probes/bottom",
+      "code" :"bottom",
+      "name": "Bottom Probe",
+      "description":"The database cannot be contacted. Ensure the database is running and network reachable."
+    },
+    {
+      "self": "https://some-host/some-api/probes/auth",
+      "code" :"auth"
+    },
+    {
+      "self": "https://some-host/some-api/probes/con-db",
+      "code": "con-db",
+      "name": "database connection test"
+    }
+  ]
+}

@@ -1,68 +1,82 @@
 {
   "id": "./vnd.eci.stg.probe.1.5.0.json",
-  "$schema": "http://json-schema.org/draft-08/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Probe",
   "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "additionalProperties": false,
-    "required": ["Self"],
-    "anyOf": [{"required": ["Code"]},
-              {"required": ["Name"]}],
-    "dependencies": {
-      "httpStatusCode": { "required": [ "When" ]},
-      "when": { "required": [ "HttpStatusCode" ]}
+
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["self"],
+  "anyOf": [{"required": ["code"]},
+            {"required": ["name"]}],
+  "dependencies": {
+    "status": { "required": [ "when" ]},
+    "when":  { "required": [ "status" ]}},
+
+  "properties": {
+    "code": {
+      "description": "software facing value that uniquely identifies the probe",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
     },
 
-    "properties" : {
-      "Code": {
-        "description": "software facing value that uniquely identifies the probe",
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 32
-      },
+    "name": {
+      "description": "human readable string describing the probe's purpose",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
 
-      "Name": {
-        "description": "human readable string describing the probe's purpose",
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 32
-      },
+    "description": {
+      "description": "details from the probe that may help users understand the health of an endpoint",
+      "type": "string",
+      "minLength": 1,
+      "maxLength" : 128
+    },
 
-      "Description": {
-        "description": "details from the probe that may help users understand the health of an endpoint",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 128
-      },
+    "remarks": {
+      "description": "details of the error that may help users solve the problem",
+      "type": "string",
+      "minLength": 1,
+      "maxLength" : 256
+    },
 
-      "Remarks": {
-        "description": "details of the error that may help users solve the problem",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 256
-      },
+    "self": {
+      "description": "system function identifying a unique system owned resource as a URL",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
 
-      "Self": {
-        "description": "system function identifying a unique system owned resource as a URL",
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 1024
-      },
+    "status": {
+      "description": "usually used bottom probe but may also be returned by api or application specific probes",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
 
-      "HttpStatusCode": {
-        "description": "usually used bottom probe but may also be returned by api or application specific probes",
-        "type": "integer",
-        "default": 200,
-        "minimum": 100,
-        "maximum": 599
-      },
+    "when": {
+      "description": "origination date and time of probe execution",
+      "type" : "string",
+      "format": "date-time"
+    },
 
-      "When": {
-        "description": "origination date and time of probe execution",
-        "type" : "string",
-        "format": "date-time"
+    "itemCount": {
+      "description": "number of things in the items collection",
+      "type" : "number",
+      "minimum": 1,
+      "maximum": 1000
+    },
+
+    "items": {
+      "description": "one or more things a buyer wishes a seller to provide ",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "items" : {
+        "$ref" : "#"
       }
     }
   }

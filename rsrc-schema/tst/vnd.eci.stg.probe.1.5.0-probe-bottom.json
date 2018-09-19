@@ -1,11 +1,9 @@
-[
-  {
-    "Code" :"bottom",
-    "Name": "Bottom Probe",
-    "Description":"Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
-    "Remarks":"The database cannot be contacted. Ensure the database is running and network reachable.",
-    "Self": "https://some-host/some-api/probes/bottom",
-    "HttpStatusCode": 500,
-    "When": "2018-04-23T18:25:40.611Z"
-  }
-]
+{
+  "code" :"bottom",
+  "name": "Bottom Probe",
+  "description":"Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
+  "remarks":"The database cannot be contacted. Ensure the database is running and network reachable.",
+  "self": "https://some-host/some-api/probes/bottom",
+  "status": "500",
+  "when": "2018-04-23T18:25:40.611Z"
+}
