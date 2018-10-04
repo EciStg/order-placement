@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
-
 <stock>
+  <when>2018-04-24T17:00:00.000Z</when>
+  <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
   <itemsCount>1</itemsCount>
   <items>
     <item>
@@ -8,7 +8,6 @@
         <code>abc-123</code>
         <type>seller</type>
       </reference>
-      <quantity>103</quantity>
     </item>
   </items>
 </stock>

@@ -6,6 +6,7 @@
     <item>
       <reference>
         <code>abc-123</code>
+        <type>seller</type>
       </reference>
       <unitCost>
         <amount>99.99</amount>

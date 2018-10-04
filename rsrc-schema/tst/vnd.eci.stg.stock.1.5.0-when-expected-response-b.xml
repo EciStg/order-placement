@@ -1,0 +1,21 @@
+<stock>
+  <itemsCount>2</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+      <when>2018-04-24T17:00:00.000Z</when>
+      <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+    </item>
+    <item>
+      <reference>
+        <code>def-456</code>
+        <type>seller</type>
+      </reference>
+      <when>2018-04-24T17:00:00.000Z</when>
+      <whenExpected>2018-04-30T17:00:00.000Z</whenExpected>
+    </item>
+  </items>
+</stock>

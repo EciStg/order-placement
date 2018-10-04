@@ -74,6 +74,7 @@ to get information about an item in the seller's system identified as ~abc-123~.
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
       </item>
     </items>
@@ -107,6 +108,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
     <buyer>
       <reference>
         <code>buyer-abc</code>
+        <type>seller</type>
       </reference>
     </buyer>
     <itemsCount>1</itemsCount>
@@ -114,6 +116,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
       </item>
     </items>
@@ -127,6 +130,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
 The seller's response is intended to inform the buyer that the the item will cost her /99.99$USD/.
 
 ***** JSON
+
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json
   { "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
@@ -135,6 +139,7 @@ The seller's response is intended to inform the buyer that the the item will cos
 #+END_SRC
 
 ***** XML
+
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml
   <?xml version='1.0' encoding='utf-8'?>
 
@@ -144,6 +149,7 @@ The seller's response is intended to inform the buyer that the the item will cos
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <unitCost>
           <amount>99.99</amount>
@@ -181,10 +187,12 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <quantity>24</quantity>
       </item>
@@ -193,11 +201,13 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 #+END_SRC
 
 ***** Response
+
 ****** If the seller can deliver the buyer's requested quantity ( /24/ ) the seller may reply with
 
 ******* the requested quantity ( /24/ )
 
 ******** JSON
+
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json
   { "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
@@ -206,14 +216,17 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 #+END_SRC
 
 ******** XML
+
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <quantity>24</quantity>
       </item>
@@ -237,10 +250,12 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <quantity>103</quantity>
       </item>
@@ -248,9 +263,10 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   </stock>
 #+END_SRC
 
-******* a fixed value e.g. /1,000/.
+******* a fixed value e.g. /1,000/
 
 ******** JSON
+
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json
   { "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
@@ -259,14 +275,17 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 #+END_SRC
 
 ******** XML
+
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <quantity>1000</quantity>
       </item>
@@ -276,7 +295,7 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 
 ****** If the seller cannot deliver the buyer's requested quantity ( /24/ ) the seller may reply with
 
-******* the quantity on hand ( /12/ ).
+******* the quantity on hand ( /12/ )
 
 ******** JSON
 
@@ -288,14 +307,17 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 #+END_SRC
 
 ******** XML
+
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <quantity>12</quantity>
       </item>
@@ -303,7 +325,7 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   </stock>
 #+END_SRC
 
-******* a fixed value e.g. /0/.
+******* a fixed value e.g. /0/
 
 ******** JSON
 
@@ -320,10 +342,12 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <quantity>0</quantity>
       </item>
@@ -333,9 +357,27 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 
 *** As a buyer I would like to know which location items will be shipped from
 
+This use case is supported in the current PO Processor, but as we look more closely we do think it is
+a valid use case. In fact, we have had some sellers express a concern that this might set an
+expectation that buyers can order stock from a specific warehouse, which they cannot do. We asked our
+head of training about providing the warehouse, this was his reply:
+
+#+BEGIN_QUOTE
+The customers that I have worked with had said they "like" knowing the warehouse. When I pushed them
+as to why, they really liked knowing because they knew the expected delivery time. It was not the
+warehouse that was the key, it was knowing when they could expect to deliver. I agree that they really
+don’t need to know the warehouse, they need to know if they can get the order to a certain location,
+for the money, in an estimated time frame.
+#+END_QUOTE
+
+So while we support this use case to be compatible with older seller implementations and with the
+current version of PO Processor, we expect to deprecate it very soon. We have added additional use
+cases to support time to delivery with an estimated cost for shipping.
+
 **** Sellers may respond with a name that is meaningful to the dealer
 
 ***** JSON
+
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.json
   { "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
@@ -344,14 +386,17 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 #+END_SRC
 
 ***** XML
+
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <location>
           <name>Main Warehouse</name>
@@ -379,10 +424,12 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
+    <itemsCount>1</itemsCount>
     <items>
       <item>
         <reference>
           <code>abc-123</code>
+          <type>seller</type>
         </reference>
         <location>
           <city>Dallas</city>
@@ -393,51 +440,146 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
   </stock>
 #+END_SRC
 
-*** As a buyer I would like to be able to specify a date when the order must be received.
+*** As a buyer I would like to be able to specify a date when the order should be received
 
-Version 2.0
+**** Request
 
-In this example the buyer is providing the current date ( 24 April 2008 ) and the date
-when they would expect the order to be delivered ( 24 April 2008 ).
+In this example the buyer is providing the date of the stock request ~24 April 2018~ and the date
+when they would expect the order to be delivered ~26 April 2018~. Buyers may not always provide
+the expected date in the request. In these cases the seller can decide if they want to always provide
+the expected delivery date or only when explicitly asked.
 
-#+BEGIN_SRC json
+***** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json
   { "when" : "2018-04-24T17:00:00.000Z",
     "whenExpected" : "2018-04-26T17:00:00.000Z",
     "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123" }}]}
 #+END_SRC
 
-In this example the buyer is providing the current date ( 24 April 2008 ) and the date
-when they would expect one of the line items in the order to be delivered ( 24 April 2008 ).
+***** XML
 
-#+BEGIN_SRC json
-  { "itemsCount": 1,
-    "items": [
-      { { "reference": { "code": "abc-123" }},
-        "when" : "2018-04-24T17:00:00.000Z",
-        "whenExpected" : "2018-04-26T17:00:00.000Z"}]}
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <stock>
+    <when>2018-04-24T17:00:00.000Z</when>
+    <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+      </item>
+    </items>
+  </stock>
 #+END_SRC
 
-**** If the seller does not support this feature the reply can omit dateExpected
+**** Response
 
-#+BEGIN_SRC json
+***** The seller can provide the expected date for the entire order
+
+In this example the seller is providing the date of the stock response ~24 April 2018~ and the date
+when the order could be delivered ~26 April 2018~.
+
+****** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json
+  { "when" : "2018-04-24T17:00:00.000Z",
+    "whenExpected" : "2018-04-26T17:00:00.000Z",
+    "itemsCount": 1,
+    "items": [ { "reference": { "code": "abc-123" }}]}
+#+END_SRC
+
+****** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml
+  <stock>
+    <when>2018-04-24T17:00:00.000Z</when>
+    <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+      </item>
+    </items>
+  </stock>
+#+END_SRC
+
+***** The seller can provide the expected dates for individual line items
+
+In this example the seller can provide item ~abc-123~ on ~24 April~ and provide item ~def-456~ on ~30 April~.
+
+****** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.json
+  { "itemsCount": 2,
+    "items": [ { "reference": { "code": "abc-123" },
+                 "when" : "2018-04-24T17:00:00.000Z",
+                 "whenExpected" : "2018-04-26T17:00:00.000Z"},
+               { "reference": { "code": "def-456" },
+                 "when" : "2018-04-24T17:00:00.000Z",
+                 "whenExpected" : "2018-04-30T17:00:00.000Z"}]}
+#+END_SRC
+
+****** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml
+  <stock>
+    <itemsCount>2</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+        <when>2018-04-24T17:00:00.000Z</when>
+        <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+      </item>
+      <item>
+        <reference>
+          <code>def-456</code>
+          <type>seller</type>
+        </reference>
+        <when>2018-04-24T17:00:00.000Z</when>
+        <whenExpected>2018-04-30T17:00:00.000Z</whenExpected>
+      </item>
+    </items>
+  </stock>
+#+END_SRC
+
+***** When the seller does not support this feature omit the property called ~whenExpected~ in the response
+
+****** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.json
   { "when" : "2018-04-24T17:00:00.000Z",
     "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
                                "type": "seller" }}]}
 #+END_SRC
 
-**** If the seller supports this feature the reply should contain a date the buyer can expect the item to be delivered
+****** XML
 
-In this example the seller is telling the buyer they can expect deliver on 30 April 2008
-
-#+BEGIN_SRC json
-  {
-    "when" : "2018-04-24T17:00:00.000Z",
-    "whenExpected" : "2018-04-30T17:00:00.000Z",
-    "itemsCount": 1,
-    "items": [{ "reference": { "code": "abc-123",
-                               "type": "seller" }}]}
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml
+    <stock>
+      <when>2018-04-24T17:00:00.000Z</when>
+      <itemsCount>1</itemsCount>
+      <items>
+        <item>
+          <reference>
+            <code>abc-123</code>
+            <type>seller</type>
+          </reference>
+        </item>
+      </items>
+    </stock>
 #+END_SRC
 
 *** As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
@@ -771,174 +913,177 @@ No longer published
 **** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd
-    <?xml version='1.0' encoding='utf-8'?>
+      <?xml version='1.0' encoding='utf-8'?>
 
-    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-               elementFormDefault='qualified'
-               xml:lang='en'>
+      <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                 elementFormDefault='qualified'
+                 xml:lang='en'>
 
-      <xs:element name='stock' type='StockType'/>
+        <xs:element name='stock' type='StockType'/>
 
-      <xs:complexType name='AddressType'>
-        <xs:sequence>
-          <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
-          <xs:element name='name'              type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='description'       type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='remarks'           type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='alternateLocation' type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='attention'         type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='city'              type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='country'           type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='mailStopCode'      type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='recipient'         type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='state'             type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='region'            type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='postalCode'        type='xs:string' minOccurs='0' maxOccurs='1' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='AddressType'>
+          <xs:sequence>
+            <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
+            <xs:element name='name'              type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='description'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='remarks'           type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='alternateLocation' type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='attention'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='city'              type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='country'           type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='mailStopCode'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='recipient'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='state'             type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='region'            type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='postalCode'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='BuyerType'>
-        <xs:sequence>
-          <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-          <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
-          <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='BuyerType'>
+          <xs:sequence>
+            <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+            <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+            <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='CurrencyType'>
-        <xs:sequence>
-          <xs:element name='code'      type='xs:string'  />
-          <xs:element name='number'    type='xs:integer' />
-          <xs:element name='precision' type='xs:integer' />
-          <xs:element name='scale'     type='xs:integer' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='CurrencyType'>
+          <xs:sequence>
+            <xs:element name='code'      type='xs:string'  />
+            <xs:element name='number'    type='xs:integer' />
+            <xs:element name='precision' type='xs:integer' />
+            <xs:element name='scale'     type='xs:integer' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='ItemType'>
-        <xs:sequence>
-          <xs:element name='reference'            type='ReferenceType' minOccurs='0' maxOccurs='1' />
-          <xs:element name='name'                 type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='description'          type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='remarks'              type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='location'             type='AddressType'   minOccurs='0' maxOccurs='1' />
-          <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
-          <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
-          <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-          <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='ItemType'>
+          <xs:sequence>
+            <xs:element name='reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
+            <xs:element name='name'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
+            <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
+            <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+            <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='ItemsType'>
-        <xs:sequence minOccurs='1' maxOccurs='5000'>
-          <xs:element name='item' type='ItemType'/>
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='ItemsType'>
+          <xs:sequence minOccurs='1' maxOccurs='5000'>
+            <xs:element name='item' type='ItemType'/>
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='MoneyType'>
-        <xs:sequence>
-          <xs:element name='amount'   type='xs:decimal'   maxOccurs='1' />
-          <xs:element name='currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='MoneyType'>
+          <xs:sequence>
+            <xs:element name='amount'   type='xs:decimal'   maxOccurs='1' />
+            <xs:element name='currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='ReferenceType'>
-        <xs:sequence>
-          <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
-          <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
-            <xs:simpleType>
-              <xs:restriction base='xs:string'>
-                <xs:enumeration value='buyer'        />
-                <xs:enumeration value='consumer'     />
-                <xs:enumeration value='document'     />
-                <xs:enumeration value='lineNumber'   />
-                <xs:enumeration value='manufacturer' />
-                <xs:enumeration value='seller'       />
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:element>
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='ReferenceType'>
+          <xs:sequence>
+            <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+            <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+            <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+            <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+            <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
+              <xs:simpleType>
+                <xs:restriction base='xs:string'>
+                  <xs:enumeration value='buyer'        />
+                  <xs:enumeration value='consumer'     />
+                  <xs:enumeration value='document'     />
+                  <xs:enumeration value='lineNumber'   />
+                  <xs:enumeration value='manufacturer' />
+                  <xs:enumeration value='seller'       />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='StockType'>
-        <xs:sequence>
-          <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
-          <xs:element name='name'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
-          <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-          <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-          <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-          <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
-          <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='StockType'>
+          <xs:sequence>
+            <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
+            <xs:element name='name'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
+            <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+            <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+            <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+            <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
+            <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:complexType name='UnitMeasureType'>
-        <xs:sequence>
-          <xs:element name='name'        type='xs:string'  />
-          <xs:element name='description' type='xs:string'  />
-          <xs:element name='remarks'     type='xs:string'  />
-          <xs:element name='code'        type='xs:string'  />
-          <xs:element name='quantity'    type='xs:decimal' />
-        </xs:sequence>
-      </xs:complexType>
+        <xs:complexType name='UnitMeasureType'>
+          <xs:sequence>
+            <xs:element name='name'        type='xs:string'  />
+            <xs:element name='description' type='xs:string'  />
+            <xs:element name='remarks'     type='xs:string'  />
+            <xs:element name='code'        type='xs:string'  />
+            <xs:element name='quantity'    type='xs:decimal' />
+          </xs:sequence>
+        </xs:complexType>
 
-      <xs:simpleType name='CostType'>
-        <xs:annotation>
-          <xs:documentation>
-            Every Product must have a unit cost that is equal to or greater than
-            0 and must cost just under one trillion monetary units. Version 1.5.0
-            assumes the monetary unit is US Dollars.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:restriction base='xs:decimal'>
-          <xs:minInclusive value='0'/>
-          <xs:maxInclusive value='999999999999.999999'/>
-          <xs:fractionDigits value='6'/>
-          <xs:totalDigits value='18'/>
-        </xs:restriction>
-      </xs:simpleType>
+        <xs:simpleType name='CostType'>
+          <xs:annotation>
+            <xs:documentation>
+              Every Product must have a unit cost that is equal to or greater than
+              0 and must cost just under one trillion monetary units. Version 1.5.0
+              assumes the monetary unit is US Dollars.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:restriction base='xs:decimal'>
+            <xs:minInclusive value='0'/>
+            <xs:maxInclusive value='999999999999.999999'/>
+            <xs:fractionDigits value='6'/>
+            <xs:totalDigits value='18'/>
+          </xs:restriction>
+        </xs:simpleType>
 
-      <xs:simpleType name='IDType'>
-        <xs:annotation>
-          <xs:documentation>
-            Every Product must have at least one ID and that ID must uniquely locate
-            only one product; a Product may have more than one ID but a ID must relate
-            to only a single product.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:restriction base='xs:token'>
-          <xs:minLength value='1'/>
-          <xs:maxLength value='32'/>
-        </xs:restriction>
-      </xs:simpleType>
+        <xs:simpleType name='IDType'>
+          <xs:annotation>
+            <xs:documentation>
+              Every Product must have at least one ID and that ID must uniquely locate
+              only one product; a Product may have more than one ID but a ID must relate
+              to only a single product.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:restriction base='xs:token'>
+            <xs:minLength value='1'/>
+            <xs:maxLength value='32'/>
+          </xs:restriction>
+        </xs:simpleType>
 
-      <xs:simpleType name='QuantityType'>
-        <xs:restriction base='xs:unsignedInt'/>
-      </xs:simpleType>
+        <xs:simpleType name='QuantityType'>
+          <xs:restriction base='xs:unsignedInt'/>
+        </xs:simpleType>
 
-    </xs:schema>
+      </xs:schema>
 
 #+END_SRC
 
 *** Version 2.0
 
 **** TODO
+
+** © 2018 ECi Software Solutions, Inc. All rights reserved.

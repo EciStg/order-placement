@@ -19,6 +19,10 @@
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml validates
@@ -30,6 +34,10 @@
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml validates
 
 
 ## Overview
@@ -85,6 +93,7 @@ to get information about an item in the seller's system identified as `abc-123`.
                 <item>
                   <reference>
                     <code>abc-123</code>
+                    <type>seller</type>
                   </reference>
                 </item>
               </items>
@@ -115,6 +124,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
               <buyer>
                 <reference>
                   <code>buyer-abc</code>
+                  <type>seller</type>
                 </reference>
               </buyer>
               <itemsCount>1</itemsCount>
@@ -122,6 +132,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
                 <item>
                   <reference>
                     <code>abc-123</code>
+                    <type>seller</type>
                   </reference>
                 </item>
               </items>
@@ -151,6 +162,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
                 <item>
                   <reference>
                     <code>abc-123</code>
+                    <type>seller</type>
                   </reference>
                   <unitCost>
                     <amount>99.99</amount>
@@ -185,10 +197,12 @@ the buyer object. After that, the request is the same as the unknown buyer.
                 <?xml version='1.0' encoding='utf-8'?>
 
                 <stock>
+                  <itemsCount>1</itemsCount>
                   <items>
                     <item>
                       <reference>
                         <code>abc-123</code>
+                        <type>seller</type>
                       </reference>
                       <quantity>24</quantity>
                     </item>
@@ -213,10 +227,12 @@ the buyer object. After that, the request is the same as the unknown buyer.
                         <?xml version='1.0' encoding='utf-8'?>
 
                         <stock>
+                          <itemsCount>1</itemsCount>
                           <items>
                             <item>
                               <reference>
                                 <code>abc-123</code>
+                                <type>seller</type>
                               </reference>
                               <quantity>24</quantity>
                             </item>
@@ -237,17 +253,19 @@ the buyer object. After that, the request is the same as the unknown buyer.
                         <?xml version='1.0' encoding='utf-8'?>
 
                         <stock>
+                          <itemsCount>1</itemsCount>
                           <items>
                             <item>
                               <reference>
                                 <code>abc-123</code>
+                                <type>seller</type>
                               </reference>
                               <quantity>103</quantity>
                             </item>
                           </items>
                         </stock>
 
-            3.  a fixed value e.g. *1,000*.
+            3.  a fixed value e.g. *1,000*
 
                 1.  JSON
 
@@ -261,10 +279,12 @@ the buyer object. After that, the request is the same as the unknown buyer.
                         <?xml version='1.0' encoding='utf-8'?>
 
                         <stock>
+                          <itemsCount>1</itemsCount>
                           <items>
                             <item>
                               <reference>
                                 <code>abc-123</code>
+                                <type>seller</type>
                               </reference>
                               <quantity>1000</quantity>
                             </item>
@@ -273,7 +293,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
 
         2.  If the seller cannot deliver the buyer's requested quantity ( *24* ) the seller may reply with
 
-            1.  the quantity on hand ( *12* ).
+            1.  the quantity on hand ( *12* )
 
                 1.  JSON
 
@@ -287,17 +307,19 @@ the buyer object. After that, the request is the same as the unknown buyer.
                         <?xml version='1.0' encoding='utf-8'?>
 
                         <stock>
+                          <itemsCount>1</itemsCount>
                           <items>
                             <item>
                               <reference>
                                 <code>abc-123</code>
+                                <type>seller</type>
                               </reference>
                               <quantity>12</quantity>
                             </item>
                           </items>
                         </stock>
 
-            2.  a fixed value e.g. *0*.
+            2.  a fixed value e.g. *0*
 
                 1.  JSON
 
@@ -311,10 +333,12 @@ the buyer object. After that, the request is the same as the unknown buyer.
                         <?xml version='1.0' encoding='utf-8'?>
 
                         <stock>
+                          <itemsCount>1</itemsCount>
                           <items>
                             <item>
                               <reference>
                                 <code>abc-123</code>
+                                <type>seller</type>
                               </reference>
                               <quantity>0</quantity>
                             </item>
@@ -323,6 +347,21 @@ the buyer object. After that, the request is the same as the unknown buyer.
 
 
 ### As a buyer I would like to know which location items will be shipped from
+
+This use case is supported in the current PO Processor, but as we look more closely we do think it is
+a valid use case. In fact, we have had some sellers express a concern that this might set an
+expectation that buyers can order stock from a specific warehouse, which they cannot do. We asked our
+head of training about providing the warehouse, this was his reply:
+
+> The customers that I have worked with had said they "like" knowing the warehouse. When I pushed them
+> as to why, they really liked knowing because they knew the expected delivery time. It was not the
+> warehouse that was the key, it was knowing when they could expect to deliver. I agree that they really
+> don’t need to know the warehouse, they need to know if they can get the order to a certain location,
+> for the money, in an estimated time frame.
+
+So while we support this use case to be compatible with older seller implementations and with the
+current version of PO Processor, we expect to deprecate it very soon. We have added additional use
+cases to support time to delivery with an estimated cost for shipping.
 
 1.  Sellers may respond with a name that is meaningful to the dealer
 
@@ -338,10 +377,12 @@ the buyer object. After that, the request is the same as the unknown buyer.
             <?xml version='1.0' encoding='utf-8'?>
 
             <stock>
+              <itemsCount>1</itemsCount>
               <items>
                 <item>
                   <reference>
                     <code>abc-123</code>
+                    <type>seller</type>
                   </reference>
                   <location>
                     <name>Main Warehouse</name>
@@ -365,10 +406,12 @@ the buyer object. After that, the request is the same as the unknown buyer.
             <?xml version='1.0' encoding='utf-8'?>
 
             <stock>
+              <itemsCount>1</itemsCount>
               <items>
                 <item>
                   <reference>
                     <code>abc-123</code>
+                    <type>seller</type>
                   </reference>
                   <location>
                     <city>Dallas</city>
@@ -379,44 +422,131 @@ the buyer object. After that, the request is the same as the unknown buyer.
             </stock>
 
 
-### As a buyer I would like to be able to specify a date when the order must be received.
+### As a buyer I would like to be able to specify a date when the order should be received
 
-Version 2.0
+1.  Request
 
-In this example the buyer is providing the current date ( 24 April 2008 ) and the date
-when they would expect the order to be delivered ( 24 April 2008 ).
+    In this example the buyer is providing the date of the stock request `24 April 2018` and the date
+    when they would expect the order to be delivered `26 April 2018`. Buyers may not always provide
+    the expected date in the request. In these cases the seller can decide if they want to always provide
+    the expected delivery date or only when explicitly asked.
 
-    { "when" : "2018-04-24T17:00:00.000Z",
-      "whenExpected" : "2018-04-26T17:00:00.000Z",
-      "itemsCount": 1,
-      "items": [{ "reference": { "code": "abc-123" }}]}
+    1.  JSON
 
-In this example the buyer is providing the current date ( 24 April 2008 ) and the date
-when they would expect one of the line items in the order to be delivered ( 24 April 2008 ).
+            { "when" : "2018-04-24T17:00:00.000Z",
+              "whenExpected" : "2018-04-26T17:00:00.000Z",
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123" }}]}
 
-    { "itemsCount": 1,
-      "items": [
-        { { "reference": { "code": "abc-123" }},
-          "when" : "2018-04-24T17:00:00.000Z",
-          "whenExpected" : "2018-04-26T17:00:00.000Z"}]}
+    2.  XML
 
-1.  If the seller does not support this feature the reply can omit dateExpected
+            <?xml version='1.0' encoding='utf-8'?>
 
-        { "when" : "2018-04-24T17:00:00.000Z",
-          "itemsCount": 1,
-          "items": [{ "reference": { "code": "abc-123",
-                                     "type": "seller" }}]}
+            <stock>
+              <when>2018-04-24T17:00:00.000Z</when>
+              <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </stock>
 
-2.  If the seller supports this feature the reply should contain a date the buyer can expect the item to be delivered
+2.  Response
 
-    In this example the seller is telling the buyer they can expect deliver on 30 April 2008
+    1.  The seller can provide the expected date for the entire order
 
-        {
-          "when" : "2018-04-24T17:00:00.000Z",
-          "whenExpected" : "2018-04-30T17:00:00.000Z",
-          "itemsCount": 1,
-          "items": [{ "reference": { "code": "abc-123",
-                                     "type": "seller" }}]}
+        In this example the seller is providing the date of the stock response `24 April 2018` and the date
+        when the order could be delivered `26 April 2018`.
+
+        1.  JSON
+
+                { "when" : "2018-04-24T17:00:00.000Z",
+                  "whenExpected" : "2018-04-26T17:00:00.000Z",
+                  "itemsCount": 1,
+                  "items": [ { "reference": { "code": "abc-123" }}]}
+
+        2.  XML
+
+                <stock>
+                  <when>2018-04-24T17:00:00.000Z</when>
+                  <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </stock>
+
+    2.  The seller can provide the expected dates for individual line items
+
+        In this example the seller can provide item `abc-123` on `24 April` and provide item `def-456` on `30 April`.
+
+        1.  JSON
+
+                { "itemsCount": 2,
+                  "items": [ { "reference": { "code": "abc-123" },
+                               "when" : "2018-04-24T17:00:00.000Z",
+                               "whenExpected" : "2018-04-26T17:00:00.000Z"},
+                             { "reference": { "code": "def-456" },
+                               "when" : "2018-04-24T17:00:00.000Z",
+                               "whenExpected" : "2018-04-30T17:00:00.000Z"}]}
+
+        2.  XML
+
+                <stock>
+                  <itemsCount>2</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                      <when>2018-04-24T17:00:00.000Z</when>
+                      <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+                    </item>
+                    <item>
+                      <reference>
+                        <code>def-456</code>
+                        <type>seller</type>
+                      </reference>
+                      <when>2018-04-24T17:00:00.000Z</when>
+                      <whenExpected>2018-04-30T17:00:00.000Z</whenExpected>
+                    </item>
+                  </items>
+                </stock>
+
+    3.  When the seller does not support this feature omit the property called `whenExpected` in the response
+
+        1.  JSON
+
+                { "when" : "2018-04-24T17:00:00.000Z",
+                  "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" }}]}
+
+        2.  XML
+
+                <stock>
+                  <when>2018-04-24T17:00:00.000Z</when>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </stock>
 
 
 ### As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
@@ -762,18 +892,18 @@ No longer published
           <xs:complexType name='AddressType'>
             <xs:sequence>
               <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'              type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'       type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'           type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='alternateLocation' type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='attention'         type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='city'              type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='country'           type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='mailStopCode'      type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='recipient'         type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='state'             type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='region'            type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='postalCode'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'              type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'           type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='alternateLocation' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='attention'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='city'              type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='country'           type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='mailStopCode'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='recipient'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='state'             type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='region'            type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='postalCode'        type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -801,14 +931,15 @@ No longer published
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='reference'            type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'                 type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'          type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'              type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'             type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
               <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
               <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
@@ -921,3 +1052,6 @@ No longer published
 ### Version 2.0
 
 1.  TODO
+
+
+## © 2018 ECi Software Solutions, Inc. All rights reserved.

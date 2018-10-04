@@ -6,6 +6,7 @@
     <item>
       <reference>
         <code>abc-123</code>
+        <type>seller</type>
       </reference>
     </item>
   </items>

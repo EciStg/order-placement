@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <stock>
+  <itemsCount>1</itemsCount>
   <items>
     <item>
       <reference>
         <code>abc-123</code>
+        <type>seller</type>
       </reference>
       <quantity>24</quantity>
     </item>
