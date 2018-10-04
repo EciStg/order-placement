@@ -1,0 +1,5 @@
+{ "buyer" : { "reference": { "code": "buyer-abc",
+                             "type": "seller" }},
+  "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" }}]}

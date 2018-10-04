@@ -1,1 +1,4 @@
-{ "items": [{ "sellerRef": "abc-123", "quantity": 103}]}
+{ "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" },
+              "quantity": 103}]}

@@ -6,7 +6,10 @@
       <reference>
         <code>abc-123</code>
       </reference>
-      <quantity>0</quantity>
+      <location>
+        <city>Dallas</city>
+        <region>TX</region>
+      </location>
     </item>
   </items>
 </stock>

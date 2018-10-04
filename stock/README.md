@@ -3,12 +3,38 @@
 # Stock
 
 
-## Technical Overview
+## Test Results
+
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.stock*.json" 2>&1
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0*.xml 2>&1
+
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml validates
+
+
+## Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
-
-
-## Sequence of Events
 
 ![img](../images/stock-sequence.puml.png)
 
@@ -17,7 +43,7 @@ received will be shown. It is assumed that the caller will make the actual *POST
 call with the required headers e.g.
 
     curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.stock.1.5.0.xml; charset=utf-8" \
+         --header "Content-Type: application/vnd.eci.stg.stock.1.5.0.json; charset=utf-8" \
          --user user123:password123 \
          --url http://vendor-host/vendor-stock-endpoint
          --data ''
@@ -25,242 +51,372 @@ call with the required headers e.g.
 
 ## Use Cases
 
+There are many use cases, most of the variation is contained in the seller's response. Therefore we
+will assume that that buyer request will be one of the next two use cases and will now show the
+buyer's request unless it differs from these two. When we do show the buyer's request, for clarity,
+we will show it as an unknown buyer.
 
-### As an unidentified buyer I would like to see the cost for one or more products
+The stock check system supports requests from buyers are not known to the seller and from buyers that
+are known to the seller. Sellers may, or may not, allow unknown buyers to request stock information.
+If unknown buyer requests are not supported that seller's system should return a 4xx http status code
+and an optional error body.
 
-Version 1.5
+
+### As a buyer not known to the seller I would like to submit stock requests
+
+The buyer system simply lists the items they wish to inquire about. In this example, the buyer wants
+to get information about an item in the seller's system identified as `abc-123`.
 
 1.  Request
 
-    In this example a buyer is asking for her cost, the seller's asking price, for a product known to the
-    seller as *abc-123*.
-
     1.  JSON
 
-            { "items": [{ "sellerRef": "abc-123" }]}
+            { "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
 
     2.  XML
 
             <?xml version='1.0' encoding='utf-8'?>
 
-            <Stock>
-              <Items>
-                <Item>
-                  <Reference>
-                    <SellerReference>abc-123</SellerReference>
-                  </Reference>
-                </Item>
-              </Items>
-            </Stock>
+            <stock>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                  </reference>
+                </item>
+              </items>
+            </stock>
 
-2.  Response
+
+### As a buyer known to the seller I would like to submit stock requests
+
+The buyer must populate and send information that will uniquely identify them to the seller. In this
+example the buyer has provided the seller assigned unique identifier `buyer-abc` in code property of
+the buyer object. After that, the request is the same as the unknown buyer.
+
+1.  Request
+
+    1.  JSON
+
+            { "buyer" : { "reference": { "code": "buyer-abc",
+                                         "type": "seller" }},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <buyer>
+                <reference>
+                  <code>buyer-abc</code>
+                </reference>
+              </buyer>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                  </reference>
+                </item>
+              </items>
+            </stock>
+
+
+### As a buyer I would like to see the cost for one or more products
+
+1.  Response
 
     The seller's response is intended to inform the buyer that the the item will cost her *99.99$USD*.
 
     1.  JSON
 
-            { "items": [{ "sellerRef": "abc-123", "unitCost": 99.99}]}
+            { "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "unitCost": 99.99}]}
 
     2.  XML
 
             <?xml version='1.0' encoding='utf-8'?>
 
-            <Stock>
-              <Items>
-                <Item>
-                  <Reference>
-                    <SellerReference>abc-123</SellerReference>
-                  </Reference>
-                  <UnitCost>
-                    <Amount>99.99</Amount>
-                  </UnitCost>
-                </Item>
-              </Items>
-            </Stock>
+            <stock>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                  </reference>
+                  <unitCost>
+                    <amount>99.99</amount>
+                  </unitCost>
+                </item>
+              </items>
+            </stock>
 
 
-### As an unidentified buyer I would like to know if the seller has enough stock to satisfy my order
+### As a buyer I would like to know if the seller has enough stock to satisfy my order
 
-Version 1.5
+1.  Version 1.5
 
-In this case the buyer's intent is to understand if the seller an supply the requested number of
-items ( *24* ) for a product known to the seller as *abc-123*.
+    The buyer systems will not send the expected quantity, quantity will be omitted or unspecified.
 
-1.  Request
+2.  Version 2.0
+
+    In this case the buyer's intent is to understand if the seller an supply the requested number of
+    items ( *24* ) for a product known to the seller as *abc-123*.
+
+    1.  Request
+
+        1.  JSON
+
+                { "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" },
+                              "quantity": 24}]}
+
+        2.  XML
+
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <stock>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                      </reference>
+                      <quantity>24</quantity>
+                    </item>
+                  </items>
+                </stock>
+
+    2.  Response
+
+        1.  If the seller can deliver the buyer's requested quantity ( *24* ) the seller may reply with
+
+            1.  the requested quantity ( *24* )
+
+                1.  JSON
+
+                        { "itemsCount": 1,
+                          "items": [{ "reference": { "code": "abc-123",
+                                                     "type": "seller" },
+                                      "quantity": 24}]}
+
+                2.  XML
+
+                        <?xml version='1.0' encoding='utf-8'?>
+
+                        <stock>
+                          <items>
+                            <item>
+                              <reference>
+                                <code>abc-123</code>
+                              </reference>
+                              <quantity>24</quantity>
+                            </item>
+                          </items>
+                        </stock>
+
+            2.  the quantity on hand ( *103* )
+
+                1.  JSON
+
+                        { "itemsCount": 1,
+                          "items": [{ "reference": { "code": "abc-123",
+                                                     "type": "seller" },
+                                      "quantity": 103}]}
+
+                2.  XML
+
+                        <?xml version='1.0' encoding='utf-8'?>
+
+                        <stock>
+                          <items>
+                            <item>
+                              <reference>
+                                <code>abc-123</code>
+                              </reference>
+                              <quantity>103</quantity>
+                            </item>
+                          </items>
+                        </stock>
+
+            3.  a fixed value e.g. *1,000*.
+
+                1.  JSON
+
+                        { "itemsCount": 1,
+                          "items": [{ "reference": { "code": "abc-123",
+                                                     "type": "seller" },
+                                      "quantity": 1000}]}
+
+                2.  XML
+
+                        <?xml version='1.0' encoding='utf-8'?>
+
+                        <stock>
+                          <items>
+                            <item>
+                              <reference>
+                                <code>abc-123</code>
+                              </reference>
+                              <quantity>1000</quantity>
+                            </item>
+                          </items>
+                        </stock>
+
+        2.  If the seller cannot deliver the buyer's requested quantity ( *24* ) the seller may reply with
+
+            1.  the quantity on hand ( *12* ).
+
+                1.  JSON
+
+                        { "itemsCount": 1,
+                          "items": [{ "reference": { "code": "abc-123",
+                                                     "type": "seller" },
+                                      "quantity": 12}]}
+
+                2.  XML
+
+                        <?xml version='1.0' encoding='utf-8'?>
+
+                        <stock>
+                          <items>
+                            <item>
+                              <reference>
+                                <code>abc-123</code>
+                              </reference>
+                              <quantity>12</quantity>
+                            </item>
+                          </items>
+                        </stock>
+
+            2.  a fixed value e.g. *0*.
+
+                1.  JSON
+
+                        { "itemsCount": 1,
+                          "items": [{ "reference": { "code": "abc-123",
+                                                     "type": "seller" },
+                                      "quantity": 0}]}
+
+                2.  XML
+
+                        <?xml version='1.0' encoding='utf-8'?>
+
+                        <stock>
+                          <items>
+                            <item>
+                              <reference>
+                                <code>abc-123</code>
+                              </reference>
+                              <quantity>0</quantity>
+                            </item>
+                          </items>
+                        </stock>
+
+
+### As a buyer I would like to know which location items will be shipped from
+
+1.  Sellers may respond with a name that is meaningful to the dealer
 
     1.  JSON
 
-            { "items": [{ "sellerRef": "abc-123", "quantity": 24}]}
+            { "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "location": { "name": "Main Warehouse" }}]}
 
     2.  XML
 
             <?xml version='1.0' encoding='utf-8'?>
 
-            <Stock>
-              <Items>
-                <Item>
-                  <Quantity>24</Quantity>
-                  <Reference>
-                    <SellerReference>abc-123</SellerReference>
-                  </Reference>
-                </Item>
-              </Items>
-            </Stock>
+            <stock>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                  </reference>
+                  <location>
+                    <name>Main Warehouse</name>
+                  </location>
+                </item>
+              </items>
+            </stock>
 
-2.  Response
+2.  Sellers may respond with city, and region (or some other meaningful part of the address)
 
-    1.  If the seller can deliver the buyer's requested quantity ( *24* ) the seller may reply with
+    1.  JSON
 
-        1.  the requested quantity ( *24* )
+            { "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "location": { "city": "Dallas",
+                                        "region": "TX" }}]}
 
-            1.  JSON
+    2.  XML
 
-                    { "items": [{ "sellerRef": "abc-123", "quantity": 24}]}
+            <?xml version='1.0' encoding='utf-8'?>
 
-            2.  XML
-
-                    <?xml version='1.0' encoding='utf-8'?>
-
-                    <Stock>
-                      <Items>
-                        <Item>
-                          <Quantity>24</Quantity>
-                          <Reference>
-                            <SellerReference>abc-123</SellerReference>
-                          </Reference>
-                        </Item>
-                      </Items>
-                    </Stock>
-
-        2.  the quantity on hand ( *103* )
-
-            1.  JSON
-
-                    { "items": [{ "sellerRef": "abc-123", "quantity": 103}]}
-
-            2.  XML
-
-                    <?xml version='1.0' encoding='utf-8'?>
-
-                    <Stock>
-                      <Items>
-                        <Item>
-                          <Quantity>103</Quantity>
-                          <Reference>
-                            <SellerReference>abc-123</SellerReference>
-                          </Reference>
-                        </Item>
-                      </Items>
-                    </Stock>
-
-        3.  a fixed value e.g. *1,000*.
-
-            1.  JSON
-
-                    { "items": [{ "sellerRef": "abc-123", "quantity": 1000}]}
-
-            2.  XML
-
-                    <?xml version='1.0' encoding='utf-8'?>
-
-                    <Stock>
-                      <Items>
-                        <Item>
-                          <Quantity>1000</Quantity>
-                          <Reference>
-                            <SellerReference>abc-123</SellerReference>
-                          </Reference>
-                        </Item>
-                      </Items>
-                    </Stock>
-
-    2.  If the seller cannot deliver the buyer's requested quantity ( *24* ) the seller may reply with
-
-        1.  the quantity on hand ( *12* ).
-
-            1.  JSON
-
-                    { "items": [{ "sellerRef": "abc-123", "quantity": 12}]}
-
-            2.  XML
-
-                    <?xml version='1.0' encoding='utf-8'?>
-
-                    <Stock>
-                      <Items>
-                        <Item>
-                          <Quantity>12</Quantity>
-                          <Reference>
-                            <SellerReference>abc-123</SellerReference>
-                          </Reference>
-                        </Item>
-                      </Items>
-                    </Stock>
-
-        2.  a fixed value e.g. *0*.
-
-            1.  JSON
-
-                    { "items": [{ "sellerRef": "abc-123", "quantity": 0}]}
-
-            2.  XML
-
-                    <?xml version='1.0' encoding='utf-8'?>
-
-                    <Stock>
-                      <Items>
-                        <Item>
-                          <Quantity>0</Quantity>
-                          <Reference>
-                            <SellerReference>abc-123</SellerReference>
-                          </Reference>
-                        </Item>
-                      </Items>
-                    </Stock>
+            <stock>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                  </reference>
+                  <location>
+                    <city>Dallas</city>
+                    <region>TX</region>
+                  </location>
+                </item>
+              </items>
+            </stock>
 
 
-### As an unidentified buyer I would like to be able to specify a date when the order must be received.
+### As a buyer I would like to be able to specify a date when the order must be received.
 
 Version 2.0
 
 In this example the buyer is providing the current date ( 24 April 2008 ) and the date
 when they would expect the order to be delivered ( 24 April 2008 ).
 
-    { "count": 1,
-      "date" : "2018-04-24T17:00:00.000Z",
-      "dateExpected" : "2018-04-26T17:00:00.000Z",
-      "items": [
-        { "line": 1,
-          "item": { "sellerRef": "abc-123" }}]}
+    { "when" : "2018-04-24T17:00:00.000Z",
+      "whenExpected" : "2018-04-26T17:00:00.000Z",
+      "itemsCount": 1,
+      "items": [{ "reference": { "code": "abc-123" }}]}
 
 In this example the buyer is providing the current date ( 24 April 2008 ) and the date
 when they would expect one of the line items in the order to be delivered ( 24 April 2008 ).
 
-    { "count": 1,
+    { "itemsCount": 1,
       "items": [
-        { "line": 1,
-          "item": { "sellerRef": "abc-123",
-                    "date" : "2018-04-24T17:00:00.000Z",
-                    "dateExpected" : "2018-04-26T17:00:00.000Z"}}]}
+        { { "reference": { "code": "abc-123" }},
+          "when" : "2018-04-24T17:00:00.000Z",
+          "whenExpected" : "2018-04-26T17:00:00.000Z"}]}
 
 1.  If the seller does not support this feature the reply can omit dateExpected
 
-        { "count": 1,
-          "date" : "2018-04-24T17:00:00.000Z",
-          "items": [
-            { "line": 1,
-              "item": { "sellerRef": "abc-123" }}]}
+        { "when" : "2018-04-24T17:00:00.000Z",
+          "itemsCount": 1,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" }}]}
 
 2.  If the seller supports this feature the reply should contain a date the buyer can expect the item to be delivered
 
     In this example the seller is telling the buyer they can expect deliver on 30 April 2008
 
-        { "count": 1,
-          "date" : "2018-04-24T17:00:00.000Z",
-          "dateExpected" : "2018-04-30T17:00:00.000Z",
-          "items": [
-            { "line": 1,
-              "item": { "sellerRef": "abc-123" }}]}
+        {
+          "when" : "2018-04-24T17:00:00.000Z",
+          "whenExpected" : "2018-04-30T17:00:00.000Z",
+          "itemsCount": 1,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" }}]}
 
 
 ### As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
@@ -270,7 +426,7 @@ Version 2.0
 1.  TODO
 
 
-### As a seller I would like to be able to provide a substitue when the item specified by the buyer is not in stock
+### As a seller I would like to be able to provide a substitute when the item specified by the buyer is not in stock
 
 Version 2.0
 
@@ -291,55 +447,304 @@ No longer published
 
         {
           "id": "./vnd.eci.stg.stock.1.5.0.json",
-          "title": "Stock, Cost, Date Collection",
-          "description": "a collection items a buyer may purchase from a seller",
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Stock",
+          "description": "",
           "type": "object",
-          "properties" : {
+          "additionalProperties": false,
+          "properties": {
+
+            "reference": { "$ref": "#/definitions/reference" },
+
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 128
+            },
+
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            },
+
+            "buyer": { "$ref": "#/definitions/buyer" },
+
+            "location": { "$ref": "#/definitions/address" },
+
+            "quantity": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999.999999
+            },
+
+            "unitCost": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "when": {
+              "description": "",
+              "type" : "string",
+              "format": "date-time"
+            },
+
+            "whenExpected": {
+              "description": "",
+              "type" : "string",
+              "format": "date-time"
+            },
+
+            "itemsCount": {
+              "description": "number of things in the items collection",
+              "type" : "number",
+              "minimum": 1,
+              "maximum": 1000
+            },
 
             "items": {
-              "description": "the unique items that have or will have stock and cost information",
+              "description": "",
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
               "uniqueItems": true,
               "items" : {
-                "$ref" : "#/definitions/item"
+                "$ref" : "#"
               }
             }
           },
 
-          "additionalProperties": false,
-
           "definitions" : {
-            "item": {
-              "title": "Stock, Cost, Date Item",
-              "description": "describes the items a buyer would like to purchase from a seller.",
+            "referenceType": {
+              "type": "string",
+              "enum": ["buyer", "consume", "manufacturer", "seller" ]
+            },
+
+            "reference": {
               "type": "object",
+              "additionalProperties": false,
               "properties" : {
 
-                "sellerRef": {
-                  "description": "seller function identifying a unique seller owned resource",
+                "code": {
+                  "description": "",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
                 },
 
-                "quantity": {
-                  "description": "the number of individual units in the measure e.g. Box of 20",
-                  "type": "number",
-                  "minimum" : 1,
-                  "maximum" : 999999999.999999
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
                 },
 
-                "unitCost": {
+                "name": {
                   "description": "",
-                  "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
-                }
-              },
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
-              "additionalProperties": false
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "type": { "$ref": "#/definitions/referenceType" },
+
+                "itemsCount": {
+                  "description": "number of things in the items collection",
+                  "type" : "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "items": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items" : {
+                    "$ref" : "#/definitions/reference"
+                  }
+                }
+              }
+            },
+
+            "address": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "msc": {
+                  "description": "mail stop code",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "mtn": {
+                  "description": "attention line",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "rcp": {
+                  "description": "recipient or business name",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "alt": {
+                  "description": "alternate location",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "dal": {
+                  "description": "delivery address line",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "city": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "region": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "postalCode": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "country": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "binLocation": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+
+                "warehouse": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                }
+              }
+            },
+
+            "buyer": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "taxID": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                }
+              }
             }
           }
         }
@@ -352,111 +757,127 @@ No longer published
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='Stock' type='StockType'/>
+          <xs:element name='stock' type='StockType'/>
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
-              <xs:element name='AlternateLocation' type='xs:string' />
-              <xs:element name='Attention'         type='xs:string' />
-              <xs:element name='City'              type='xs:string' />
-              <xs:element name='Country'           type='xs:string' />
-              <xs:element name='MailStopCode'      type='xs:string' />
-              <xs:element name='Recipient'         type='xs:string' />
-              <xs:element name='Remarks'           type='xs:string' />
-              <xs:element name='State'             type='xs:string' />
-              <xs:element name='Street'            type='xs:string' />
-              <xs:element name='Tag'               type='xs:string' />
-              <xs:element name='Zip'               type='xs:string' />
+              <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'              type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'       type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'           type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='alternateLocation' type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='attention'         type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='city'              type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='country'           type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='mailStopCode'      type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='recipient'         type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='state'             type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='region'            type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='postalCode'        type='xs:string' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='BuyerType'>
             <xs:sequence>
-              <xs:element name='Address'   type='AddressType'   />
-              <xs:element name='Email'     type='xs:string'     />
-              <xs:element name='Name'      type='xs:string'     />
-              <xs:element name='Phone'     type='xs:string'     />
-              <xs:element name='Reference' type='ReferenceType' />
-              <xs:element name='Remarks'   type='xs:string'     />
-              <xs:element name='TaxNumber' type='xs:string'     />
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='CurrencyType'>
             <xs:sequence>
-              <xs:element name='Code'      type='xs:string'  />
-              <xs:element name='Number'    type='xs:integer' />
-              <xs:element name='Precision' type='xs:integer' />
-              <xs:element name='Scale'     type='xs:integer' />
+              <xs:element name='code'      type='xs:string'  />
+              <xs:element name='number'    type='xs:integer' />
+              <xs:element name='precision' type='xs:integer' />
+              <xs:element name='scale'     type='xs:integer' />
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='Amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='AmountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='Description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='Discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='ExpectedDate'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='Freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='LineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
-              <xs:element name='Make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='Model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='Quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='QuantityAcknowledged' type='xs:decimal'      minOccurs='0' maxOccurs='1' />
-              <xs:element name='Reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='Remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='SerialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='Tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='Unit'                 type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='UnitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'            type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'                 type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'          type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'              type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'             type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
+              <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='ItemsType'>
             <xs:sequence minOccurs='1' maxOccurs='5000'>
-              <xs:element name='Item' type='ItemType'/>
+              <xs:element name='item' type='ItemType'/>
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='MoneyType'>
             <xs:sequence>
-              <xs:element name='Amount'   type='xs:decimal'   maxOccurs='1' />
-              <xs:element name='Currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='amount'   type='xs:decimal'   maxOccurs='1' />
+              <xs:element name='currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='ReferenceType'>
             <xs:sequence>
-              <xs:element name='BuyerReference'        type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='ConsumerReference'     type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='Description'           type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='DocumentReference'     type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='LineNumberReference'   type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='ManufacturerReference' type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='SellerReference'       type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string'>
+                    <xs:enumeration value='buyer'        />
+                    <xs:enumeration value='consumer'     />
+                    <xs:enumeration value='document'     />
+                    <xs:enumeration value='lineNumber'   />
+                    <xs:enumeration value='manufacturer' />
+                    <xs:enumeration value='seller'       />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='StockType'>
             <xs:sequence>
-              <xs:element name='Buyer'           type='BuyerType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='CountEmbedded'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='Currency'        type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-              <xs:element name='Date'            type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='DateExpected'    type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='Items'           type='ItemsType'     minOccurs='1' maxOccurs='1' />
-              <xs:element name='Reference'       type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='Remarks'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='SellerReference' type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
           <xs:complexType name='UnitMeasureType'>
             <xs:sequence>
-              <xs:element name='Description'     type='xs:string'  />
-              <xs:element name='MachineFacingID' type='xs:string'  />
-              <xs:element name='Quantity'        type='xs:decimal' />
+              <xs:element name='name'        type='xs:string'  />
+              <xs:element name='description' type='xs:string'  />
+              <xs:element name='remarks'     type='xs:string'  />
+              <xs:element name='code'        type='xs:string'  />
+              <xs:element name='quantity'    type='xs:decimal' />
             </xs:sequence>
           </xs:complexType>
 
@@ -500,15 +921,3 @@ No longer published
 ### Version 2.0
 
 1.  TODO
-
-
-## Testing
-
-    ../test-json.sh 2>&1
-    ../test-xml.sh 2>&1
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0*.xml
-
-    find: ./rsrc-schema/tst: No such file or directory
-    find: ./rsrc-schema/src: No such file or directory
-    find: ./rsrc-schema/src: No such file or directory
-    find: ./rsrc-schema/tst: No such file or directory

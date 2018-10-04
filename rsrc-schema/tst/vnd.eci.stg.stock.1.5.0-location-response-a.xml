@@ -6,7 +6,9 @@
       <reference>
         <code>abc-123</code>
       </reference>
-      <quantity>0</quantity>
+      <location>
+        <name>Main Warehouse</name>
+      </location>
     </item>
   </items>
 </stock>

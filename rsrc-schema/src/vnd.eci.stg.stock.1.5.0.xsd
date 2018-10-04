@@ -4,111 +4,127 @@
            elementFormDefault='qualified'
            xml:lang='en'>
 
-  <xs:element name='Stock' type='StockType'/>
+  <xs:element name='stock' type='StockType'/>
 
   <xs:complexType name='AddressType'>
     <xs:sequence>
-      <xs:element name='AlternateLocation' type='xs:string' />
-      <xs:element name='Attention'         type='xs:string' />
-      <xs:element name='City'              type='xs:string' />
-      <xs:element name='Country'           type='xs:string' />
-      <xs:element name='MailStopCode'      type='xs:string' />
-      <xs:element name='Recipient'         type='xs:string' />
-      <xs:element name='Remarks'           type='xs:string' />
-      <xs:element name='State'             type='xs:string' />
-      <xs:element name='Street'            type='xs:string' />
-      <xs:element name='Tag'               type='xs:string' />
-      <xs:element name='Zip'               type='xs:string' />
+      <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'              type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='description'       type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'           type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='alternateLocation' type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='attention'         type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='city'              type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='country'           type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='mailStopCode'      type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='recipient'         type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='state'             type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='region'            type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='postalCode'        type='xs:string' minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='BuyerType'>
     <xs:sequence>
-      <xs:element name='Address'   type='AddressType'   />
-      <xs:element name='Email'     type='xs:string'     />
-      <xs:element name='Name'      type='xs:string'     />
-      <xs:element name='Phone'     type='xs:string'     />
-      <xs:element name='Reference' type='ReferenceType' />
-      <xs:element name='Remarks'   type='xs:string'     />
-      <xs:element name='TaxNumber' type='xs:string'     />
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='CurrencyType'>
     <xs:sequence>
-      <xs:element name='Code'      type='xs:string'  />
-      <xs:element name='Number'    type='xs:integer' />
-      <xs:element name='Precision' type='xs:integer' />
-      <xs:element name='Scale'     type='xs:integer' />
+      <xs:element name='code'      type='xs:string'  />
+      <xs:element name='number'    type='xs:integer' />
+      <xs:element name='precision' type='xs:integer' />
+      <xs:element name='scale'     type='xs:integer' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='ItemType'>
     <xs:sequence>
-      <xs:element name='Amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='AmountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='Description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='Discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='ExpectedDate'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='Freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='LineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
-      <xs:element name='Make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='Model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='Quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
-      <xs:element name='QuantityAcknowledged' type='xs:decimal'      minOccurs='0' maxOccurs='1' />
-      <xs:element name='Reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-      <xs:element name='Remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='SerialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='Tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='Unit'                 type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='UnitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='reference'            type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'                 type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description'          type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'              type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'             type='AddressType'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
+      <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
+      <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='ItemsType'>
     <xs:sequence minOccurs='1' maxOccurs='5000'>
-      <xs:element name='Item' type='ItemType'/>
+      <xs:element name='item' type='ItemType'/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='MoneyType'>
     <xs:sequence>
-      <xs:element name='Amount'   type='xs:decimal'   maxOccurs='1' />
-      <xs:element name='Currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='amount'   type='xs:decimal'   maxOccurs='1' />
+      <xs:element name='currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='ReferenceType'>
     <xs:sequence>
-      <xs:element name='BuyerReference'        type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='ConsumerReference'     type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='Description'           type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='DocumentReference'     type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='LineNumberReference'   type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='ManufacturerReference' type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='SellerReference'       type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='buyer'        />
+            <xs:enumeration value='consumer'     />
+            <xs:enumeration value='document'     />
+            <xs:enumeration value='lineNumber'   />
+            <xs:enumeration value='manufacturer' />
+            <xs:enumeration value='seller'       />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='StockType'>
     <xs:sequence>
-      <xs:element name='Buyer'           type='BuyerType'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='CountEmbedded'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='Currency'        type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-      <xs:element name='Date'            type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-      <xs:element name='DateExpected'    type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-      <xs:element name='Items'           type='ItemsType'     minOccurs='1' maxOccurs='1' />
-      <xs:element name='Reference'       type='ReferenceType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='Remarks'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='SellerReference' type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+      <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
+      <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name='UnitMeasureType'>
     <xs:sequence>
-      <xs:element name='Description'     type='xs:string'  />
-      <xs:element name='MachineFacingID' type='xs:string'  />
-      <xs:element name='Quantity'        type='xs:decimal' />
+      <xs:element name='name'        type='xs:string'  />
+      <xs:element name='description' type='xs:string'  />
+      <xs:element name='remarks'     type='xs:string'  />
+      <xs:element name='code'        type='xs:string'  />
+      <xs:element name='quantity'    type='xs:decimal' />
     </xs:sequence>
   </xs:complexType>
 

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<Stock>
-  <Items>
-    <Item>
-      <Quantity>103</Quantity>
-      <Reference>
-        <SellerReference>abc-123</SellerReference>
-      </Reference>
-    </Item>
-  </Items>
-</Stock>
+<stock>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+      </reference>
+      <quantity>103</quantity>
+    </item>
+  </items>
+</stock>

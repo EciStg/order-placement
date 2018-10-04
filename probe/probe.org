@@ -46,16 +46,10 @@ Accept: application/vnd.eci.stg.probe-1.5.0.xml
 
 ** Test Results
 
-#+BEGIN_SRC shell :exports both :results verbatim
+#+BEGIN_SRC shell :exports both :results verbatim replace
   ajv -s ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.probe*.json" 2>&1
   xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml 2>&1
 #+END_SRC
-
-#+RESULTS:
-: ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json valid
-: ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json valid
-: ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml validates
-: ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml validates
 
 ** Overview
 

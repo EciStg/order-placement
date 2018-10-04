@@ -1,1 +1,4 @@
-{ "items": [{ "sellerRef": "abc-123", "unitCost": 99.99}]}
+{ "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" },
+              "unitCost": 99.99}]}

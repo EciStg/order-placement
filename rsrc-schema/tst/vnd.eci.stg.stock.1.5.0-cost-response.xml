@@ -1,12 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <stock>
+  <itemsCount>1</itemsCount>
   <items>
     <item>
       <reference>
         <code>abc-123</code>
       </reference>
-      <quantity>0</quantity>
+      <unitCost>
+        <amount>99.99</amount>
+      </unitCost>
     </item>
   </items>
 </stock>

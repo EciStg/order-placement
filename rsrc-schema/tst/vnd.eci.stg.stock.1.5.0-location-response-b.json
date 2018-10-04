@@ -1,4 +1,5 @@
 { "itemsCount": 1,
   "items": [{ "reference": { "code": "abc-123",
                              "type": "seller" },
-              "quantity": 0}]}
+              "location": { "city": "Dallas",
+                            "region": "TX" }}]}
