@@ -7,6 +7,7 @@
 
     ajv -s ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.stock*.json" 2>&1
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0*.xml 2>&1
+    echo !!success!!
 
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json valid
@@ -18,6 +19,8 @@
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json valid
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json valid
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json valid
@@ -33,11 +36,14 @@
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml validates
+    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml validates
     ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml validates
+    !!success!!
 
 
 ## Overview
@@ -143,7 +149,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
 
 1.  Response
 
-    The seller's response is intended to inform the buyer that the the item will cost her *99.99$USD*.
+    The seller's response is intended to inform the buyer that the item will cost her *99.99$USD*.
 
     1.  JSON
 
@@ -164,9 +170,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
                     <code>abc-123</code>
                     <type>seller</type>
                   </reference>
-                  <unitCost>
-                    <amount>99.99</amount>
-                  </unitCost>
+                  <unitCost>99.99</unitCost>
                 </item>
               </items>
             </stock>
@@ -348,8 +352,8 @@ the buyer object. After that, the request is the same as the unknown buyer.
 
 ### As a buyer I would like to know which location items will be shipped from
 
-This use case is supported in the current PO Processor, but as we look more closely we do think it is
-a valid use case. In fact, we have had some sellers express a concern that this might set an
+This use case is supported in the current PO Processor, but as we look more closely, we do think it
+is a valid use case. In fact, we have had some sellers express a concern that this might set an
 expectation that buyers can order stock from a specific warehouse, which they cannot do. We asked our
 head of training about providing the warehouse, this was his reply:
 
@@ -364,6 +368,8 @@ current version of PO Processor, we expect to deprecate it very soon. We have ad
 cases to support time to delivery with an estimated cost for shipping.
 
 1.  Sellers may respond with a name that is meaningful to the dealer
+
+    In this example, the seller is responding with `Main Warehouse`
 
     1.  JSON
 
@@ -392,6 +398,8 @@ cases to support time to delivery with an estimated cost for shipping.
             </stock>
 
 2.  Sellers may respond with city, and region (or some other meaningful part of the address)
+
+    In this example, the seller is providing the city and state `Dallas, TX`
 
     1.  JSON
 
@@ -422,14 +430,15 @@ cases to support time to delivery with an estimated cost for shipping.
             </stock>
 
 
-### As a buyer I would like to be able to specify a date when the order should be received
+### As a buyer I would like to know the earliest date the order could be received
 
 1.  Request
 
     In this example the buyer is providing the date of the stock request `24 April 2018` and the date
-    when they would expect the order to be delivered `26 April 2018`. Buyers may not always provide
-    the expected date in the request. In these cases the seller can decide if they want to always provide
-    the expected delivery date or only when explicitly asked.
+    when they would expect the order to be delivered `26 April 2018`.
+
+    Buyers will not always provide the expected date in the request. In these cases the seller can decide
+    if they want to always provide the expected delivery date or only when explicitly asked.
 
     1.  JSON
 
@@ -549,6 +558,94 @@ cases to support time to delivery with an estimated cost for shipping.
                 </stock>
 
 
+### As a buyer I would like to know the cost to have an order delivered to a specific location
+
+1.  Request
+
+    In this example the buyer would like to know what the cost will be to have the order delivered to the
+    following address:
+
+        Jane Doe
+        ECi Solutions, STG
+        Suite #200
+        4626 N 300 W
+        Provo, UT 84606
+
+    1.  JSON
+
+            { "shipTo" : { "location": { "mtn": "Jane Doe",
+                                         "rcp": "ECi Solutions, STG",
+                                         "alt": "Suite #200",
+                                         "dal": "4626 N 300 W",
+                                         "city": "Provo",
+                                         "region": "UT",
+                                         "postalCode": "84604"},
+                           "email": "shipping-contact@example.com",
+                           "phone": "1-555-555-5555"},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <shipTo>
+                <location>
+                  <mtn>Jane Doe</mtn>
+                  <rcp>ECi Solutions, STG</rcp>
+                  <alt>Suite #200</alt>
+                  <dal>4626 N 300 W</dal>
+                  <city>Provo</city>
+                  <region>UT</region>
+                  <postalCode>84604</postalCode>
+                </location>
+                <email>shipping-contact@example.com</email>
+                <phone>1-555-555-5555></phone>
+              </shipTo>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </stock>
+
+2.  Response
+
+    The seller's response is intended to inform the buyer that shipping the order will cost *199.99$USD*.
+
+    1.  JSON
+
+            { "freight": 199.99,
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "unitCost": 99.99}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <freight>199.99</freight>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <unitCost>99.99</unitCost>
+                </item>
+              </items>
+            </stock>
+
+
 ### As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
 
 Version 2.0
@@ -609,6 +706,8 @@ No longer published
 
             "buyer": { "$ref": "#/definitions/buyer" },
 
+            "shipTo": { "$ref": "#/definitions/shipTo" },
+
             "location": { "$ref": "#/definitions/address" },
 
             "quantity": {
@@ -619,6 +718,13 @@ No longer published
             },
 
             "unitCost": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "freight": {
               "description": "",
               "type": "number",
               "minimum" : 0,
@@ -674,18 +780,18 @@ No longer published
                   "maxLength": 32
                 },
 
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength" : 128
-                },
-
                 "name": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
                 },
 
                 "remarks": {
@@ -724,18 +830,18 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength" : 128
-                },
-
                 "name": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
                 },
 
                 "remarks": {
@@ -831,18 +937,18 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength" : 128
-                },
-
                 "name": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
                 },
 
                 "remarks": {
@@ -875,6 +981,52 @@ No longer published
                   "maxLength": 32
                 }
               }
+            },
+
+            "shipTo": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                }
+              }
             }
           }
         }
@@ -891,19 +1043,19 @@ No longer published
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
-              <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'              type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'           type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='alternateLocation' type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='attention'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='city'              type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='country'           type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='mailStopCode'      type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='recipient'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='state'             type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='region'            type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='postalCode'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='msc'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='mtn'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='rcp'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='alt'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='dal'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='city'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='region'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='postalCode'  type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='country'     type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -959,13 +1111,6 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
-          <xs:complexType name='MoneyType'>
-            <xs:sequence>
-              <xs:element name='amount'   type='xs:decimal'   maxOccurs='1' />
-              <xs:element name='currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
-            </xs:sequence>
-          </xs:complexType>
-
           <xs:complexType name='ReferenceType'>
             <xs:sequence>
               <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
@@ -987,6 +1132,18 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
+          <xs:complexType name='ShipToType'>
+            <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
           <xs:complexType name='StockType'>
             <xs:sequence>
               <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -994,9 +1151,11 @@ No longer published
               <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='shipTo'       type='ShipToType'    minOccurs='0' maxOccurs='1' />
               <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='freight'      type='xs:decimal'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
               <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
               <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
             </xs:sequence>
@@ -1012,7 +1171,7 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
-          <xs:simpleType name='CostType'>
+          <xs:simpleType name='MoneyType'>
             <xs:annotation>
               <xs:documentation>
                 Every Product must have a unit cost that is equal to or greater than

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<stock>
+  <shipTo>
+    <location>
+      <mtn>Jane Doe</mtn>
+      <rcp>ECi Solutions, STG</rcp>
+      <alt>Suite #200</alt>
+      <dal>4626 N 300 W</dal>
+      <city>Provo</city>
+      <region>UT</region>
+      <postalCode>84604</postalCode>
+    </location>
+    <email>shipping-contact@example.com</email>
+    <phone>1-555-555-5555></phone>
+  </shipTo>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+    </item>
+  </items>
+</stock>

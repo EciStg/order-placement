@@ -8,19 +8,19 @@
 
   <xs:complexType name='AddressType'>
     <xs:sequence>
-      <xs:element name='reference'         type='ReferenceType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='name'              type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='description'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='remarks'           type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='alternateLocation' type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='attention'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='city'              type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='country'           type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='mailStopCode'      type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='recipient'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='state'             type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='region'            type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='postalCode'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='msc'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='mtn'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='rcp'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='alt'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='dal'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='city'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='region'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='postalCode'  type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='country'     type='xs:string'     minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
@@ -76,13 +76,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name='MoneyType'>
-    <xs:sequence>
-      <xs:element name='amount'   type='xs:decimal'   maxOccurs='1' />
-      <xs:element name='currency' type='CurrencyType' minOccurs='0' maxOccurs='1' />
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name='ReferenceType'>
     <xs:sequence>
       <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
@@ -104,6 +97,18 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name='ShipToType'>
+    <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name='StockType'>
     <xs:sequence>
       <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -111,9 +116,11 @@
       <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+      <xs:element name='shipTo'       type='ShipToType'    minOccurs='0' maxOccurs='1' />
       <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
       <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='freight'      type='xs:decimal'    minOccurs='0' maxOccurs='1' />
+      <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
       <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
       <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
     </xs:sequence>
@@ -129,7 +136,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name='CostType'>
+  <xs:simpleType name='MoneyType'>
     <xs:annotation>
       <xs:documentation>
         Every Product must have a unit cost that is equal to or greater than
