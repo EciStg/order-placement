@@ -170,38 +170,6 @@ Example Schema
 
     1.  JSON
 
-            <?xml version='1.0' encoding='utf-8'?>
-
-            <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-                       elementFormDefault='qualified'
-                       xml:lang='en'>
-
-              <xs:element name='Items'>
-                <xs:complexType>
-                  <xs:sequence minOccurs='1' maxOccurs='50'>
-                    <xs:element name='Error' type='ErrorType'/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-
-              <xs:complexType name='ErrorType'>
-                <xs:sequence>
-                  <xs:annotation>
-                    <xs:documentation>
-                      TODO
-                    </xs:documentation>
-                  </xs:annotation>
-                  <xs:element name='Code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
-                  <xs:element name='Name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
-                  <xs:element name='Description' type='xs:string'   minOccurs='0' maxOccurs='1' />
-                  <xs:element name='When'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
-                  <xs:element name='Remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:schema>
-
-    2.  XML
-
             {
               "id": "./vnd.eci.stg.error.1.5.0.json",
               "$schema": "http://json-schema.org/draft-08/schema#",
@@ -252,6 +220,38 @@ Example Schema
                 }
               }
             }
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                       elementFormDefault='qualified'
+                       xml:lang='en'>
+
+              <xs:element name='Items'>
+                <xs:complexType>
+                  <xs:sequence minOccurs='1' maxOccurs='50'>
+                    <xs:element name='Error' type='ErrorType'/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:complexType name='ErrorType'>
+                <xs:sequence>
+                  <xs:annotation>
+                    <xs:documentation>
+                      TODO
+                    </xs:documentation>
+                  </xs:annotation>
+                  <xs:element name='Code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+                  <xs:element name='Name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+                  <xs:element name='Description' type='xs:string'   minOccurs='0' maxOccurs='1' />
+                  <xs:element name='When'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
+                  <xs:element name='Remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:schema>
 
 
 ### Resource Types
