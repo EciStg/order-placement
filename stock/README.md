@@ -5,45 +5,260 @@
 
 ## Test Results
 
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.stock*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0*.xml 2>&1
-    echo !!success!!
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.stock*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml validates
-    !!success!!
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">2018-10-08T22:50:45Z</td>
+<td class="org-left">started</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-08T22:50:46Z</td>
+<td class="org-left">stopped</td>
+</tr>
+</tbody>
+</table>
 
 
 ## Overview
@@ -145,7 +360,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
             </stock>
 
 
-### As a buyer I would like to see the cost for one or more products
+### As a buyer I would like to see the cost for one or more items
 
 1.  Response
 
@@ -171,6 +386,108 @@ the buyer object. After that, the request is the same as the unknown buyer.
                     <type>seller</type>
                   </reference>
                   <unitCost>99.99</unitCost>
+                </item>
+              </items>
+            </stock>
+
+
+### As a known buyer, with a known customer, I would like to know the cost for one or more items
+
+In these examples, the response is no different any other cost request. The request contains
+information about the buyer and the buyer's customer. Here we are just providing the value
+`consumer-xyz`, which should be the unique id by which the seller's system will recognize the
+buyer's customer.
+
+1.  Request
+
+    1.  JSON
+
+            { "buyer" : { "reference": { "code": "buyer-abc",
+                                         "type": "seller" }},
+              "consumer" : { "reference": { "code": "consumer-xyz",
+                                            "type": "seller" }},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <buyer>
+                <reference>
+                  <code>buyer-abc</code>
+                  <type>seller</type>
+                </reference>
+              </buyer>
+              <consumer>
+                <reference>
+                  <code>consumer-xyz</code>
+                  <type>seller</type>
+                </reference>
+              </consumer>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </stock>
+
+
+### As a known buyer, with a known customer contract, I would like to know the cost for one or more items
+
+In these examples, the response is no different any other cost request. The request contains
+information about the buyer and the buyer's customer. Here we are just providing the value
+`consumer-xyz`, which should be the unique id by which the seller's system will recognize the
+buyer's customer's contract `contract-789`.
+
+1.  Request
+
+    1.  JSON
+
+            { "buyer" : { "reference": { "code": "buyer-abc",
+                                         "type": "seller" }},
+              "consumer" : { "reference": { "code": "consumer-xyz",
+                                            "type": "seller" },
+                             "contract" : { "code": "contract-789",
+                                            "type": "seller" }},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <buyer>
+                <reference>
+                  <code>buyer-abc</code>
+                  <type>seller</type>
+                </reference>
+              </buyer>
+              <consumer>
+                <reference>
+                  <code>consumer-xyz</code>
+                  <type>seller</type>
+                </reference>
+                <contract>
+                  <code>contract-789</code>
+                  <type>seller</type>
+                </contract>
+              </consumer>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
                 </item>
               </items>
             </stock>
@@ -706,6 +1023,8 @@ No longer published
 
             "buyer": { "$ref": "#/definitions/buyer" },
 
+            "consumer": { "$ref": "#/definitions/consumer" },
+
             "shipTo": { "$ref": "#/definitions/shipTo" },
 
             "location": { "$ref": "#/definitions/address" },
@@ -983,6 +1302,61 @@ No longer published
               }
             },
 
+            "consumer": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "contract": { "$ref": "#/definitions/reference" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "taxID": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                }
+              }
+            },
+
             "shipTo": {
               "type": "object",
               "additionalProperties": false,
@@ -1072,6 +1446,20 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
+          <xs:complexType name='ConsumerType'>
+            <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='contract'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
           <xs:complexType name='CurrencyType'>
             <xs:sequence>
               <xs:element name='code'      type='xs:string'  />
@@ -1151,6 +1539,7 @@ No longer published
               <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='consumer'     type='ConsumerType'  minOccurs='0' maxOccurs='1' />
               <xs:element name='shipTo'       type='ShipToType'    minOccurs='0' maxOccurs='1' />
               <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />

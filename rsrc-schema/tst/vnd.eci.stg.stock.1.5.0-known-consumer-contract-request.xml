@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<stock>
+  <buyer>
+    <reference>
+      <code>buyer-abc</code>
+      <type>seller</type>
+    </reference>
+  </buyer>
+  <consumer>
+    <reference>
+      <code>consumer-xyz</code>
+      <type>seller</type>
+    </reference>
+    <contract>
+      <code>contract-789</code>
+      <type>seller</type>
+    </contract>
+  </consumer>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+    </item>
+  </items>
+</stock>

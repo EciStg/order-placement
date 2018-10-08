@@ -1,0 +1,9 @@
+{ "buyer" : { "reference": { "code": "buyer-abc",
+                             "type": "seller" }},
+  "consumer" : { "reference": { "code": "consumer-xyz",
+                                "type": "seller" },
+                 "contract" : { "code": "contract-789",
+                                "type": "seller" }},
+  "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" }}]}

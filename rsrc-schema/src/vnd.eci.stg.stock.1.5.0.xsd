@@ -37,6 +37,20 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name='ConsumerType'>
+    <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='contract'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name='CurrencyType'>
     <xs:sequence>
       <xs:element name='code'      type='xs:string'  />
@@ -116,6 +130,7 @@
       <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='consumer'     type='ConsumerType'  minOccurs='0' maxOccurs='1' />
       <xs:element name='shipTo'       type='ShipToType'    minOccurs='0' maxOccurs='1' />
       <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
       <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
