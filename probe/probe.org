@@ -46,9 +46,11 @@ Accept: application/vnd.eci.stg.probe-1.5.0.xml
 
 ** Test Results
 
-#+BEGIN_SRC shell :exports both :results verbatim replace
-  ajv -s ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.probe*.json" 2>&1
+#+BEGIN_SRC shell :exports both :results table replace
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
   xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml 2>&1
+  ajv -s ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.probe*.json" 2>&1
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+END_SRC
 
 ** Overview

@@ -17,13 +17,56 @@ Client applications that do not send an Accept header or choose to accept the un
 
 ## Test Results
 
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.probe*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.probe*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
-    ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json valid
-    ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml validates
-    ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml validates
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">2018-10-08T23:38:11Z</td>
+<td class="org-left">started</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-08T23:38:12Z</td>
+<td class="org-left">stopped</td>
+</tr>
+</tbody>
+</table>
 
 
 ## Overview
