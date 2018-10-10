@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-08T23:38:36Z</td>
+<td class="org-left">2018-10-10T18:00:50Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -254,7 +254,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-08T23:38:36Z</td>
+<td class="org-left">2018-10-10T18:00:51Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -495,176 +495,173 @@ buyer's customer's contract `contract-789`.
 
 ### As a buyer I would like to know if the seller has enough stock to satisfy my order
 
-1.  Version 1.5
+In this case the buyer's intent is to understand if the seller an supply the requested number of
+items ( *24* ) for a product known to the seller as *abc-123*.
 
-    The buyer systems will not send the expected quantity, quantity will be omitted or unspecified.
+Note that not all buyer systems send the desired quantity; the quantity property may be omitted,
+empty, or zero.
 
-2.  Version 2.0
+1.  Request
 
-    In this case the buyer's intent is to understand if the seller an supply the requested number of
-    items ( *24* ) for a product known to the seller as *abc-123*.
+    1.  JSON
 
-    1.  Request
+            { "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "quantity": 24}]}
 
-        1.  JSON
+    2.  XML
 
-                { "itemsCount": 1,
-                  "items": [{ "reference": { "code": "abc-123",
-                                             "type": "seller" },
-                              "quantity": 24}]}
+            <?xml version='1.0' encoding='utf-8'?>
 
-        2.  XML
+            <stock>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <quantity>24</quantity>
+                </item>
+              </items>
+            </stock>
 
-                <?xml version='1.0' encoding='utf-8'?>
+2.  Response
 
-                <stock>
-                  <itemsCount>1</itemsCount>
-                  <items>
-                    <item>
-                      <reference>
-                        <code>abc-123</code>
-                        <type>seller</type>
-                      </reference>
-                      <quantity>24</quantity>
-                    </item>
-                  </items>
-                </stock>
+    1.  If the seller can deliver the buyer's requested quantity ( *24* ) the seller may reply with
 
-    2.  Response
+        1.  the requested quantity ( *24* )
 
-        1.  If the seller can deliver the buyer's requested quantity ( *24* ) the seller may reply with
+            1.  JSON
 
-            1.  the requested quantity ( *24* )
+                    { "itemsCount": 1,
+                      "items": [{ "reference": { "code": "abc-123",
+                                                 "type": "seller" },
+                                  "quantity": 24}]}
 
-                1.  JSON
+            2.  XML
 
-                        { "itemsCount": 1,
-                          "items": [{ "reference": { "code": "abc-123",
-                                                     "type": "seller" },
-                                      "quantity": 24}]}
+                    <?xml version='1.0' encoding='utf-8'?>
 
-                2.  XML
+                    <stock>
+                      <itemsCount>1</itemsCount>
+                      <items>
+                        <item>
+                          <reference>
+                            <code>abc-123</code>
+                            <type>seller</type>
+                          </reference>
+                          <quantity>24</quantity>
+                        </item>
+                      </items>
+                    </stock>
 
-                        <?xml version='1.0' encoding='utf-8'?>
+        2.  the quantity on hand ( *103* )
 
-                        <stock>
-                          <itemsCount>1</itemsCount>
-                          <items>
-                            <item>
-                              <reference>
-                                <code>abc-123</code>
-                                <type>seller</type>
-                              </reference>
-                              <quantity>24</quantity>
-                            </item>
-                          </items>
-                        </stock>
+            1.  JSON
 
-            2.  the quantity on hand ( *103* )
+                    { "itemsCount": 1,
+                      "items": [{ "reference": { "code": "abc-123",
+                                                 "type": "seller" },
+                                  "quantity": 103}]}
 
-                1.  JSON
+            2.  XML
 
-                        { "itemsCount": 1,
-                          "items": [{ "reference": { "code": "abc-123",
-                                                     "type": "seller" },
-                                      "quantity": 103}]}
+                    <?xml version='1.0' encoding='utf-8'?>
 
-                2.  XML
+                    <stock>
+                      <itemsCount>1</itemsCount>
+                      <items>
+                        <item>
+                          <reference>
+                            <code>abc-123</code>
+                            <type>seller</type>
+                          </reference>
+                          <quantity>103</quantity>
+                        </item>
+                      </items>
+                    </stock>
 
-                        <?xml version='1.0' encoding='utf-8'?>
+        3.  a fixed value e.g. *1,000*
 
-                        <stock>
-                          <itemsCount>1</itemsCount>
-                          <items>
-                            <item>
-                              <reference>
-                                <code>abc-123</code>
-                                <type>seller</type>
-                              </reference>
-                              <quantity>103</quantity>
-                            </item>
-                          </items>
-                        </stock>
+            1.  JSON
 
-            3.  a fixed value e.g. *1,000*
+                    { "itemsCount": 1,
+                      "items": [{ "reference": { "code": "abc-123",
+                                                 "type": "seller" },
+                                  "quantity": 1000}]}
 
-                1.  JSON
+            2.  XML
 
-                        { "itemsCount": 1,
-                          "items": [{ "reference": { "code": "abc-123",
-                                                     "type": "seller" },
-                                      "quantity": 1000}]}
+                    <?xml version='1.0' encoding='utf-8'?>
 
-                2.  XML
+                    <stock>
+                      <itemsCount>1</itemsCount>
+                      <items>
+                        <item>
+                          <reference>
+                            <code>abc-123</code>
+                            <type>seller</type>
+                          </reference>
+                          <quantity>1000</quantity>
+                        </item>
+                      </items>
+                    </stock>
 
-                        <?xml version='1.0' encoding='utf-8'?>
+    2.  If the seller cannot deliver the buyer's requested quantity ( *24* ) the seller may reply with
 
-                        <stock>
-                          <itemsCount>1</itemsCount>
-                          <items>
-                            <item>
-                              <reference>
-                                <code>abc-123</code>
-                                <type>seller</type>
-                              </reference>
-                              <quantity>1000</quantity>
-                            </item>
-                          </items>
-                        </stock>
+        1.  the quantity on hand ( *12* )
 
-        2.  If the seller cannot deliver the buyer's requested quantity ( *24* ) the seller may reply with
+            1.  JSON
 
-            1.  the quantity on hand ( *12* )
+                    { "itemsCount": 1,
+                      "items": [{ "reference": { "code": "abc-123",
+                                                 "type": "seller" },
+                                  "quantity": 12}]}
 
-                1.  JSON
+            2.  XML
 
-                        { "itemsCount": 1,
-                          "items": [{ "reference": { "code": "abc-123",
-                                                     "type": "seller" },
-                                      "quantity": 12}]}
+                    <?xml version='1.0' encoding='utf-8'?>
 
-                2.  XML
+                    <stock>
+                      <itemsCount>1</itemsCount>
+                      <items>
+                        <item>
+                          <reference>
+                            <code>abc-123</code>
+                            <type>seller</type>
+                          </reference>
+                          <quantity>12</quantity>
+                        </item>
+                      </items>
+                    </stock>
 
-                        <?xml version='1.0' encoding='utf-8'?>
+        2.  a fixed value e.g. *0*
 
-                        <stock>
-                          <itemsCount>1</itemsCount>
-                          <items>
-                            <item>
-                              <reference>
-                                <code>abc-123</code>
-                                <type>seller</type>
-                              </reference>
-                              <quantity>12</quantity>
-                            </item>
-                          </items>
-                        </stock>
+            1.  JSON
 
-            2.  a fixed value e.g. *0*
+                    { "itemsCount": 1,
+                      "items": [{ "reference": { "code": "abc-123",
+                                                 "type": "seller" },
+                                  "quantity": 0}]}
 
-                1.  JSON
+            2.  XML
 
-                        { "itemsCount": 1,
-                          "items": [{ "reference": { "code": "abc-123",
-                                                     "type": "seller" },
-                                      "quantity": 0}]}
+                    <?xml version='1.0' encoding='utf-8'?>
 
-                2.  XML
-
-                        <?xml version='1.0' encoding='utf-8'?>
-
-                        <stock>
-                          <itemsCount>1</itemsCount>
-                          <items>
-                            <item>
-                              <reference>
-                                <code>abc-123</code>
-                                <type>seller</type>
-                              </reference>
-                              <quantity>0</quantity>
-                            </item>
-                          </items>
-                        </stock>
+                    <stock>
+                      <itemsCount>1</itemsCount>
+                      <items>
+                        <item>
+                          <reference>
+                            <code>abc-123</code>
+                            <type>seller</type>
+                          </reference>
+                          <quantity>0</quantity>
+                        </item>
+                      </items>
+                    </stock>
 
 
 ### As a buyer I would like to know which location items will be shipped from
@@ -965,14 +962,10 @@ cases to support time to delivery with an estimated cost for shipping.
 
 ### As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
 
-Version 2.0
-
 1.  TODO
 
 
 ### As a seller I would like to be able to provide a substitute when the item specified by the buyer is not in stock
-
-Version 2.0
 
 1.  TODO
 

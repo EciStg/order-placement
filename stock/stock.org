@@ -269,14 +269,11 @@ buyer's customer's contract ~contract-789~.
 
 *** As a buyer I would like to know if the seller has enough stock to satisfy my order
 
-**** Version 1.5
-
-The buyer systems will not send the expected quantity, quantity will be omitted or unspecified.
-
-**** Version 2.0
-
 In this case the buyer's intent is to understand if the seller an supply the requested number of
 items ( /24/ ) for a product known to the seller as /abc-123/.
+
+Note that not all buyer systems send the desired quantity; the quantity property may be omitted,
+empty, or zero.
 
 ***** Request
 
@@ -791,13 +788,9 @@ The seller's response is intended to inform the buyer that shipping the order wi
 #+END_SRC
 *** As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
 
-Version 2.0
-
 **** TODO
 
 *** As a seller I would like to be able to provide a substitute when the item specified by the buyer is not in stock
-
-Version 2.0
 
 **** TODO
 
