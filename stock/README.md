@@ -20,13 +20,19 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-10T18:00:50Z</td>
+<td class="org-left">2018-10-10T20:40:50Z</td>
 <td class="org-left">started</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
@@ -146,6 +152,12 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json</td>
 <td class="org-left">valid</td>
 </tr>
@@ -254,7 +266,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-10T18:00:51Z</td>
+<td class="org-left">2018-10-10T20:40:50Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -389,6 +401,47 @@ the buyer object. After that, the request is the same as the unknown buyer.
                 </item>
               </items>
             </stock>
+
+
+### As a buyer I would to specify the currency the cost should be expressed in
+
+1.  Request
+
+    1.  JSON
+
+            { "currency": { "code": "DKK",
+                            "name": "Danish krone",
+                            "number": 208,
+                            "precision": 2,
+                            "scale": 18},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <currency>
+                <code>DKK</code>
+                <name>Danish krone</name>
+                <number>208</number>
+                <precision>2</precision>
+                <scale>18</scale>
+              </currency>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </stock>
+
+2.  Response
 
 
 ### As a known buyer, with a known customer, I would like to know the cost for one or more items
@@ -1029,6 +1082,8 @@ No longer published
               "maximum" : 999999999.999999
             },
 
+            "currency": { "$ref": "#/definitions/currency"},
+
             "unitCost": {
               "description": "",
               "type": "number",
@@ -1394,6 +1449,48 @@ No longer published
                   "maxLength": 32
                 }
               }
+            },
+
+            "currency": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "number": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+
+                "precision": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 6
+                },
+
+                "scale": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 18
+                }
+              }
             }
           }
         }
@@ -1456,6 +1553,7 @@ No longer published
           <xs:complexType name='CurrencyType'>
             <xs:sequence>
               <xs:element name='code'      type='xs:string'  />
+              <xs:element name='name'      type='xs:string'  />
               <xs:element name='number'    type='xs:integer' />
               <xs:element name='precision' type='xs:integer' />
               <xs:element name='scale'     type='xs:integer' />

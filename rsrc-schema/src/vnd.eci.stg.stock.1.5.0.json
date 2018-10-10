@@ -45,6 +45,8 @@
       "maximum" : 999999999.999999
     },
 
+    "currency": { "$ref": "#/definitions/currency"},
+
     "unitCost": {
       "description": "",
       "type": "number",
@@ -408,6 +410,48 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
+        }
+      }
+    },
+
+    "currency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties" : {
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "name": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "number": {
+          "description": "",
+          "type": "number",
+          "minimum": 1,
+          "maximum": 999
+        },
+
+        "precision": {
+          "description": "",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 6
+        },
+
+        "scale": {
+          "description": "",
+          "type": "number",
+          "minimum": 1,
+          "maximum": 18
         }
       }
     }

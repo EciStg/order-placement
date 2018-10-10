@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<stock>
+  <currency>
+    <code>DKK</code>
+    <name>Danish krone</name>
+    <number>208</number>
+    <precision>2</precision>
+    <scale>18</scale>
+  </currency>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+    </item>
+  </items>
+</stock>
