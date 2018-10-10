@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-10T20:40:50Z</td>
+<td class="org-left">2018-10-10T22:36:14Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -33,6 +33,12 @@
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
@@ -158,6 +164,24 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json</td>
 <td class="org-left">valid</td>
 </tr>
@@ -266,7 +290,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-10T20:40:50Z</td>
+<td class="org-left">2018-10-10T22:36:14Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -288,6 +312,89 @@ call with the required headers e.g.
          --user user123:password123 \
          --url http://vendor-host/vendor-stock-endpoint
          --data ''
+
+
+### Example
+
+Below is an example of a JSON request and response. In the use cases section we break this down into
+smaller chunks.
+
+1.  Request
+
+        { "buyer" : { "reference": { "code": "buyer-abc",
+                                     "type": "seller" }},
+
+          "consumer" : { "reference": { "code": "consumer-xyz",
+                                        "type": "seller" },
+                         "contract" : { "code": "contract-789",
+                                        "type": "seller" }},
+
+          "shipTo" : { "location": { "mtn": "Jane Doe",
+                                     "rcp": "ECi Solutions, STG",
+                                     "alt": "Suite #200",
+                                     "dal": "4626 N 300 W",
+                                     "city": "Provo",
+                                     "region": "UT",
+                                     "postalCode": "84604"},
+                       "email": "shipping-contact@example.com",
+                       "phone": "1-555-555-5555"},
+
+          "when" : "2018-04-24T17:00:00.000Z",
+
+          "currency": { "code": "DKK",
+                        "name": "Danish krone",
+                        "number": 208,
+                        "precision": 2,
+                        "scale": 18},
+
+          "itemsCount": 2,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller"},
+                      "quantity": 24,
+                      "location": { "name": "Main Warehouse",
+                                    "city": "Dallas",
+                                    "region": "TX" }}]}
+
+2.  Response
+
+        { "buyer" : { "reference": { "code": "buyer-abc",
+                                     "type": "seller" }},
+
+          "consumer" : { "reference": { "code": "consumer-xyz",
+                                        "type": "seller" },
+                         "contract" : { "code": "contract-789",
+                                        "type": "seller" }},
+
+          "shipTo" : { "location": { "mtn": "Jane Doe",
+                                     "rcp": "ECi Solutions, STG",
+                                     "alt": "Suite #200",
+                                     "dal": "4626 N 300 W",
+                                     "city": "Provo",
+                                     "region": "UT",
+                                     "postalCode": "84604"},
+                       "email": "shipping-contact@example.com",
+                       "phone": "1-555-555-5555"},
+
+          "when" : "2018-04-24T17:00:00.000Z",
+
+          "whenExpected" : "2018-04-26T17:00:00.000Z",
+
+          "freight": 199.99,
+
+          "currency": { "code": "DKK",
+                        "name": "Danish krone",
+                        "number": 208,
+                        "precision": 2,
+                        "scale": 18},
+
+          "itemsCount": 2,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller"},
+                      "quantity": 24,
+                      "location": { "name": "Main Warehouse",
+                                    "city": "Dallas",
+                                    "region": "TX" },
+                      "unitCost": 99.99}]}
 
 
 ## Use Cases
@@ -403,7 +510,9 @@ the buyer object. After that, the request is the same as the unknown buyer.
             </stock>
 
 
-### As a buyer I would to specify the currency the cost should be expressed in
+### As a buyer I would to like specify the currency the cost should be expressed in
+
+In the example below the buyer would like to see costs and other monetary values using Danish krone
 
 1.  Request
 
@@ -442,6 +551,42 @@ the buyer object. After that, the request is the same as the unknown buyer.
             </stock>
 
 2.  Response
+
+    1.  JSON
+
+            { "currency": { "code": "DKK",
+                            "name": "Danish krone",
+                            "number": 208,
+                            "precision": 2,
+                            "scale": 18},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "unitCost": 99.99}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <currency>
+                <code>DKK</code>
+                <name>Danish krone</name>
+                <number>208</number>
+                <precision>2</precision>
+                <scale>18</scale>
+              </currency>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <unitCost>99.99</unitCost>
+                </item>
+              </items>
+            </stock>
 
 
 ### As a known buyer, with a known customer, I would like to know the cost for one or more items

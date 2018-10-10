@@ -1,0 +1,9 @@
+{ "currency": { "code": "DKK",
+                "name": "Danish krone",
+                "number": 208,
+                "precision": 2,
+                "scale": 18},
+  "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" },
+              "unitCost": 99.99}]}
