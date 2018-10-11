@@ -126,6 +126,14 @@ down into smaller chunks.
 
 #+END_SRC
 
+** Discussion
+
+*** TODO
+
+** Definition of Terms
+
+*** TODO
+
 ** Use Cases
 
 There are many use cases, most of the variation is contained in the seller's response. Therefore we

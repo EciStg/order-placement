@@ -1042,3 +1042,5 @@ No longer published
 **** XML
 
 ***** TODO include updated xml schema
+
+** © 2018 ECi Software Solutions, Inc. All rights reserved.

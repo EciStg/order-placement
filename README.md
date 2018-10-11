@@ -343,9 +343,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
-     of 2017-09-12
-    org version: 9.1.8
+    emacs version: GNU Emacs 26.1 (build 1, x86_64-apple-darwin14.5.0, NS appkit-1348.17 Version 10.10.5 (Build 14F2511))
+     of 2018-05-30
+    org version: 9.1.14
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images
@@ -367,3 +367,6 @@ To tangle documents use the key binding **C-c C-v t**
 
 To export documents use the key binding **C-c C-e** and choose your preferred export format. For this
 project I am using Markdown e.g. **C-c C-e m m**
+
+
+## © 2018 ECi Software Solutions, Inc. All rights reserved.

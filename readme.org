@@ -117,3 +117,5 @@ To tangle documents use the key binding *C-c C-v t*
 
 To export documents use the key binding *C-c C-e* and choose your preferred export format. For this
 project I am using Markdown e.g. *C-c C-e m m*
+
+** © 2018 ECi Software Solutions, Inc. All rights reserved.

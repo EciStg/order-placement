@@ -3,9 +3,140 @@
 # Ship Methods
 
 
-## Technical Overview
+## Test Results
+
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.shipmethod*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">2018-10-11T16:54:25Z</td>
+<td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Schemas</td>
+<td class="org-left">parser</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">The</td>
+<td class="org-left">XML</td>
+<td class="org-left">document</td>
+<td class="org-left">'../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd'</td>
+<td class="org-left">is</td>
+<td class="org-left">not</td>
+<td class="org-left">a</td>
+<td class="org-left">schema</td>
+<td class="org-left">document.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">WXS</td>
+<td class="org-left">schema</td>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd</td>
+<td class="org-left">failed</td>
+<td class="org-left">to</td>
+<td class="org-left">compile</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">/bin/bash:</td>
+<td class="org-left">line</td>
+<td class="org-left">3:</td>
+<td class="org-left">ajv:</td>
+<td class="org-left">command</td>
+<td class="org-left">not</td>
+<td class="org-left">found</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-11T16:54:25Z</td>
+<td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+## Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+
+## Discussion
+
+
+## Definition of Terms
 
 
 ## Sequence of Events
@@ -87,8 +218,4 @@ No longer published
 2.  XML
 
 
-## Testing
-
-    ../test-json.sh 2>&1
-    ../test-xml.sh 2>&1
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0*.xml
+## © 2018 ECi Software Solutions, Inc. All rights reserved.

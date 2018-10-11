@@ -670,7 +670,7 @@
           "maximum" : 999999999999.999999
         },
 
-        "subjectToTermsAmount": {
+        "termsAmount": {
           "description": "",
           "type": "number",
           "minimum" : 0,

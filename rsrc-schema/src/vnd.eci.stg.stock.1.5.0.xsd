@@ -206,12 +206,12 @@
 
   <xs:complexType name='TotalType'>
     <xs:sequence>
-      <xs:element name='amount'               type='MoneyType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='discount'             type='MoneyType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='freightAmount'        type='MoneyType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='subjectToTermsAmount' type='MoneyType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='tax'                  type='MoneyType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='remarks'              type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='amount'         type='MoneyType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='discountAmount' type='MoneyType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='freightAmount'  type='MoneyType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='termsAmount'    type='MoneyType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='tax'            type='MoneyType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'        type='xs:string' minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 

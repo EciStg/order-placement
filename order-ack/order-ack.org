@@ -24,7 +24,7 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 #+BEGIN_SRC plantuml :file ../images/order-ack-sequence.puml.png :exports results
 @startuml order-ack-sequence.png
-Buyer -> Seller: [ POST ] order-ack
+Buyer -> Seller: [ POST ] order
 Seller -> Buyer: order-ack<U+0394> | error
 @enduml
 #+END_SRC
@@ -1042,3 +1042,5 @@ No longer published
 **** XML
 
 ***** TODO include updated xml schema
+
+** © 2018 ECi Software Solutions, Inc. All rights reserved.

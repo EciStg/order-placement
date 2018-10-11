@@ -3,7 +3,79 @@
 # Receipt
 
 
-## Technical Overview
+## Test Results
+
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.receipt*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">2018-10-11T16:55:10Z</td>
+<td class="org-left">started</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">warning:</td>
+<td class="org-left">failed</td>
+<td class="org-right">to</td>
+<td class="org-left">load</td>
+<td class="org-left">external</td>
+<td class="org-left">entity</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0\*.xml</td>
+</tr>
+
+
+<tr>
+<td class="org-left">/bin/bash:</td>
+<td class="org-left">line</td>
+<td class="org-right">3:</td>
+<td class="org-left">ajv:</td>
+<td class="org-left">command</td>
+<td class="org-left">not</td>
+<td class="org-left">found</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-11T16:55:10Z</td>
+<td class="org-left">stopped</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+## Overview
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
@@ -274,8 +346,4 @@ No longer published
 2.  XML
 
 
-## Testing
-
-    ../test-json.sh 2>&1
-    ../test-xml.sh 2>&1
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0*.xml
+## © 2018 ECi Software Solutions, Inc. All rights reserved.
