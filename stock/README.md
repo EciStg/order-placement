@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T00:29:53Z</td>
+<td class="org-left">2018-10-11T01:10:03Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -290,7 +290,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-11T00:29:53Z</td>
+<td class="org-left">2018-10-11T01:10:03Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1094,6 +1094,10 @@ cases to support time to delivery with an estimated cost for shipping.
                                          "postalCode": "84604"},
                            "email": "shipping-contact@example.com",
                            "phone": "1-555-555-5555"},
+
+              "shippingCarrier": { "code": "shipper-123",
+                                   "name": "usps-2day" },
+
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" }}]}
@@ -1116,6 +1120,10 @@ cases to support time to delivery with an estimated cost for shipping.
                 <email>shipping-contact@example.com</email>
                 <phone>1-555-555-5555></phone>
               </shipTo>
+              <shippingCarrier>
+                <code>shipper-123</code>
+                <name>usps-2day</name>
+              </shippingCarrier>
               <itemsCount>1</itemsCount>
               <items>
                 <item>
@@ -1133,7 +1141,11 @@ cases to support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "total": { "freightAmount": 199.99 },
+            { "shippingCarrier": { "code": "shipper-123",
+                                   "name": "usps-2day" },
+
+              "total": { "freightAmount": 199.99 },
+
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" },
@@ -1144,6 +1156,10 @@ cases to support time to delivery with an estimated cost for shipping.
             <?xml version='1.0' encoding='utf-8'?>
 
             <stock>
+              <shippingCarrier>
+                <code>shipper-123</code>
+                <name>usps-2day</name>
+              </shippingCarrier>
               <total>
                 <freightAmount>199.99</freightAmount>
               </total>
@@ -1222,6 +1238,8 @@ No longer published
 
             "shipTo": { "$ref": "#/definitions/shipTo" },
 
+            "shippingCarrier": { "$ref": "#/definitions/shippingCarrier" },
+
             "location": { "$ref": "#/definitions/address" },
 
             "quantity": {
@@ -1280,6 +1298,61 @@ No longer published
             },
 
             "reference": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "type": { "$ref": "#/definitions/referenceType" },
+
+                "itemsCount": {
+                  "description": "number of things in the items collection",
+                  "type" : "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "items": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items" : {
+                    "$ref" : "#/definitions/reference"
+                  }
+                }
+              }
+            },
+
+            "shippingCarrier": {
               "type": "object",
               "additionalProperties": false,
               "properties" : {
@@ -1865,6 +1938,27 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
+          <xs:complexType name='ShippingCarrierType'>
+            <xs:sequence>
+              <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string'>
+                    <xs:enumeration value='buyer'        />
+                    <xs:enumeration value='consumer'     />
+                    <xs:enumeration value='document'     />
+                    <xs:enumeration value='lineNumber'   />
+                    <xs:enumeration value='manufacturer' />
+                    <xs:enumeration value='seller'       />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+
           <xs:complexType name='ShipToType'>
             <xs:sequence>
               <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -1879,20 +1973,21 @@ No longer published
 
           <xs:complexType name='StockType'>
             <xs:sequence>
-              <xs:element name='reference'     type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'          type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'   type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='buyer'         type='BuyerType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='consumer'      type='ConsumerType'  minOccurs='0' maxOccurs='1' />
-              <xs:element name='seller'        type='SellerType'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='shipTo'        type='ShipToType'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'          type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected'  type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='total'         type='TotalType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='currency'      type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-              <xs:element name='itemsCount'    type='xs:integer'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='items'         type='ItemsType'     minOccurs='1' maxOccurs='1' />
+              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'           minOccurs='1' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 

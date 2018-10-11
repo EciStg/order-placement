@@ -14,6 +14,10 @@
     <email>shipping-contact@example.com</email>
     <phone>1-555-555-5555></phone>
   </shipTo>
+  <shippingCarrier>
+    <code>shipper-123</code>
+    <name>usps-2day</name>
+  </shippingCarrier>
   <itemsCount>1</itemsCount>
   <items>
     <item>

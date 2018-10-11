@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <stock>
+  <shippingCarrier>
+    <code>shipper-123</code>
+    <name>usps-2day</name>
+  </shippingCarrier>
   <total>
     <freightAmount>199.99</freightAmount>
   </total>

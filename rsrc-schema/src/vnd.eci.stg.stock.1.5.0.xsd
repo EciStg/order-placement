@@ -120,6 +120,27 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name='ShippingCarrierType'>
+    <xs:sequence>
+      <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
+        <xs:simpleType>
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='buyer'        />
+            <xs:enumeration value='consumer'     />
+            <xs:enumeration value='document'     />
+            <xs:enumeration value='lineNumber'   />
+            <xs:enumeration value='manufacturer' />
+            <xs:enumeration value='seller'       />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name='ShipToType'>
     <xs:sequence>
       <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -134,20 +155,21 @@
 
   <xs:complexType name='StockType'>
     <xs:sequence>
-      <xs:element name='reference'     type='ReferenceType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='name'          type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='description'   type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='remarks'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='buyer'         type='BuyerType'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='consumer'      type='ConsumerType'  minOccurs='0' maxOccurs='1' />
-      <xs:element name='seller'        type='SellerType'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='shipTo'        type='ShipToType'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='when'          type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-      <xs:element name='whenExpected'  type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-      <xs:element name='total'         type='TotalType'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='currency'      type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-      <xs:element name='itemsCount'    type='xs:integer'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='items'         type='ItemsType'     minOccurs='1' maxOccurs='1' />
+      <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+      <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
+      <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
+      <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
+      <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
+      <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+      <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+      <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+      <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
+      <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
+      <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+      <xs:element name='items'           type='ItemsType'           minOccurs='1' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
