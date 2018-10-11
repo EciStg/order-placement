@@ -5,13 +5,13 @@
 #+PROPERTY: mkdirp yes
 #+STARTUP: content
 
-* Order
+* OrderAck
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml 2>&1
-  ajv -s ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order*.json" 2>&1
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0*.xml 2>&1
+  ajv -s ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order-ack*.json" 2>&1
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+END_SRC
 
@@ -22,10 +22,10 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 ** Definition of Terms
 ** Sequence of Events
 
-#+BEGIN_SRC plantuml :file ../images/order-sequence.puml.png :exports results
-@startuml order-sequence.png
-Buyer -> Seller: [ POST ] order
-Seller -> Buyer: order<U+0394> | error
+#+BEGIN_SRC plantuml :file ../images/order-ack-sequence.puml.png :exports results
+@startuml order-ack-sequence.png
+Buyer -> Seller: [ POST ] order-ack
+Seller -> Buyer: order-ack<U+0394> | error
 @enduml
 #+END_SRC
 
@@ -35,9 +35,9 @@ call with the required headers e.g.
 
 #+BEGIN_SRC shell
   curl --request POST \
-       --header "Content-Type: application/vnd.eci.stg.order.1.5.0.xml; charset=utf-8" \
+       --header "Content-Type: application/vnd.eci.stg.order-ack.1.5.0.xml; charset=utf-8" \
        --user user123:password123 \
-       --url http://vendor-host/vendor-order-endpoint
+       --url http://vendor-host/vendor-order-ack-endpoint
        --data ''
 #+END_SRC
 
@@ -48,14 +48,14 @@ call with the required headers e.g.
 In this example a buyer is
 
 **** JSON
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.json
 {}
 #+END_SRC
 
 **** XML
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.xml
 <?xml version='1.0' encoding='utf-8'?>
-<order/>
+<order-ack/>
 #+END_SRC
 
 *** Response
@@ -63,14 +63,14 @@ In this example a buyer is
 The seller's response is intended to
 
 **** JSON
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.json
 {}
 #+END_SRC
 
 **** XML
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.xml
 <?xml version='1.0' encoding='utf-8'?>
-<order/>
+<order-ack/>
 #+END_SRC
 
 ** Resource Schemas
@@ -83,11 +83,11 @@ No longer published
 
 **** JSON
 
-#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json
   {
-    "id": "./vnd.eci.stg.order.1.5.0.json",
+    "id": "./vnd.eci.stg.order-ack.1.5.0.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "order",
+    "title": "order-ack",
     "description": "",
     "type": "object",
     "additionalProperties": false,
@@ -784,14 +784,14 @@ No longer published
 
 **** XML
 
-#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd
+#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.xsd
   <?xml version='1.0' encoding='utf-8'?>
 
   <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
              elementFormDefault='qualified'
              xml:lang='en'>
 
-    <xs:element name='order' type='OrderType'/>
+    <xs:element name='order-ack' type='OrderAckType'/>
 
     <xs:complexType name='AddressType'>
       <xs:sequence>
@@ -954,7 +954,7 @@ No longer published
       </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name='OrderType'>
+    <xs:complexType name='OrderAckType'>
       <xs:sequence>
         <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
         <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />

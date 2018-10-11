@@ -1,13 +1,13 @@
 
 
-# Order
+# OrderAck
 
 
 ## Test Results
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml 2>&1
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order*.json" 2>&1
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order-ack*.json" 2>&1
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -72,7 +72,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T02:22:00Z</td>
+<td class="org-left">2018-10-11T02:22:24Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -104,15 +104,15 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml:2:</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.xml:2:</td>
 <td class="org-left">element</td>
-<td class="org-left">order:</td>
+<td class="org-left">order-ack:</td>
 <td class="org-left">Schemas</td>
 <td class="org-left">validity</td>
 <td class="org-left">error</td>
 <td class="org-left">:</td>
 <td class="org-left">Element</td>
-<td class="org-left">'order':</td>
+<td class="org-left">'order-ack':</td>
 <td class="org-left">Missing</td>
 <td class="org-left">child</td>
 <td class="org-left">element(s).</td>
@@ -136,7 +136,7 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.xml</td>
 <td class="org-left">fails</td>
 <td class="org-left">to</td>
 <td class="org-left">validate</td>
@@ -168,15 +168,15 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml:2:</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.xml:2:</td>
 <td class="org-left">element</td>
-<td class="org-left">order:</td>
+<td class="org-left">order-ack:</td>
 <td class="org-left">Schemas</td>
 <td class="org-left">validity</td>
 <td class="org-left">error</td>
 <td class="org-left">:</td>
 <td class="org-left">Element</td>
-<td class="org-left">'order':</td>
+<td class="org-left">'order-ack':</td>
 <td class="org-left">Missing</td>
 <td class="org-left">child</td>
 <td class="org-left">element(s).</td>
@@ -200,7 +200,7 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.xml</td>
 <td class="org-left">fails</td>
 <td class="org-left">to</td>
 <td class="org-left">validate</td>
@@ -296,71 +296,7 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json</td>
-<td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json</td>
-<td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">2018-10-11T02:22:00Z</td>
+<td class="org-left">2018-10-11T02:22:24Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -406,16 +342,16 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 ## Sequence of Events
 
-![img](../images/order-sequence.puml.png)
+![img](../images/order-ack-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
 received will be shown. It is assumed that the caller will make the actual *POST*
 call with the required headers e.g.
 
     curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.order.1.5.0.xml; charset=utf-8" \
+         --header "Content-Type: application/vnd.eci.stg.order-ack.1.5.0.xml; charset=utf-8" \
          --user user123:password123 \
-         --url http://vendor-host/vendor-order-endpoint
+         --url http://vendor-host/vendor-order-ack-endpoint
          --data ''
 
 
@@ -433,7 +369,7 @@ In this example a buyer is
 2.  XML
 
         <?xml version='1.0' encoding='utf-8'?>
-        <order/>
+        <order-ack/>
 
 
 ### Response
@@ -447,7 +383,7 @@ The seller's response is intended to
 2.  XML
 
         <?xml version='1.0' encoding='utf-8'?>
-        <order/>
+        <order-ack/>
 
 
 ## Resource Schemas
@@ -463,9 +399,9 @@ No longer published
 1.  JSON
 
         {
-          "id": "./vnd.eci.stg.order.1.5.0.json",
+          "id": "./vnd.eci.stg.order-ack.1.5.0.json",
           "$schema": "http://json-schema.org/draft-07/schema#",
-          "title": "order",
+          "title": "order-ack",
           "description": "",
           "type": "object",
           "additionalProperties": false,
@@ -1167,7 +1103,7 @@ No longer published
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='order' type='OrderType'/>
+          <xs:element name='order-ack' type='OrderAckType'/>
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
@@ -1330,7 +1266,7 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
-          <xs:complexType name='OrderType'>
+          <xs:complexType name='OrderAckType'>
             <xs:sequence>
               <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />

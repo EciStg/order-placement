@@ -4,7 +4,7 @@
            elementFormDefault='qualified'
            xml:lang='en'>
 
-  <xs:element name='invoice' type='InvoiceType'/>
+  <xs:element name='order-ack' type='OrderAckType'/>
 
   <xs:complexType name='AddressType'>
     <xs:sequence>
@@ -167,7 +167,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name='InvoiceType'>
+  <xs:complexType name='OrderAckType'>
     <xs:sequence>
       <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
       <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />

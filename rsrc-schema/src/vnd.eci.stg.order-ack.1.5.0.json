@@ -1,7 +1,7 @@
 {
-  "id": "./vnd.eci.stg.order.1.5.0.json",
+  "id": "./vnd.eci.stg.order-ack.1.5.0.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "order",
+  "title": "order-ack",
   "description": "",
   "type": "object",
   "additionalProperties": false,
