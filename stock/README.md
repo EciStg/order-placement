@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T01:22:04Z</td>
+<td class="org-left">2018-10-11T01:31:09Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -290,7 +290,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-11T01:22:05Z</td>
+<td class="org-left">2018-10-11T01:31:10Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1793,6 +1793,11 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
+                },
+
+                "isDropShip": {
+                  "description": "",
+                  "type": "boolean"
                 }
               }
             },
@@ -2057,6 +2062,7 @@ No longer published
               <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='isDropShip'  type='xs:boolean'    minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
