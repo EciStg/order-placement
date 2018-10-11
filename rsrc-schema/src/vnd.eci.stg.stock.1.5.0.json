@@ -34,6 +34,8 @@
 
     "consumer": { "$ref": "#/definitions/consumer" },
 
+    "seller": { "$ref": "#/definitions/seller" },
+
     "shipTo": { "$ref": "#/definitions/shipTo" },
 
     "location": { "$ref": "#/definitions/address" },
@@ -339,6 +341,59 @@
         "location": { "$ref": "#/definitions/address" },
 
         "contract": { "$ref": "#/definitions/reference" },
+
+        "email": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+
+        "phone": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "taxID": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        }
+      }
+    },
+
+    "seller": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties" : {
+
+        "reference": { "$ref": "#/definitions/reference" },
+
+        "name": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "description": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength" : 128
+        },
+
+        "remarks": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength" : 256
+        },
+
+        "location": { "$ref": "#/definitions/address" },
 
         "email": {
           "description": "",
