@@ -1,4 +1,4 @@
-{ "freight": 199.99,
+{ "total": { "freightAmount": 199.99 },
   "itemsCount": 1,
   "items": [{ "reference": { "code": "abc-123",
                              "type": "seller" },

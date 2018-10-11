@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <stock>
-  <freight>199.99</freight>
+  <total>
+    <freightAmount>199.99</freightAmount>
+  </total>
   <itemsCount>1</itemsCount>
   <items>
     <item>

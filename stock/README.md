@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-10T22:36:14Z</td>
+<td class="org-left">2018-10-11T00:14:47Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -290,7 +290,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-10T22:36:14Z</td>
+<td class="org-left">2018-10-11T00:14:47Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -316,8 +316,8 @@ call with the required headers e.g.
 
 ### Example
 
-Below is an example of a JSON request and response. In the use cases section we break this down into
-smaller chunks.
+Below is an example of a JSON request and response. In the use cases section below, we break this
+down into smaller chunks.
 
 1.  Request
 
@@ -379,7 +379,7 @@ smaller chunks.
 
           "whenExpected" : "2018-04-26T17:00:00.000Z",
 
-          "freight": 199.99,
+          "total": { "freightAmount": 199.99 },
 
           "currency": { "code": "DKK",
                         "name": "Danish krone",
@@ -1133,7 +1133,7 @@ cases to support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "freight": 199.99,
+            { "total": { "freightAmount": 199.99 },
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" },
@@ -1144,7 +1144,9 @@ cases to support time to delivery with an estimated cost for shipping.
             <?xml version='1.0' encoding='utf-8'?>
 
             <stock>
-              <freight>199.99</freight>
+              <total>
+                <freightAmount>199.99</freightAmount>
+              </total>
               <itemsCount>1</itemsCount>
               <items>
                 <item>
@@ -1236,12 +1238,7 @@ No longer published
               "maximum" : 999999999999.999999
             },
 
-            "freight": {
-              "description": "",
-              "type": "number",
-              "minimum" : 0,
-              "maximum" : 999999999999.999999
-            },
+            "total": { "$ref": "#/definitions/total"},
 
             "when": {
               "description": "",
@@ -1636,6 +1633,55 @@ No longer published
                   "maximum": 18
                 }
               }
+            },
+
+            "total": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "amount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "discountAmount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "freightAmount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "subjectToTermsAmount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "taxAmount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                }
+              }
             }
           }
         }
@@ -1712,18 +1758,13 @@ No longer published
               <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
               <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
               <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
               <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
               <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
               <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
@@ -1770,29 +1811,19 @@ No longer published
 
           <xs:complexType name='StockType'>
             <xs:sequence>
-              <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='consumer'     type='ConsumerType'  minOccurs='0' maxOccurs='1' />
-              <xs:element name='shipTo'       type='ShipToType'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='freight'      type='xs:decimal'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-              <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
-            </xs:sequence>
-          </xs:complexType>
-
-          <xs:complexType name='UnitMeasureType'>
-            <xs:sequence>
-              <xs:element name='name'        type='xs:string'  />
-              <xs:element name='description' type='xs:string'  />
-              <xs:element name='remarks'     type='xs:string'  />
-              <xs:element name='code'        type='xs:string'  />
-              <xs:element name='quantity'    type='xs:decimal' />
+              <xs:element name='reference'     type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'          type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'   type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='buyer'         type='BuyerType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='consumer'      type='ConsumerType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='shipTo'        type='ShipToType'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'          type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected'  type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='total'         type='TotalType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='currency'      type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'    type='xs:integer'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'         type='ItemsType'     minOccurs='1' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -1811,6 +1842,27 @@ No longer published
               <xs:totalDigits value='18'/>
             </xs:restriction>
           </xs:simpleType>
+
+          <xs:complexType name='TotalType'>
+            <xs:sequence>
+              <xs:element name='amount'               type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='discount'             type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='freightAmount'        type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='subjectToTermsAmount' type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='tax'                  type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'              type='xs:string' minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='UnitMeasureType'>
+            <xs:sequence>
+              <xs:element name='name'        type='xs:string'  />
+              <xs:element name='description' type='xs:string'  />
+              <xs:element name='remarks'     type='xs:string'  />
+              <xs:element name='code'        type='xs:string'  />
+              <xs:element name='quantity'    type='xs:decimal' />
+            </xs:sequence>
+          </xs:complexType>
 
           <xs:simpleType name='IDType'>
             <xs:annotation>

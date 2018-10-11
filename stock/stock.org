@@ -41,8 +41,8 @@ call with the required headers e.g.
 
 *** Example
 
-Below is an example of a JSON request and response. In the use cases section we break this down into
-smaller chunks.
+Below is an example of a JSON request and response. In the use cases section below, we break this
+down into smaller chunks.
 
 **** Request
 
@@ -85,44 +85,44 @@ smaller chunks.
 **** Response
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-response.json
-  { "buyer" : { "reference": { "code": "buyer-abc",
-                               "type": "seller" }},
+    { "buyer" : { "reference": { "code": "buyer-abc",
+                                 "type": "seller" }},
 
-    "consumer" : { "reference": { "code": "consumer-xyz",
-                                  "type": "seller" },
-                   "contract" : { "code": "contract-789",
-                                  "type": "seller" }},
+      "consumer" : { "reference": { "code": "consumer-xyz",
+                                    "type": "seller" },
+                     "contract" : { "code": "contract-789",
+                                    "type": "seller" }},
 
-    "shipTo" : { "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
-                               "alt": "Suite #200",
-                               "dal": "4626 N 300 W",
-                               "city": "Provo",
-                               "region": "UT",
-                               "postalCode": "84604"},
-                 "email": "shipping-contact@example.com",
-                 "phone": "1-555-555-5555"},
+      "shipTo" : { "location": { "mtn": "Jane Doe",
+                                 "rcp": "ECi Solutions, STG",
+                                 "alt": "Suite #200",
+                                 "dal": "4626 N 300 W",
+                                 "city": "Provo",
+                                 "region": "UT",
+                                 "postalCode": "84604"},
+                   "email": "shipping-contact@example.com",
+                   "phone": "1-555-555-5555"},
 
-    "when" : "2018-04-24T17:00:00.000Z",
+      "when" : "2018-04-24T17:00:00.000Z",
 
-    "whenExpected" : "2018-04-26T17:00:00.000Z",
+      "whenExpected" : "2018-04-26T17:00:00.000Z",
 
-    "freight": 199.99,
+      "total": { "freightAmount": 199.99 },
 
-    "currency": { "code": "DKK",
-                  "name": "Danish krone",
-                  "number": 208,
-                  "precision": 2,
-                  "scale": 18},
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 2,
+                    "scale": 18},
 
-    "itemsCount": 2,
-    "items": [{ "reference": { "code": "abc-123",
-                               "type": "seller"},
-                "quantity": 24,
-                "location": { "name": "Main Warehouse",
-                              "city": "Dallas",
-                              "region": "TX" },
-                "unitCost": 99.99}]}
+      "itemsCount": 2,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller"},
+                  "quantity": 24,
+                  "location": { "name": "Main Warehouse",
+                                "city": "Dallas",
+                                "region": "TX" },
+                  "unitCost": 99.99}]}
 
 #+END_SRC
 
@@ -933,7 +933,7 @@ The seller's response is intended to inform the buyer that shipping the order wi
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json
-  { "freight": 199.99,
+  { "total": { "freightAmount": 199.99 },
     "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
                                "type": "seller" },
@@ -946,7 +946,9 @@ The seller's response is intended to inform the buyer that shipping the order wi
   <?xml version='1.0' encoding='utf-8'?>
 
   <stock>
-    <freight>199.99</freight>
+    <total>
+      <freightAmount>199.99</freightAmount>
+    </total>
     <itemsCount>1</itemsCount>
     <items>
       <item>
@@ -978,659 +980,709 @@ No longer published
 **** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.json
-  {
-    "id": "./vnd.eci.stg.stock.1.5.0.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Stock",
-    "description": "",
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
+    {
+      "id": "./vnd.eci.stg.stock.1.5.0.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Stock",
+      "description": "",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
 
-      "reference": { "$ref": "#/definitions/reference" },
+        "reference": { "$ref": "#/definitions/reference" },
 
-      "name": {
-        "description": "",
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 32
-      },
+        "name": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
 
-      "description": {
-        "description": "",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 128
-      },
+        "description": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength" : 128
+        },
 
-      "remarks": {
-        "description": "",
-        "type": "string",
-        "minLength": 1,
-        "maxLength" : 256
-      },
+        "remarks": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength" : 256
+        },
 
-      "buyer": { "$ref": "#/definitions/buyer" },
+        "buyer": { "$ref": "#/definitions/buyer" },
 
-      "consumer": { "$ref": "#/definitions/consumer" },
+        "consumer": { "$ref": "#/definitions/consumer" },
 
-      "shipTo": { "$ref": "#/definitions/shipTo" },
+        "shipTo": { "$ref": "#/definitions/shipTo" },
 
-      "location": { "$ref": "#/definitions/address" },
+        "location": { "$ref": "#/definitions/address" },
 
-      "quantity": {
-        "description": "",
-        "type": "number",
-        "minimum" : 0,
-        "maximum" : 999999999.999999
-      },
+        "quantity": {
+          "description": "",
+          "type": "number",
+          "minimum" : 0,
+          "maximum" : 999999999.999999
+        },
 
-      "currency": { "$ref": "#/definitions/currency"},
+        "currency": { "$ref": "#/definitions/currency"},
 
-      "unitCost": {
-        "description": "",
-        "type": "number",
-        "minimum" : 0,
-        "maximum" : 999999999999.999999
-      },
+        "unitCost": {
+          "description": "",
+          "type": "number",
+          "minimum" : 0,
+          "maximum" : 999999999999.999999
+        },
 
-      "freight": {
-        "description": "",
-        "type": "number",
-        "minimum" : 0,
-        "maximum" : 999999999999.999999
-      },
+        "total": { "$ref": "#/definitions/total"},
 
-      "when": {
-        "description": "",
-        "type" : "string",
-        "format": "date-time"
-      },
+        "when": {
+          "description": "",
+          "type" : "string",
+          "format": "date-time"
+        },
 
-      "whenExpected": {
-        "description": "",
-        "type" : "string",
-        "format": "date-time"
-      },
+        "whenExpected": {
+          "description": "",
+          "type" : "string",
+          "format": "date-time"
+        },
 
-      "itemsCount": {
-        "description": "number of things in the items collection",
-        "type" : "number",
-        "minimum": 1,
-        "maximum": 1000
-      },
+        "itemsCount": {
+          "description": "number of things in the items collection",
+          "type" : "number",
+          "minimum": 1,
+          "maximum": 1000
+        },
 
-      "items": {
-        "description": "",
-        "type": "array",
-        "minItems": 1,
-        "maxItems": 1000,
-        "uniqueItems": true,
-        "items" : {
-          "$ref" : "#"
+        "items": {
+          "description": "",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items" : {
+            "$ref" : "#"
+          }
         }
-      }
-    },
-
-    "definitions" : {
-      "referenceType": {
-        "type": "string",
-        "enum": ["buyer", "consume", "manufacturer", "seller" ]
       },
 
-      "reference": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties" : {
+      "definitions" : {
+        "referenceType": {
+          "type": "string",
+          "enum": ["buyer", "consume", "manufacturer", "seller" ]
+        },
 
-          "code": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+        "reference": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
 
-          "name": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "code": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "description": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 128
-          },
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "remarks": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 256
-          },
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 128
+            },
 
-          "type": { "$ref": "#/definitions/referenceType" },
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            },
 
-          "itemsCount": {
-            "description": "number of things in the items collection",
-            "type" : "number",
-            "minimum": 1,
-            "maximum": 1000
-          },
+            "type": { "$ref": "#/definitions/referenceType" },
 
-          "items": {
-            "description": "",
-            "type": "array",
-            "minItems": 1,
-            "maxItems": 1000,
-            "uniqueItems": true,
-            "items" : {
-              "$ref" : "#/definitions/reference"
+            "itemsCount": {
+              "description": "number of things in the items collection",
+              "type" : "number",
+              "minimum": 1,
+              "maximum": 1000
+            },
+
+            "items": {
+              "description": "",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1000,
+              "uniqueItems": true,
+              "items" : {
+                "$ref" : "#/definitions/reference"
+              }
             }
           }
-        }
-      },
+        },
 
-      "address": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties" : {
+        "address": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
 
-          "reference": { "$ref": "#/definitions/reference" },
+            "reference": { "$ref": "#/definitions/reference" },
 
-          "name": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "description": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 128
-          },
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 128
+            },
 
-          "remarks": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 256
-          },
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            },
 
-          "msc": {
-            "description": "mail stop code",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "msc": {
+              "description": "mail stop code",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "mtn": {
-            "description": "attention line",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "mtn": {
+              "description": "attention line",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "rcp": {
-            "description": "recipient or business name",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "rcp": {
+              "description": "recipient or business name",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "alt": {
-            "description": "alternate location",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "alt": {
+              "description": "alternate location",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "dal": {
-            "description": "delivery address line",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "dal": {
+              "description": "delivery address line",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "city": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "city": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "region": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "region": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "postalCode": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "postalCode": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "country": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "country": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "binLocation": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 40
-          },
+            "binLocation": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
 
-          "warehouse": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 128
+            "warehouse": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
           }
-        }
-      },
+        },
 
-      "buyer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties" : {
+        "buyer": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
 
-          "reference": { "$ref": "#/definitions/reference" },
+            "reference": { "$ref": "#/definitions/reference" },
 
-          "name": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "description": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 128
-          },
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 128
+            },
 
-          "remarks": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 256
-          },
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            },
 
-          "location": { "$ref": "#/definitions/address" },
+            "location": { "$ref": "#/definitions/address" },
 
-          "email": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 256
-          },
+            "email": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
 
-          "phone": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "phone": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "taxID": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
+            "taxID": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
           }
-        }
-      },
+        },
 
-      "consumer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties" : {
+        "consumer": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
 
-          "reference": { "$ref": "#/definitions/reference" },
+            "reference": { "$ref": "#/definitions/reference" },
 
-          "name": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "description": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 128
-          },
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 128
+            },
 
-          "remarks": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 256
-          },
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            },
 
-          "location": { "$ref": "#/definitions/address" },
+            "location": { "$ref": "#/definitions/address" },
 
-          "contract": { "$ref": "#/definitions/reference" },
+            "contract": { "$ref": "#/definitions/reference" },
 
-          "email": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 256
-          },
+            "email": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
 
-          "phone": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "phone": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "taxID": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
+            "taxID": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
           }
-        }
-      },
+        },
 
-      "shipTo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties" : {
+        "shipTo": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
 
-          "reference": { "$ref": "#/definitions/reference" },
+            "reference": { "$ref": "#/definitions/reference" },
 
-          "name": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "description": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 128
-          },
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 128
+            },
 
-          "remarks": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength" : 256
-          },
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            },
 
-          "location": { "$ref": "#/definitions/address" },
+            "location": { "$ref": "#/definitions/address" },
 
-          "email": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 256
-          },
+            "email": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
 
-          "phone": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
+            "phone": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
           }
-        }
-      },
+        },
 
-      "currency": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties" : {
+        "currency": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
 
-          "code": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "code": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "name": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 32
-          },
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
-          "number": {
-            "description": "",
-            "type": "number",
-            "minimum": 1,
-            "maximum": 999
-          },
+            "number": {
+              "description": "",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 999
+            },
 
-          "precision": {
-            "description": "",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 6
-          },
+            "precision": {
+              "description": "",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 6
+            },
 
-          "scale": {
-            "description": "",
-            "type": "number",
-            "minimum": 1,
-            "maximum": 18
+            "scale": {
+              "description": "",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 18
+            }
+          }
+        },
+
+        "total": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
+
+            "amount": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "discountAmount": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "freightAmount": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "subjectToTermsAmount": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "taxAmount": {
+              "description": "",
+              "type": "number",
+              "minimum" : 0,
+              "maximum" : 999999999999.999999
+            },
+
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength" : 256
+            }
           }
         }
       }
     }
-  }
 #+END_SRC
 
 **** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd
-      <?xml version='1.0' encoding='utf-8'?>
+  <?xml version='1.0' encoding='utf-8'?>
 
-      <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-                 elementFormDefault='qualified'
-                 xml:lang='en'>
+  <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+             elementFormDefault='qualified'
+             xml:lang='en'>
 
-        <xs:element name='stock' type='StockType'/>
+    <xs:element name='stock' type='StockType'/>
 
-        <xs:complexType name='AddressType'>
-          <xs:sequence>
-            <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='msc'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='mtn'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='rcp'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='alt'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='dal'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='city'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='region'      type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='postalCode'  type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='country'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='AddressType'>
+      <xs:sequence>
+        <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='msc'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='mtn'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='rcp'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='alt'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='dal'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='city'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='region'      type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='postalCode'  type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='country'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='BuyerType'>
-          <xs:sequence>
-            <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
-            <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='BuyerType'>
+      <xs:sequence>
+        <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='ConsumerType'>
-          <xs:sequence>
-            <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
-            <xs:element name='contract'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
-            <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='ConsumerType'>
+      <xs:sequence>
+        <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='contract'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='CurrencyType'>
-          <xs:sequence>
-            <xs:element name='code'      type='xs:string'  />
-            <xs:element name='name'      type='xs:string'  />
-            <xs:element name='number'    type='xs:integer' />
-            <xs:element name='precision' type='xs:integer' />
-            <xs:element name='scale'     type='xs:integer' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='CurrencyType'>
+      <xs:sequence>
+        <xs:element name='code'      type='xs:string'  />
+        <xs:element name='name'      type='xs:string'  />
+        <xs:element name='number'    type='xs:integer' />
+        <xs:element name='precision' type='xs:integer' />
+        <xs:element name='scale'     type='xs:integer' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='ItemType'>
-          <xs:sequence>
-            <xs:element name='reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='amount'               type='MoneyType'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='amountSubjectToTerms' type='MoneyType'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='discount'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='freight'              type='MoneyType'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
-            <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
-            <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='tax'                  type='MoneyType'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-            <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='ItemType'>
+      <xs:sequence>
+        <xs:element name='reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
+        <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
+        <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='ItemsType'>
-          <xs:sequence minOccurs='1' maxOccurs='5000'>
-            <xs:element name='item' type='ItemType'/>
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='ItemsType'>
+      <xs:sequence minOccurs='1' maxOccurs='5000'>
+        <xs:element name='item' type='ItemType'/>
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='ReferenceType'>
-          <xs:sequence>
-            <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
-            <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
-            <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
-              <xs:simpleType>
-                <xs:restriction base='xs:string'>
-                  <xs:enumeration value='buyer'        />
-                  <xs:enumeration value='consumer'     />
-                  <xs:enumeration value='document'     />
-                  <xs:enumeration value='lineNumber'   />
-                  <xs:enumeration value='manufacturer' />
-                  <xs:enumeration value='seller'       />
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='ReferenceType'>
+      <xs:sequence>
+        <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
+          <xs:simpleType>
+            <xs:restriction base='xs:string'>
+              <xs:enumeration value='buyer'        />
+              <xs:enumeration value='consumer'     />
+              <xs:enumeration value='document'     />
+              <xs:enumeration value='lineNumber'   />
+              <xs:enumeration value='manufacturer' />
+              <xs:enumeration value='seller'       />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='ShipToType'>
-          <xs:sequence>
-            <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
-            <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='ShipToType'>
+      <xs:sequence>
+        <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='StockType'>
-          <xs:sequence>
-            <xs:element name='reference'    type='ReferenceType' minOccurs='0' maxOccurs='1' />
-            <xs:element name='name'         type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='description'  type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='remarks'      type='xs:string'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='buyer'        type='BuyerType'     minOccurs='0' maxOccurs='1' />
-            <xs:element name='consumer'     type='ConsumerType'  minOccurs='0' maxOccurs='1' />
-            <xs:element name='shipTo'       type='ShipToType'    minOccurs='0' maxOccurs='1' />
-            <xs:element name='when'         type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-            <xs:element name='whenExpected' type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
-            <xs:element name='freight'      type='xs:decimal'    minOccurs='0' maxOccurs='1' />
-            <xs:element name='currency'     type='CurrencyType'  minOccurs='0' maxOccurs='1' />
-            <xs:element name='itemsCount'   type='xs:integer'    minOccurs='0' maxOccurs='1' />
-            <xs:element name='items'        type='ItemsType'     minOccurs='1' maxOccurs='1' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name='StockType'>
+      <xs:sequence>
+        <xs:element name='reference'     type='ReferenceType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'          type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='description'   type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='buyer'         type='BuyerType'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='consumer'      type='ConsumerType'  minOccurs='0' maxOccurs='1' />
+        <xs:element name='shipTo'        type='ShipToType'    minOccurs='0' maxOccurs='1' />
+        <xs:element name='when'          type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='whenExpected'  type='xs:dateTime'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='total'         type='TotalType'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='currency'      type='CurrencyType'  minOccurs='0' maxOccurs='1' />
+        <xs:element name='itemsCount'    type='xs:integer'    minOccurs='0' maxOccurs='1' />
+        <xs:element name='items'         type='ItemsType'     minOccurs='1' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:complexType name='UnitMeasureType'>
-          <xs:sequence>
-            <xs:element name='name'        type='xs:string'  />
-            <xs:element name='description' type='xs:string'  />
-            <xs:element name='remarks'     type='xs:string'  />
-            <xs:element name='code'        type='xs:string'  />
-            <xs:element name='quantity'    type='xs:decimal' />
-          </xs:sequence>
-        </xs:complexType>
+    <xs:simpleType name='MoneyType'>
+      <xs:annotation>
+        <xs:documentation>
+          Every Product must have a unit cost that is equal to or greater than
+          0 and must cost just under one trillion monetary units. Version 1.5.0
+          assumes the monetary unit is US Dollars.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:restriction base='xs:decimal'>
+        <xs:minInclusive value='0'/>
+        <xs:maxInclusive value='999999999999.999999'/>
+        <xs:fractionDigits value='6'/>
+        <xs:totalDigits value='18'/>
+      </xs:restriction>
+    </xs:simpleType>
 
-        <xs:simpleType name='MoneyType'>
-          <xs:annotation>
-            <xs:documentation>
-              Every Product must have a unit cost that is equal to or greater than
-              0 and must cost just under one trillion monetary units. Version 1.5.0
-              assumes the monetary unit is US Dollars.
-            </xs:documentation>
-          </xs:annotation>
-          <xs:restriction base='xs:decimal'>
-            <xs:minInclusive value='0'/>
-            <xs:maxInclusive value='999999999999.999999'/>
-            <xs:fractionDigits value='6'/>
-            <xs:totalDigits value='18'/>
-          </xs:restriction>
-        </xs:simpleType>
+    <xs:complexType name='TotalType'>
+      <xs:sequence>
+        <xs:element name='amount'               type='MoneyType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='discount'             type='MoneyType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='freightAmount'        type='MoneyType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='subjectToTermsAmount' type='MoneyType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='tax'                  type='MoneyType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'              type='xs:string' minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:simpleType name='IDType'>
-          <xs:annotation>
-            <xs:documentation>
-              Every Product must have at least one ID and that ID must uniquely locate
-              only one product; a Product may have more than one ID but a ID must relate
-              to only a single product.
-            </xs:documentation>
-          </xs:annotation>
-          <xs:restriction base='xs:token'>
-            <xs:minLength value='1'/>
-            <xs:maxLength value='32'/>
-          </xs:restriction>
-        </xs:simpleType>
+    <xs:complexType name='UnitMeasureType'>
+      <xs:sequence>
+        <xs:element name='name'        type='xs:string'  />
+        <xs:element name='description' type='xs:string'  />
+        <xs:element name='remarks'     type='xs:string'  />
+        <xs:element name='code'        type='xs:string'  />
+        <xs:element name='quantity'    type='xs:decimal' />
+      </xs:sequence>
+    </xs:complexType>
 
-        <xs:simpleType name='QuantityType'>
-          <xs:restriction base='xs:unsignedInt'/>
-        </xs:simpleType>
+    <xs:simpleType name='IDType'>
+      <xs:annotation>
+        <xs:documentation>
+          Every Product must have at least one ID and that ID must uniquely locate
+          only one product; a Product may have more than one ID but a ID must relate
+          to only a single product.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:restriction base='xs:token'>
+        <xs:minLength value='1'/>
+        <xs:maxLength value='32'/>
+      </xs:restriction>
+    </xs:simpleType>
 
-      </xs:schema>
+    <xs:simpleType name='QuantityType'>
+      <xs:restriction base='xs:unsignedInt'/>
+    </xs:simpleType>
+
+  </xs:schema>
 
 #+END_SRC
 
