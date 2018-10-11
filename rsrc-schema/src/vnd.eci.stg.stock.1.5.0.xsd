@@ -86,8 +86,8 @@
       <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
       <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
       <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
       <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+      <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
       <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
       <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
     </xs:sequence>

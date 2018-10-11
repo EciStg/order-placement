@@ -30,6 +30,27 @@
       "maxLength" : 256
     },
 
+    "make": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "model": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "serialnumber": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
     "buyer": { "$ref": "#/definitions/buyer" },
 
     "consumer": { "$ref": "#/definitions/consumer" },

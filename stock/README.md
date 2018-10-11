@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T01:10:03Z</td>
+<td class="org-left">2018-10-11T01:17:29Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -290,7 +290,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-11T01:10:03Z</td>
+<td class="org-left">2018-10-11T01:17:29Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1230,6 +1230,27 @@ No longer published
               "maxLength" : 256
             },
 
+            "make": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
+            "model": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
+            "serialnumber": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
             "buyer": { "$ref": "#/definitions/buyer" },
 
             "consumer": { "$ref": "#/definitions/consumer" },
@@ -1904,8 +1925,8 @@ No longer published
               <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
               <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
               <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
               <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
               <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
