@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T01:17:29Z</td>
+<td class="org-left">2018-10-11T01:22:04Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -290,7 +290,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-11T01:17:29Z</td>
+<td class="org-left">2018-10-11T01:22:05Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1259,6 +1259,8 @@ No longer published
 
             "shipTo": { "$ref": "#/definitions/shipTo" },
 
+            "billTo": { "$ref": "#/definitions/billTo" },
+
             "shippingCarrier": { "$ref": "#/definitions/shippingCarrier" },
 
             "location": { "$ref": "#/definitions/address" },
@@ -1531,6 +1533,59 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 128
+                }
+              }
+            },
+
+            "billTo": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "taxID": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
                 }
               }
             },
@@ -1863,6 +1918,19 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
+          <xs:complexType name='BillToType'>
+            <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
           <xs:complexType name='BuyerType'>
             <xs:sequence>
               <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -2002,6 +2070,7 @@ No longer published
               <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
               <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
               <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
