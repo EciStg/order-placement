@@ -72,7 +72,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T16:56:18Z</td>
+<td class="org-left">2018-10-15T05:08:32Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -360,13 +360,13 @@
 
 
 <tr>
-<td class="org-left">/bin/bash:</td>
-<td class="org-left">line</td>
-<td class="org-left">3:</td>
-<td class="org-left">ajv:</td>
-<td class="org-left">command</td>
-<td class="org-left">not</td>
-<td class="org-left">found</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-request.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -392,7 +392,39 @@
 
 
 <tr>
-<td class="org-left">2018-10-11T16:56:18Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-response.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-15T05:08:32Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -612,11 +644,6 @@ No longer published
           },
 
           "definitions" : {
-            "referenceType": {
-              "type": "string",
-              "enum": ["buyer", "consume", "manufacturer", "seller" ]
-            },
-
             "reference": {
               "type": "object",
               "additionalProperties": false,
@@ -670,6 +697,79 @@ No longer published
                   }
                 }
               }
+            },
+
+            "referenceType": {
+              "type": "string",
+              "enum": ["buyer", "consume", "manufacturer", "seller" ]
+            },
+
+            "tax": {
+              "type": "object",
+              "properties" : {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "amount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "authority": {
+                  "description": "",
+                  "type": "string",
+                  "minLength" : 1,
+                  "maxLength" : 32
+                },
+
+                "itemsCount": {
+                  "description": "number of things in the items collection",
+                  "type" : "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "items": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items" : {
+                    "$ref" : "#/definitions/tax"
+                  }
+                }
+              },
+
+              "additionalProperties": false
             },
 
             "shippingCarrier": {
@@ -1174,12 +1274,7 @@ No longer published
                   "maximum" : 999999999999.999999
                 },
 
-                "taxAmount": {
-                  "description": "",
-                  "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
-                },
+                "tax": { "$ref": "#/definitions/tax" },
 
                 "remarks": {
                   "description": "",
@@ -1245,20 +1340,6 @@ No longer published
               <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
-
-          <xs:complexType name='SellerType'>
-            <xs:sequence>
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            </xs:sequence>
-          </xs:complexType>
-
           <xs:complexType name='ConsumerType'>
             <xs:sequence>
               <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -1285,20 +1366,21 @@ No longer published
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
-              <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'    type='ReferenceType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'  type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'      type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'     type='AddressType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected' type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='lineNumber'   type='xs:integer'      minOccurs='0' maxOccurs='1' />
+              <xs:element name='make'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='model'        type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='serialNumber' type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'     type='xs:float'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitCost'     type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitMeasure'  type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='total'        type='TotalType'       minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -1326,6 +1408,19 @@ No longer published
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='SellerType'>
+            <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -1384,6 +1479,19 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
+          <xs:complexType name='TaxType'>
+            <xs:sequence>
+              <xs:element name='code'            type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='amount'          type='MoneyType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='authority'       type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer' minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'  minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
           <xs:simpleType name='MoneyType'>
             <xs:annotation>
               <xs:documentation>
@@ -1406,7 +1514,7 @@ No longer published
               <xs:element name='discountAmount' type='MoneyType' minOccurs='0' maxOccurs='1' />
               <xs:element name='freightAmount'  type='MoneyType' minOccurs='0' maxOccurs='1' />
               <xs:element name='termsAmount'    type='MoneyType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='tax'            type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='tax'            type='TaxType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'        type='xs:string' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>

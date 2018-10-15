@@ -18,7 +18,7 @@
 
 <col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 
 <col  class="org-left" />
 
@@ -30,9 +30,9 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T16:55:10Z</td>
+<td class="org-left">2018-10-15T05:09:20Z</td>
 <td class="org-left">started</td>
-<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -43,7 +43,7 @@
 <tr>
 <td class="org-left">warning:</td>
 <td class="org-left">failed</td>
-<td class="org-right">to</td>
+<td class="org-left">to</td>
 <td class="org-left">load</td>
 <td class="org-left">external</td>
 <td class="org-left">entity</td>
@@ -52,20 +52,9 @@
 
 
 <tr>
-<td class="org-left">/bin/bash:</td>
-<td class="org-left">line</td>
-<td class="org-right">3:</td>
-<td class="org-left">ajv:</td>
-<td class="org-left">command</td>
-<td class="org-left">not</td>
-<td class="org-left">found</td>
-</tr>
-
-
-<tr>
-<td class="org-left">2018-10-11T16:55:10Z</td>
+<td class="org-left">2018-10-15T05:09:20Z</td>
 <td class="org-left">stopped</td>
-<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>

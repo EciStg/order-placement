@@ -42,7 +42,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T16:54:25Z</td>
+<td class="org-left">2018-10-15T05:09:31Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -93,13 +93,13 @@
 
 
 <tr>
-<td class="org-left">/bin/bash:</td>
-<td class="org-left">line</td>
-<td class="org-left">3:</td>
-<td class="org-left">ajv:</td>
-<td class="org-left">command</td>
-<td class="org-left">not</td>
-<td class="org-left">found</td>
+<td class="org-left">schema</td>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json</td>
+<td class="org-left">is</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -110,7 +110,24 @@
 
 
 <tr>
-<td class="org-left">2018-10-11T16:54:25Z</td>
+<td class="org-left">error:</td>
+<td class="org-left">no</td>
+<td class="org-left">schema</td>
+<td class="org-left">with</td>
+<td class="org-left">key</td>
+<td class="org-left">or</td>
+<td class="org-left">ref</td>
+<td class="org-left"><http://json-schema.org/draft-08/schema>#</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-15T05:09:31Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
