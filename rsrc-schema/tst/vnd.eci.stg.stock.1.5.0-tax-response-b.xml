@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<stock>
+  <total>
+    <amount>20.99</amount>
+    <tax>
+      <amount>1.00</amount>
+    </tax>
+  </total>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+      <quantity>1</quantity>
+      <unitCost>99.99</unitCost>
+    </item>
+  </items>
+</stock>

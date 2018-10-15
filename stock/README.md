@@ -17,279 +17,317 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T16:54:05Z</td>
+<td class="org-left">2018-10-15T04:47:59Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-discount-response.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-a.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-b.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">/bin/bash:</td>
-<td class="org-left">line</td>
-<td class="org-left">3:</td>
-<td class="org-left">ajv:</td>
-<td class="org-left">command</td>
-<td class="org-left">not</td>
-<td class="org-left">found</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-11T16:54:05Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-discount-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-15T04:48:00Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -1151,7 +1189,17 @@ cases to support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "shippingCarrier": { "code": "shipper-123",
+            { "shipTo" : { "location": { "mtn": "Jane Doe",
+                                         "rcp": "ECi Solutions, STG",
+                                         "alt": "Suite #200",
+                                         "dal": "4626 N 300 W",
+                                         "city": "Provo",
+                                         "region": "UT",
+                                         "postalCode": "84604"},
+                           "email": "shipping-contact@example.com",
+                           "phone": "1-555-555-5555"},
+
+              "shippingCarrier": { "code": "shipper-123",
                                    "name": "usps-2day" },
 
               "total": { "freightAmount": 199.99 },
@@ -1166,6 +1214,19 @@ cases to support time to delivery with an estimated cost for shipping.
             <?xml version='1.0' encoding='utf-8'?>
 
             <stock>
+              <shipTo>
+                <location>
+                  <mtn>Jane Doe</mtn>
+                  <rcp>ECi Solutions, STG</rcp>
+                  <alt>Suite #200</alt>
+                  <dal>4626 N 300 W</dal>
+                  <city>Provo</city>
+                  <region>UT</region>
+                  <postalCode>84604</postalCode>
+                </location>
+                <email>shipping-contact@example.com</email>
+                <phone>1-555-555-5555></phone>
+              </shipTo>
               <shippingCarrier>
                 <code>shipper-123</code>
                 <name>usps-2day</name>
@@ -1184,6 +1245,119 @@ cases to support time to delivery with an estimated cost for shipping.
                 </item>
               </items>
             </stock>
+
+
+### As a buyer I would like to see the total amount of any promotional or special discounts
+
+1.  Response
+
+    1.  JSON
+
+            { "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "unitCost": 99.99,
+                          "total": { "amount": 90.00,
+                                     "discountAmount": 9.99 }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <unitCost>99.99</unitCost>
+                  <total>
+                    <amount>9.99</amount>
+                    <discountAmount>9.99</discountAmount>
+                  </total>
+                </item>
+              </items>
+            </stock>
+
+
+### As a buyer I would like to see the the amount of taxes charged
+
+1.  Responses
+
+    1.  tax chargned per line item
+
+        1.  JSON
+
+                { "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" },
+                              "quantity": 1,
+                              "unitCost": 99.99,
+                              "total": { "amount": 20.99,
+                                         "tax": { "amount": 1.00 }}}]}
+
+        2.  XML
+
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <stock>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                      <quantity>1</quantity>
+                      <unitCost>99.99</unitCost>
+                      <total>
+                        <amount>20.99</amount>
+                        <tax>
+                          <amount>1.00</amount>
+                        </tax>
+                      </total>
+                    </item>
+                  </items>
+                </stock>
+
+    2.  tax charged for all items
+
+        1.  JSON
+
+                { "total": { "amount": 20.99,
+                             "tax": { "amount": 1.00 }},
+
+                  "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" },
+                              "quantity": 1,
+                              "unitCost": 99.99 }]}
+
+        2.  XML
+
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <stock>
+                  <total>
+                    <amount>20.99</amount>
+                    <tax>
+                      <amount>1.00</amount>
+                    </tax>
+                  </total>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                      <quantity>1</quantity>
+                      <unitCost>99.99</unitCost>
+                    </item>
+                  </items>
+                </stock>
 
 
 ### As a seller I would like to be able to provide a replacement item when the seller specifies an outdated item number
@@ -1325,11 +1499,6 @@ No longer published
           },
 
           "definitions" : {
-            "referenceType": {
-              "type": "string",
-              "enum": ["buyer", "consume", "manufacturer", "seller" ]
-            },
-
             "reference": {
               "type": "object",
               "additionalProperties": false,
@@ -1383,6 +1552,79 @@ No longer published
                   }
                 }
               }
+            },
+
+            "referenceType": {
+              "type": "string",
+              "enum": ["buyer", "consume", "manufacturer", "seller" ]
+            },
+
+            "tax": {
+              "type": "object",
+              "properties" : {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength" : 256
+                },
+
+                "amount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "authority": {
+                  "description": "",
+                  "type": "string",
+                  "minLength" : 1,
+                  "maxLength" : 32
+                },
+
+                "itemsCount": {
+                  "description": "number of things in the items collection",
+                  "type" : "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "items": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items" : {
+                    "$ref" : "#/definitions/tax"
+                  }
+                }
+              },
+
+              "additionalProperties": false
             },
 
             "shippingCarrier": {
@@ -1887,12 +2129,7 @@ No longer published
                   "maximum" : 999999999999.999999
                 },
 
-                "taxAmount": {
-                  "description": "",
-                  "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
-                },
+                "tax": { "$ref": "#/definitions/tax" },
 
                 "remarks": {
                   "description": "",
@@ -1958,20 +2195,6 @@ No longer published
               <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
-
-          <xs:complexType name='SellerType'>
-            <xs:sequence>
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
-            </xs:sequence>
-          </xs:complexType>
-
           <xs:complexType name='ConsumerType'>
             <xs:sequence>
               <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -1998,20 +2221,21 @@ No longer published
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='reference'            type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'          type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'              type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'             type='AddressType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'                 type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='lineNumber'           type='xs:integer'      minOccurs='0' maxOccurs='1' />
-              <xs:element name='make'                 type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='model'                type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='serialNumber'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='quantity'             type='xs:float'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitCost'             type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitMeasure'          type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'    type='ReferenceType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'  type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'      type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'     type='AddressType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected' type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='lineNumber'   type='xs:integer'      minOccurs='0' maxOccurs='1' />
+              <xs:element name='make'         type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='model'        type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='serialNumber' type='xs:string'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'     type='xs:float'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitCost'     type='MoneyType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitMeasure'  type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='total'        type='TotalType'       minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -2039,6 +2263,19 @@ No longer published
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='SellerType'>
+            <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -2097,6 +2334,19 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
+          <xs:complexType name='TaxType'>
+            <xs:sequence>
+              <xs:element name='code'            type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='amount'          type='MoneyType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='authority'       type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer' minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'  minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
           <xs:simpleType name='MoneyType'>
             <xs:annotation>
               <xs:documentation>
@@ -2119,7 +2369,7 @@ No longer published
               <xs:element name='discountAmount' type='MoneyType' minOccurs='0' maxOccurs='1' />
               <xs:element name='freightAmount'  type='MoneyType' minOccurs='0' maxOccurs='1' />
               <xs:element name='termsAmount'    type='MoneyType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='tax'            type='MoneyType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='tax'            type='TaxType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'        type='xs:string' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>

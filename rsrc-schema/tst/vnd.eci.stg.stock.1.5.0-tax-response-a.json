@@ -1,0 +1,7 @@
+{ "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" },
+              "quantity": 1,
+              "unitCost": 99.99,
+              "total": { "amount": 20.99,
+                         "tax": { "amount": 1.00 }}}]}
