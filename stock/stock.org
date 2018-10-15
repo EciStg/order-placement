@@ -456,9 +456,9 @@ items ( /24/ ) for a product known to the seller as /abc-123/.
 Note that not all buyer systems send the desired quantity; the quantity property may be omitted,
 empty, or zero.
 
-***** Request
+**** Request
 
-****** JSON
+***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.json
   { "itemsCount": 1,
@@ -467,7 +467,7 @@ empty, or zero.
                 "quantity": 24}]}
 #+END_SRC
 
-****** XML
+***** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.xml
   <?xml version='1.0' encoding='utf-8'?>
@@ -486,13 +486,13 @@ empty, or zero.
   </stock>
 #+END_SRC
 
-***** Response
+**** Response
 
-****** If the seller can deliver the buyer's requested quantity ( /24/ ) the seller may reply with
+***** If the seller can deliver the buyer's requested quantity ( /24/ ) the seller may reply with
 
-******* the requested quantity ( /24/ )
+****** the requested quantity ( /24/ )
 
-******** JSON
+******* JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json
   { "itemsCount": 1,
@@ -501,7 +501,7 @@ empty, or zero.
                 "quantity": 24}]}
 #+END_SRC
 
-******** XML
+******* XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml
   <?xml version='1.0' encoding='utf-8'?>
@@ -520,9 +520,9 @@ empty, or zero.
   </stock>
 #+END_SRC
 
-******* the quantity on hand ( /103/ )
+****** the quantity on hand ( /103/ )
 
-******** JSON
+******* JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.json
   { "itemsCount": 1,
@@ -531,7 +531,7 @@ empty, or zero.
                 "quantity": 103}]}
 #+END_SRC
 
-******** XML
+******* XML
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.xml
   <?xml version='1.0' encoding='utf-8'?>
 
@@ -549,9 +549,9 @@ empty, or zero.
   </stock>
 #+END_SRC
 
-******* a fixed value e.g. /1,000/
+****** a fixed value e.g. /1,000/
 
-******** JSON
+******* JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json
   { "itemsCount": 1,
@@ -560,7 +560,7 @@ empty, or zero.
                 "quantity": 1000}]}
 #+END_SRC
 
-******** XML
+******* XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml
   <?xml version='1.0' encoding='utf-8'?>
@@ -579,7 +579,7 @@ empty, or zero.
   </stock>
 #+END_SRC
 
-****** If the seller cannot deliver the buyer's requested quantity ( /24/ ) the seller may reply with
+***** If the seller cannot deliver the buyer's requested quantity ( /24/ ) the seller may reply with
 
 ******* the quantity on hand ( /12/ )
 
