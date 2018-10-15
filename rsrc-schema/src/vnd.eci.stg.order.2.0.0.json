@@ -1,5 +1,0 @@
-{
-  "id": "./vnd.eci.stg.order.2.0.0.json",
-  "$schema": "http://json-schema.org/draft-08/schema#",
-  "title": "Order"
-}
