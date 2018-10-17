@@ -78,7 +78,7 @@ the Seller systems. This information will be passed to the buyer system via HTTP
 Basic Authentication. Stock and Order resources allow for additional non-schema
 defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
 
-* Code / Reference Type
+* Code and Reference Types
 
 At the heart of the order placement 1.0 resource schema is the notion or concept of a code. A code
 is intended to describe a thing of interest to both humans and software and has the following three
