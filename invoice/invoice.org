@@ -863,7 +863,7 @@ No longer published
              elementFormDefault='qualified'
              xml:lang='en'>
 
-    <xs:element name='invoice' type='InvoiceType'/>
+    <xs:element name='invoice' type='ItemType'/>
 
     <xs:complexType name='AddressType'>
       <xs:sequence>
@@ -934,21 +934,30 @@ No longer published
 
     <xs:complexType name='ItemType'>
       <xs:sequence>
-        <xs:element name='reference'    type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-        <xs:element name='name'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='description'  type='xs:string'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='remarks'      type='xs:string'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='location'     type='AddressType'     minOccurs='0' maxOccurs='1' />
-        <xs:element name='when'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-        <xs:element name='whenExpected' type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-        <xs:element name='lineNumber'   type='xs:integer'      minOccurs='0' maxOccurs='1' />
-        <xs:element name='make'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='model'        type='xs:string'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='serialNumber' type='xs:string'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='quantity'     type='xs:float'        minOccurs='0' maxOccurs='1' />
-        <xs:element name='unitCost'     type='MoneyType'       minOccurs='0' maxOccurs='1' />
-        <xs:element name='unitMeasure'  type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-        <xs:element name='total'        type='TotalType'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
+        <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
+        <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
+        <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+        <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
+        <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+        <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+        <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+        <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+        <xs:element name='make'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='model'           type='xs:string'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='serialNumber'    type='xs:string'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='quantity'        type='xs:float'            minOccurs='0' maxOccurs='1' />
+        <xs:element name='unitCost'        type='MoneyType'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='unitMeasure'     type='UnitMeasureType'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
+        <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
+        <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+        <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
       </xs:sequence>
     </xs:complexType>
 

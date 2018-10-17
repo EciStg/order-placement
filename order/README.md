@@ -17,377 +17,53 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-15T05:08:47Z</td>
+<td class="org-left">2018-10-17T00:49:26Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml:2:</td>
-<td class="org-left">element</td>
-<td class="org-left">order:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">validity</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">Element</td>
-<td class="org-left">'order':</td>
-<td class="org-left">Missing</td>
-<td class="org-left">child</td>
-<td class="org-left">element(s).</td>
-<td class="org-left">Expected</td>
-<td class="org-left">is</td>
-<td class="org-left">one</td>
-<td class="org-left">of</td>
-<td class="org-left">(</td>
-<td class="org-left">reference,</td>
-<td class="org-left">name,</td>
-<td class="org-left">description,</td>
-<td class="org-left">remarks,</td>
-<td class="org-left">buyer,</td>
-<td class="org-left">consumer,</td>
-<td class="org-left">seller,</td>
-<td class="org-left">shipTo,</td>
-<td class="org-left">billTo,</td>
-<td class="org-left">shippingCarrier</td>
-<td class="org-left">).</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml</td>
-<td class="org-left">fails</td>
-<td class="org-left">to</td>
-<td class="org-left">validate</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml:2:</td>
-<td class="org-left">element</td>
-<td class="org-left">order:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">validity</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">Element</td>
-<td class="org-left">'order':</td>
-<td class="org-left">Missing</td>
-<td class="org-left">child</td>
-<td class="org-left">element(s).</td>
-<td class="org-left">Expected</td>
-<td class="org-left">is</td>
-<td class="org-left">one</td>
-<td class="org-left">of</td>
-<td class="org-left">(</td>
-<td class="org-left">reference,</td>
-<td class="org-left">name,</td>
-<td class="org-left">description,</td>
-<td class="org-left">remarks,</td>
-<td class="org-left">buyer,</td>
-<td class="org-left">consumer,</td>
-<td class="org-left">seller,</td>
-<td class="org-left">shipTo,</td>
-<td class="org-left">billTo,</td>
-<td class="org-left">shippingCarrier</td>
-<td class="org-left">).</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml</td>
-<td class="org-left">fails</td>
-<td class="org-left">to</td>
-<td class="org-left">validate</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-15T05:08:47Z</td>
+<td class="org-left">2018-10-17T00:49:27Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -1230,7 +906,7 @@ No longer published
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='order' type='OrderType'/>
+          <xs:element name='order' type='ItemType'/>
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
@@ -1301,21 +977,30 @@ No longer published
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='reference'    type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'  type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'      type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'     type='AddressType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected' type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='lineNumber'   type='xs:integer'      minOccurs='0' maxOccurs='1' />
-              <xs:element name='make'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='model'        type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='serialNumber' type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='quantity'     type='xs:float'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitCost'     type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitMeasure'  type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='total'        type='TotalType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='make'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='model'           type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='serialNumber'    type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'        type='xs:float'            minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitCost'        type='MoneyType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitMeasure'     type='UnitMeasureType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
