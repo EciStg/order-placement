@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-15T04:47:59Z</td>
+<td class="org-left">2018-10-17T00:43:42Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-15T04:48:00Z</td>
+<td class="org-left">2018-10-17T00:43:42Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -2150,7 +2150,7 @@ No longer published
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='stock' type='StockType'/>
+          <xs:element name='stock' type='ItemType'/>
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
@@ -2221,21 +2221,30 @@ No longer published
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='reference'    type='ReferenceType'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'  type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'      type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'     type='AddressType'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'         type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected' type='xs:dateTime'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='lineNumber'   type='xs:integer'      minOccurs='0' maxOccurs='1' />
-              <xs:element name='make'         type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='model'        type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='serialNumber' type='xs:string'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='quantity'     type='xs:float'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitCost'     type='MoneyType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='unitMeasure'  type='UnitMeasureType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='total'        type='TotalType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='make'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='model'           type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='serialNumber'    type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'        type='xs:float'            minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitCost'        type='MoneyType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='unitMeasure'     type='UnitMeasureType'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -2244,6 +2253,22 @@ No longer published
               <xs:element name='item' type='ItemType'/>
             </xs:sequence>
           </xs:complexType>
+
+          <xs:simpleType name='MoneyType'>
+            <xs:annotation>
+              <xs:documentation>
+                Every Product must have a unit cost that is equal to or greater than
+                0 and must cost just under one trillion monetary units. Version 1.5.0
+                assumes the monetary unit is US Dollars.
+              </xs:documentation>
+            </xs:annotation>
+            <xs:restriction base='xs:decimal'>
+              <xs:minInclusive value='0'/>
+              <xs:maxInclusive value='999999999999.999999'/>
+              <xs:fractionDigits value='6'/>
+              <xs:totalDigits value='18'/>
+            </xs:restriction>
+          </xs:simpleType>
 
           <xs:complexType name='ReferenceType'>
             <xs:sequence>
@@ -2313,27 +2338,6 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
-          <xs:complexType name='StockType'>
-            <xs:sequence>
-              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
-              <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
-              <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='items'           type='ItemsType'           minOccurs='1' maxOccurs='1' />
-            </xs:sequence>
-          </xs:complexType>
-
           <xs:complexType name='TaxType'>
             <xs:sequence>
               <xs:element name='code'            type='xs:string'  minOccurs='0' maxOccurs='1' />
@@ -2346,22 +2350,6 @@ No longer published
               <xs:element name='items'           type='ItemsType'  minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
-
-          <xs:simpleType name='MoneyType'>
-            <xs:annotation>
-              <xs:documentation>
-                Every Product must have a unit cost that is equal to or greater than
-                0 and must cost just under one trillion monetary units. Version 1.5.0
-                assumes the monetary unit is US Dollars.
-              </xs:documentation>
-            </xs:annotation>
-            <xs:restriction base='xs:decimal'>
-              <xs:minInclusive value='0'/>
-              <xs:maxInclusive value='999999999999.999999'/>
-              <xs:fractionDigits value='6'/>
-              <xs:totalDigits value='18'/>
-            </xs:restriction>
-          </xs:simpleType>
 
           <xs:complexType name='TotalType'>
             <xs:sequence>
@@ -2383,24 +2371,6 @@ No longer published
               <xs:element name='quantity'    type='xs:decimal' />
             </xs:sequence>
           </xs:complexType>
-
-          <xs:simpleType name='IDType'>
-            <xs:annotation>
-              <xs:documentation>
-                Every Product must have at least one ID and that ID must uniquely locate
-                only one product; a Product may have more than one ID but a ID must relate
-                to only a single product.
-              </xs:documentation>
-            </xs:annotation>
-            <xs:restriction base='xs:token'>
-              <xs:minLength value='1'/>
-              <xs:maxLength value='32'/>
-            </xs:restriction>
-          </xs:simpleType>
-
-          <xs:simpleType name='QuantityType'>
-            <xs:restriction base='xs:unsignedInt'/>
-          </xs:simpleType>
 
         </xs:schema>
 
