@@ -7,31 +7,6 @@
 
 * Probe
 
-#+BEGIN_SRC plantuml :file ../images/probe-class-diagram.puml.png :exports results
-@startuml
-hide circle
-
-interface probe {
-.. is-a code ..
-{field} + code : string
-{field} + description : string
-{field} + name : string
-{field} + remarks : string
-.. is-an event ..
-{field} + status : string
-{field} + when : datetime
-.. is-linkable ..
-{field} + self : string
-.. is/has-a collection ..
-{field} + itemCount : int
-{field} + items : [Probe]
-}
-@enduml
-#+END_SRC
-
-#+RESULTS:
-[[file:../images/probe-class-diagram.puml.png]]
-
 Client applications that do not send an Accept header or choose to accept the unversioned or
 "untyped" content types should receive the latest version of the probe.
 
@@ -129,6 +104,31 @@ volume or strain, implementors may wish protect probe routes by traditional DDOS
 including white listing.
 
 ** Definition of Terms
+
+#+BEGIN_SRC plantuml :file ../images/probe-class-diagram.puml.png :exports results
+@startuml
+hide circle
+
+interface probe {
+.. is-a code ..
+{field} + code : string
+{field} + description : string
+{field} + name : string
+{field} + remarks : string
+.. is-an event ..
+{field} + status : string
+{field} + when : datetime
+.. is-linkable ..
+{field} + self : string
+.. is/has-a collection ..
+{field} + itemCount : int
+{field} + items : [Probe]
+}
+@enduml
+#+END_SRC
+
+#+RESULTS:
+[[file:../images/probe-class-diagram.puml.png]]
 
 - code :: Software facing value that uniquely identifies the probe. If ~code~ is not populated, ~name~ must be.
 - description :: Human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.

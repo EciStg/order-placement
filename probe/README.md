@@ -2,8 +2,6 @@
 
 # Probe
 
-![img](../images/probe-class-diagram.puml.png)
-
 Client applications that do not send an Accept header or choose to accept the unversioned or
 "untyped" content types should receive the latest version of the probe.
 
@@ -29,70 +27,41 @@ Client applications that do not send an Accept header or choose to accept the un
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-11T16:55:30Z</td>
+<td class="org-left">2018-10-20T21:16:25Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">/bin/bash:</td>
-<td class="org-left">line</td>
-<td class="org-left">3:</td>
-<td class="org-left">ajv:</td>
-<td class="org-left">command</td>
-<td class="org-left">not</td>
-<td class="org-left">found</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-11T16:55:30Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-10-20T21:16:26Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -147,6 +116,8 @@ including white listing.
 
 
 ## Definition of Terms
+
+![img](../images/probe-class-diagram.puml.png)
 
 -   **code:** Software facing value that uniquely identifies the probe. If `code` is not populated, `name` must be.
 -   **description:** Human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.
