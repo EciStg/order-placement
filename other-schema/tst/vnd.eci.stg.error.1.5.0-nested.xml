@@ -1,0 +1,23 @@
+<error>
+  <code>400</code>
+  <name>argument exception</name>
+  <description>user input error, one or more required fields are missing or contain data that is not expected.</description>
+  <remarks>review the following errors and try again.</remarks>
+  <itemsCount>2</itemsCount>
+  <items>
+    <item>
+      <code>400</code>
+      <name>argument exception</name>
+      <description>first name is required.</description>
+      <remarks>please provide your first name.</remarks>
+      <when>2018-04-24T17:00:00.000Z</when>
+    </item>
+    <item>
+      <code>400</code>
+      <name>argument exception</name>
+      <description>birth date contains unexpected data.</description>
+      <remarks>please provide your birthday in the following format MM/DD/YYYY.</remarks>
+      <when>2018-04-24T17:00:00.000Z</when>
+    </item>
+  </items>
+</error>

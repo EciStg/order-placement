@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<reference>
+  <name>wireless keyboard</name>
+  <description>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</description>
+  <remarks>requires two AAA batteries</remarks>
+  <referencesCount>2</referencesCount>
+  <references>
+    <reference>
+      <code>wbkbd2345</code>
+      <type>buyer</type>
+    </reference>
+    <reference>
+      <code>kbdbt4cha</code>
+      <type>seller</type>
+    </reference>
+  </references>
+</reference>

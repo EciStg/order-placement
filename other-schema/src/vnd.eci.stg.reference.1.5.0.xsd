@@ -1,0 +1,35 @@
+<xs:schema attributeFormDefault='unqualified'
+           elementFormDefault='qualified'
+           xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+  <xs:element name='reference' type='ReferenceType'/>
+
+  <xs:complexType name='ReferenceType'>
+    <xs:sequence>
+      <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
+
+      <xs:element name='referencesCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='references'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name='ReferenceTypeEnum'>
+    <xs:restriction base='xs:string'>
+      <xs:enumeration value='buyer'/>
+      <xs:enumeration value='consumer'/>
+      <xs:enumeration value='manufacturer'/>
+      <xs:enumeration value='seller'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name='ReferencesType'>
+    <xs:sequence minOccurs='0' maxOccurs='1000'>
+      <xs:element name='reference' type='ReferenceType'/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

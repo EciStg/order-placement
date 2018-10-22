@@ -121,14 +121,11 @@ interface probe {
 .. is-linkable ..
 {field} + self : string
 .. is/has-a collection ..
-{field} + itemCount : int
+{field} + itemsCount : int
 {field} + items : [Probe]
 }
 @enduml
 #+END_SRC
-
-#+RESULTS:
-[[file:../images/probe-class-diagram.puml.png]]
 
 - code :: Software facing value that uniquely identifies the probe. If ~code~ is not populated, ~name~ must be.
 - description :: Human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.

@@ -1,0 +1,40 @@
+{
+  "id": "./vnd.eci.stg.code.1.0.0.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "code",
+  "description": "",
+
+  "type": "object",
+  "additionalProperties": false,
+
+  "properties": {
+
+    "code": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "name": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "description": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength" : 128
+    },
+
+    "remarks": {
+      "description": "details of the error that may help users solve the problem",
+      "type": "string",
+      "minLength": 1,
+      "maxLength" : 256
+    }
+  }
+}

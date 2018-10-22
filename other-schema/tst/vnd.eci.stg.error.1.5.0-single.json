@@ -1,0 +1,6 @@
+{ "code": "500",
+  "name": "null pointer exception",
+  "description": "programmer error. you did nothing wrong.",
+  "remarks": "please take careful note of what you were doing just before the error and report it to customer care.",
+  "when": "2018-04-24T17:00:00.000Z"
+}

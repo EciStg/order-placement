@@ -79,15 +79,31 @@ No longer published
       </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ReferenceType">
+    <xs:complexType name='ReferenceType'>
       <xs:sequence>
-        <xs:element type="xs:string" name="BuyerReference"/>
-        <xs:element type="xs:string" name="ConsumerReference"/>
-        <xs:element type="xs:string" name="Description"/>
-        <xs:element type="xs:string" name="DocumentReference"/>
-        <xs:element type="xs:string" name="LineNumberReference"/>
-        <xs:element type="xs:string" name="ManufacturerReference"/>
-        <xs:element type="xs:string" name="SellerReference"/>
+        <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
+
+        <xs:element name='refsCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='refs'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name='ReferenceTypeEnum'>
+      <xs:restriction base='xs:string'>
+        <xs:enumeration value='buyer'/>
+        <xs:enumeration value='consumer'/>
+        <xs:enumeration value='manufacturer'/>
+        <xs:enumeration value='seller'/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name='ReferencesType'>
+      <xs:sequence minOccurs='0' maxOccurs='1000'>
+        <xs:element name='reference' type='ReferenceType'/>
       </xs:sequence>
     </xs:complexType>
 

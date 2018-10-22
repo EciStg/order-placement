@@ -1,0 +1,288 @@
+# -*- mode: org -*-
+
+#+OPTIONS: toc:nil
+#+PROPERTY: mkdirp yes
+#+STARTUP: content
+
+
+#+BEGIN_SRC plantuml :file ./images/error-conceptual-diagram.puml.png :exports results
+  @startuml
+  hide circle
+
+  interface error {
+  .. is-an event ..
+  {field} + code : string
+  {field} + name : string
+  {field} + description : string
+  {field} + remarks : string
+  {field} + when : date-time
+  .. is/has-a collection ..
+  {field} + itemsCount : int
+  {field} + items : [error]
+  }
+  @enduml
+#+END_SRC
+
+** Test Results
+
+#+BEGIN_SRC shell :exports both :results table replace
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+  xmllint --noout --schema ./other-schema/src/vnd.eci.stg.error.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.error.1.5.0*.xml 2>&1
+  ajv -s ./other-schema/src/vnd.eci.stg.error.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.error.1.5.0*.json" 2>&1
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+#+END_SRC
+
+** Overview
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+** Discussion
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+** Definition of Terms
+
+- code :: Software facing value that uniquely identifies the error. If ~Code~ is not populated ~Name~ MUST be populated
+- name :: Human facing value that uniquely identifies the probe. If ~Name~ is not populated ~Code~ MUST be populated
+- description :: Human facing text. Generally populated when there is a failure or warning of some type. If populated the value should give the human user some idea of where the failure or warning is happening and why it might be happening.
+- remarks :: Human facing text. Generally populated with one or more actions the user can take to solve the problem
+- when :: The date and time of probe execution. If ~When~ is populated ~HttpStatusCode~ MUST also be populated
+
+** Examples
+
+*** a singe error
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.error.1.5.0-single.json
+  { "code": "500",
+    "name": "null pointer exception",
+    "description": "programmer error. you did nothing wrong.",
+    "remarks": "please take careful note of what you were doing just before the error and report it to customer care.",
+    "when": "2018-04-24T17:00:00.000Z"
+  }
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.error.1.5.0-single.xml
+  <error>
+    <code>500</code>
+    <name>null pointer exception</name>
+    <description>programmer error. you did nothing wrong.</description>
+    <remarks>please take careful note of what you were doing just before the error and report it to customer care.</remarks>
+    <when>2018-04-24T17:00:00.000Z</when>
+  </error>
+#+END_SRC
+
+*** multiple errors
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.error.1.5.0-multiple.json
+  { "code": "500",
+    "itemsCount": 2,
+    "items": [{ "code": "500",
+                "name": "null pointer exception",
+                "description": "programmer error. you did nothing wrong.",
+                "remarks": "please take careful note of what you were doing just before the error and report it to customer care.",
+                "when": "2018-04-24T17:00:00.000Z"},
+              { "code": "400",
+                "name": "argument exception",
+                "description": "user input error, a required field is missing.",
+                "remarks": "the field user name is required.",
+                "when": "2018-04-24T17:00:00.000Z"}]}
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.error.1.5.0-multiple.xml
+  <error>
+    <code>500</code>
+    <itemsCount>2</itemsCount>
+    <items>
+      <item>
+        <code>500</code>
+        <name>null pointer exception</name>
+        <description>programmer error. you did nothing wrong</description>
+        <remarks>please take careful note of what you were doing just before the error and report it to customer care.</remarks>
+        <when>2018-04-24T17:00:00.000Z</when>
+      </item>
+      <item>
+        <code>400</code>
+        <name>argument exception</name>
+        <description>user input error, a required field is missing.</description>
+        <remarks>the field user name is required.</remarks>
+        <when>2018-04-24T17:00:00.000Z</when>
+      </item>
+    </items>
+  </error>
+#+END_SRC
+
+*** nested errors
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.error.1.5.0-nested.json
+  { "code": "400",
+    "name": "argument exception",
+    "description": "user input error, one or more required fields are missing or contain data that is not expected.",
+    "remarks": "review the following errors and try again.",
+    "itemsCount": 2,
+    "items": [{ "code": "400",
+                "name": "argument exception",
+                "description": "first name is required.",
+                "remarks": "please provide your first name.",
+                "when": "2018-04-24T17:00:00.000Z"},
+              { "code": "400",
+                "name": "argument exception",
+                "description": "birth date contains unexpected data.",
+                "remarks": "please provide your birthday in the following format MM/DD/YYYY.",
+                "when": "2018-04-24T17:00:00.000Z"}]}
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.error.1.5.0-nested.xml
+  <error>
+    <code>400</code>
+    <name>argument exception</name>
+    <description>user input error, one or more required fields are missing or contain data that is not expected.</description>
+    <remarks>review the following errors and try again.</remarks>
+    <itemsCount>2</itemsCount>
+    <items>
+      <item>
+        <code>400</code>
+        <name>argument exception</name>
+        <description>first name is required.</description>
+        <remarks>please provide your first name.</remarks>
+        <when>2018-04-24T17:00:00.000Z</when>
+      </item>
+      <item>
+        <code>400</code>
+        <name>argument exception</name>
+        <description>birth date contains unexpected data.</description>
+        <remarks>please provide your birthday in the following format MM/DD/YYYY.</remarks>
+        <when>2018-04-24T17:00:00.000Z</when>
+      </item>
+    </items>
+  </error>
+#+END_SRC
+
+** Resource Schema
+
+*** Version 1.0
+
+#+BEGIN_QUOTE
+Not supported.
+#+END_QUOTE
+
+*** Version 1.5
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./src/vnd.eci.stg.error.1.5.0.json
+  {
+    "id": "./vnd.eci.stg.error.1.5.0.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Error",
+    "description": "defines when an error occurred, what the error was, and perhaps how to resolve it.",
+    "type": "object",
+    "additionalProperties": false,
+    "anyOf": [{"required": ["code"]},
+              {"required": ["name"]},
+              {"required": ["when"]}],
+
+    "properties" : {
+
+      "code": {
+        "description": "software facing value used to identify and respond to errors",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "name": {
+        "description": "human facing value used to identify and respond to errors",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "description": {
+        "description": "human readable string describing the error",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+
+      "remarks": {
+        "description": "details of the error that may help users solve the problem",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 256
+      },
+
+      "when": {
+        "description": "origination date and time of the error",
+        "type" : "string",
+        "format": "date-time"
+      },
+
+      "itemsCount": {
+        "description": "number of things in the items collection",
+        "type" : "number",
+        "minimum": 1,
+        "maximum": 1000
+      },
+
+      "items": {
+        "description": "",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "#"
+        }
+      }
+    }
+  }
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./src/vnd.eci.stg.error.1.5.0.xsd
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+             elementFormDefault='qualified'
+             xml:lang='en'>
+
+    <xs:element name='error' type='ErrorType'/>
+
+    <xs:complexType name='ErrorType'>
+      <xs:sequence>
+        <xs:annotation>
+          <xs:documentation>
+            TODO
+          </xs:documentation>
+        </xs:annotation>
+        <xs:element name='code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='when'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
+        <xs:element name='itemsCount'  type='xs:integer'  minOccurs='0' maxOccurs='1' />
+        <xs:element name='items'       type='ErrorsType'  minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name='ErrorsType'>
+      <xs:sequence minOccurs='0' maxOccurs='1000'>
+        <xs:element name='item' type='ErrorType'/>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:schema>
+#+END_SRC

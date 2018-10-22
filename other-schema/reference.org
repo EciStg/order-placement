@@ -1,0 +1,239 @@
+# -*- mode: org -*-
+
+#+OPTIONS: toc:nil
+#+PROPERTY: mkdirp yes
+#+STARTUP: content
+
+#+BEGIN_SRC plantuml :file ./images/reference-conceptual-diagram.puml.png :exports results
+  @startuml
+  hide circle
+
+  interface reference {
+  .. is-a code ..
+  {field} + code : string
+  {field} + name : string
+  {field} + description : string
+  {field} + remarks : string
+  .. has-a type ..
+  {field} + type : enumeration
+  .. is/has-a collection ..
+  {field} + referencesCount : int
+  {field} + references : [reference]
+  }
+  @enduml
+#+END_SRC
+
+** Test Results
+
+#+BEGIN_SRC shell :exports both :results table replace
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+  xmllint --noout --schema ./other-schema/src/vnd.eci.stg.reference.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.reference.1.5.0*.xml 2>&1
+  ajv -s ./other-schema/src/vnd.eci.stg.reference.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.reference*.json" 2>&1
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+#+END_SRC
+
+** Overview
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+** Discussion
+
+In version 1.5 and beyond the code type will be replaced with a reference type. The human facing
+elements are left in place and has an additional ~remarks~ field. The software facing ~code~ has
+been extended to allow us to identify a thing in many different systems.
+
+A contrived example, under my fingers is a keyboard. Using the reference type we can describe the
+keyboard from the viewpoint of different actor's actor systems. This keyboard is known as
+~wbkbd2345~ in the buyer's system and as ~kbdbt4cha~ in the seller's system.
+
+** Definition of Terms
+
+- code :: software facing identity function; used to identify the object to a software system
+- name :: human facing identity function; use to identify the object to human readers
+- description :: human facing description providing more information than the name allows
+- remarks :: non-schema human facing information sent back and forth between buyer and seller
+- type :: enumeration, telling us the domain of the code
+- referencesCount :: the number of references in the references collection
+- references :: holds one or more references
+
+** Examples
+
+*** references are codes
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.reference.1.5.0-as-code.json
+  { "code": "wbkbd2345",
+    "name": "wireless keyboard",
+    "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys"
+  }
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.reference.1.5.0-as-code.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <reference>
+    <code>wbkbd2345</code>
+    <name>wireless keyboard</name>
+    <description>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</description>
+  </reference>
+#+END_SRC
+
+*** references can represent a code from many different perspectives; in the case buyer and seller.
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.reference.1.5.0.json
+  { "name": "wireless keyboard",
+    "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys",
+    "remarks": "requires two AAA batteries",
+    "referencesCount": 2,
+    "references": [{ "code": "wbkbd2345", "type": "buyer" },
+                   { "code": "kbdbt4cha", "type": "seller" }]}
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.reference.1.5.0.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <reference>
+    <name>wireless keyboard</name>
+    <description>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</description>
+    <remarks>requires two AAA batteries</remarks>
+    <referencesCount>2</referencesCount>
+    <references>
+      <reference>
+        <code>wbkbd2345</code>
+        <type>buyer</type>
+      </reference>
+      <reference>
+        <code>kbdbt4cha</code>
+        <type>seller</type>
+      </reference>
+    </references>
+  </reference>
+#+END_SRC
+
+** Resource Schema
+
+*** Version 1.0
+
+#+BEGIN_QUOTE
+Not supported.
+#+END_QUOTE
+
+*** Version 1.5
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./src/vnd.eci.stg.reference.1.5.0.json
+  {
+    "id": "./vnd.eci.stg.code.1.5.0.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "reference",
+    "description": "",
+    "type": "object",
+    "additionalProperties": false,
+
+    "properties": {
+
+      "code": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "name": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "description": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 128
+      },
+
+      "remarks": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 256
+      },
+
+      "type": { "$ref": "#/definitions/referenceType" },
+
+      "referencesCount": {
+        "description": "number of things in the items collection",
+        "type" : "number",
+        "minimum": 1,
+        "maximum": 1000
+      },
+
+      "references": {
+        "description": "",
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1000,
+        "uniqueItems": true,
+        "items" : {
+          "$ref" : "#"
+        }
+      }
+    },
+
+    "definitions" : {
+      "referenceType": {
+        "type": "string",
+        "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+      }
+    }
+  }
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./src/vnd.eci.stg.reference.1.5.0.xsd
+  <xs:schema attributeFormDefault='unqualified'
+             elementFormDefault='qualified'
+             xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+    <xs:element name='reference' type='ReferenceType'/>
+
+    <xs:complexType name='ReferenceType'>
+      <xs:sequence>
+        <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+        <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
+
+        <xs:element name='referencesCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
+        <xs:element name='references'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name='ReferenceTypeEnum'>
+      <xs:restriction base='xs:string'>
+        <xs:enumeration value='buyer'/>
+        <xs:enumeration value='consumer'/>
+        <xs:enumeration value='manufacturer'/>
+        <xs:enumeration value='seller'/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name='ReferencesType'>
+      <xs:sequence minOccurs='0' maxOccurs='1000'>
+        <xs:element name='reference' type='ReferenceType'/>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:schema>
+#+END_SRC

@@ -1,0 +1,142 @@
+# -*- mode: org -*-
+
+#+OPTIONS: toc:nil
+#+PROPERTY: mkdirp yes
+#+STARTUP: content
+
+#+BEGIN_SRC plantuml :file ./images/code-conceptual-diagram.puml.png :exports results
+  @startuml
+  hide circle
+
+  interface code {
+  {field} + code : string
+  {field} + name : string
+  {field} + description : string
+  {field} + remarks : string
+  }
+  @enduml
+#+END_SRC
+
+** Test Results
+
+#+BEGIN_SRC shell :exports both :results table replace
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+  xmllint --noout --schema ./other-schema/src/vnd.eci.stg.code.1.0.0.xsd ./other-schema/tst/vnd.eci.stg.code.1.0.0*.xml 2>&1
+  ajv -s ./other-schema/src/vnd.eci.stg.code.1.0.0.json -d "./other-schema/tst/vnd.eci.stg.code.1.0.0*.json" 2>&1
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+#+END_SRC
+
+** Overview
+
+At the heart of the order placement 1.0 resource schema is the notion or concept of a code. A code
+is intended to describe a thing of interest to both humans and software.
+
+** Discussion
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+** Definition of Terms
+
+- code :: software facing identity function; used to identify the object to a software system
+- name :: human facing identity function; use to identify the object to human readers
+- description :: human facing description providing more information than the name allows
+
+** Examples
+
+*** JSON
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.code.1.0.0.json
+  { "code": "wbkbd2345",
+    "name": "wireless keyboard",
+    "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys",
+    "remarks": "requires two AA batteries"
+  }
+#+END_SRC
+
+*** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.code.1.0.0.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <code>
+    <code>wbkbd2345</code>
+    <name>wireless keyboard</name>
+    <description>four channel bluetooth Apple layout full size aluminum keyboard with backlit keys</description>
+    <remarks>requires two AA batteries</remarks>
+  </code>
+#+END_SRC
+
+** Resource Schema
+
+*** Version 1.0
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ./src/vnd.eci.stg.code.1.0.0.json
+  {
+    "id": "./vnd.eci.stg.code.1.0.0.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "code",
+    "description": "",
+
+    "type": "object",
+    "additionalProperties": false,
+
+    "properties": {
+
+      "code": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "name": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 32
+      },
+
+      "description": {
+        "description": "",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 128
+      },
+
+      "remarks": {
+        "description": "details of the error that may help users solve the problem",
+        "type": "string",
+        "minLength": 1,
+        "maxLength" : 256
+      }
+    }
+  }
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ./src/vnd.eci.stg.code.1.0.0.xsd
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+             elementFormDefault='qualified'
+             xml:lang='en'>
+
+    <xs:element name='code' type='CodeType'/>
+
+    <xs:complexType name='CodeType'>
+      <xs:sequence>
+        <xs:annotation>
+          <xs:documentation>
+            TODO
+          </xs:documentation>
+        </xs:annotation>
+        <xs:element name='code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='description' type='xs:string'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:schema>
+#+END_SRC

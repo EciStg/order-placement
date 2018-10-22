@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-17T00:50:37Z</td>
+<td class="org-left">2018-10-22T06:36:14Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-17T00:50:37Z</td>
+<td class="org-left">2018-10-22T06:36:14Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1534,14 +1534,14 @@ No longer published
 
                 "type": { "$ref": "#/definitions/referenceType" },
 
-                "itemsCount": {
+                "referencesCount": {
                   "description": "number of things in the items collection",
                   "type" : "number",
                   "minimum": 1,
                   "maximum": 1000
                 },
 
-                "items": {
+                "references": {
                   "description": "",
                   "type": "array",
                   "minItems": 1,
@@ -2276,18 +2276,25 @@ No longer published
               <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
-                <xs:simpleType>
-                  <xs:restriction base='xs:string'>
-                    <xs:enumeration value='buyer'        />
-                    <xs:enumeration value='consumer'     />
-                    <xs:enumeration value='document'     />
-                    <xs:enumeration value='lineNumber'   />
-                    <xs:enumeration value='manufacturer' />
-                    <xs:enumeration value='seller'       />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
+
+              <xs:element name='refsCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='refs'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:simpleType name='ReferenceTypeEnum'>
+            <xs:restriction base='xs:string'>
+              <xs:enumeration value='buyer'/>
+              <xs:enumeration value='consumer'/>
+              <xs:enumeration value='manufacturer'/>
+              <xs:enumeration value='seller'/>
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:complexType name='ReferencesType'>
+            <xs:sequence minOccurs='0' maxOccurs='1000'>
+              <xs:element name='reference' type='ReferenceType'/>
             </xs:sequence>
           </xs:complexType>
 

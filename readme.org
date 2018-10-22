@@ -6,14 +6,6 @@
 #+STARTUP: content
 
 * Order Placement System
-** Test Results
-
-In the spirit of 'test first' here are the the test results of the latest build.
-
-#+BEGIN_SRC shell :exports both :results verbatim
-  ./test-json.sh 2>&1
-  ./test-xml.sh 2>&1
-#+END_SRC
 
 ** Overview
 
@@ -21,18 +13,7 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 #+INCLUDE: "./overview.org"
 
-** Endpoint Documentation
-*** Invoice
-
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
-
-Invoice [[./invoice/README.md][documentation]]
-
-*** Order
-
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
-
-Order [[./order/README.md][documentation]]
+** Endpoint Major Resource Types
 
 *** Probe
 
@@ -40,7 +21,7 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 Probe [[./probe/README.md][documentation]]
 
-*** Ship Method
+*** Shipping Method
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
@@ -51,6 +32,38 @@ Ship Method [[./ship-method/README.md][documentation]]
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
 Stock [[./stock/README.md][documentation]]
+
+*** Order
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Order [[./order/README.md][documentation]]
+
+*** Invoice
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Invoice [[./invoice/README.md][documentation]]
+
+*** Shipping Receipts
+
+Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+Shipping Receipts [[./receipts/README.md][documentation]]
+
+** Other (embedded) Resource Types
+
+*** Code
+
+#+INCLUDE: "./other-schema/code.org"
+
+*** Error
+
+#+INCLUDE: "./other-schema/error.org"
+
+*** Reference
+
+#+INCLUDE: "./other-schema/reference.org"
 
 ** Testing
 
@@ -86,6 +99,15 @@ Stock [[./stock/README.md][documentation]]
 
 #+END_SRC
 
+** Test Results
+
+In the spirit of 'test first' here are the the test results of the latest build.
+
+#+BEGIN_SRC shell :exports both :results verbatim
+  ./test-json.sh 2>&1
+  ./test-xml.sh 2>&1
+#+END_SRC
+
 ** About this document
 
 These documents were created using [[https://www.gnu.org/software/emacs/][emacs's]] org mode in a Literate Programming style with additional
@@ -106,7 +128,9 @@ will be weaved or tangled but may execute "silently".
 #+BEGIN_SRC emacs-lisp :exports both
   (progn (make-directory "./images" t)
          (make-directory "./rsrc-schema/src" t)
-         (make-directory "./rsrc-schema/tst" t))
+         (make-directory "./rsrc-schema/tst" t)
+         (make-directory "./other-schema/src" t)
+         (make-directory "./other-schema/tst" t))
 #+END_SRC
 
 *** Tangle

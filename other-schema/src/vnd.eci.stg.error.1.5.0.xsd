@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+           elementFormDefault='qualified'
+           xml:lang='en'>
+
+  <xs:element name='error' type='ErrorType'/>
+
+  <xs:complexType name='ErrorType'>
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          TODO
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name='code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='when'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
+      <xs:element name='itemsCount'  type='xs:integer'  minOccurs='0' maxOccurs='1' />
+      <xs:element name='items'       type='ErrorsType'  minOccurs='0' maxOccurs='1' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name='ErrorsType'>
+    <xs:sequence minOccurs='0' maxOccurs='1000'>
+      <xs:element name='item' type='ErrorType'/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,6 @@
+{ "name": "wireless keyboard",
+  "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys",
+  "remarks": "requires two AAA batteries",
+  "referencesCount": 2,
+  "references": [{ "code": "wbkbd2345", "type": "buyer" },
+                 { "code": "kbdbt4cha", "type": "seller" }]}
