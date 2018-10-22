@@ -115,7 +115,7 @@ Invoice [documentation](./invoice/README.md)
 
 Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
-Shipping Receipts [documentation](./receipts/README.md)
+Shipping Receipts [documentation](./receipt/README.md)
 
 
 ## Other (embedded) Resource Types
@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipts/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:30:16Z</td>
+    <td class="org-left">2018-10-22T08:40:08Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipts/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:30:16Z</td>
+    <td class="org-left">2018-10-22T08:40:09Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -274,12 +274,6 @@ Shipping Receipts [documentation](./receipts/README.md)
                   </xs:complexType>
                 </xs:schema>
 
-    2.  Version 1.5
-
-        > See reference.
-
-7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
-
 
 ### Error
 
@@ -302,7 +296,7 @@ Shipping Receipts [documentation](./receipts/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:30:20Z</td>
+    <td class="org-left">2018-10-22T08:40:12Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -344,7 +338,7 @@ Shipping Receipts [documentation](./receipts/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:30:20Z</td>
+    <td class="org-left">2018-10-22T08:40:12Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -587,8 +581,6 @@ Shipping Receipts [documentation](./receipts/README.md)
 
                 </xs:schema>
 
-7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
-
 
 ### Reference
 
@@ -611,7 +603,7 @@ Shipping Receipts [documentation](./receipts/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:30:24Z</td>
+    <td class="org-left">2018-10-22T08:40:16Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -647,7 +639,7 @@ Shipping Receipts [documentation](./receipts/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:30:25Z</td>
+    <td class="org-left">2018-10-22T08:40:16Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -844,8 +836,6 @@ Shipping Receipts [documentation](./receipts/README.md)
                   </xs:complexType>
 
                 </xs:schema>
-
-7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
 
 
 ## Testing
