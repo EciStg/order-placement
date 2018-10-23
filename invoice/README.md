@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-21T07:38:34Z</td>
+<td class="org-left">2018-10-23T00:38:43Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -62,7 +62,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-21T07:38:35Z</td>
+<td class="org-left">2018-10-23T00:38:44Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -313,7 +313,7 @@ No longer published
 
             "referenceType": {
               "type": "string",
-              "enum": ["buyer", "consume", "manufacturer", "seller" ]
+              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
             },
 
             "tax": {

@@ -267,7 +267,7 @@ No longer published
 
       "referenceType": {
         "type": "string",
-        "enum": ["buyer", "consume", "manufacturer", "seller" ]
+        "enum": ["buyer", "consumer", "manufacturer", "seller" ]
       },
 
       "tax": {
