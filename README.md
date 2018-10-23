@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:40:08Z</td>
+    <td class="org-left">2018-10-23T00:48:01Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:40:09Z</td>
+    <td class="org-left">2018-10-23T00:48:01Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -180,6 +180,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     -   **code:** software facing identity function; used to identify the object to a software system
     -   **name:** human facing identity function; use to identify the object to human readers
     -   **description:** human facing description providing more information than the name allows
+    -   **remarks:** non-schema, human facing information sent back and forth between system actors {buyer, seller, consumer}
 
 5.  Examples
 
@@ -296,7 +297,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:40:12Z</td>
+    <td class="org-left">2018-10-23T00:48:05Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -338,7 +339,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:40:12Z</td>
+    <td class="org-left">2018-10-23T00:48:05Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -603,7 +604,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:40:16Z</td>
+    <td class="org-left">2018-10-23T00:48:09Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -639,7 +640,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:40:16Z</td>
+    <td class="org-left">2018-10-23T00:48:10Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -882,9 +883,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 26.1 (build 1, x86_64-apple-darwin14.5.0, NS appkit-1348.17 Version 10.10.5 (Build 14F2511))
-     of 2018-05-30
-    org version: 9.1.14
+    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
+     of 2017-09-12
+    org version: 9.1.8
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images
