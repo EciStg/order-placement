@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-23T00:39:55Z</td>
+<td class="org-left">2018-10-23T21:49:55Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-23T00:39:56Z</td>
+<td class="org-left">2018-10-23T21:49:55Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -415,7 +415,10 @@ down into smaller chunks.
 
           "whenExpected" : "2018-04-26T17:00:00.000Z",
 
-          "total": { "freightAmount": 199.99 },
+          "total": { "amount": 2623.55,
+                     "freightAmount": 199.99,
+                     "discountAmount": 11.18,
+                     "tax": { "amount": 34.98 }},
 
           "currency": { "code": "DKK",
                         "name": "Danish krone",

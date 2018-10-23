@@ -20,7 +20,10 @@
 
   "whenExpected" : "2018-04-26T17:00:00.000Z",
 
-  "total": { "freightAmount": 199.99 },
+  "total": { "amount": 2623.55,
+             "freightAmount": 199.99,
+             "discountAmount": 11.18,
+             "tax": { "amount": 34.98 }},
 
   "currency": { "code": "DKK",
                 "name": "Danish krone",
