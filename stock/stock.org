@@ -47,7 +47,10 @@ down into smaller chunks.
 **** Request
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json
-  { "buyer" : { "reference": { "code": "buyer-abc",
+  { "reference": { "code": "PO-2159403-2",
+                   "type": "buyer" },
+
+    "buyer" : { "reference": { "code": "buyer-abc",
                                "type": "seller" }},
 
     "consumer" : { "reference": { "code": "consumer-xyz",

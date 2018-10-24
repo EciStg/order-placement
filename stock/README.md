@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-23T21:49:55Z</td>
+<td class="org-left">2018-10-24T19:26:37Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-23T21:49:55Z</td>
+<td class="org-left">2018-10-24T19:26:38Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -357,7 +357,10 @@ down into smaller chunks.
 
 1.  Request
 
-        { "buyer" : { "reference": { "code": "buyer-abc",
+        { "reference": { "code": "PO-2159403-2",
+                         "type": "buyer" },
+
+          "buyer" : { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
 
           "consumer" : { "reference": { "code": "consumer-xyz",
