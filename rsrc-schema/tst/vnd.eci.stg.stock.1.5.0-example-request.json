@@ -1,5 +1,8 @@
-{ "reference": { "code": "PO-2159403-2",
-                 "type": "buyer" },
+{ "reference": { "referencesCount": 3,
+                 "references": [ {"code": "PO-2159403-2",
+                                  "type": "buyer" },
+                                 {"code": "PO-abc-q",
+                                  "type": "consumer" }]},
 
   "buyer" : { "reference": { "code": "buyer-abc",
                              "type": "seller" }},

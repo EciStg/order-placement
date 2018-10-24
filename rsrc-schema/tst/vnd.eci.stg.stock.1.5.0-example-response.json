@@ -1,6 +1,8 @@
-{ "reference": { "referencesCount": 2,
+{ "reference": { "referencesCount": 3,
                  "references": [ {"code": "PO-2159403-2",
-                                 "type": "buyer" },
+                                  "type": "buyer" },
+                                 {"code": "PO-abc-q",
+                                  "type": "consumer" },
                                 { "code": "SO-33445953_2",
                                   "type": "seller" }]},
 

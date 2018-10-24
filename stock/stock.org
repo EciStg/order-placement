@@ -47,8 +47,11 @@ down into smaller chunks.
 **** Request
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json
-  { "reference": { "code": "PO-2159403-2",
-                   "type": "buyer" },
+  { "reference": { "referencesCount": 3,
+                   "references": [ {"code": "PO-2159403-2",
+                                    "type": "buyer" },
+                                   {"code": "PO-abc-q",
+                                    "type": "consumer" }]},
 
     "buyer" : { "reference": { "code": "buyer-abc",
                                "type": "seller" }},
@@ -88,9 +91,11 @@ down into smaller chunks.
 **** Response
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-response.json
-  { "reference": { "referencesCount": 2,
+  { "reference": { "referencesCount": 3,
                    "references": [ {"code": "PO-2159403-2",
-                                   "type": "buyer" },
+                                    "type": "buyer" },
+                                   {"code": "PO-abc-q",
+                                    "type": "consumer" },
                                   { "code": "SO-33445953_2",
                                     "type": "seller" }]},
 
@@ -1865,14 +1870,14 @@ No longer published
             "description": "",
             "type": "number",
             "minimum": 0,
-            "maximum": 6
+            "maximum": 18
           },
 
           "scale": {
             "description": "",
             "type": "number",
             "minimum": 1,
-            "maximum": 18
+            "maximum": 6
           }
         }
       },
