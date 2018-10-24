@@ -73,8 +73,8 @@ down into smaller chunks.
     "currency": { "code": "DKK",
                   "name": "Danish krone",
                   "number": 208,
-                  "precision": 2,
-                  "scale": 18},
+                  "precision": 18,
+                  "scale": 2},
 
     "itemsCount": 2,
     "items": [{ "reference": { "code": "abc-123",
@@ -124,8 +124,8 @@ down into smaller chunks.
     "currency": { "code": "DKK",
                   "name": "Danish krone",
                   "number": 208,
-                  "precision": 2,
-                  "scale": 18},
+                  "precision": 18,
+                  "scale": 2},
 
     "itemsCount": 2,
     "items": [{ "reference": { "code": "abc-123",
@@ -277,8 +277,8 @@ In the example below the buyer would like to see costs and other monetary values
   { "currency": { "code": "DKK",
                   "name": "Danish krone",
                   "number": 208,
-                  "precision": 2,
-                  "scale": 18},
+                  "precision": 18,
+                  "scale": 2},
     "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
                                "type": "seller" }}]}
@@ -294,8 +294,8 @@ In the example below the buyer would like to see costs and other monetary values
       <code>DKK</code>
       <name>Danish krone</name>
       <number>208</number>
-      <precision>2</precision>
-      <scale>18</scale>
+      <precision>18</precision>
+      <scale>2</scale>
     </currency>
     <itemsCount>1</itemsCount>
     <items>
@@ -317,8 +317,8 @@ In the example below the buyer would like to see costs and other monetary values
   { "currency": { "code": "DKK",
                   "name": "Danish krone",
                   "number": 208,
-                  "precision": 2,
-                  "scale": 18},
+                  "precision": 18,
+                  "scale": 2},
     "itemsCount": 1,
     "items": [{ "reference": { "code": "abc-123",
                                "type": "seller" },
@@ -335,8 +335,8 @@ In the example below the buyer would like to see costs and other monetary values
       <code>DKK</code>
       <name>Danish krone</name>
       <number>208</number>
-      <precision>2</precision>
-      <scale>18</scale>
+      <precision>18</precision>
+      <scale>2</scale>
     </currency>
     <itemsCount>1</itemsCount>
     <items>

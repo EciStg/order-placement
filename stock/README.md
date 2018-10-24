@@ -17,317 +17,955 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-24T19:35:44Z</td>
+<td class="org-left">2018-10-24T21:10:28Z</td>
 <td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-discount-response.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-a.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-b.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-cost-response.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.json</td>
-<td class="org-left">valid</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.currency.precision',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/definitions/currency/properties/precision/maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">comparison:</td>
+<td class="org-left">'<=',</td>
+<td class="org-left">limit:</td>
+<td class="org-left">6,</td>
+<td class="org-left">exclusive:</td>
+<td class="org-left">false</td>
+<td class="org-left">},</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left"><=</td>
+<td class="org-left">6'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.json</td>
-<td class="org-left">valid</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.currency.precision',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/definitions/currency/properties/precision/maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">comparison:</td>
+<td class="org-left">'<=',</td>
+<td class="org-left">limit:</td>
+<td class="org-left">6,</td>
+<td class="org-left">exclusive:</td>
+<td class="org-left">false</td>
+<td class="org-left">},</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left"><=</td>
+<td class="org-left">6'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-discount-response.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json</td>
-<td class="org-left">valid</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.currency.precision',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/definitions/currency/properties/precision/maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">comparison:</td>
+<td class="org-left">'<=',</td>
+<td class="org-left">limit:</td>
+<td class="org-left">6,</td>
+<td class="org-left">exclusive:</td>
+<td class="org-left">false</td>
+<td class="org-left">},</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left"><=</td>
+<td class="org-left">6'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-response.json</td>
-<td class="org-left">valid</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.currency.precision',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/definitions/currency/properties/precision/maximum',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">comparison:</td>
+<td class="org-left">'<=',</td>
+<td class="org-left">limit:</td>
+<td class="org-left">6,</td>
+<td class="org-left">exclusive:</td>
+<td class="org-left">false</td>
+<td class="org-left">},</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left"><=</td>
+<td class="org-left">6'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-a.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-location-response-b.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-a.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-b.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-c.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-d.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-a.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-tax-response-b.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-unknown-buyer-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-request.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-a.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-b.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-when-expected-response-c.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-24T19:35:44Z</td>
+<td class="org-left">2018-10-24T21:10:29Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -383,8 +1021,8 @@ down into smaller chunks.
           "currency": { "code": "DKK",
                         "name": "Danish krone",
                         "number": 208,
-                        "precision": 2,
-                        "scale": 18},
+                        "precision": 18,
+                        "scale": 2},
 
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -432,8 +1070,8 @@ down into smaller chunks.
           "currency": { "code": "DKK",
                         "name": "Danish krone",
                         "number": 208,
-                        "precision": 2,
-                        "scale": 18},
+                        "precision": 18,
+                        "scale": 2},
 
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -581,8 +1219,8 @@ In the example below the buyer would like to see costs and other monetary values
             { "currency": { "code": "DKK",
                             "name": "Danish krone",
                             "number": 208,
-                            "precision": 2,
-                            "scale": 18},
+                            "precision": 18,
+                            "scale": 2},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" }}]}
@@ -596,8 +1234,8 @@ In the example below the buyer would like to see costs and other monetary values
                 <code>DKK</code>
                 <name>Danish krone</name>
                 <number>208</number>
-                <precision>2</precision>
-                <scale>18</scale>
+                <precision>18</precision>
+                <scale>2</scale>
               </currency>
               <itemsCount>1</itemsCount>
               <items>
@@ -617,8 +1255,8 @@ In the example below the buyer would like to see costs and other monetary values
             { "currency": { "code": "DKK",
                             "name": "Danish krone",
                             "number": 208,
-                            "precision": 2,
-                            "scale": 18},
+                            "precision": 18,
+                            "scale": 2},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" },
@@ -633,8 +1271,8 @@ In the example below the buyer would like to see costs and other monetary values
                 <code>DKK</code>
                 <name>Danish krone</name>
                 <number>208</number>
-                <precision>2</precision>
-                <scale>18</scale>
+                <precision>18</precision>
+                <scale>2</scale>
               </currency>
               <itemsCount>1</itemsCount>
               <items>
