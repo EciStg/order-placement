@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-24T19:26:37Z</td>
+<td class="org-left">2018-10-24T19:35:44Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-24T19:26:38Z</td>
+<td class="org-left">2018-10-24T19:35:44Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -396,7 +396,13 @@ down into smaller chunks.
 
 2.  Response
 
-        { "buyer" : { "reference": { "code": "buyer-abc",
+        { "reference": { "referencesCount": 2,
+                         "references": [ {"code": "PO-2159403-2",
+                                         "type": "buyer" },
+                                        { "code": "SO-33445953_2",
+                                          "type": "seller" }]},
+
+          "buyer" : { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
 
           "consumer" : { "reference": { "code": "consumer-xyz",

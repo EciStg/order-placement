@@ -1,4 +1,10 @@
-{ "buyer" : { "reference": { "code": "buyer-abc",
+{ "reference": { "referencesCount": 2,
+                 "references": [ {"code": "PO-2159403-2",
+                                 "type": "buyer" },
+                                { "code": "SO-33445953_2",
+                                  "type": "seller" }]},
+
+  "buyer" : { "reference": { "code": "buyer-abc",
                              "type": "seller" }},
 
   "consumer" : { "reference": { "code": "consumer-xyz",
