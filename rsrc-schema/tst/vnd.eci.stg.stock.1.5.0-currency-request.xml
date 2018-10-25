@@ -5,8 +5,8 @@
     <code>DKK</code>
     <name>Danish krone</name>
     <number>208</number>
-    <precision>2</precision>
-    <scale>18</scale>
+    <precision>18</precision>
+    <scale>2</scale>
   </currency>
   <itemsCount>1</itemsCount>
   <items>

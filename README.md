@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:40:08Z</td>
+    <td class="org-left">2018-10-25T01:48:18Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:40:09Z</td>
+    <td class="org-left">2018-10-25T01:48:19Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -180,6 +180,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     -   **code:** software facing identity function; used to identify the object to a software system
     -   **name:** human facing identity function; use to identify the object to human readers
     -   **description:** human facing description providing more information than the name allows
+    -   **remarks:** non-schema, human facing information sent back and forth between system actors {buyer, seller, consumer}
 
 5.  Examples
 
@@ -275,6 +276,190 @@ Shipping Receipts [documentation](./receipt/README.md)
                 </xs:schema>
 
 
+### Currency
+
+![img](./images/currency-conceptual-diagram.puml.png)
+
+1.  Test Results
+
+        echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+        xmllint --noout --schema ./other-schema/src/vnd.eci.stg.currency.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
+        ajv -s ./other-schema/src/vnd.eci.stg.currency.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.currency*.json" 2>&1
+        echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+    <colgroup>
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="org-left">2018-10-25T01:48:23Z</td>
+    <td class="org-left">started</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.xml</td>
+    <td class="org-left">validates</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.json</td>
+    <td class="org-left">valid</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">2018-10-25T01:48:23Z</td>
+    <td class="org-left">stopped</td>
+    </tr>
+    </tbody>
+    </table>
+
+2.  Overview
+
+    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+3.  Discussion
+
+    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+4.  Definition of Terms
+
+    -   **code:** every currency has a registered ISO alphabetic code
+    -   **description:** not used
+    -   **name:** human facing value that uniquely identifies the currency.
+    -   **remarks:** not used
+    -   **number:** every currency has a registered ISO numeric code
+    -   **precision:** total number of digits in a number
+    -   **scale:** number of digits to the right of the decimal point in a number
+
+5.  Examples
+
+    1.  JSON
+
+            { "code": "CLF",
+              "name": "Unidad de Fomento",
+              "number": 900,
+              "precision": 18,
+              "scale": 4
+            }
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <currency>
+              <code>CLF</code>
+              <name>Unidad de Fomento</name>
+              <number>900</number>
+              <precision>18</precision>
+              <scale>4</scale>
+            </currency>
+
+6.  Resource Schema
+
+    1.  Version 1.0
+
+        > Not supported.
+
+    2.  Version 1.5
+
+        1.  JSON
+
+                {
+                  "id": "./vnd.eci.stg.code.1.5.0.json",
+                  "$schema": "http://json-schema.org/draft-07/schema#",
+                  "title": "code",
+                  "description": "",
+
+                  "type": "object",
+                  "additionalProperties": false,
+
+                  "properties": {
+
+                    "code": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+
+                    "name": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+
+                    "description": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength" : 128
+                    },
+
+                    "remarks": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength" : 256
+                    },
+
+                    "number": {
+                      "description": "",
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 999
+                    },
+
+                    "precision": {
+                      "description": "",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 18
+                    },
+
+                    "scale": {
+                      "description": "",
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 6
+                    }
+                  }
+                }
+
+        2.  XML
+
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                           elementFormDefault='qualified'
+                           xml:lang='en'>
+
+                  <xs:element name='currency' type='CurrencyType'/>
+
+                  <xs:complexType name='CurrencyType'>
+                      <xs:sequence>
+                        <xs:element name='code'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='name'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='description' type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='remarks'     type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='number'      type='xs:integer' minOccurs='0' maxOccurs='1' />
+                        <xs:element name='precision'   type='xs:integer' minOccurs='0' maxOccurs='1' />
+                        <xs:element name='scale'       type='xs:integer' minOccurs='0' maxOccurs='1' />
+                      </xs:sequence>
+                    </xs:complexType>
+                </xs:schema>
+
+7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
+
+
 ### Error
 
 ![img](./images/error-conceptual-diagram.puml.png)
@@ -296,7 +481,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:40:12Z</td>
+    <td class="org-left">2018-10-25T01:48:27Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -338,7 +523,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:40:12Z</td>
+    <td class="org-left">2018-10-25T01:48:28Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -603,7 +788,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-22T08:40:16Z</td>
+    <td class="org-left">2018-10-25T01:48:32Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -639,7 +824,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-22T08:40:16Z</td>
+    <td class="org-left">2018-10-25T01:48:32Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -840,40 +1025,13 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 ## Testing
 
-
-### Schemas
-
-1.  JSON
-
-
-        #!/bin/bash
-        #
-        # brew install jsonlint
-        # npm install jsonlint -g
-        # npm install ajv -g
-        # npm install ajv-cli -g
-        #
-        # make sure all of the files are well-formed JSON
-        find ./rsrc-schema/tst ./rsrc-schema/src -type f -name '*.json' -exec jsonlint --quiet --compact {} \;
-
-2.  XML
-
-
-        #!/bin/bash
-        #
-        # brew install xmllint
-
-        # make sure all of the files are well-formed xml
-        find ./rsrc-schema/src -type f -name '*.xsd' -exec xmllint --noout {} \;
-        find ./rsrc-schema/tst -type f -name '*.xml' -exec xmllint --noout {} \;
-
-
-## Test Results
-
-In the spirit of 'test first' here are the the test results of the latest build.
-
-    ./test-json.sh 2>&1
-    ./test-xml.sh 2>&1
+    #!/bin/bash
+    #
+    # brew install jsonlint
+    # npm install jsonlint -g
+    # npm install ajv -g
+    # npm install ajv-cli -g
+    #
 
 
 ## About this document
@@ -882,9 +1040,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 26.1 (build 1, x86_64-apple-darwin14.5.0, NS appkit-1348.17 Version 10.10.5 (Build 14F2511))
-     of 2018-05-30
-    org version: 9.1.14
+    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
+     of 2017-09-12
+    org version: 9.1.8
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images

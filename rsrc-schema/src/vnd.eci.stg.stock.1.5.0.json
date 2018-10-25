@@ -172,7 +172,7 @@
 
     "referenceType": {
       "type": "string",
-      "enum": ["buyer", "consume", "manufacturer", "seller" ]
+      "enum": ["buyer", "consumer", "manufacturer", "seller" ]
     },
 
     "tax": {
@@ -700,14 +700,14 @@
           "description": "",
           "type": "number",
           "minimum": 0,
-          "maximum": 6
+          "maximum": 18
         },
 
         "scale": {
           "description": "",
           "type": "number",
           "minimum": 1,
-          "maximum": 18
+          "maximum": 6
         }
       }
     },

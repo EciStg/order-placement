@@ -40,6 +40,7 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 - code :: software facing identity function; used to identify the object to a software system
 - name :: human facing identity function; use to identify the object to human readers
 - description :: human facing description providing more information than the name allows
+- remarks :: non-schema, human facing information sent back and forth between system actors {buyer, seller, consumer}
 
 ** Examples
 

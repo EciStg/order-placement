@@ -1,4 +1,10 @@
-{ "buyer" : { "reference": { "code": "buyer-abc",
+{ "reference": { "referencesCount": 3,
+                 "references": [ {"code": "PO-2159403-2",
+                                  "type": "buyer" },
+                                 {"code": "PO-abc-q",
+                                  "type": "consumer" }]},
+
+  "buyer" : { "reference": { "code": "buyer-abc",
                              "type": "seller" }},
 
   "consumer" : { "reference": { "code": "consumer-xyz",
@@ -21,8 +27,8 @@
   "currency": { "code": "DKK",
                 "name": "Danish krone",
                 "number": 208,
-                "precision": 2,
-                "scale": 18},
+                "precision": 18,
+                "scale": 2},
 
   "itemsCount": 2,
   "items": [{ "reference": { "code": "abc-123",

@@ -1,4 +1,12 @@
-{ "buyer" : { "reference": { "code": "buyer-abc",
+{ "reference": { "referencesCount": 3,
+                 "references": [ {"code": "PO-2159403-2",
+                                  "type": "buyer" },
+                                 {"code": "PO-abc-q",
+                                  "type": "consumer" },
+                                { "code": "SO-33445953_2",
+                                  "type": "seller" }]},
+
+  "buyer" : { "reference": { "code": "buyer-abc",
                              "type": "seller" }},
 
   "consumer" : { "reference": { "code": "consumer-xyz",
@@ -20,13 +28,16 @@
 
   "whenExpected" : "2018-04-26T17:00:00.000Z",
 
-  "total": { "freightAmount": 199.99 },
+  "total": { "amount": 2623.55,
+             "freightAmount": 199.99,
+             "discountAmount": 11.18,
+             "tax": { "amount": 34.98 }},
 
   "currency": { "code": "DKK",
                 "name": "Danish krone",
                 "number": 208,
-                "precision": 2,
-                "scale": 18},
+                "precision": 18,
+                "scale": 2},
 
   "itemsCount": 2,
   "items": [{ "reference": { "code": "abc-123",

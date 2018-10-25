@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-22T06:36:14Z</td>
+<td class="org-left">2018-10-25T00:59:10Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-22T06:36:14Z</td>
+<td class="org-left">2018-10-25T00:59:10Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -357,7 +357,13 @@ down into smaller chunks.
 
 1.  Request
 
-        { "buyer" : { "reference": { "code": "buyer-abc",
+        { "reference": { "referencesCount": 3,
+                         "references": [ {"code": "PO-2159403-2",
+                                          "type": "buyer" },
+                                         {"code": "PO-abc-q",
+                                          "type": "consumer" }]},
+
+          "buyer" : { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
 
           "consumer" : { "reference": { "code": "consumer-xyz",
@@ -380,8 +386,8 @@ down into smaller chunks.
           "currency": { "code": "DKK",
                         "name": "Danish krone",
                         "number": 208,
-                        "precision": 2,
-                        "scale": 18},
+                        "precision": 18,
+                        "scale": 2},
 
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -393,7 +399,15 @@ down into smaller chunks.
 
 2.  Response
 
-        { "buyer" : { "reference": { "code": "buyer-abc",
+        { "reference": { "referencesCount": 3,
+                         "references": [ {"code": "PO-2159403-2",
+                                          "type": "buyer" },
+                                         {"code": "PO-abc-q",
+                                          "type": "consumer" },
+                                        { "code": "SO-33445953_2",
+                                          "type": "seller" }]},
+
+          "buyer" : { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
 
           "consumer" : { "reference": { "code": "consumer-xyz",
@@ -415,13 +429,16 @@ down into smaller chunks.
 
           "whenExpected" : "2018-04-26T17:00:00.000Z",
 
-          "total": { "freightAmount": 199.99 },
+          "total": { "amount": 2623.55,
+                     "freightAmount": 199.99,
+                     "discountAmount": 11.18,
+                     "tax": { "amount": 34.98 }},
 
           "currency": { "code": "DKK",
                         "name": "Danish krone",
                         "number": 208,
-                        "precision": 2,
-                        "scale": 18},
+                        "precision": 18,
+                        "scale": 2},
 
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -569,8 +586,8 @@ In the example below the buyer would like to see costs and other monetary values
             { "currency": { "code": "DKK",
                             "name": "Danish krone",
                             "number": 208,
-                            "precision": 2,
-                            "scale": 18},
+                            "precision": 18,
+                            "scale": 2},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" }}]}
@@ -584,8 +601,8 @@ In the example below the buyer would like to see costs and other monetary values
                 <code>DKK</code>
                 <name>Danish krone</name>
                 <number>208</number>
-                <precision>2</precision>
-                <scale>18</scale>
+                <precision>18</precision>
+                <scale>2</scale>
               </currency>
               <itemsCount>1</itemsCount>
               <items>
@@ -605,8 +622,8 @@ In the example below the buyer would like to see costs and other monetary values
             { "currency": { "code": "DKK",
                             "name": "Danish krone",
                             "number": 208,
-                            "precision": 2,
-                            "scale": 18},
+                            "precision": 18,
+                            "scale": 2},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" },
@@ -621,8 +638,8 @@ In the example below the buyer would like to see costs and other monetary values
                 <code>DKK</code>
                 <name>Danish krone</name>
                 <number>208</number>
-                <precision>2</precision>
-                <scale>18</scale>
+                <precision>18</precision>
+                <scale>2</scale>
               </currency>
               <itemsCount>1</itemsCount>
               <items>
@@ -924,8 +941,8 @@ head of training about providing the warehouse, this was his reply:
 > for the money, in an estimated time frame.
 
 So while we support this use case to be compatible with older seller implementations and with the
-current version of PO Processor, we expect to deprecate it very soon. We have added additional use
-cases to support time to delivery with an estimated cost for shipping.
+current version of PO Processor, we expect to deprecate it. We have added additional use cases to
+support time to delivery with an estimated cost for shipping.
 
 1.  Sellers may respond with a name that is meaningful to the dealer
 
@@ -1556,7 +1573,7 @@ No longer published
 
             "referenceType": {
               "type": "string",
-              "enum": ["buyer", "consume", "manufacturer", "seller" ]
+              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
             },
 
             "tax": {
@@ -2084,14 +2101,14 @@ No longer published
                   "description": "",
                   "type": "number",
                   "minimum": 0,
-                  "maximum": 6
+                  "maximum": 18
                 },
 
                 "scale": {
                   "description": "",
                   "type": "number",
                   "minimum": 1,
-                  "maximum": 18
+                  "maximum": 6
                 }
               }
             },

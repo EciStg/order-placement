@@ -57,6 +57,10 @@ Shipping Receipts [[./receipt/README.md][documentation]]
 
 #+INCLUDE: "./other-schema/code.org"
 
+*** Currency
+
+#+INCLUDE: "./other-schema/currency.org"
+
 *** Error
 
 #+INCLUDE: "./other-schema/error.org"
@@ -67,12 +71,7 @@ Shipping Receipts [[./receipt/README.md][documentation]]
 
 ** Testing
 
-*** Schemas
-
-**** JSON
-
 #+BEGIN_SRC shell :tangle ./test-json.sh :tangle-mode (identity #o755)
-
   #!/bin/bash
   #
   # brew install jsonlint
@@ -80,32 +79,6 @@ Shipping Receipts [[./receipt/README.md][documentation]]
   # npm install ajv -g
   # npm install ajv-cli -g
   #
-  # make sure all of the files are well-formed JSON
-  find ./rsrc-schema/tst ./rsrc-schema/src -type f -name '*.json' -exec jsonlint --quiet --compact {} \;
-
-#+END_SRC
-
-**** XML
-
-#+BEGIN_SRC shell :tangle ./test-xml.sh :tangle-mode (identity #o755)
-
-  #!/bin/bash
-  #
-  # brew install xmllint
-
-  # make sure all of the files are well-formed xml
-  find ./rsrc-schema/src -type f -name '*.xsd' -exec xmllint --noout {} \;
-  find ./rsrc-schema/tst -type f -name '*.xml' -exec xmllint --noout {} \;
-
-#+END_SRC
-
-** Test Results
-
-In the spirit of 'test first' here are the the test results of the latest build.
-
-#+BEGIN_SRC shell :exports both :results verbatim
-  ./test-json.sh 2>&1
-  ./test-xml.sh 2>&1
 #+END_SRC
 
 ** About this document
