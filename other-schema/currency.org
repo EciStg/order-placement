@@ -28,8 +28,8 @@
 
 #+BEGIN_SRC shell :exports both :results table replace
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-  xmllint --noout --schema ./src/vnd.eci.stg.currency.1.5.0.xsd ./tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
-  ajv -s ./src/vnd.eci.stg.currency.1.5.0.json -d "./tst/vnd.eci.stg.currency*.json" 2>&1
+  xmllint --noout --schema ./other-schema/src/vnd.eci.stg.currency.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
+  ajv -s ./other-schema/src/vnd.eci.stg.currency.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.currency*.json" 2>&1
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+END_SRC
 
@@ -47,7 +47,6 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 - description :: not used
 - name :: Human facing value that uniquely identifies the currency.
 - remarks :: not used
-
 - number :: every currency has a registered ISO numeric code
 - precision :: total number of digits in a number
 - scale :: number of digits to the right of the decimal point in a number
