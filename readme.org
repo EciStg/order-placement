@@ -57,6 +57,10 @@ Shipping Receipts [[./receipt/README.md][documentation]]
 
 #+INCLUDE: "./other-schema/code.org"
 
+*** Currency
+
+#+INCLUDE: "./other-schema/currency.org"
+
 *** Error
 
 #+INCLUDE: "./other-schema/error.org"

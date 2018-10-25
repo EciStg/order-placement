@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T00:57:54Z</td>
+    <td class="org-left">2018-10-25T01:14:46Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T00:57:54Z</td>
+    <td class="org-left">2018-10-25T01:14:47Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -276,6 +276,186 @@ Shipping Receipts [documentation](./receipt/README.md)
                 </xs:schema>
 
 
+### Currency
+
+
+1.  currency
+
+    ![img](./images/currency-conceptual-diagram.puml.png)
+
+    1.  Test Results
+
+            echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+            xmllint --noout --schema ./other-schema/src/vnd.eci.stg.currency.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
+            ajv -s ./other-schema/src/vnd.eci.stg.currency.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.currency*.json" 2>&1
+            echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+        <colgroup>
+        <col  class="org-left" />
+
+        <col  class="org-left" />
+
+        <col  class="org-left" />
+
+        <col  class="org-left" />
+
+        <col  class="org-left" />
+
+        <col  class="org-left" />
+
+        <col  class="org-left" />
+        </colgroup>
+        <tbody>
+        <tr>
+        <td class="org-left">2018-10-25T01:14:50Z</td>
+        <td class="org-left">started</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        </tr>
+
+
+        <tr>
+        <td class="org-left">warning:</td>
+        <td class="org-left">failed</td>
+        <td class="org-left">to</td>
+        <td class="org-left">load</td>
+        <td class="org-left">external</td>
+        <td class="org-left">entity</td>
+        <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0\*.xml</td>
+        </tr>
+
+
+        <tr>
+        <td class="org-left">2018-10-25T01:14:51Z</td>
+        <td class="org-left">stopped</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-left">&#xa0;</td>
+        </tr>
+        </tbody>
+        </table>
+
+    2.  Overview
+
+        Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+    3.  Discussion
+
+        Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+    4.  Definition of Terms
+
+        -   **code:** Software facing value that uniquely identifies the probe. If `code` is not populated, `name` must be.
+        -   **description:** not used
+        -   **name:** Human facing value that uniquely identifies the probe. If `name` is not populated, `description` must be.
+        -   **remarks:** not used
+
+    5.  Examples
+
+    6.  Resource Schema
+
+        1.  Version 1.0
+
+            > Not supported.
+
+        2.  Version 1.5
+
+            1.  JSON
+
+                    {
+                      "id": "./vnd.eci.stg.code.1.5.0.json",
+                      "$schema": "http://json-schema.org/draft-07/schema#",
+                      "title": "code",
+                      "description": "",
+
+                      "type": "object",
+                      "additionalProperties": false,
+
+                      "properties": {
+
+                        "code": {
+                          "description": "",
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 32
+                        },
+
+                        "name": {
+                          "description": "",
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 32
+                        },
+
+                        "description": {
+                          "description": "",
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength" : 128
+                        },
+
+                        "remarks": {
+                          "description": "",
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength" : 256
+                        },
+
+                        "number": {
+                          "description": "",
+                          "type": "number",
+                          "minimum": 1,
+                          "maximum": 999
+                        },
+
+                        "precision": {
+                          "description": "",
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 18
+                        },
+
+                        "scale": {
+                          "description": "",
+                          "type": "number",
+                          "minimum": 1,
+                          "maximum": 6
+                        }
+                      }
+                    }
+
+            2.  XML
+
+                    <?xml version='1.0' encoding='utf-8'?>
+
+                    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                               elementFormDefault='qualified'
+                               xml:lang='en'>
+
+                      <xs:complexType name='CurrencyType'>
+                          <xs:sequence>
+                            <xs:element name='code'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+                            <xs:element name='name'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+                            <xs:element name='description' type='xs:string'  minOccurs='0' maxOccurs='1' />
+                            <xs:element name='remarks'     type='xs:string'  minOccurs='0' maxOccurs='1' />
+                            <xs:element name='number'      type='xs:integer' minOccurs='0' maxOccurs='1' />
+                            <xs:element name='precision'   type='xs:integer' minOccurs='0' maxOccurs='1' />
+                            <xs:element name='scale'       type='xs:integer' minOccurs='0' maxOccurs='1' />
+                          </xs:sequence>
+                        </xs:complexType>
+                    </xs:schema>
+
+    7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
+
+
 ### Error
 
 ![img](./images/error-conceptual-diagram.puml.png)
@@ -297,7 +477,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T00:57:58Z</td>
+    <td class="org-left">2018-10-25T01:14:55Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -339,7 +519,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T00:57:58Z</td>
+    <td class="org-left">2018-10-25T01:14:55Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -604,7 +784,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T00:58:02Z</td>
+    <td class="org-left">2018-10-25T01:14:59Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -640,7 +820,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T00:58:03Z</td>
+    <td class="org-left">2018-10-25T01:15:00Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>

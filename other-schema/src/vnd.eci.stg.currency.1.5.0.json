@@ -1,0 +1,61 @@
+{
+  "id": "./vnd.eci.stg.code.1.5.0.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "code",
+  "description": "",
+
+  "type": "object",
+  "additionalProperties": false,
+
+  "properties": {
+
+    "code": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "name": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+
+    "description": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength" : 128
+    },
+
+    "remarks": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength" : 256
+    },
+
+    "number": {
+      "description": "",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 999
+    },
+
+    "precision": {
+      "description": "",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 18
+    },
+
+    "scale": {
+      "description": "",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 6
+    }
+  }
+}
