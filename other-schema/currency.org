@@ -45,7 +45,7 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 - code :: every currency has a registered ISO alphabetic code
 - description :: not used
-- name :: Human facing value that uniquely identifies the currency.
+- name :: human facing value that uniquely identifies the currency.
 - remarks :: not used
 - number :: every currency has a registered ISO numeric code
 - precision :: total number of digits in a number

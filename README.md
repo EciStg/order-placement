@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:40:00Z</td>
+    <td class="org-left">2018-10-25T01:44:16Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:40:00Z</td>
+    <td class="org-left">2018-10-25T01:44:16Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -300,7 +300,7 @@ Shipping Receipts [documentation](./receipt/README.md)
         </colgroup>
         <tbody>
         <tr>
-        <td class="org-left">2018-10-25T01:40:04Z</td>
+        <td class="org-left">2018-10-25T01:44:20Z</td>
         <td class="org-left">started</td>
         </tr>
 
@@ -318,7 +318,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
         <tr>
-        <td class="org-left">2018-10-25T01:40:04Z</td>
+        <td class="org-left">2018-10-25T01:44:21Z</td>
         <td class="org-left">stopped</td>
         </tr>
         </tbody>
@@ -336,7 +336,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
         -   **code:** every currency has a registered ISO alphabetic code
         -   **description:** not used
-        -   **name:** Human facing value that uniquely identifies the currency.
+        -   **name:** human facing value that uniquely identifies the currency.
         -   **remarks:** not used
         -   **number:** every currency has a registered ISO numeric code
         -   **precision:** total number of digits in a number
@@ -484,7 +484,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:40:08Z</td>
+    <td class="org-left">2018-10-25T01:44:25Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -526,7 +526,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:40:09Z</td>
+    <td class="org-left">2018-10-25T01:44:25Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -791,7 +791,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:40:13Z</td>
+    <td class="org-left">2018-10-25T01:44:29Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -827,7 +827,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:40:13Z</td>
+    <td class="org-left">2018-10-25T01:44:30Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
