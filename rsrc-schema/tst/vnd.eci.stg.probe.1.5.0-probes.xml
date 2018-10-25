@@ -1,7 +1,7 @@
 <item>
   <code>probes</code>
   <self>https://some-host/some-api/probes</self>
-  <itemCount>3</itemCount>
+  <itemsCount>3</itemsCount>
   <items>
     <item>
       <code>top</code>

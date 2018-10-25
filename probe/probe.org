@@ -209,10 +209,10 @@ Recommended for Seller implementations.
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
   {
-    "code" :"bottom",
+    "code": "bottom",
     "name": "Bottom Probe",
-    "description":"Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
-    "remarks":"The database cannot be contacted. Ensure the database is running and network reachable.",
+    "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
+    "remarks": "The database cannot be contacted. Ensure the database is running and network reachable.",
     "self": "https://some-host/some-api/probes/bottom",
     "status": "500",
     "when": "2018-04-23T18:25:40.611Z"
@@ -268,7 +268,7 @@ Optional.
   {
     "code": "probes",
     "self": "https://some-host/some-api/probes",
-    "itemCount": 3,
+    "itemsCount": 3,
     "items": [
       {
         "self": "https://some-host/some-api/probes/top",
@@ -277,13 +277,13 @@ Optional.
       },
       {
         "self": "https://some-host/some-api/probes/bottom",
-        "code" :"bottom",
+        "code": "bottom",
         "name": "Bottom Probe",
-        "description":"The database cannot be contacted. Ensure the database is running and network reachable."
+        "description": "The database cannot be contacted. Ensure the database is running and network reachable."
       },
       {
         "self": "https://some-host/some-api/probes/auth",
-        "code" :"auth"
+        "code": "auth"
       },
       {
         "self": "https://some-host/some-api/probes/con-db",
@@ -300,7 +300,7 @@ Optional.
     <item>
       <code>probes</code>
       <self>https://some-host/some-api/probes</self>
-      <itemCount>3</itemCount>
+      <itemsCount>3</itemsCount>
       <items>
         <item>
           <code>top</code>
@@ -379,14 +379,14 @@ Not supported.
         "description": "details from the probe that may help users understand the health of an endpoint",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 128
+        "maxLength": 128
       },
 
       "remarks": {
         "description": "details of the error that may help users solve the problem",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 256
+        "maxLength": 256
       },
 
       "self": {
@@ -405,13 +405,13 @@ Not supported.
 
       "when": {
         "description": "origination date and time of probe execution",
-        "type" : "string",
+        "type": "string",
         "format": "date-time"
       },
 
-      "itemCount": {
+      "itemsCount": {
         "description": "number of things in the items collection",
-        "type" : "number",
+        "type": "number",
         "minimum": 1,
         "maximum": 1000
       },
@@ -422,8 +422,8 @@ Not supported.
         "minItems": 1,
         "maxItems": 1000,
         "uniqueItems": true,
-        "items" : {
-          "$ref" : "#"
+        "items": {
+          "$ref": "#"
         }
       }
     }
@@ -455,7 +455,7 @@ Not supported.
           <xs:element name='self'        type='xs:string'   minOccurs='0' maxOccurs='1' />
           <xs:element name='status'      type='xs:string'   minOccurs='0' maxOccurs='1' />
           <xs:element name='when'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
-          <xs:element name='itemCount'   type='xs:integer' minOccurs='0' maxOccurs='1' />
+          <xs:element name='itemsCount'  type='xs:integer' minOccurs='0' maxOccurs='1' />
           <xs:element name='items' minOccurs='0' maxOccurs='1'>
             <xs:complexType>
               <xs:sequence minOccurs='1' maxOccurs='500'>

@@ -193,7 +193,7 @@ Not supported.
               {"required": ["name"]},
               {"required": ["when"]}],
 
-    "properties" : {
+    "properties": {
 
       "code": {
         "description": "software facing value used to identify and respond to errors",
@@ -220,18 +220,18 @@ Not supported.
         "description": "details of the error that may help users solve the problem",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 256
+        "maxLength": 256
       },
 
       "when": {
         "description": "origination date and time of the error",
-        "type" : "string",
+        "type": "string",
         "format": "date-time"
       },
 
       "itemsCount": {
         "description": "number of things in the items collection",
-        "type" : "number",
+        "type": "number",
         "minimum": 1,
         "maximum": 1000
       },
@@ -242,8 +242,8 @@ Not supported.
         "minItems": 1,
         "maxItems": 1000,
         "uniqueItems": true,
-        "items" : {
-          "$ref" : "#"
+        "items": {
+          "$ref": "#"
         }
       }
     }

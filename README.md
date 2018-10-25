@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:48:18Z</td>
+    <td class="org-left">2018-10-25T23:26:57Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:48:19Z</td>
+    <td class="org-left">2018-10-25T23:26:58Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -238,14 +238,14 @@ Shipping Receipts [documentation](./receipt/README.md)
                       "description": "",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 128
+                      "maxLength": 128
                     },
 
                     "remarks": {
                       "description": "details of the error that may help users solve the problem",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 256
+                      "maxLength": 256
                     }
                   }
                 }
@@ -297,7 +297,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:48:23Z</td>
+    <td class="org-left">2018-10-25T23:27:01Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -315,7 +315,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:48:23Z</td>
+    <td class="org-left">2018-10-25T23:27:01Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -401,14 +401,14 @@ Shipping Receipts [documentation](./receipt/README.md)
                       "description": "",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 128
+                      "maxLength": 128
                     },
 
                     "remarks": {
                       "description": "",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 256
+                      "maxLength": 256
                     },
 
                     "number": {
@@ -481,7 +481,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:48:27Z</td>
+    <td class="org-left">2018-10-25T23:27:05Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -523,7 +523,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:48:28Z</td>
+    <td class="org-left">2018-10-25T23:27:05Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -675,7 +675,7 @@ Shipping Receipts [documentation](./receipt/README.md)
                             {"required": ["name"]},
                             {"required": ["when"]}],
 
-                  "properties" : {
+                  "properties": {
 
                     "code": {
                       "description": "software facing value used to identify and respond to errors",
@@ -702,18 +702,18 @@ Shipping Receipts [documentation](./receipt/README.md)
                       "description": "details of the error that may help users solve the problem",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 256
+                      "maxLength": 256
                     },
 
                     "when": {
                       "description": "origination date and time of the error",
-                      "type" : "string",
+                      "type": "string",
                       "format": "date-time"
                     },
 
                     "itemsCount": {
                       "description": "number of things in the items collection",
-                      "type" : "number",
+                      "type": "number",
                       "minimum": 1,
                       "maximum": 1000
                     },
@@ -724,8 +724,8 @@ Shipping Receipts [documentation](./receipt/README.md)
                       "minItems": 1,
                       "maxItems": 1000,
                       "uniqueItems": true,
-                      "items" : {
-                        "$ref" : "#"
+                      "items": {
+                        "$ref": "#"
                       }
                     }
                   }
@@ -788,7 +788,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:48:32Z</td>
+    <td class="org-left">2018-10-25T23:27:09Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -824,7 +824,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:48:32Z</td>
+    <td class="org-left">2018-10-25T23:27:09Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -945,21 +945,21 @@ Shipping Receipts [documentation](./receipt/README.md)
                       "description": "",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 128
+                      "maxLength": 128
                     },
 
                     "remarks": {
                       "description": "",
                       "type": "string",
                       "minLength": 1,
-                      "maxLength" : 256
+                      "maxLength": 256
                     },
 
-                    "type": { "$ref": "#/definitions/referenceType" },
+                    "type": { "$ref": "#/definitions/referenceTypeEnum" },
 
                     "referencesCount": {
-                      "description": "number of things in the items collection",
-                      "type" : "number",
+                      "description": "number of things in the references collection",
+                      "type": "number",
                       "minimum": 1,
                       "maximum": 1000
                     },
@@ -970,14 +970,14 @@ Shipping Receipts [documentation](./receipt/README.md)
                       "minItems": 1,
                       "maxItems": 1000,
                       "uniqueItems": true,
-                      "items" : {
-                        "$ref" : "#"
+                      "items": {
+                        "$ref": "#"
                       }
                     }
                   },
 
-                  "definitions" : {
-                    "referenceType": {
+                  "definitions": {
+                    "referenceTypeEnum": {
                       "type": "string",
                       "enum": ["buyer", "consumer", "manufacturer", "seller" ]
                     }
@@ -1040,9 +1040,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
-     of 2017-09-12
-    org version: 9.1.8
+    emacs version: GNU Emacs 26.1 (build 1, x86_64-apple-darwin14.5.0, NS appkit-1348.17 Version 10.10.5 (Build 14F2511))
+     of 2018-05-30
+    org version: 9.1.14
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images

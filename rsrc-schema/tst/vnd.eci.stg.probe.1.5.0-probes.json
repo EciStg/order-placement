@@ -1,7 +1,7 @@
 {
   "code": "probes",
   "self": "https://some-host/some-api/probes",
-  "itemCount": 3,
+  "itemsCount": 3,
   "items": [
     {
       "self": "https://some-host/some-api/probes/top",
@@ -10,13 +10,13 @@
     },
     {
       "self": "https://some-host/some-api/probes/bottom",
-      "code" :"bottom",
+      "code": "bottom",
       "name": "Bottom Probe",
-      "description":"The database cannot be contacted. Ensure the database is running and network reachable."
+      "description": "The database cannot be contacted. Ensure the database is running and network reachable."
     },
     {
       "self": "https://some-host/some-api/probes/auth",
-      "code" :"auth"
+      "code": "auth"
     },
     {
       "self": "https://some-host/some-api/probes/con-db",

@@ -30,7 +30,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-22T06:29:03Z</td>
+<td class="org-left">2018-10-25T23:35:55Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +60,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2018-10-22T06:29:03Z</td>
+<td class="org-left">2018-10-25T23:35:55Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -191,10 +191,10 @@ The bottom probe's `code` value must be `bottom`.
     1.  JSON
 
             {
-              "code" :"bottom",
+              "code": "bottom",
               "name": "Bottom Probe",
-              "description":"Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
-              "remarks":"The database cannot be contacted. Ensure the database is running and network reachable.",
+              "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
+              "remarks": "The database cannot be contacted. Ensure the database is running and network reachable.",
               "self": "https://some-host/some-api/probes/bottom",
               "status": "500",
               "when": "2018-04-23T18:25:40.611Z"
@@ -241,7 +241,7 @@ systems and applications.
             {
               "code": "probes",
               "self": "https://some-host/some-api/probes",
-              "itemCount": 3,
+              "itemsCount": 3,
               "items": [
                 {
                   "self": "https://some-host/some-api/probes/top",
@@ -250,13 +250,13 @@ systems and applications.
                 },
                 {
                   "self": "https://some-host/some-api/probes/bottom",
-                  "code" :"bottom",
+                  "code": "bottom",
                   "name": "Bottom Probe",
-                  "description":"The database cannot be contacted. Ensure the database is running and network reachable."
+                  "description": "The database cannot be contacted. Ensure the database is running and network reachable."
                 },
                 {
                   "self": "https://some-host/some-api/probes/auth",
-                  "code" :"auth"
+                  "code": "auth"
                 },
                 {
                   "self": "https://some-host/some-api/probes/con-db",
@@ -271,7 +271,7 @@ systems and applications.
             <item>
               <code>probes</code>
               <self>https://some-host/some-api/probes</self>
-              <itemCount>3</itemCount>
+              <itemsCount>3</itemsCount>
               <items>
                 <item>
                   <code>top</code>
@@ -347,14 +347,14 @@ systems and applications.
               "description": "details from the probe that may help users understand the health of an endpoint",
               "type": "string",
               "minLength": 1,
-              "maxLength" : 128
+              "maxLength": 128
             },
 
             "remarks": {
               "description": "details of the error that may help users solve the problem",
               "type": "string",
               "minLength": 1,
-              "maxLength" : 256
+              "maxLength": 256
             },
 
             "self": {
@@ -373,13 +373,13 @@ systems and applications.
 
             "when": {
               "description": "origination date and time of probe execution",
-              "type" : "string",
+              "type": "string",
               "format": "date-time"
             },
 
-            "itemCount": {
+            "itemsCount": {
               "description": "number of things in the items collection",
-              "type" : "number",
+              "type": "number",
               "minimum": 1,
               "maximum": 1000
             },
@@ -390,8 +390,8 @@ systems and applications.
               "minItems": 1,
               "maxItems": 1000,
               "uniqueItems": true,
-              "items" : {
-                "$ref" : "#"
+              "items": {
+                "$ref": "#"
               }
             }
           }
@@ -421,7 +421,7 @@ systems and applications.
               <xs:element name='self'        type='xs:string'   minOccurs='0' maxOccurs='1' />
               <xs:element name='status'      type='xs:string'   minOccurs='0' maxOccurs='1' />
               <xs:element name='when'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
-              <xs:element name='itemCount'   type='xs:integer' minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'  type='xs:integer' minOccurs='0' maxOccurs='1' />
               <xs:element name='items' minOccurs='0' maxOccurs='1'>
                 <xs:complexType>
                   <xs:sequence minOccurs='1' maxOccurs='500'>

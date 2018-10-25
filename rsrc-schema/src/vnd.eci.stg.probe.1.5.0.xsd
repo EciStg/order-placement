@@ -20,7 +20,7 @@
       <xs:element name='self'        type='xs:string'   minOccurs='0' maxOccurs='1' />
       <xs:element name='status'      type='xs:string'   minOccurs='0' maxOccurs='1' />
       <xs:element name='when'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
-      <xs:element name='itemCount'   type='xs:integer' minOccurs='0' maxOccurs='1' />
+      <xs:element name='itemsCount'  type='xs:integer' minOccurs='0' maxOccurs='1' />
       <xs:element name='items' minOccurs='0' maxOccurs='1'>
         <xs:complexType>
           <xs:sequence minOccurs='1' maxOccurs='500'>

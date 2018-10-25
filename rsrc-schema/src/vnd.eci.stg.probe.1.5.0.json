@@ -32,14 +32,14 @@
       "description": "details from the probe that may help users understand the health of an endpoint",
       "type": "string",
       "minLength": 1,
-      "maxLength" : 128
+      "maxLength": 128
     },
 
     "remarks": {
       "description": "details of the error that may help users solve the problem",
       "type": "string",
       "minLength": 1,
-      "maxLength" : 256
+      "maxLength": 256
     },
 
     "self": {
@@ -58,13 +58,13 @@
 
     "when": {
       "description": "origination date and time of probe execution",
-      "type" : "string",
+      "type": "string",
       "format": "date-time"
     },
 
-    "itemCount": {
+    "itemsCount": {
       "description": "number of things in the items collection",
-      "type" : "number",
+      "type": "number",
       "minimum": 1,
       "maximum": 1000
     },
@@ -75,8 +75,8 @@
       "minItems": 1,
       "maxItems": 1000,
       "uniqueItems": true,
-      "items" : {
-        "$ref" : "#"
+      "items": {
+        "$ref": "#"
       }
     }
   }

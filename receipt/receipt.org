@@ -57,7 +57,7 @@ No longer published
   {
     "id": "./vnd.eci.stg.receipt.1.5.0.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Stock",
+    "title": "receipt",
     "description": "",
     "type": "object",
     "additionalProperties": false,
@@ -76,14 +76,14 @@ No longer published
         "description": "",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 128
+        "maxLength": 128
       },
 
       "remarks": {
         "description": "",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 256
+        "maxLength": 256
       },
 
       "make": {
@@ -124,8 +124,8 @@ No longer published
       "quantity": {
         "description": "",
         "type": "number",
-        "minimum" : 0,
-        "maximum" : 999999999.999999
+        "minimum": 0,
+        "maximum": 999999999.999999
       },
 
       "currency": { "$ref": "#/definitions/currency"},
@@ -133,21 +133,21 @@ No longer published
       "unitCost": {
         "description": "",
         "type": "number",
-        "minimum" : 0,
-        "maximum" : 999999999999.999999
+        "minimum": 0,
+        "maximum": 999999999999.999999
       },
 
       "total": { "$ref": "#/definitions/total"},
 
       "when": {
         "description": "",
-        "type" : "string",
+        "type": "string",
         "format": "date-time"
       },
 
       "whenExpected": {
         "description": "",
-        "type" : "string",
+        "type": "string",
         "format": "date-time"
       },
 
@@ -177,7 +177,7 @@ No longer published
 
       "itemsCount": {
         "description": "number of things in the items collection",
-        "type" : "number",
+        "type": "number",
         "minimum": 1,
         "maximum": 1000
       },
@@ -188,17 +188,18 @@ No longer published
         "minItems": 1,
         "maxItems": 1000,
         "uniqueItems": true,
-        "items" : {
-          "$ref" : "#"
+        "items": {
+          "$ref": "#"
         }
       }
     },
 
-    "definitions" : {
+    "definitions": {
       "reference": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+
+        "properties": {
 
           "code": {
             "description": "",
@@ -218,21 +219,21 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
-          "type": { "$ref": "#/definitions/referenceType" },
+          "type": { "$ref": "#/definitions/referenceTypeEnum" },
 
           "referencesCount": {
-            "description": "number of things in the items collection",
-            "type" : "number",
+            "description": "number of things in the references collection",
+            "type": "number",
             "minimum": 1,
             "maximum": 1000
           },
@@ -243,21 +244,23 @@ No longer published
             "minItems": 1,
             "maxItems": 1000,
             "uniqueItems": true,
-            "items" : {
-              "$ref" : "#/definitions/reference"
+            "items": {
+              "$ref": "#/definitions/reference"
             }
+          }
+        },
+
+        "definitions": {
+          "referenceTypeEnum": {
+            "type": "string",
+            "enum": ["buyer", "consumer", "manufacturer", "seller" ]
           }
         }
       },
 
-      "referenceType": {
-        "type": "string",
-        "enum": ["buyer", "consume", "manufacturer", "seller" ]
-      },
-
       "tax": {
         "type": "object",
-        "properties" : {
+        "properties": {
 
           "code": {
             "description": "",
@@ -277,33 +280,33 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "amount": {
             "description": "",
             "type": "number",
-            "minimum" : 0,
-            "maximum" : 999999999999.999999
+            "minimum": 0,
+            "maximum": 999999999999.999999
           },
 
           "authority": {
             "description": "",
             "type": "string",
-            "minLength" : 1,
-            "maxLength" : 32
+            "minLength": 1,
+            "maxLength": 32
           },
 
           "itemsCount": {
             "description": "number of things in the items collection",
-            "type" : "number",
+            "type": "number",
             "minimum": 1,
             "maximum": 1000
           },
@@ -314,8 +317,8 @@ No longer published
             "minItems": 1,
             "maxItems": 1000,
             "uniqueItems": true,
-            "items" : {
-              "$ref" : "#/definitions/tax"
+            "items": {
+              "$ref": "#/definitions/tax"
             }
           }
         },
@@ -326,7 +329,7 @@ No longer published
       "shippingCarrier": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "code": {
             "description": "",
@@ -346,21 +349,19 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
-          "type": { "$ref": "#/definitions/referenceType" },
-
           "itemsCount": {
-            "description": "number of things in the items collection",
-            "type" : "number",
+            "description": "number of shipping carriers in the collection",
+            "type": "number",
             "minimum": 1,
             "maximum": 1000
           },
@@ -371,8 +372,8 @@ No longer published
             "minItems": 1,
             "maxItems": 1000,
             "uniqueItems": true,
-            "items" : {
-              "$ref" : "#/definitions/reference"
+            "items": {
+              "$ref": "#/definitions/shippingCarrier"
             }
           }
         }
@@ -381,7 +382,7 @@ No longer published
       "address": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
 
@@ -396,14 +397,14 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "msc": {
@@ -488,7 +489,7 @@ No longer published
       "billTo": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
 
@@ -503,14 +504,14 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "location": { "$ref": "#/definitions/address" },
@@ -541,7 +542,7 @@ No longer published
       "buyer": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
 
@@ -556,14 +557,14 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "location": { "$ref": "#/definitions/address" },
@@ -594,7 +595,7 @@ No longer published
       "consumer": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
 
@@ -609,14 +610,14 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "location": { "$ref": "#/definitions/address" },
@@ -649,7 +650,7 @@ No longer published
       "seller": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
 
@@ -664,14 +665,14 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "location": { "$ref": "#/definitions/address" },
@@ -702,7 +703,7 @@ No longer published
       "shipTo": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
 
@@ -717,14 +718,14 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 128
+            "maxLength": 128
           },
 
           "remarks": {
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           },
 
           "location": { "$ref": "#/definitions/address" },
@@ -753,7 +754,7 @@ No longer published
       "currency": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "code": {
             "description": "",
@@ -795,34 +796,34 @@ No longer published
       "total": {
         "type": "object",
         "additionalProperties": false,
-        "properties" : {
+        "properties": {
 
           "amount": {
             "description": "",
             "type": "number",
-            "minimum" : 0,
-            "maximum" : 999999999999.999999
+            "minimum": 0,
+            "maximum": 999999999999.999999
           },
 
           "discountAmount": {
             "description": "",
             "type": "number",
-            "minimum" : 0,
-            "maximum" : 999999999999.999999
+            "minimum": 0,
+            "maximum": 999999999999.999999
           },
 
           "freightAmount": {
             "description": "",
             "type": "number",
-            "minimum" : 0,
-            "maximum" : 999999999999.999999
+            "minimum": 0,
+            "maximum": 999999999999.999999
           },
 
           "termsAmount": {
             "description": "",
             "type": "number",
-            "minimum" : 0,
-            "maximum" : 999999999999.999999
+            "minimum": 0,
+            "maximum": 999999999999.999999
           },
 
           "tax": { "$ref": "#/definitions/tax" },
@@ -831,7 +832,7 @@ No longer published
             "description": "",
             "type": "string",
             "minLength": 1,
-            "maxLength" : 256
+            "maxLength": 256
           }
         }
       }

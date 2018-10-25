@@ -102,14 +102,14 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
         "description": "",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 128
+        "maxLength": 128
       },
 
       "remarks": {
         "description": "details of the error that may help users solve the problem",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 256
+        "maxLength": 256
       }
     }
   }
