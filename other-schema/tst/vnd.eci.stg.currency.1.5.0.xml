@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<currency>
+  <code>CLF</code>
+  <name>Unidad de Fomento</name>
+  <number>900</number>
+  <precision>18</precision>
+  <scale>4</scale>
+</currency>

@@ -28,8 +28,8 @@
 
 #+BEGIN_SRC shell :exports both :results table replace
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-  xmllint --noout --schema ./other-schema/src/vnd.eci.stg.currency.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
-  ajv -s ./other-schema/src/vnd.eci.stg.currency.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.currency*.json" 2>&1
+  xmllint --noout --schema ./src/vnd.eci.stg.currency.1.5.0.xsd ./tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
+  ajv -s ./src/vnd.eci.stg.currency.1.5.0.json -d "./tst/vnd.eci.stg.currency*.json" 2>&1
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+END_SRC
 
@@ -43,12 +43,40 @@ Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. 
 
 ** Definition of Terms
 
-- code :: Software facing value that uniquely identifies the probe. If ~code~ is not populated, ~name~ must be.
+- code :: every currency has a registered ISO alphabetic code
 - description :: not used
-- name :: Human facing value that uniquely identifies the probe. If ~name~ is not populated, ~description~ must be.
+- name :: Human facing value that uniquely identifies the currency.
 - remarks :: not used
 
+- number :: every currency has a registered ISO numeric code
+- precision :: total number of digits in a number
+- scale :: number of digits to the right of the decimal point in a number
+
 ** Examples
+
+*** JSON
+#+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.currency.1.5.0.json
+  { "code": "CLF",
+    "name": "Unidad de Fomento",
+    "number": 900,
+    "precision": 18,
+    "scale": 4
+  }
+#+END_SRC
+
+*** XML
+
+#+BEGIN_SRC xml :tangle ./tst/vnd.eci.stg.currency.1.5.0.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <currency>
+    <code>CLF</code>
+    <name>Unidad de Fomento</name>
+    <number>900</number>
+    <precision>18</precision>
+    <scale>4</scale>
+  </currency>
+#+END_SRC
 
 ** Resource Schema
 
@@ -134,6 +162,8 @@ Not supported.
   <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
              elementFormDefault='qualified'
              xml:lang='en'>
+
+    <xs:element name='currency' type='CurrencyType'/>
 
     <xs:complexType name='CurrencyType'>
         <xs:sequence>
