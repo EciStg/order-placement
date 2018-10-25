@@ -6,15 +6,15 @@
                                 { "code": "SO-33445953_2",
                                   "type": "seller" }]},
 
-  "buyer" : { "reference": { "code": "buyer-abc",
+  "buyer": { "reference": { "code": "buyer-abc",
                              "type": "seller" }},
 
-  "consumer" : { "reference": { "code": "consumer-xyz",
+  "consumer": { "reference": { "code": "consumer-xyz",
                                 "type": "seller" },
-                 "contract" : { "code": "contract-789",
+                 "contract": { "code": "contract-789",
                                 "type": "seller" }},
 
-  "shipTo" : { "location": { "mtn": "Jane Doe",
+  "shipTo": { "location": { "mtn": "Jane Doe",
                              "rcp": "ECi Solutions, STG",
                              "alt": "Suite #200",
                              "dal": "4626 N 300 W",
@@ -24,9 +24,9 @@
                "email": "shipping-contact@example.com",
                "phone": "1-555-555-5555"},
 
-  "when" : "2018-04-24T17:00:00.000Z",
+  "when": "2018-04-24T17:00:00.000Z",
 
-  "whenExpected" : "2018-04-26T17:00:00.000Z",
+  "whenExpected": "2018-04-26T17:00:00.000Z",
 
   "total": { "amount": 2623.55,
              "freightAmount": 199.99,

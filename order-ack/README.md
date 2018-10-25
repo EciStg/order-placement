@@ -17,41 +17,89 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-23T00:39:21Z</td>
+<td class="org-left">2018-10-25T23:07:01Z</td>
 <td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.json</td>
-<td class="org-left">valid</td>
+<td class="org-left">schema</td>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json</td>
+<td class="org-left">is</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.json</td>
-<td class="org-left">valid</td>
+<td class="org-left">error:</td>
+<td class="org-left">can't</td>
+<td class="org-left">resolve</td>
+<td class="org-left">reference</td>
+<td class="org-left">#/definitions/referenceTypeEnum</td>
+<td class="org-left">from</td>
+<td class="org-left">id</td>
+<td class="org-left">vnd.eci.stg.order-ack.1.5.0.json#</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-23T00:39:22Z</td>
+<td class="org-left">2018-10-25T23:07:01Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +294,8 @@ No longer published
             "reference": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+
+              "properties": {
 
                 "code": {
                   "description": "",
@@ -276,16 +325,16 @@ No longer published
                   "maxLength" : 256
                 },
 
-                "type": { "$ref": "#/definitions/referenceType" },
+                "type": { "$ref": "#/definitions/referenceTypeEnum" },
 
-                "itemsCount": {
-                  "description": "number of things in the items collection",
+                "referencesCount": {
+                  "description": "number of things in the references collection",
                   "type" : "number",
                   "minimum": 1,
                   "maximum": 1000
                 },
 
-                "items": {
+                "references": {
                   "description": "",
                   "type": "array",
                   "minItems": 1,
@@ -295,12 +344,14 @@ No longer published
                     "$ref" : "#/definitions/reference"
                   }
                 }
-              }
-            },
+              },
 
-            "referenceType": {
-              "type": "string",
-              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+              "definitions" : {
+                "referenceTypeEnum": {
+                  "type": "string",
+                  "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+                }
+              }
             },
 
             "tax": {
@@ -404,10 +455,8 @@ No longer published
                   "maxLength" : 256
                 },
 
-                "type": { "$ref": "#/definitions/referenceType" },
-
                 "itemsCount": {
-                  "description": "number of things in the items collection",
+                  "description": "number of shipping carriers in the collection",
                   "type" : "number",
                   "minimum": 1,
                   "maximum": 1000
@@ -420,7 +469,7 @@ No longer published
                   "maxItems": 1000,
                   "uniqueItems": true,
                   "items" : {
-                    "$ref" : "#/definitions/reference"
+                    "$ref" : "#/definitions/shippingCarrier"
                   }
                 }
               }
@@ -828,14 +877,14 @@ No longer published
                   "description": "",
                   "type": "number",
                   "minimum": 0,
-                  "maximum": 6
+                  "maximum": 18
                 },
 
                 "scale": {
                   "description": "",
                   "type": "number",
                   "minimum": 1,
-                  "maximum": 18
+                  "maximum": 6
                 }
               }
             },

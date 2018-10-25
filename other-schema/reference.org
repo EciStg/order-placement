@@ -158,21 +158,21 @@ Not supported.
         "description": "",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 128
+        "maxLength": 128
       },
 
       "remarks": {
         "description": "",
         "type": "string",
         "minLength": 1,
-        "maxLength" : 256
+        "maxLength": 256
       },
 
-      "type": { "$ref": "#/definitions/referenceType" },
+      "type": { "$ref": "#/definitions/referenceTypeEnum" },
 
       "referencesCount": {
-        "description": "number of things in the items collection",
-        "type" : "number",
+        "description": "number of things in the references collection",
+        "type": "number",
         "minimum": 1,
         "maximum": 1000
       },
@@ -183,14 +183,14 @@ Not supported.
         "minItems": 1,
         "maxItems": 1000,
         "uniqueItems": true,
-        "items" : {
-          "$ref" : "#"
+        "items": {
+          "$ref": "#"
         }
       }
     },
 
-    "definitions" : {
-      "referenceType": {
+    "definitions": {
+      "referenceTypeEnum": {
         "type": "string",
         "enum": ["buyer", "consumer", "manufacturer", "seller" ]
       }

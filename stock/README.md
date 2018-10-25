@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-25T00:59:10Z</td>
+<td class="org-left">2018-10-25T22:56:21Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-25T00:59:10Z</td>
+<td class="org-left">2018-10-25T22:56:22Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -363,15 +363,15 @@ down into smaller chunks.
                                          {"code": "PO-abc-q",
                                           "type": "consumer" }]},
 
-          "buyer" : { "reference": { "code": "buyer-abc",
+          "buyer": { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
 
-          "consumer" : { "reference": { "code": "consumer-xyz",
+          "consumer": { "reference": { "code": "consumer-xyz",
                                         "type": "seller" },
-                         "contract" : { "code": "contract-789",
+                         "contract": { "code": "contract-789",
                                         "type": "seller" }},
 
-          "shipTo" : { "location": { "mtn": "Jane Doe",
+          "shipTo": { "location": { "mtn": "Jane Doe",
                                      "rcp": "ECi Solutions, STG",
                                      "alt": "Suite #200",
                                      "dal": "4626 N 300 W",
@@ -381,7 +381,7 @@ down into smaller chunks.
                        "email": "shipping-contact@example.com",
                        "phone": "1-555-555-5555"},
 
-          "when" : "2018-04-24T17:00:00.000Z",
+          "when": "2018-04-24T17:00:00.000Z",
 
           "currency": { "code": "DKK",
                         "name": "Danish krone",
@@ -407,15 +407,15 @@ down into smaller chunks.
                                         { "code": "SO-33445953_2",
                                           "type": "seller" }]},
 
-          "buyer" : { "reference": { "code": "buyer-abc",
+          "buyer": { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
 
-          "consumer" : { "reference": { "code": "consumer-xyz",
+          "consumer": { "reference": { "code": "consumer-xyz",
                                         "type": "seller" },
-                         "contract" : { "code": "contract-789",
+                         "contract": { "code": "contract-789",
                                         "type": "seller" }},
 
-          "shipTo" : { "location": { "mtn": "Jane Doe",
+          "shipTo": { "location": { "mtn": "Jane Doe",
                                      "rcp": "ECi Solutions, STG",
                                      "alt": "Suite #200",
                                      "dal": "4626 N 300 W",
@@ -425,9 +425,9 @@ down into smaller chunks.
                        "email": "shipping-contact@example.com",
                        "phone": "1-555-555-5555"},
 
-          "when" : "2018-04-24T17:00:00.000Z",
+          "when": "2018-04-24T17:00:00.000Z",
 
-          "whenExpected" : "2018-04-26T17:00:00.000Z",
+          "whenExpected": "2018-04-26T17:00:00.000Z",
 
           "total": { "amount": 2623.55,
                      "freightAmount": 199.99,
@@ -515,7 +515,7 @@ the buyer object. After that, the request is the same as the unknown buyer.
 
     1.  JSON
 
-            { "buyer" : { "reference": { "code": "buyer-abc",
+            { "buyer": { "reference": { "code": "buyer-abc",
                                          "type": "seller" }},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
@@ -665,9 +665,9 @@ buyer's customer.
 
     1.  JSON
 
-            { "buyer" : { "reference": { "code": "buyer-abc",
+            { "buyer": { "reference": { "code": "buyer-abc",
                                          "type": "seller" }},
-              "consumer" : { "reference": { "code": "consumer-xyz",
+              "consumer": { "reference": { "code": "consumer-xyz",
                                             "type": "seller" }},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
@@ -713,11 +713,11 @@ buyer's customer's contract `contract-789`.
 
     1.  JSON
 
-            { "buyer" : { "reference": { "code": "buyer-abc",
+            { "buyer": { "reference": { "code": "buyer-abc",
                                          "type": "seller" }},
-              "consumer" : { "reference": { "code": "consumer-xyz",
+              "consumer": { "reference": { "code": "consumer-xyz",
                                             "type": "seller" },
-                             "contract" : { "code": "contract-789",
+                             "contract": { "code": "contract-789",
                                             "type": "seller" }},
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
@@ -1019,8 +1019,8 @@ support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "when" : "2018-04-24T17:00:00.000Z",
-              "whenExpected" : "2018-04-26T17:00:00.000Z",
+            { "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:00:00.000Z",
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123" }}]}
 
@@ -1051,8 +1051,8 @@ support time to delivery with an estimated cost for shipping.
 
         1.  JSON
 
-                { "when" : "2018-04-24T17:00:00.000Z",
-                  "whenExpected" : "2018-04-26T17:00:00.000Z",
+                { "when": "2018-04-24T17:00:00.000Z",
+                  "whenExpected": "2018-04-26T17:00:00.000Z",
                   "itemsCount": 1,
                   "items": [ { "reference": { "code": "abc-123" }}]}
 
@@ -1080,11 +1080,11 @@ support time to delivery with an estimated cost for shipping.
 
                 { "itemsCount": 2,
                   "items": [ { "reference": { "code": "abc-123" },
-                               "when" : "2018-04-24T17:00:00.000Z",
-                               "whenExpected" : "2018-04-26T17:00:00.000Z"},
+                               "when": "2018-04-24T17:00:00.000Z",
+                               "whenExpected": "2018-04-26T17:00:00.000Z"},
                              { "reference": { "code": "def-456" },
-                               "when" : "2018-04-24T17:00:00.000Z",
-                               "whenExpected" : "2018-04-30T17:00:00.000Z"}]}
+                               "when": "2018-04-24T17:00:00.000Z",
+                               "whenExpected": "2018-04-30T17:00:00.000Z"}]}
 
         2.  XML
 
@@ -1114,7 +1114,7 @@ support time to delivery with an estimated cost for shipping.
 
         1.  JSON
 
-                { "when" : "2018-04-24T17:00:00.000Z",
+                { "when": "2018-04-24T17:00:00.000Z",
                   "itemsCount": 1,
                   "items": [{ "reference": { "code": "abc-123",
                                              "type": "seller" }}]}
@@ -1150,7 +1150,7 @@ support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "shipTo" : { "location": { "mtn": "Jane Doe",
+            { "shipTo": { "location": { "mtn": "Jane Doe",
                                          "rcp": "ECi Solutions, STG",
                                          "alt": "Suite #200",
                                          "dal": "4626 N 300 W",
@@ -1206,7 +1206,7 @@ support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "shipTo" : { "location": { "mtn": "Jane Doe",
+            { "shipTo": { "location": { "mtn": "Jane Doe",
                                          "rcp": "ECi Solutions, STG",
                                          "alt": "Suite #200",
                                          "dal": "4626 N 300 W",
@@ -1402,7 +1402,7 @@ No longer published
         {
           "id": "./vnd.eci.stg.stock.1.5.0.json",
           "$schema": "http://json-schema.org/draft-07/schema#",
-          "title": "Stock",
+          "title": "stock",
           "description": "",
           "type": "object",
           "additionalProperties": false,
@@ -1421,14 +1421,14 @@ No longer published
               "description": "",
               "type": "string",
               "minLength": 1,
-              "maxLength" : 128
+              "maxLength": 128
             },
 
             "remarks": {
               "description": "",
               "type": "string",
               "minLength": 1,
-              "maxLength" : 256
+              "maxLength": 256
             },
 
             "make": {
@@ -1469,8 +1469,8 @@ No longer published
             "quantity": {
               "description": "",
               "type": "number",
-              "minimum" : 0,
-              "maximum" : 999999999.999999
+              "minimum": 0,
+              "maximum": 999999999.999999
             },
 
             "currency": { "$ref": "#/definitions/currency"},
@@ -1478,27 +1478,27 @@ No longer published
             "unitCost": {
               "description": "",
               "type": "number",
-              "minimum" : 0,
-              "maximum" : 999999999999.999999
+              "minimum": 0,
+              "maximum": 999999999999.999999
             },
 
             "total": { "$ref": "#/definitions/total"},
 
             "when": {
               "description": "",
-              "type" : "string",
+              "type": "string",
               "format": "date-time"
             },
 
             "whenExpected": {
               "description": "",
-              "type" : "string",
+              "type": "string",
               "format": "date-time"
             },
 
             "itemsCount": {
               "description": "number of things in the items collection",
-              "type" : "number",
+              "type": "number",
               "minimum": 1,
               "maximum": 1000
             },
@@ -1509,17 +1509,18 @@ No longer published
               "minItems": 1,
               "maxItems": 1000,
               "uniqueItems": true,
-              "items" : {
-                "$ref" : "#"
+              "items": {
+                "$ref": "#"
               }
             }
           },
 
-          "definitions" : {
+          "definitions": {
             "reference": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+
+              "properties": {
 
                 "code": {
                   "description": "",
@@ -1539,21 +1540,21 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
-                "type": { "$ref": "#/definitions/referenceType" },
+                "type": { "$ref": "#/definitions/referenceTypeEnum" },
 
                 "referencesCount": {
-                  "description": "number of things in the items collection",
-                  "type" : "number",
+                  "description": "number of things in the references collection",
+                  "type": "number",
                   "minimum": 1,
                   "maximum": 1000
                 },
@@ -1564,21 +1565,21 @@ No longer published
                   "minItems": 1,
                   "maxItems": 1000,
                   "uniqueItems": true,
-                  "items" : {
-                    "$ref" : "#/definitions/reference"
+                  "items": {
+                    "$ref": "#/definitions/reference"
                   }
                 }
               }
             },
 
-            "referenceType": {
+            "referenceTypeEnum": {
               "type": "string",
               "enum": ["buyer", "consumer", "manufacturer", "seller" ]
             },
 
             "tax": {
               "type": "object",
-              "properties" : {
+              "properties": {
 
                 "code": {
                   "description": "",
@@ -1598,33 +1599,33 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "amount": {
                   "description": "",
                   "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
+                  "minimum": 0,
+                  "maximum": 999999999999.999999
                 },
 
                 "authority": {
                   "description": "",
                   "type": "string",
-                  "minLength" : 1,
-                  "maxLength" : 32
+                  "minLength": 1,
+                  "maxLength": 32
                 },
 
                 "itemsCount": {
                   "description": "number of things in the items collection",
-                  "type" : "number",
+                  "type": "number",
                   "minimum": 1,
                   "maximum": 1000
                 },
@@ -1635,8 +1636,8 @@ No longer published
                   "minItems": 1,
                   "maxItems": 1000,
                   "uniqueItems": true,
-                  "items" : {
-                    "$ref" : "#/definitions/tax"
+                  "items": {
+                    "$ref": "#/definitions/tax"
                   }
                 }
               },
@@ -1647,7 +1648,7 @@ No longer published
             "shippingCarrier": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "code": {
                   "description": "",
@@ -1667,21 +1668,19 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
-                "type": { "$ref": "#/definitions/referenceType" },
-
                 "itemsCount": {
-                  "description": "number of things in the items collection",
-                  "type" : "number",
+                  "description": "number of shipping carriers in the collection",
+                  "type": "number",
                   "minimum": 1,
                   "maximum": 1000
                 },
@@ -1692,8 +1691,8 @@ No longer published
                   "minItems": 1,
                   "maxItems": 1000,
                   "uniqueItems": true,
-                  "items" : {
-                    "$ref" : "#/definitions/reference"
+                  "items": {
+                    "$ref": "#/definitions/shippingCarrier"
                   }
                 }
               }
@@ -1702,7 +1701,7 @@ No longer published
             "address": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
 
@@ -1717,14 +1716,14 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "msc": {
@@ -1809,7 +1808,7 @@ No longer published
             "billTo": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
 
@@ -1824,14 +1823,14 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "location": { "$ref": "#/definitions/address" },
@@ -1862,7 +1861,7 @@ No longer published
             "buyer": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
 
@@ -1877,14 +1876,14 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "location": { "$ref": "#/definitions/address" },
@@ -1915,7 +1914,7 @@ No longer published
             "consumer": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
 
@@ -1930,14 +1929,14 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "location": { "$ref": "#/definitions/address" },
@@ -1970,7 +1969,7 @@ No longer published
             "seller": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
 
@@ -1985,14 +1984,14 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "location": { "$ref": "#/definitions/address" },
@@ -2023,7 +2022,7 @@ No longer published
             "shipTo": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
 
@@ -2038,14 +2037,14 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 128
+                  "maxLength": 128
                 },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 },
 
                 "location": { "$ref": "#/definitions/address" },
@@ -2074,7 +2073,7 @@ No longer published
             "currency": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "code": {
                   "description": "",
@@ -2116,34 +2115,34 @@ No longer published
             "total": {
               "type": "object",
               "additionalProperties": false,
-              "properties" : {
+              "properties": {
 
                 "amount": {
                   "description": "",
                   "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
+                  "minimum": 0,
+                  "maximum": 999999999999.999999
                 },
 
                 "discountAmount": {
                   "description": "",
                   "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
+                  "minimum": 0,
+                  "maximum": 999999999999.999999
                 },
 
                 "freightAmount": {
                   "description": "",
                   "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
+                  "minimum": 0,
+                  "maximum": 999999999999.999999
                 },
 
                 "termsAmount": {
                   "description": "",
                   "type": "number",
-                  "minimum" : 0,
-                  "maximum" : 999999999999.999999
+                  "minimum": 0,
+                  "maximum": 999999999999.999999
                 },
 
                 "tax": { "$ref": "#/definitions/tax" },
@@ -2152,7 +2151,7 @@ No longer published
                   "description": "",
                   "type": "string",
                   "minLength": 1,
-                  "maxLength" : 256
+                  "maxLength": 256
                 }
               }
             }
@@ -2295,8 +2294,8 @@ No longer published
               <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
 
-              <xs:element name='refsCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='refs'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='referencesCount' type='xs:integer'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='references'      type='ReferencesType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -2334,18 +2333,15 @@ No longer published
               <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='type'                         minOccurs='0' maxOccurs='1'  >
-                <xs:simpleType>
-                  <xs:restriction base='xs:string'>
-                    <xs:enumeration value='buyer'        />
-                    <xs:enumeration value='consumer'     />
-                    <xs:enumeration value='document'     />
-                    <xs:enumeration value='lineNumber'   />
-                    <xs:enumeration value='manufacturer' />
-                    <xs:enumeration value='seller'       />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+
+              <xs:element name='itemsCount' type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'      type='ShippingCarriersType' minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ShippingCarriersType'>
+            <xs:sequence minOccurs='0' maxOccurs='1000'>
+              <xs:element name='shippingCarrier' type='ReferenceType'/>
             </xs:sequence>
           </xs:complexType>
 
