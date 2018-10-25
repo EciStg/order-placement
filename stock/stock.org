@@ -673,8 +673,8 @@ for the money, in an estimated time frame.
 #+END_QUOTE
 
 So while we support this use case to be compatible with older seller implementations and with the
-current version of PO Processor, we expect to deprecate it very soon. We have added additional use
-cases to support time to delivery with an estimated cost for shipping.
+current version of PO Processor, we expect to deprecate it. We have added additional use cases to
+support time to delivery with an estimated cost for shipping.
 
 **** Sellers may respond with a name that is meaningful to the dealer
 

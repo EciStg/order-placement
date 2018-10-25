@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-23T00:48:01Z</td>
+    <td class="org-left">2018-10-25T00:57:54Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-23T00:48:01Z</td>
+    <td class="org-left">2018-10-25T00:57:54Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -297,7 +297,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-23T00:48:05Z</td>
+    <td class="org-left">2018-10-25T00:57:58Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -339,7 +339,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-23T00:48:05Z</td>
+    <td class="org-left">2018-10-25T00:57:58Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -604,7 +604,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-23T00:48:09Z</td>
+    <td class="org-left">2018-10-25T00:58:02Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -640,7 +640,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-23T00:48:10Z</td>
+    <td class="org-left">2018-10-25T00:58:03Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -841,40 +841,13 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 ## Testing
 
-
-### Schemas
-
-1.  JSON
-
-
-        #!/bin/bash
-        #
-        # brew install jsonlint
-        # npm install jsonlint -g
-        # npm install ajv -g
-        # npm install ajv-cli -g
-        #
-        # make sure all of the files are well-formed JSON
-        find ./rsrc-schema/tst ./rsrc-schema/src -type f -name '*.json' -exec jsonlint --quiet --compact {} \;
-
-2.  XML
-
-
-        #!/bin/bash
-        #
-        # brew install xmllint
-
-        # make sure all of the files are well-formed xml
-        find ./rsrc-schema/src -type f -name '*.xsd' -exec xmllint --noout {} \;
-        find ./rsrc-schema/tst -type f -name '*.xml' -exec xmllint --noout {} \;
-
-
-## Test Results
-
-In the spirit of 'test first' here are the the test results of the latest build.
-
-    ./test-json.sh 2>&1
-    ./test-xml.sh 2>&1
+    #!/bin/bash
+    #
+    # brew install jsonlint
+    # npm install jsonlint -g
+    # npm install ajv -g
+    # npm install ajv-cli -g
+    #
 
 
 ## About this document

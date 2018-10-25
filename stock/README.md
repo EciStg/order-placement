@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-24T21:22:12Z</td>
+<td class="org-left">2018-10-25T00:59:10Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-24T21:22:13Z</td>
+<td class="org-left">2018-10-25T00:59:10Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -941,8 +941,8 @@ head of training about providing the warehouse, this was his reply:
 > for the money, in an estimated time frame.
 
 So while we support this use case to be compatible with older seller implementations and with the
-current version of PO Processor, we expect to deprecate it very soon. We have added additional use
-cases to support time to delivery with an estimated cost for shipping.
+current version of PO Processor, we expect to deprecate it. We have added additional use cases to
+support time to delivery with an estimated cost for shipping.
 
 1.  Sellers may respond with a name that is meaningful to the dealer
 
