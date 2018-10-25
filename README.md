@@ -142,7 +142,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:44:16Z</td>
+    <td class="org-left">2018-10-25T01:48:18Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +160,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:44:16Z</td>
+    <td class="org-left">2018-10-25T01:48:19Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -278,189 +278,186 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 ### Currency
 
+![img](./images/currency-conceptual-diagram.puml.png)
 
-1.  currency
+1.  Test Results
 
-    ![img](./images/currency-conceptual-diagram.puml.png)
+        echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+        xmllint --noout --schema ./other-schema/src/vnd.eci.stg.currency.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
+        ajv -s ./other-schema/src/vnd.eci.stg.currency.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.currency*.json" 2>&1
+        echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
-    1.  Test Results
-
-            echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-            xmllint --noout --schema ./other-schema/src/vnd.eci.stg.currency.1.5.0.xsd ./other-schema/tst/vnd.eci.stg.currency.1.5.0*.xml 2>&1
-            ajv -s ./other-schema/src/vnd.eci.stg.currency.1.5.0.json -d "./other-schema/tst/vnd.eci.stg.currency*.json" 2>&1
-            echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
-
-        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-        <colgroup>
-        <col  class="org-left" />
+    <colgroup>
+    <col  class="org-left" />
 
-        <col  class="org-left" />
-        </colgroup>
-        <tbody>
-        <tr>
-        <td class="org-left">2018-10-25T01:44:20Z</td>
-        <td class="org-left">started</td>
-        </tr>
-
-
-        <tr>
-        <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.xml</td>
-        <td class="org-left">validates</td>
-        </tr>
+    <col  class="org-left" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="org-left">2018-10-25T01:48:23Z</td>
+    <td class="org-left">started</td>
+    </tr>
 
 
-        <tr>
-        <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.json</td>
-        <td class="org-left">valid</td>
-        </tr>
+    <tr>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.xml</td>
+    <td class="org-left">validates</td>
+    </tr>
 
 
-        <tr>
-        <td class="org-left">2018-10-25T01:44:21Z</td>
-        <td class="org-left">stopped</td>
-        </tr>
-        </tbody>
-        </table>
+    <tr>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.json</td>
+    <td class="org-left">valid</td>
+    </tr>
 
-    2.  Overview
 
-        Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    <tr>
+    <td class="org-left">2018-10-25T01:48:23Z</td>
+    <td class="org-left">stopped</td>
+    </tr>
+    </tbody>
+    </table>
 
-    3.  Discussion
+2.  Overview
 
-        Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
-    4.  Definition of Terms
+3.  Discussion
 
-        -   **code:** every currency has a registered ISO alphabetic code
-        -   **description:** not used
-        -   **name:** human facing value that uniquely identifies the currency.
-        -   **remarks:** not used
-        -   **number:** every currency has a registered ISO numeric code
-        -   **precision:** total number of digits in a number
-        -   **scale:** number of digits to the right of the decimal point in a number
+    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
 
-    5.  Examples
+4.  Definition of Terms
+
+    -   **code:** every currency has a registered ISO alphabetic code
+    -   **description:** not used
+    -   **name:** human facing value that uniquely identifies the currency.
+    -   **remarks:** not used
+    -   **number:** every currency has a registered ISO numeric code
+    -   **precision:** total number of digits in a number
+    -   **scale:** number of digits to the right of the decimal point in a number
+
+5.  Examples
+
+    1.  JSON
+
+            { "code": "CLF",
+              "name": "Unidad de Fomento",
+              "number": 900,
+              "precision": 18,
+              "scale": 4
+            }
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <currency>
+              <code>CLF</code>
+              <name>Unidad de Fomento</name>
+              <number>900</number>
+              <precision>18</precision>
+              <scale>4</scale>
+            </currency>
+
+6.  Resource Schema
+
+    1.  Version 1.0
+
+        > Not supported.
+
+    2.  Version 1.5
 
         1.  JSON
 
-                { "code": "CLF",
-                  "name": "Unidad de Fomento",
-                  "number": 900,
-                  "precision": 18,
-                  "scale": 4
+                {
+                  "id": "./vnd.eci.stg.code.1.5.0.json",
+                  "$schema": "http://json-schema.org/draft-07/schema#",
+                  "title": "code",
+                  "description": "",
+
+                  "type": "object",
+                  "additionalProperties": false,
+
+                  "properties": {
+
+                    "code": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+
+                    "name": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+
+                    "description": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength" : 128
+                    },
+
+                    "remarks": {
+                      "description": "",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength" : 256
+                    },
+
+                    "number": {
+                      "description": "",
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 999
+                    },
+
+                    "precision": {
+                      "description": "",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 18
+                    },
+
+                    "scale": {
+                      "description": "",
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 6
+                    }
+                  }
                 }
 
         2.  XML
 
                 <?xml version='1.0' encoding='utf-8'?>
 
-                <currency>
-                  <code>CLF</code>
-                  <name>Unidad de Fomento</name>
-                  <number>900</number>
-                  <precision>18</precision>
-                  <scale>4</scale>
-                </currency>
+                <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                           elementFormDefault='qualified'
+                           xml:lang='en'>
 
-    6.  Resource Schema
+                  <xs:element name='currency' type='CurrencyType'/>
 
-        1.  Version 1.0
+                  <xs:complexType name='CurrencyType'>
+                      <xs:sequence>
+                        <xs:element name='code'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='name'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='description' type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='remarks'     type='xs:string'  minOccurs='0' maxOccurs='1' />
+                        <xs:element name='number'      type='xs:integer' minOccurs='0' maxOccurs='1' />
+                        <xs:element name='precision'   type='xs:integer' minOccurs='0' maxOccurs='1' />
+                        <xs:element name='scale'       type='xs:integer' minOccurs='0' maxOccurs='1' />
+                      </xs:sequence>
+                    </xs:complexType>
+                </xs:schema>
 
-            > Not supported.
-
-        2.  Version 1.5
-
-            1.  JSON
-
-                    {
-                      "id": "./vnd.eci.stg.code.1.5.0.json",
-                      "$schema": "http://json-schema.org/draft-07/schema#",
-                      "title": "code",
-                      "description": "",
-
-                      "type": "object",
-                      "additionalProperties": false,
-
-                      "properties": {
-
-                        "code": {
-                          "description": "",
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 32
-                        },
-
-                        "name": {
-                          "description": "",
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 32
-                        },
-
-                        "description": {
-                          "description": "",
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength" : 128
-                        },
-
-                        "remarks": {
-                          "description": "",
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength" : 256
-                        },
-
-                        "number": {
-                          "description": "",
-                          "type": "number",
-                          "minimum": 1,
-                          "maximum": 999
-                        },
-
-                        "precision": {
-                          "description": "",
-                          "type": "number",
-                          "minimum": 0,
-                          "maximum": 18
-                        },
-
-                        "scale": {
-                          "description": "",
-                          "type": "number",
-                          "minimum": 1,
-                          "maximum": 6
-                        }
-                      }
-                    }
-
-            2.  XML
-
-                    <?xml version='1.0' encoding='utf-8'?>
-
-                    <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
-                               elementFormDefault='qualified'
-                               xml:lang='en'>
-
-                      <xs:element name='currency' type='CurrencyType'/>
-
-                      <xs:complexType name='CurrencyType'>
-                          <xs:sequence>
-                            <xs:element name='code'        type='xs:string'  minOccurs='0' maxOccurs='1' />
-                            <xs:element name='name'        type='xs:string'  minOccurs='0' maxOccurs='1' />
-                            <xs:element name='description' type='xs:string'  minOccurs='0' maxOccurs='1' />
-                            <xs:element name='remarks'     type='xs:string'  minOccurs='0' maxOccurs='1' />
-                            <xs:element name='number'      type='xs:integer' minOccurs='0' maxOccurs='1' />
-                            <xs:element name='precision'   type='xs:integer' minOccurs='0' maxOccurs='1' />
-                            <xs:element name='scale'       type='xs:integer' minOccurs='0' maxOccurs='1' />
-                          </xs:sequence>
-                        </xs:complexType>
-                    </xs:schema>
-
-    7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
+7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
 
 
 ### Error
@@ -484,7 +481,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:44:25Z</td>
+    <td class="org-left">2018-10-25T01:48:27Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -526,7 +523,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:44:25Z</td>
+    <td class="org-left">2018-10-25T01:48:28Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -791,7 +788,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T01:44:29Z</td>
+    <td class="org-left">2018-10-25T01:48:32Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -827,7 +824,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T01:44:30Z</td>
+    <td class="org-left">2018-10-25T01:48:32Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>

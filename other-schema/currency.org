@@ -4,8 +4,6 @@
 #+PROPERTY: mkdirp yes
 #+STARTUP: content
 
-* currency
-
 #+BEGIN_SRC plantuml :file ./images/currency-conceptual-diagram.puml.png :exports results
   @startuml
   hide circle
