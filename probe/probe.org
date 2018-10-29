@@ -197,7 +197,7 @@ Recommended for Seller implementations.
 
 ***** JSON
 
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes-bottom.json
   { "code": "bottom",
     "name": "Bottom Probe",
     "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
@@ -209,7 +209,7 @@ Recommended for Seller implementations.
 
 ***** XML
 
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes-bottom.xml
   <item>
     <code>bottom</code>
     <name>Bottom Probe</name>

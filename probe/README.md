@@ -30,13 +30,19 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T23:17:02Z</td>
+<td class="org-left">2018-10-29T23:29:16Z</td>
 <td class="org-left">started</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes-bottom.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
@@ -54,13 +60,19 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes-bottom.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-29T23:17:02Z</td>
+<td class="org-left">2018-10-29T23:29:17Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -404,11 +416,6 @@ systems and applications.
             </xs:sequence>
           </xs:complexType>
         </xs:schema>
-
-
-### Version 2.0
-
-> TBD
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.
