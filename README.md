@@ -140,7 +140,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T18:04:48Z</td>
+    <td class="org-left">2018-10-29T23:30:59Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -158,7 +158,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T18:04:49Z</td>
+    <td class="org-left">2018-10-29T23:31:00Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -169,27 +169,21 @@
     At the heart of the order placement 1.0 resource schema is the notion or concept of a code. A code
     is intended to describe a thing of interest to both humans and software.
 
-3.  Discussion
-
-    1.  TODO
-
-4.  Definition of Terms
+3.  Definition of Terms
 
     -   **code:** software facing identity function; used to identify the object to a software system
     -   **name:** human facing identity function; use to identify the object to human readers
     -   **description:** human facing description providing more information than the name allows
     -   **remarks:** non-schema, human facing information sent back and forth between system actors {buyer, seller, consumer}
 
-5.  Examples
+4.  Example
 
     1.  JSON
 
-            {
-              "code": "wbkbd2345",
+            { "code": "wbkbd2345",
               "name": "wireless keyboard",
               "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys",
-              "remarks": "requires two AA batteries"
-            }
+              "remarks": "requires two AA batteries" }
 
     2.  XML
 
@@ -202,7 +196,7 @@
               <remarks>requires two AA batteries</remarks>
             </code>
 
-6.  Resource Schema
+5.  Resource Schema
 
     1.  Version 1.0
 
@@ -296,7 +290,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T18:04:53Z</td>
+    <td class="org-left">2018-10-29T23:31:04Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -314,7 +308,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T18:04:54Z</td>
+    <td class="org-left">2018-10-29T23:31:04Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -324,11 +318,7 @@
 
     1.  TODO
 
-3.  Discussion
-
-    1.  TODO
-
-4.  Definition of Terms
+3.  Definition of Terms
 
     -   **code:** every currency has a registered ISO alphabetic code
     -   **description:** not used
@@ -338,7 +328,7 @@
     -   **precision:** total number of digits in a number
     -   **scale:** number of digits to the right of the decimal point in a number
 
-5.  Examples
+4.  Example
 
     1.  JSON
 
@@ -346,8 +336,7 @@
               "name": "Unidad de Fomento",
               "number": 900,
               "precision": 18,
-              "scale": 4
-            }
+              "scale": 4 }
 
     2.  XML
 
@@ -361,7 +350,7 @@
               <scale>4</scale>
             </currency>
 
-6.  Resource Schema
+5.  Resource Schema
 
     1.  Version 1.0
 
@@ -456,7 +445,7 @@
                     </xs:complexType>
                 </xs:schema>
 
-7.  © 2018 ECi Software Solutions, Inc. All rights reserved.
+6.  © 2018 ECi Software Solutions, Inc. All rights reserved.
 
 
 ### Error
@@ -480,7 +469,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T18:04:57Z</td>
+    <td class="org-left">2018-10-29T23:31:08Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -522,7 +511,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T18:04:58Z</td>
+    <td class="org-left">2018-10-29T23:31:08Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -532,11 +521,7 @@
 
     1.  TODO
 
-3.  Discussion
-
-    1.  TODO
-
-4.  Definition of Terms
+3.  Definition of Terms
 
     -   **code:** Software facing value that uniquely identifies the error. If `Code` is not populated `Name` MUST be populated
     -   **name:** Human facing value that uniquely identifies the probe. If `Name` is not populated `Code` MUST be populated
@@ -544,7 +529,7 @@
     -   **remarks:** Human facing text. Generally populated with one or more actions the user can take to solve the problem
     -   **when:** The date and time of probe execution. If `When` is populated `HttpStatusCode` MUST also be populated
 
-5.  Examples
+4.  Example
 
     1.  a singe error
 
@@ -554,8 +539,7 @@
                   "name": "null pointer exception",
                   "description": "programmer error. you did nothing wrong.",
                   "remarks": "please take careful note of what you were doing just before the error and report it to customer care.",
-                  "when": "2018-04-24T17:00:00.000Z"
-                }
+                  "when": "2018-04-24T17:00:00.000Z" }
 
         2.  XML
 
@@ -653,7 +637,7 @@
                   </items>
                 </error>
 
-6.  Resource Schema
+5.  Resource Schema
 
     1.  Version 1.0
 
@@ -787,7 +771,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T18:05:01Z</td>
+    <td class="org-left">2018-10-29T23:31:12Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -823,7 +807,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T18:05:02Z</td>
+    <td class="org-left">2018-10-29T23:31:13Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -853,7 +837,7 @@
     -   **referencesCount:** the number of references in the references collection
     -   **references:** holds one or more references
 
-5.  Examples
+5.  Example
 
     1.  references are codes
 
