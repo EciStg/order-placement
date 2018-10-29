@@ -5,72 +5,70 @@
 
 ## Overview
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+### TODO write non-technical description
 
 
-### Actors
+1.  Actors
 
-Within the ECi Order Placement system a dealer typically takes on the role of *Buyer*. A vendor or
-supplier (typical readers of this document) take the role of *Seller*. A *Consumer* is the buyer's
-customer and in rare cases, the buyer. There are nuances to be discussed, we will not attempt to
-explain right now rather we will take up the details for the specific use cases as we come across
-them.
+    Within the ECi Order Placement system a dealer typically takes on the role of *Buyer*. A vendor or
+    supplier (typical readers of this document) take the role of *Seller*. A *Consumer* is the buyer's
+    customer and in rare cases, the buyer. There are nuances to be discussed, we will not attempt to
+    explain right now rather we will take up the details for the specific use cases as we come across
+    them.
 
-![img](./images/buyer-usecases.puml.png)
+    ![img](./images/buyer-usecases.puml.png)
 
-![img](./images/seller-usecases.puml.png)
+    ![img](./images/seller-usecases.puml.png)
 
-![img](./images/consumer-usecases.puml.png)
+    ![img](./images/consumer-usecases.puml.png)
 
+2.  Endpoints
 
-### Endpoints
+    There are six endpoints, three provided by the Seller's system
 
-There are six endpoints, three provided by the Seller's system
+    ![img](./images/sequence-buyer2seller.puml.png)
 
-![img](./images/sequence-buyer2seller.puml.png)
+    And three provided by the Buyer's system:
 
-And three provided by the Buyer's system:
+    ![img](./images/sequence-seller2buyer.puml.png)
 
-![img](./images/sequence-seller2buyer.puml.png)
+3.  Endpoint Resource Types
 
+    These types are intended to represent data in flight and are not meant to represent data at rest.
 
-### Endpoint Resource Types
+    There are six resource types exchanged between the Buyer's system and the Seller's system:
 
-These types are intended to represent data in flight and are not meant to represent data at rest.
+    ![img](./images/resource-types.dot.png)
 
-There are six resource types exchanged between the Buyer's system and the Seller's system:
+    Not all Seller systems support resources or endpoints for Shipment Methods, Order&Delta;
+    (accept/reject), or Shipment information. We have chosen to represent resources using
+    JSON Schema and prefer Seller implementations also choose a JSON representation. The
+    Buyer's system can be programmed to send and receive resources in other representations,
+    though this is not part of the standard agreement and will need to be addressed separately.
 
-![img](./images/resource-types.dot.png)
+4.  Connecting To Endpoints
 
-Not all Seller systems support resources or endpoints for Shipment Methods, Order&Delta;
-(accept/reject), or Shipment information. We have chosen to represent resources using
-JSON Schema and prefer Seller implementations also choose a JSON representation. The
-Buyer's system can be programmed to send and receive resources in other representations,
-though this is not part of the standard agreement and will need to be addressed separately.
+    1.  HTTPS / TLS
 
+        The ECi Order Placement services will always connect using a minimum of TLS 1.2.
 
-### Connecting To Endpoints
+    2.  Authentication
 
-1.  HTTPS / TLS
+        1.  Buyer -> Seller
 
-    The ECi Order Placement services will always connect using a minimum of TLS 1.2.
+            The Seller is responsible for providing participating dealers (Buyers) a user name
+            and password which the ECi system will use to connect to the Seller's system. This
+            information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
+            Stock and Order resources allow for additional non-schema defined information
+            (opaque) to be supplied by the Buyer and delivered to the Seller.
 
-2.  Authentication
+        2.  Seller -> Buyer
 
-    1.  Buyer -> Seller
-
-        The Seller is responsible for providing participating dealers (Buyers) a user name
-        and password which the ECi system will use to connect to the Seller's system. This
-        information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
-        Stock and Order resources allow for additional non-schema defined information
-        (opaque) to be supplied by the Buyer and delivered to the Seller.
-
-    2.  Seller -> Buyer
-
-        ECi is responsible for assigning and maintaining an ID and an API key to each of
-        the Seller systems. This information will be passed to the buyer system via HTTP
-        Basic Authentication. Stock and Order resources allow for additional non-schema
-        defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
+            ECi is responsible for assigning and maintaining an ID and an API key to each of
+            the Seller systems. This information will be passed to the buyer system via HTTP
+            Basic Authentication. Stock and Order resources allow for additional non-schema
+            defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
 
 
 ## Endpoint Major Resource Types
@@ -78,44 +76,44 @@ though this is not part of the standard agreement and will need to be addressed 
 
 ### Probe
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+1.  TODO write non-technical description
 
-Probe [documentation](./probe/README.md)
+    Probe [documentation](./probe/README.md)
 
 
 ### Shipping Method
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+1.  TODO write non-technical description
 
-Ship Method [documentation](./ship-method/README.md)
+    Ship Method [documentation](./ship-method/README.md)
 
 
 ### Stock
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+1.  TODO write non-technical description
 
-Stock [documentation](./stock/README.md)
+    Stock [documentation](./stock/README.md)
 
 
 ### Order
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+1.  TODO write non-technical description
 
-Order [documentation](./order/README.md)
+    Order [documentation](./order/README.md)
 
 
 ### Invoice
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+1.  TODO write non-technical description
 
-Invoice [documentation](./invoice/README.md)
+    Invoice [documentation](./invoice/README.md)
 
 
 ### Shipping Receipts
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+1.  TODO write non-technical description
 
-Shipping Receipts [documentation](./receipt/README.md)
+    Shipping Receipts [documentation](./receipt/README.md)
 
 
 ## Other (embedded) Resource Types
@@ -142,7 +140,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T23:26:57Z</td>
+    <td class="org-left">2018-10-29T18:04:48Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -160,7 +158,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T23:26:58Z</td>
+    <td class="org-left">2018-10-29T18:04:49Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -173,7 +171,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 3.  Discussion
 
-    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    1.  TODO
 
 4.  Definition of Terms
 
@@ -186,7 +184,8 @@ Shipping Receipts [documentation](./receipt/README.md)
 
     1.  JSON
 
-            { "code": "wbkbd2345",
+            {
+              "code": "wbkbd2345",
               "name": "wireless keyboard",
               "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys",
               "remarks": "requires two AA batteries"
@@ -297,7 +296,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T23:27:01Z</td>
+    <td class="org-left">2018-10-29T18:04:53Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -315,7 +314,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T23:27:01Z</td>
+    <td class="org-left">2018-10-29T18:04:54Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -323,11 +322,11 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 2.  Overview
 
-    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    1.  TODO
 
 3.  Discussion
 
-    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    1.  TODO
 
 4.  Definition of Terms
 
@@ -481,7 +480,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T23:27:05Z</td>
+    <td class="org-left">2018-10-29T18:04:57Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -523,7 +522,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T23:27:05Z</td>
+    <td class="org-left">2018-10-29T18:04:58Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -531,11 +530,11 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 2.  Overview
 
-    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    1.  TODO
 
 3.  Discussion
 
-    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    1.  TODO
 
 4.  Definition of Terms
 
@@ -788,7 +787,7 @@ Shipping Receipts [documentation](./receipt/README.md)
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-25T23:27:09Z</td>
+    <td class="org-left">2018-10-29T18:05:01Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -824,7 +823,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 
     <tr>
-    <td class="org-left">2018-10-25T23:27:09Z</td>
+    <td class="org-left">2018-10-29T18:05:02Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -832,7 +831,7 @@ Shipping Receipts [documentation](./receipt/README.md)
 
 2.  Overview
 
-    Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+    1.  TODO
 
 3.  Discussion
 
@@ -1040,9 +1039,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 26.1 (build 1, x86_64-apple-darwin14.5.0, NS appkit-1348.17 Version 10.10.5 (Build 14F2511))
-     of 2018-05-30
-    org version: 9.1.14
+    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
+     of 2017-09-12
+    org version: 9.1.8
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images

@@ -32,7 +32,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-25T23:14:47Z</td>
+<td class="org-left">2018-10-29T18:05:38Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -92,7 +92,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-25T23:14:47Z</td>
+<td class="org-left">2018-10-29T18:05:38Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -107,13 +107,20 @@
 
 ## Overview
 
-Lorem ipsum dolor sit amet, sea ad clita sadipscing, mea id antiopam prodesset. Justo scripta vivendum eum id, in vis essent petentium. Qui mutat tritani epicuri et, utamur percipitur an sea. Ad nullam integre eum. Cu atqui inermis pri, tempor causae sanctus at pro. Ea cum tation hendrerit conclusionemque, veri hendrerit definitionem sit at. Vix adipiscing dissentiet eloquentiam eu, decore epicurei liberavisse eu eam.
+
+### TODO
 
 
 ## Discussion
 
 
+### TODO
+
+
 ## Definition of Terms
+
+
+### TODO
 
 
 ## Sequence of Events
