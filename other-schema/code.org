@@ -31,10 +31,6 @@
 At the heart of the order placement 1.0 resource schema is the notion or concept of a code. A code
 is intended to describe a thing of interest to both humans and software.
 
-** Discussion
-
-*** TODO
-
 ** Definition of Terms
 
 - code :: software facing identity function; used to identify the object to a software system
@@ -42,16 +38,14 @@ is intended to describe a thing of interest to both humans and software.
 - description :: human facing description providing more information than the name allows
 - remarks :: non-schema, human facing information sent back and forth between system actors {buyer, seller, consumer}
 
-** Examples
+** Example
 
 *** JSON
 #+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.code.1.0.0.json
-  {
-    "code": "wbkbd2345",
+  { "code": "wbkbd2345",
     "name": "wireless keyboard",
     "description": "four channel bluetooth Apple layout full size aluminum keyboard with backlit keys",
-    "remarks": "requires two AA batteries"
-  }
+    "remarks": "requires two AA batteries" }
 #+END_SRC
 
 *** XML

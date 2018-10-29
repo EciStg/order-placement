@@ -32,7 +32,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T18:05:38Z</td>
+<td class="org-left">2018-10-29T23:16:22Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -92,7 +92,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T18:05:38Z</td>
+<td class="org-left">2018-10-29T23:16:22Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -110,21 +110,6 @@
 
 ### TODO
 
-
-## Discussion
-
-
-### TODO
-
-
-## Definition of Terms
-
-
-### TODO
-
-
-## Sequence of Events
-
 ![img](../images/order-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
@@ -136,6 +121,18 @@ call with the required headers e.g.
          --user user123:password123 \
          --url http://vendor-host/vendor-order-endpoint
          --data ''
+
+
+## Definition of Terms
+
+
+### TODO
+
+
+## Example
+
+
+### TODO
 
 
 ## Use Cases
@@ -1180,17 +1177,6 @@ No longer published
           </xs:complexType>
 
         </xs:schema>
-
-
-### Version 2.0
-
-1.  JSON
-
-    1.  TODO include updated json schema
-
-2.  XML
-
-    1.  TODO include updated xml schema
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.

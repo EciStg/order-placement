@@ -19,21 +19,11 @@
 
 *** TODO
 
-** Discussion
-
-*** TODO
-
-** Definition of Terms
-
-*** TODO
-
-** Sequence of Events
-
 #+BEGIN_SRC plantuml :file ../images/order-sequence.puml.png :exports results
-@startuml order-sequence.png
-Buyer -> Seller: [ POST ] order
-Seller -> Buyer: order<U+0394> | error
-@enduml
+  @startuml order-sequence.png
+  Buyer -> Seller: [ POST ] order
+  Seller -> Buyer: order<U+0394> | error
+  @enduml
 #+END_SRC
 
 In the following section, Use Cases, examples of data ( ~--data~ ) to be sent and
@@ -47,6 +37,14 @@ call with the required headers e.g.
        --url http://vendor-host/vendor-order-endpoint
        --data ''
 #+END_SRC
+
+** Definition of Terms
+
+*** TODO
+
+** Example
+
+*** TODO
 
 ** Use Cases
 
@@ -1093,15 +1091,5 @@ No longer published
 
   </xs:schema>
 #+END_SRC
-
-*** Version 2.0
-
-**** JSON
-
-***** TODO include updated json schema
-
-**** XML
-
-***** TODO include updated xml schema
 
 ** © 2018 ECi Software Solutions, Inc. All rights reserved.

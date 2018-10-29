@@ -30,22 +30,33 @@ Accept: application/vnd.eci.stg.probe-1.5.0.xml
 
 ** Overview
 
-The purpose of a Probe is to allow ECi and Seller health monitoring systems and staff to detect
+The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
 problems before customers do and provide actionable information, allowing problems to be identified
 and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
 systems and staff will have access to these probes and will access them multiple times throughout
 the day.
 
 #+BEGIN_SRC plantuml :file ../images/probe-usecase-diagram.puml.png :exports results
-@startuml sequence-probes.png
-IT -> (Execute Custom Probe)
-IT -> (List Custom Probes)
-IT -> (Execute Bottom Probe)
-IT -> (Execute Top Probe)
-@enduml
+  @startuml sequence-probes.png
+  IT -> (Execute Custom Probe)
+  IT -> (List Custom Probes)
+  IT -> (Execute Bottom Probe)
+  IT -> (Execute Top Probe)
+  @enduml
 #+END_SRC
 
-** Discussion
+All "conversations" between buyer and seller systems will be initiated by the buyer's system or by
+an agent of the buyer, e.g. IT or Support staff through one of three well-defined probe routes for
+each service and any number of custom or special purpose routes available. Discussion of the
+function of each route is found in the Use Cases section of this document.
+
+The three well-defined probe routes are:
+
+#+BEGIN_EXAMPLE
+./probes
+./probes/top
+./probes/bottom
+#+END_EXAMPLE
 
 #+BEGIN_SRC plantuml :file ../images/probe-sequence-diagram.puml.png :exports results
   @startuml sequence-probe.png
@@ -55,29 +66,14 @@ IT -> (Execute Top Probe)
 
   group bottom probe
       IT -> Seller: GET **./probes/bottom**
-      Seller -> IT: vnd.eci.stg.probe-1.5.0
+      Seller -> IT: vnd.eci.stg.probe-[version]
 
   group custom probes
     IT -> Seller: GET **./probes**
-    Seller -> IT: vnd.eci.stg.probe-1.5.0
+    Seller -> IT: vnd.eci.stg.probe-[version]
     IT -> Seller: GET ./probes/[custom]
 @enduml
 #+END_SRC
-
-#+RESULTS:
-[[file:../images/probe-sequence-diagram-top.puml.png]]
-
-There are three well-defined probe routes for each service and any number of custom or special
-purpose routes available. Discussion of the function of each route is found in the Use Cases
-section of this document.
-
-The three well-defined probe routes are:
-
-#+BEGIN_EXAMPLE
-./probes
-./probes/top
-./probes/bottom
-#+END_EXAMPLE
 
 Information returned from the probes that return a body may be cached by the client, the server, or
 both. If implementors decide to cache on the server, please note that these probes are designed
@@ -167,12 +163,6 @@ Checking the HTTP Status Code for the top probe:
 curl -sw "%{http_code}\\n" http://some-host/some-api/probes/top
 #+END_SRC
 
-**** Version 2.0
-
-#+BEGIN_QUOTE
-TBD
-#+END_QUOTE
-
 *** Execute bottom probe ~./probes/bottom~
 
 The bottom probe should test all of the layers of the API or application and all vital connections
@@ -208,15 +198,13 @@ Recommended for Seller implementations.
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probe-bottom.json
-  {
-    "code": "bottom",
+  { "code": "bottom",
     "name": "Bottom Probe",
     "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
     "remarks": "The database cannot be contacted. Ensure the database is running and network reachable.",
     "self": "https://some-host/some-api/probes/bottom",
     "status": "500",
-    "when": "2018-04-23T18:25:40.611Z"
-  }
+    "when": "2018-04-23T18:25:40.611Z" }
 #+END_SRC
 
 ***** XML
@@ -232,12 +220,6 @@ Recommended for Seller implementations.
     <when>2018-04-23T18:25:40.611Z</when>
   </item>
 #+END_SRC
-
-**** Version 2.0
-
-#+BEGIN_QUOTE
-TBD
-#+END_QUOTE
 
 *** List custom probes ~./probes~
 
@@ -265,33 +247,21 @@ Optional.
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes.json
-  {
-    "code": "probes",
+  { "code": "probes",
     "self": "https://some-host/some-api/probes",
     "itemsCount": 3,
-    "items": [
-      {
-        "self": "https://some-host/some-api/probes/top",
-        "code": "top",
-        "name": "Top Probe"
-      },
-      {
-        "self": "https://some-host/some-api/probes/bottom",
-        "code": "bottom",
-        "name": "Bottom Probe",
-        "description": "The database cannot be contacted. Ensure the database is running and network reachable."
-      },
-      {
-        "self": "https://some-host/some-api/probes/auth",
-        "code": "auth"
-      },
-      {
-        "self": "https://some-host/some-api/probes/con-db",
-        "code": "con-db",
-        "name": "database connection test"
-      }
-    ]
-  }
+    "items": [{ "self": "https://some-host/some-api/probes/top",
+                "code": "top",
+                "name": "Top Probe" },
+              { "self": "https://some-host/some-api/probes/bottom",
+                "code": "bottom",
+                "name": "Bottom Probe",
+                "description": "The database cannot be contacted. Ensure the database is running and network reachable." },
+              { "self": "https://some-host/some-api/probes/auth",
+                "code": "auth" },
+              { "self": "https://some-host/some-api/probes/con-db",
+                "code": "con-db",
+                "name": "database connection test" }]}
 #+END_SRC
 
 ***** XML
@@ -325,12 +295,6 @@ Optional.
       </items>
     </item>
 #+END_SRC
-
-**** Version 2.0
-
-#+BEGIN_QUOTE
-TBD
-#+END_QUOTE
 
 ** Resource Schema
 
@@ -468,10 +432,5 @@ Not supported.
     </xs:schema>
 
 #+END_SRC
-*** Version 2.0
-
-#+BEGIN_QUOTE
-TBD
-#+END_QUOTE
 
 ** © 2018 ECi Software Solutions, Inc. All rights reserved.

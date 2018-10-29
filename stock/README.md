@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T18:07:28Z</td>
+<td class="org-left">2018-10-29T23:26:52Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +326,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T18:07:28Z</td>
+<td class="org-left">2018-10-29T23:26:53Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -336,7 +336,7 @@
 ## Overview
 
 
-### TODO
+### TODO provide overview text, high-level use case diagram
 
 ![img](../images/stock-sequence.puml.png)
 
@@ -351,7 +351,13 @@ call with the required headers e.g.
          --data ''
 
 
-### Example
+## Definition of Terms
+
+
+### TODO
+
+
+## Example
 
 Below is an example of a JSON request and response. In the use cases section below, we break this
 down into smaller chunks.
@@ -449,18 +455,6 @@ down into smaller chunks.
                                     "city": "Dallas",
                                     "region": "TX" },
                       "unitCost": 99.99}]}
-
-
-## Discussion
-
-
-### TODO
-
-
-## Definition of Terms
-
-
-### TODO
 
 
 ## Use Cases
@@ -2394,11 +2388,6 @@ No longer published
           </xs:complexType>
 
         </xs:schema>
-
-
-### Version 2.0
-
-1.  TODO
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.

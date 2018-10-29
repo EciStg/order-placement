@@ -35,10 +35,6 @@
 
 *** TODO
 
-** Discussion
-
-*** TODO
-
 ** Definition of Terms
 
 - code :: every currency has a registered ISO alphabetic code
@@ -49,7 +45,7 @@
 - precision :: total number of digits in a number
 - scale :: number of digits to the right of the decimal point in a number
 
-** Examples
+** Example
 
 *** JSON
 #+BEGIN_SRC json :tangle ./tst/vnd.eci.stg.currency.1.5.0.json
@@ -57,8 +53,7 @@
     "name": "Unidad de Fomento",
     "number": 900,
     "precision": 18,
-    "scale": 4
-  }
+    "scale": 4 }
 #+END_SRC
 
 *** XML

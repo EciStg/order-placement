@@ -36,10 +36,6 @@
 
 *** TODO
 
-** Discussion
-
-*** TODO
-
 ** Definition of Terms
 
 - code :: Software facing value that uniquely identifies the error. If ~Code~ is not populated ~Name~ MUST be populated
@@ -48,7 +44,7 @@
 - remarks :: Human facing text. Generally populated with one or more actions the user can take to solve the problem
 - when :: The date and time of probe execution. If ~When~ is populated ~HttpStatusCode~ MUST also be populated
 
-** Examples
+** Example
 
 *** a singe error
 
@@ -59,8 +55,7 @@
     "name": "null pointer exception",
     "description": "programmer error. you did nothing wrong.",
     "remarks": "please take careful note of what you were doing just before the error and report it to customer care.",
-    "when": "2018-04-24T17:00:00.000Z"
-  }
+    "when": "2018-04-24T17:00:00.000Z" }
 #+END_SRC
 
 **** XML

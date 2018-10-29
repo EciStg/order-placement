@@ -42,7 +42,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T18:07:04Z</td>
+<td class="org-left">2018-10-29T23:18:34Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -127,7 +127,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T18:07:04Z</td>
+<td class="org-left">2018-10-29T23:18:34Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -150,15 +150,6 @@
 
 ### TODO
 
-
-## Discussion
-
-
-## Definition of Terms
-
-
-## Sequence of Events
-
 ![img](../images/shipmethod-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
@@ -169,6 +160,18 @@ call with the required headers e.g.
          --header "Accepts: application/vnd.eci.stg.shipmethod.1.5.0.xml; charset=utf-8" \
          --user user123:password123 \
          --url http://vendor-host/vendor-shipmethod-endpoint
+
+
+## Definition of Terms
+
+
+### TODO
+
+
+## Example
+
+
+### TODO
 
 
 ## Use Cases
@@ -193,7 +196,7 @@ Version 1.0
 
 2.  Response
 
-    The seller's response is intended to
+    The buyer's response is intended to
 
     1.  JSON
 
@@ -227,13 +230,6 @@ No longer published
 
         <?xml version='1.0' encoding='utf-8'?>
         <shipmethod/>
-
-
-### Version 2.0
-
-1.  JSON
-
-2.  XML
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.

@@ -30,7 +30,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-25T23:35:55Z</td>
+<td class="org-left">2018-10-29T23:17:02Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +60,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2018-10-25T23:35:55Z</td>
+<td class="org-left">2018-10-29T23:17:02Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -69,7 +69,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 ## Overview
 
-The purpose of a Probe is to allow ECi and Seller health monitoring systems and staff to detect
+The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
 problems before customers do and provide actionable information, allowing problems to be identified
 and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
 systems and staff will have access to these probes and will access them multiple times throughout
@@ -77,20 +77,18 @@ the day.
 
 ![img](../images/probe-usecase-diagram.puml.png)
 
-
-## Discussion
-
-![img](../images/probe-sequence-diagram.puml.png)
-
-There are three well-defined probe routes for each service and any number of custom or special
-purpose routes available. Discussion of the function of each route is found in the Use Cases
-section of this document.
+All "conversations" between buyer and seller systems will be initiated by the buyer's system or by
+an agent of the buyer, e.g. IT or Support staff through one of three well-defined probe routes for
+each service and any number of custom or special purpose routes available. Discussion of the
+function of each route is found in the Use Cases section of this document.
 
 The three well-defined probe routes are:
 
     ./probes
     ./probes/top
     ./probes/bottom
+
+![img](../images/probe-sequence-diagram.puml.png)
 
 Information returned from the probes that return a body may be cached by the client, the server, or
 both. If implementors decide to cache on the server, please note that these probes are designed
@@ -155,10 +153,6 @@ A body must not be returned to the caller.
 
         curl -sw "%{http_code}\\n" http://some-host/some-api/probes/top
 
-3.  Version 2.0
-
-    > TBD
-
 
 ### Execute bottom probe `./probes/bottom`
 
@@ -190,15 +184,13 @@ The bottom probe's `code` value must be `bottom`.
 
     1.  JSON
 
-            {
-              "code": "bottom",
+            { "code": "bottom",
               "name": "Bottom Probe",
               "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
               "remarks": "The database cannot be contacted. Ensure the database is running and network reachable.",
               "self": "https://some-host/some-api/probes/bottom",
               "status": "500",
-              "when": "2018-04-23T18:25:40.611Z"
-            }
+              "when": "2018-04-23T18:25:40.611Z" }
 
     2.  XML
 
@@ -211,10 +203,6 @@ The bottom probe's `code` value must be `bottom`.
               <status>500</status>
               <when>2018-04-23T18:25:40.611Z</when>
             </item>
-
-3.  Version 2.0
-
-    > TBD
 
 
 ### List custom probes `./probes`
@@ -238,33 +226,21 @@ systems and applications.
 
     1.  JSON
 
-            {
-              "code": "probes",
+            { "code": "probes",
               "self": "https://some-host/some-api/probes",
               "itemsCount": 3,
-              "items": [
-                {
-                  "self": "https://some-host/some-api/probes/top",
-                  "code": "top",
-                  "name": "Top Probe"
-                },
-                {
-                  "self": "https://some-host/some-api/probes/bottom",
-                  "code": "bottom",
-                  "name": "Bottom Probe",
-                  "description": "The database cannot be contacted. Ensure the database is running and network reachable."
-                },
-                {
-                  "self": "https://some-host/some-api/probes/auth",
-                  "code": "auth"
-                },
-                {
-                  "self": "https://some-host/some-api/probes/con-db",
-                  "code": "con-db",
-                  "name": "database connection test"
-                }
-              ]
-            }
+              "items": [{ "self": "https://some-host/some-api/probes/top",
+                          "code": "top",
+                          "name": "Top Probe" },
+                        { "self": "https://some-host/some-api/probes/bottom",
+                          "code": "bottom",
+                          "name": "Bottom Probe",
+                          "description": "The database cannot be contacted. Ensure the database is running and network reachable." },
+                        { "self": "https://some-host/some-api/probes/auth",
+                          "code": "auth" },
+                        { "self": "https://some-host/some-api/probes/con-db",
+                          "code": "con-db",
+                          "name": "database connection test" }]}
 
     2.  XML
 
@@ -295,10 +271,6 @@ systems and applications.
                 </item>
               </items>
             </item>
-
-3.  Version 2.0
-
-    > TBD
 
 
 ## Resource Schema

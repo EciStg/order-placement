@@ -32,7 +32,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T18:06:18Z</td>
+<td class="org-left">2018-10-29T23:18:01Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -80,7 +80,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T18:06:19Z</td>
+<td class="org-left">2018-10-29T23:18:01Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -98,9 +98,6 @@
 
 ### TODO
 
-
-## Sequence of Events
-
 ![img](../images/receipt-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
@@ -112,6 +109,18 @@ call with the required headers e.g.
          --user user123:password123 \
          --url http://vendor-host/vendor-receipt-endpoint
          --data ''
+
+
+## Definition of Terms
+
+
+### TODO
+
+
+## Example
+
+
+### TODO
 
 
 ## Use Cases
@@ -1155,13 +1164,6 @@ No longer published
             </xs:sequence>
           </xs:complexType>
         </xs:schema>
-
-
-### Version 2.0
-
-1.  JSON
-
-2.  XML
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.

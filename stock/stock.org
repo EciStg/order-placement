@@ -18,7 +18,7 @@
 
 ** Overview
 
-*** TODO
+*** TODO provide overview text, high-level use case diagram
 
 #+BEGIN_SRC plantuml :file ../images/stock-sequence.puml.png :exports results
 @startuml stock-sequence.png
@@ -39,7 +39,11 @@ call with the required headers e.g.
        --data ''
 #+END_SRC
 
-*** Example
+** Definition of Terms
+
+*** TODO
+
+** Example
 
 Below is an example of a JSON request and response. In the use cases section below, we break this
 down into smaller chunks.
@@ -141,14 +145,6 @@ down into smaller chunks.
                               "region": "TX" },
                 "unitCost": 99.99}]}
 #+END_SRC
-
-** Discussion
-
-*** TODO
-
-** Definition of Terms
-
-*** TODO
 
 ** Use Cases
 
@@ -419,15 +415,15 @@ buyer's customer's contract ~contract-789~.
 ***** JSON
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.json
-      { "buyer": { "reference": { "code": "buyer-abc",
-                                   "type": "seller" }},
-        "consumer": { "reference": { "code": "consumer-xyz",
-                                      "type": "seller" },
-                       "contract": { "code": "contract-789",
-                                      "type": "seller" }},
-        "itemsCount": 1,
-        "items": [{ "reference": { "code": "abc-123",
-                                   "type": "seller" }}]}
+  { "buyer": { "reference": { "code": "buyer-abc",
+                               "type": "seller" }},
+    "consumer": { "reference": { "code": "consumer-xyz",
+                                  "type": "seller" },
+                   "contract": { "code": "contract-789",
+                                  "type": "seller" }},
+    "itemsCount": 1,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" }}]}
 #+END_SRC
 
 ***** XML
@@ -2165,9 +2161,5 @@ No longer published
 
     </xs:schema>
 #+END_SRC
-
-*** Version 2.0
-
-**** TODO
 
 ** © 2018 ECi Software Solutions, Inc. All rights reserved.

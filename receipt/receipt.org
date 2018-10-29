@@ -6,6 +6,7 @@
 #+STARTUP: content
 
 * Receipt
+
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace
@@ -19,12 +20,10 @@
 
 *** TODO
 
-** Sequence of Events
-
 #+BEGIN_SRC plantuml :file ../images/receipt-sequence.puml.png :exports results
-@startuml receipt-sequence.png
-Seller -> Buyer : [ POST ] receipt
-@enduml
+  @startuml receipt-sequence.png
+  Seller -> Buyer : [ POST ] receipt
+  @enduml
 #+END_SRC
 
 In the following section, Use Cases, examples of data ( ~--data~ ) to be sent and
@@ -38,6 +37,14 @@ call with the required headers e.g.
        --url http://vendor-host/vendor-receipt-endpoint
        --data ''
 #+END_SRC
+
+** Definition of Terms
+
+*** TODO
+
+** Example
+
+*** TODO
 
 ** Use Cases
 
@@ -1081,11 +1088,5 @@ No longer published
   </xs:schema>
 
 #+END_SRC
-
-*** Version 2.0
-
-**** JSON
-
-**** XML
 
 ** © 2018 ECi Software Solutions, Inc. All rights reserved.

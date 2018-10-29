@@ -56,7 +56,7 @@ keyboard from the viewpoint of different actor's actor systems. This keyboard is
 - referencesCount :: the number of references in the references collection
 - references :: holds one or more references
 
-** Examples
+** Example
 
 *** references are codes
 
