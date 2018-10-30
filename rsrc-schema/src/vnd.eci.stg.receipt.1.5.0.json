@@ -192,14 +192,12 @@
             "$ref": "#/definitions/reference"
           }
         }
-      },
-
-      "definitions": {
-        "referenceTypeEnum": {
-          "type": "string",
-          "enum": ["buyer", "consumer", "manufacturer", "seller" ]
-        }
       }
+    },
+
+    "referenceTypeEnum": {
+      "type": "string",
+      "enum": ["buyer", "consumer", "manufacturer", "seller" ]
     },
 
     "tax": {
