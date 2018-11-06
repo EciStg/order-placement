@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-11-06T22:21:00Z</td>
+<td class="org-left">2018-11-06T23:15:53Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -56,6 +56,12 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-example-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.json</td>
 <td class="org-left">valid</td>
 </tr>
@@ -74,7 +80,7 @@
 
 
 <tr>
-<td class="org-left">2018-11-06T22:21:00Z</td>
+<td class="org-left">2018-11-06T23:15:53Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -103,20 +109,20 @@ call with the required headers e.g.
 
 ![img](../images/order-class-diagram.puml.png)
 
--   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+-   **reference:** an identify function that relates an entity to an actor. [required] when describing the stock request and [required] when describing an item in the collection
 -   **name:** [optional] name of the stock request or stock item
 -   **description:** [optional] description of the stock request or stock item
 -   **remarks:** [optional] human to human communication
 -   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
 -   **buyer:** [optional] the person or organization inquiring about goods and services
--   **consumer:** [optional]the person or organization the buyer is acting for
--   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
+-   **consumer:** [optional] the person or organization the buyer is acting for
+-   **shipTo:** [required] the location of where purchases will be sent or services provided. also may include location contact information
 -   **when:** [optional] date and time when the request was placed
--   whenExepcted [optional] when the buyer expects the good or service to be delivered
+-   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered
 -   **make:** [optional] make of the good being ordered or serviced
 -   **model:** [optional] model of the good being ordered or serviced
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
--   **quantity:** the number of goods or services the buyer wishes to purchase
+-   **quantity:** [required] the number of goods or services the buyer wishes to purchase
 -   **unitMeasure:** [optional] each, box, etc.
 -   **currency:** [optional] describes the transactional currency
 -   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
@@ -125,8 +131,50 @@ call with the required headers e.g.
 
 ## Example
 
+Below is an example of a JSON order request and response. In the use cases section below, we break this
+down into smaller chunks.
 
-### TODO
+1.  Request
+
+        { "reference": { "referencesCount": 2,
+                         "references": [ {"code": "PO-2159403-2",
+                                          "type": "buyer" },
+                                         {"code": "PO-abc-q",
+                                          "type": "consumer" }]},
+
+          "buyer": { "reference": { "code": "buyer-abc",
+                                     "type": "seller" }},
+
+          "consumer": { "reference": { "code": "consumer-xyz",
+                                        "type": "seller" },
+                         "contract": { "code": "contract-789",
+                                        "type": "seller" }},
+
+          "shipTo": { "location": { "mtn": "Jane Doe",
+                                     "rcp": "ECi Solutions, STG",
+                                     "alt": "Suite #200",
+                                     "dal": "4626 N 300 W",
+                                     "city": "Provo",
+                                     "region": "UT",
+                                     "postalCode": "84604"},
+                       "email": "shipping-contact@example.com",
+                       "phone": "1-555-555-5555"},
+
+          "shippingCarrier": { "code": "shipper-123",
+                               "name": "usps-2day" },
+
+          "when": "2018-04-24T17:00:00.000Z",
+
+          "currency": { "code": "DKK",
+                        "name": "Danish krone",
+                        "number": 208,
+                        "precision": 18,
+                        "scale": 2},
+
+          "itemsCount": 1,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller"},
+                      "quantity": 24 }]}
 
 
 ## Use Cases
@@ -149,7 +197,7 @@ The buyer may populate and send information that will uniqely identify the shipp
     1.  JSON
 
             { "buyer": { "reference": { "code": "buyer-abc",
-                                         "type": "seller" }},
+                                        "type": "seller" }},
 
               "shipTo": { "location": { "mtn": "Jane Doe",
                                         "rcp": "ECi Solutions, STG",
@@ -165,7 +213,8 @@ The buyer may populate and send information that will uniqely identify the shipp
                                    "name": "usps-2day" },
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
-                                         "type": "seller" }}]}
+                                         "type": "seller"},
+                          "quantity": 24 }]}
 
     2.  XML
 

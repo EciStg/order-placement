@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-11-06T22:21:25Z</td>
+<td class="org-left">2018-11-06T23:13:32Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -333,7 +333,7 @@
 
 
 <tr>
-<td class="org-left">2018-11-06T22:21:25Z</td>
+<td class="org-left">2018-11-06T23:13:33Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -368,7 +368,7 @@ call with the required headers e.g.
 -   **consumer:** [optional]the person or organization the buyer is acting for
 -   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
 -   **when:** [optional] date and time when the request was placed
--   whenExepcted [optional] when the buyer expects the good or service to be delivered
+-   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered
 -   **make:** [optional] make of the good being ordered or serviced
 -   **model:** [optional] model of the good being ordered or serviced
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
@@ -410,6 +410,9 @@ down into smaller chunks.
                        "email": "shipping-contact@example.com",
                        "phone": "1-555-555-5555"},
 
+          "shippingCarrier": { "code": "shipper-123",
+                               "name": "usps-2day" },
+
           "when": "2018-04-24T17:00:00.000Z",
 
           "currency": { "code": "DKK",
@@ -418,7 +421,7 @@ down into smaller chunks.
                         "precision": 18,
                         "scale": 2},
 
-          "itemsCount": 2,
+          "itemsCount": 1,
           "items": [{ "reference": { "code": "abc-123",
                                      "type": "seller"},
                       "quantity": 24 }]}

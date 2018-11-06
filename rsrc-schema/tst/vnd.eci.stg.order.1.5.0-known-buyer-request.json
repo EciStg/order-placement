@@ -1,5 +1,5 @@
 { "buyer": { "reference": { "code": "buyer-abc",
-                             "type": "seller" }},
+                            "type": "seller" }},
 
   "shipTo": { "location": { "mtn": "Jane Doe",
                             "rcp": "ECi Solutions, STG",
@@ -15,4 +15,5 @@
                        "name": "usps-2day" },
   "itemsCount": 1,
   "items": [{ "reference": { "code": "abc-123",
-                             "type": "seller" }}]}
+                             "type": "seller"},
+              "quantity": 24 }]}
