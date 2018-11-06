@@ -6,6 +6,7 @@
 #+STARTUP: content
 
 * Order
+
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace
@@ -48,35 +49,172 @@ call with the required headers e.g.
 
 ** Use Cases
 
-*** Request
+*** TODO Provoide text and diagrams
 
-In this example a buyer is
+*** As a buyer known to the seller I would like to submit an order
 
-**** JSON
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json
-{}
+The buyer must populate and send information that will uniquely identify them to the seller. In the
+example below the seller's identity for the buyer is ~buyer-abc~.
+
+The buyer must populate and send information that will uniquely identify the shipping location.
+
+The buyer may populate and send information that will uniqely identify the shipping method / carrier.
+
+**** Request
+
+***** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.json
+  { "buyer": { "reference": { "code": "buyer-abc",
+                               "type": "seller" }},
+
+    "shipTo": { "location": { "mtn": "Jane Doe",
+                              "rcp": "ECi Solutions, STG",
+                              "alt": "Suite #200",
+                              "dal": "4626 N 300 W",
+                              "city": "Provo",
+                              "region": "UT",
+                              "postalCode": "84604"},
+                "email": "shipping-contact@example.com",
+                "phone": "1-555-555-5555"},
+
+    "shippingCarrier": { "code": "shipper-123",
+                         "name": "usps-2day" },
+    "itemsCount": 1,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" }}]}
 #+END_SRC
 
-**** XML
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml
-<?xml version='1.0' encoding='utf-8'?>
-<order/>
+***** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <order>
+    <buyer>
+      <reference>
+        <code>buyer-abc</code>
+        <type>seller</type>
+      </reference>
+    </buyer>
+
+    <shipTo>
+      <location>
+        <mtn>Jane Doe</mtn>
+        <rcp>ECi Solutions, STG</rcp>
+        <alt>Suite #200</alt>
+        <dal>4626 N 300 W</dal>
+        <city>Provo</city>
+        <region>UT</region>
+        <postalCode>84604</postalCode>
+      </location>
+      <email>shipping-contact@example.com</email>
+      <phone>1-555-555-5555></phone>
+    </shipTo>
+
+    <shippingCarrier>
+      <code>shipper-123</code>
+      <name>usps-2day</name>
+    </shippingCarrier>
+
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+      </item>
+    </items>
+  </order>
 #+END_SRC
 
-*** Response
+*** As a buyer I would to like specify the currency the cost should be expressed in
 
-The seller's response is intended to
+In the example below the buyer would like to see costs and other monetary values using Danish krone
 
-**** JSON
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json
-{}
+**** Request
+
+***** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.json
+  { "currency": { "code": "DKK",
+                  "name": "Danish krone",
+                  "number": 208,
+                  "precision": 18,
+                  "scale": 2},
+    "itemsCount": 1,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" }}]}
 #+END_SRC
 
-**** XML
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml
-<?xml version='1.0' encoding='utf-8'?>
-<order/>
+***** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <stock>
+    <currency>
+      <code>DKK</code>
+      <name>Danish krone</name>
+      <number>208</number>
+      <precision>18</precision>
+      <scale>2</scale>
+    </currency>
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+      </item>
+    </items>
+  </stock>
 #+END_SRC
+
+**** Response
+
+***** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.json
+  { "currency": { "code": "DKK",
+                  "name": "Danish krone",
+                  "number": 208,
+                  "precision": 18,
+                  "scale": 2},
+    "itemsCount": 1,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" },
+                "unitCost": 99.99}]}
+#+END_SRC
+
+***** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-response.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <stock>
+    <currency>
+      <code>DKK</code>
+      <name>Danish krone</name>
+      <number>208</number>
+      <precision>18</precision>
+      <scale>2</scale>
+    </currency>
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+        <unitCost>99.99</unitCost>
+      </item>
+    </items>
+  </stock>
+#+END_SRC
+
 
 ** Resource Schemas
 
@@ -259,14 +397,12 @@ No longer published
               "$ref": "#/definitions/reference"
             }
           }
-        },
-
-        "definitions": {
-          "referenceTypeEnum": {
-            "type": "string",
-            "enum": ["buyer", "consumer", "manufacturer", "seller" ]
-          }
         }
+      },
+
+      "referenceTypeEnum": {
+        "type": "string",
+        "enum": ["buyer", "consumer", "manufacturer", "seller" ]
       },
 
       "tax": {
