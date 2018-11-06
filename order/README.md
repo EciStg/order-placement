@@ -17,89 +17,65 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T23:16:22Z</td>
+<td class="org-left">2018-11-06T22:21:00Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">schema</td>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json</td>
-<td class="org-left">is</td>
-<td class="org-left">invalid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">error:</td>
-<td class="org-left">can't</td>
-<td class="org-left">resolve</td>
-<td class="org-left">reference</td>
-<td class="org-left">#/definitions/referenceTypeEnum</td>
-<td class="org-left">from</td>
-<td class="org-left">id</td>
-<td class="org-left">vnd.eci.stg.order.1.5.0.json#</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-29T23:16:22Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2018-11-06T22:21:00Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -125,8 +101,26 @@ call with the required headers e.g.
 
 ## Definition of Terms
 
+![img](../images/order-class-diagram.puml.png)
 
-### TODO
+-   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+-   **name:** [optional] name of the stock request or stock item
+-   **description:** [optional] description of the stock request or stock item
+-   **remarks:** [optional] human to human communication
+-   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
+-   **buyer:** [optional] the person or organization inquiring about goods and services
+-   **consumer:** [optional]the person or organization the buyer is acting for
+-   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
+-   **when:** [optional] date and time when the request was placed
+-   whenExepcted [optional] when the buyer expects the good or service to be delivered
+-   **make:** [optional] make of the good being ordered or serviced
+-   **model:** [optional] model of the good being ordered or serviced
+-   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
+-   **quantity:** the number of goods or services the buyer wishes to purchase
+-   **unitMeasure:** [optional] each, box, etc.
+-   **currency:** [optional] describes the transactional currency
+-   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
+-   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 
 
 ## Example
@@ -138,32 +132,161 @@ call with the required headers e.g.
 ## Use Cases
 
 
-### Request
-
-In this example a buyer is
-
-1.  JSON
-
-        {}
-
-2.  XML
-
-        <?xml version='1.0' encoding='utf-8'?>
-        <order/>
+### TODO Provoide text and diagrams
 
 
-### Response
+### As a buyer known to the seller I would like to submit an order
 
-The seller's response is intended to
+The buyer must populate and send information that will uniquely identify them to the seller. In the
+example below the seller's identity for the buyer is `buyer-abc`.
 
-1.  JSON
+The buyer must populate and send information that will uniquely identify the shipping location.
 
-        {}
+The buyer may populate and send information that will uniqely identify the shipping method / carrier.
 
-2.  XML
+1.  Request
 
-        <?xml version='1.0' encoding='utf-8'?>
-        <order/>
+    1.  JSON
+
+            { "buyer": { "reference": { "code": "buyer-abc",
+                                         "type": "seller" }},
+
+              "shipTo": { "location": { "mtn": "Jane Doe",
+                                        "rcp": "ECi Solutions, STG",
+                                        "alt": "Suite #200",
+                                        "dal": "4626 N 300 W",
+                                        "city": "Provo",
+                                        "region": "UT",
+                                        "postalCode": "84604"},
+                          "email": "shipping-contact@example.com",
+                          "phone": "1-555-555-5555"},
+
+              "shippingCarrier": { "code": "shipper-123",
+                                   "name": "usps-2day" },
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <order>
+              <buyer>
+                <reference>
+                  <code>buyer-abc</code>
+                  <type>seller</type>
+                </reference>
+              </buyer>
+
+              <shipTo>
+                <location>
+                  <mtn>Jane Doe</mtn>
+                  <rcp>ECi Solutions, STG</rcp>
+                  <alt>Suite #200</alt>
+                  <dal>4626 N 300 W</dal>
+                  <city>Provo</city>
+                  <region>UT</region>
+                  <postalCode>84604</postalCode>
+                </location>
+                <email>shipping-contact@example.com</email>
+                <phone>1-555-555-5555></phone>
+              </shipTo>
+
+              <shippingCarrier>
+                <code>shipper-123</code>
+                <name>usps-2day</name>
+              </shippingCarrier>
+
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </order>
+
+
+### As a buyer I would to like specify the currency the cost should be expressed in
+
+In the example below the buyer would like to see costs and other monetary values using Danish krone
+
+1.  Request
+
+    1.  JSON
+
+            { "currency": { "code": "DKK",
+                            "name": "Danish krone",
+                            "number": 208,
+                            "precision": 18,
+                            "scale": 2},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <currency>
+                <code>DKK</code>
+                <name>Danish krone</name>
+                <number>208</number>
+                <precision>18</precision>
+                <scale>2</scale>
+              </currency>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </stock>
+
+2.  Response
+
+    1.  JSON
+
+            { "currency": { "code": "DKK",
+                            "name": "Danish krone",
+                            "number": 208,
+                            "precision": 18,
+                            "scale": 2},
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "unitCost": 99.99}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <currency>
+                <code>DKK</code>
+                <name>Danish krone</name>
+                <number>208</number>
+                <precision>18</precision>
+                <scale>2</scale>
+              </currency>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <unitCost>99.99</unitCost>
+                </item>
+              </items>
+            </stock>
 
 
 ## Resource Schemas
@@ -348,14 +471,12 @@ No longer published
                     "$ref": "#/definitions/reference"
                   }
                 }
-              },
-
-              "definitions": {
-                "referenceTypeEnum": {
-                  "type": "string",
-                  "enum": ["buyer", "consumer", "manufacturer", "seller" ]
-                }
               }
+            },
+
+            "referenceTypeEnum": {
+              "type": "string",
+              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
             },
 
             "tax": {

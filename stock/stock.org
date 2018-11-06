@@ -7,6 +7,15 @@
 
 * Stock
 
+#+BEGIN_EXAMPLE
+Accept: application/json
+Accept: application/xml
+Accept: application/vnd.eci.stg.stock.json
+Accept: application/vnd.eci.stg.stock.xml
+Accept: application/vnd.eci.stg.stock-1.5.0.json
+Accept: application/vnd.eci.stg.stock-1.5.0.xml
+#+END_EXAMPLE
+
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace
@@ -18,7 +27,6 @@
 
 ** Overview
 
-*** TODO provide overview text, high-level use case diagram
 
 #+BEGIN_SRC plantuml :file ../images/stock-sequence.puml.png :exports results
 @startuml stock-sequence.png
@@ -41,7 +49,59 @@ call with the required headers e.g.
 
 ** Definition of Terms
 
-*** TODO
+#+BEGIN_SRC plantuml :file ../images/stock-class-diagram.puml.png :exports results
+  @startuml
+  hide circle
+
+  interface stock {
+  .. has-a-reference ..
+  {field} + reference : reference
+  .. is-a code ..
+  {field} + description : string
+  {field} + name : string
+  {field} + remarks : string
+  .. is-a-item ..
+  {field} + location : location
+  {field} + buyer : buyer
+  {field} + consumer : consumer
+  {field} + seller : seller
+  {field} + billto : billto
+  {field} + shippingCarrier : shippingCarrier
+  {field} + when : datetime
+  {field} + whenExpected : datetime
+  {field} + make : string
+  {field} + model : string
+  {field} + serialNumber : string
+  {field} + quantity : float
+  {field} + unitCost : decimal
+  {field} + unitMeasure : unitMeasure
+  {field} + total : decimal
+  {field} + currency : currency
+  .. is/has-a collection ..
+  {field} + itemsCount : int
+  {field} + items : [Probe]
+  }
+  @enduml
+#+END_SRC
+
+- reference :: an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+- name :: [optional] name of the stock request or stock item
+- description :: [optional] description of the stock request or stock item
+- remarks :: [optional] human to human communication
+- location :: [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
+- buyer :: [optional] the person or organization inquiring about goods and services
+- consumer :: [optional]the person or organization the buyer is acting for
+- shipTo :: [optional] the location of where purchases will be sent or services provided. also may include location contact information
+- when :: [optional] date and time when the request was placed
+- whenExepcted [optional] when the buyer expects the good or service to be delivered
+- make :: [optional] make of the good being ordered or serviced
+- model :: [optional] model of the good being ordered or serviced
+- serialNumber :: [optional] manufacturer serial number of the good being ordered for, or serviced
+- quantity :: the number of goods or services the buyer wishes to purchase
+- unitMeasure :: [optional] each, box, etc.
+- currency :: [optional] describes the transactional currency
+- itemsCount :: [optional] if there is only one item in the request. [required] if there is more than one item in the request
+- items :: the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 
 ** Example
 
@@ -51,7 +111,7 @@ down into smaller chunks.
 **** Request
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json
-  { "reference": { "referencesCount": 3,
+  { "reference": { "referencesCount": 2,
                    "references": [ {"code": "PO-2159403-2",
                                     "type": "buyer" },
                                    {"code": "PO-abc-q",
@@ -86,10 +146,7 @@ down into smaller chunks.
     "itemsCount": 2,
     "items": [{ "reference": { "code": "abc-123",
                                "type": "seller"},
-                "quantity": 24,
-                "location": { "name": "Main Warehouse",
-                              "city": "Dallas",
-                              "region": "TX" }}]}
+                "quantity": 24 }]}
 #+END_SRC
 
 **** Response

@@ -2,6 +2,13 @@
 
 # Stock
 
+    Accept: application/json
+    Accept: application/xml
+    Accept: application/vnd.eci.stg.stock.json
+    Accept: application/vnd.eci.stg.stock.xml
+    Accept: application/vnd.eci.stg.stock-1.5.0.json
+    Accept: application/vnd.eci.stg.stock-1.5.0.xml
+
 
 ## Test Results
 
@@ -20,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T23:26:52Z</td>
+<td class="org-left">2018-11-06T22:21:25Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -326,7 +333,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T23:26:53Z</td>
+<td class="org-left">2018-11-06T22:21:25Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -334,9 +341,6 @@
 
 
 ## Overview
-
-
-### TODO provide overview text, high-level use case diagram
 
 ![img](../images/stock-sequence.puml.png)
 
@@ -353,8 +357,26 @@ call with the required headers e.g.
 
 ## Definition of Terms
 
+![img](../images/stock-class-diagram.puml.png)
 
-### TODO
+-   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+-   **name:** [optional] name of the stock request or stock item
+-   **description:** [optional] description of the stock request or stock item
+-   **remarks:** [optional] human to human communication
+-   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
+-   **buyer:** [optional] the person or organization inquiring about goods and services
+-   **consumer:** [optional]the person or organization the buyer is acting for
+-   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
+-   **when:** [optional] date and time when the request was placed
+-   whenExepcted [optional] when the buyer expects the good or service to be delivered
+-   **make:** [optional] make of the good being ordered or serviced
+-   **model:** [optional] model of the good being ordered or serviced
+-   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
+-   **quantity:** the number of goods or services the buyer wishes to purchase
+-   **unitMeasure:** [optional] each, box, etc.
+-   **currency:** [optional] describes the transactional currency
+-   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
+-   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 
 
 ## Example
@@ -364,7 +386,7 @@ down into smaller chunks.
 
 1.  Request
 
-        { "reference": { "referencesCount": 3,
+        { "reference": { "referencesCount": 2,
                          "references": [ {"code": "PO-2159403-2",
                                           "type": "buyer" },
                                          {"code": "PO-abc-q",
@@ -399,10 +421,7 @@ down into smaller chunks.
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
                                      "type": "seller"},
-                      "quantity": 24,
-                      "location": { "name": "Main Warehouse",
-                                    "city": "Dallas",
-                                    "region": "TX" }}]}
+                      "quantity": 24 }]}
 
 2.  Response
 
