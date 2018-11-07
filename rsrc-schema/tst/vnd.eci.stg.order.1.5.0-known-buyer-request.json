@@ -1,4 +1,10 @@
-{ "buyer": { "reference": { "code": "buyer-abc",
+{ "reference": { "referencesCount": 2,
+                 "references": [ {"code": "PO-2159403-2",
+                                  "type": "buyer" },
+                                 {"code": "PO-abc-q",
+                                  "type": "consumer" }]},
+
+  "buyer": { "reference": { "code": "buyer-abc",
                             "type": "seller" }},
 
   "shipTo": { "location": { "mtn": "Jane Doe",
@@ -11,9 +17,8 @@
               "email": "shipping-contact@example.com",
               "phone": "1-555-555-5555"},
 
-  "shippingCarrier": { "code": "shipper-123",
-                       "name": "usps-2day" },
   "itemsCount": 1,
   "items": [{ "reference": { "code": "abc-123",
                              "type": "seller"},
-              "quantity": 24 }]}
+              "quantity": 24,
+              "unitCost": 24.95 }]}

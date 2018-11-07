@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-11-06T23:13:32Z</td>
+<td class="org-left">2018-11-07T00:31:27Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -333,7 +333,7 @@
 
 
 <tr>
-<td class="org-left">2018-11-06T23:13:33Z</td>
+<td class="org-left">2018-11-07T00:31:27Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -374,6 +374,7 @@ call with the required headers e.g.
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
 -   **quantity:** the number of goods or services the buyer wishes to purchase
 -   **unitMeasure:** [optional] each, box, etc.
+-   **unitCost:** [optiona] amount of currency required to purchase the good or service
 -   **currency:** [optional] describes the transactional currency
 -   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
 -   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request

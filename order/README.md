@@ -7,7 +7,7 @@
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.xml 2>&1
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order*.json" 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order.1.5.0*.json" 2>&1
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-11-06T23:15:53Z</td>
+<td class="org-left">2018-11-07T00:36:15Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -28,30 +28,6 @@
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.xml</td>
 <td class="org-left">validates</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.xml</td>
-<td class="org-left">validates</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.xml</td>
-<td class="org-left">validates</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-request.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0-response.json</td>
-<td class="org-left">valid</td>
 </tr>
 
 
@@ -68,19 +44,7 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-request.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-response.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">2018-11-06T23:15:53Z</td>
+<td class="org-left">2018-11-07T00:36:16Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -114,16 +78,20 @@ call with the required headers e.g.
 -   **description:** [optional] description of the stock request or stock item
 -   **remarks:** [optional] human to human communication
 -   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
--   **buyer:** [optional] the person or organization inquiring about goods and services
+-   **buyer:** [required] when describing the stock requrest. the person or organization inquiring about goods and services
 -   **consumer:** [optional] the person or organization the buyer is acting for
--   **shipTo:** [required] the location of where purchases will be sent or services provided. also may include location contact information
+-   **billTo:** [optional] the person or organization the paying for or financing the goods and sevices
+-   **shipTo:** the location of where purchases will be sent or services provided. also may include location contact information. [required] when describing the stock request.
+-   **shipppingCarrier:** [optional] name of the carrier and method or SLA.
 -   **when:** [optional] date and time when the request was placed
 -   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered
 -   **make:** [optional] make of the good being ordered or serviced
 -   **model:** [optional] model of the good being ordered or serviced
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
--   **quantity:** [required] the number of goods or services the buyer wishes to purchase
+-   **quantity:** [required] required when describing a good or service. the number of goods or services the buyer wishes to purchase
+-   **unitCost:** [required] required when describing a good or server. the amount of currency required to purchase the good or service
 -   **unitMeasure:** [optional] each, box, etc.
+-   **total:** [optional] financial details of the transaction
 -   **currency:** [optional] describes the transactional currency
 -   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
 -   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
@@ -196,7 +164,13 @@ The buyer may populate and send information that will uniqely identify the shipp
 
     1.  JSON
 
-            { "buyer": { "reference": { "code": "buyer-abc",
+            { "reference": { "referencesCount": 2,
+                             "references": [ {"code": "PO-2159403-2",
+                                              "type": "buyer" },
+                                             {"code": "PO-abc-q",
+                                              "type": "consumer" }]},
+
+              "buyer": { "reference": { "code": "buyer-abc",
                                         "type": "seller" }},
 
               "shipTo": { "location": { "mtn": "Jane Doe",
@@ -209,18 +183,31 @@ The buyer may populate and send information that will uniqely identify the shipp
                           "email": "shipping-contact@example.com",
                           "phone": "1-555-555-5555"},
 
-              "shippingCarrier": { "code": "shipper-123",
-                                   "name": "usps-2day" },
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller"},
-                          "quantity": 24 }]}
+                          "quantity": 24,
+                          "unitCost": 24.95 }]}
 
     2.  XML
 
             <?xml version='1.0' encoding='utf-8'?>
 
             <order>
+              <reference>
+                <referencesCount>2</referencesCount>
+                <references>
+                  <reference>
+                    <code>PO-2159403-2</code>
+                    <type>buyer</type>
+                  </reference>
+                  <reference>
+                    <code>PO-abc-q</code>
+                    <type>consumer</type>
+                  </reference>
+                </references>
+              </reference>
+
               <buyer>
                 <reference>
                   <code>buyer-abc</code>
@@ -242,11 +229,6 @@ The buyer may populate and send information that will uniqely identify the shipp
                 <phone>1-555-555-5555></phone>
               </shipTo>
 
-              <shippingCarrier>
-                <code>shipper-123</code>
-                <name>usps-2day</name>
-              </shippingCarrier>
-
               <itemsCount>1</itemsCount>
               <items>
                 <item>
@@ -254,6 +236,8 @@ The buyer may populate and send information that will uniqely identify the shipp
                     <code>abc-123</code>
                     <type>seller</type>
                   </reference>
+                  <quantity>24</quantity>
+                  <unitCost>24.95</unitCost>
                 </item>
               </items>
             </order>
@@ -267,20 +251,75 @@ In the example below the buyer would like to see costs and other monetary values
 
     1.  JSON
 
-            { "currency": { "code": "DKK",
+            { "reference": { "referencesCount": 2,
+                             "references": [ {"code": "PO-2159403-2",
+                                              "type": "buyer" },
+                                             {"code": "PO-abc-q",
+                                              "type": "consumer" }]},
+
+              "buyer": { "reference": { "code": "buyer-abc",
+                                        "type": "seller" }},
+
+              "shipTo": { "location": { "mtn": "Jane Doe",
+                                        "rcp": "ECi Solutions, STG",
+                                        "alt": "Suite #200",
+                                        "dal": "4626 N 300 W",
+                                        "city": "Provo",
+                                        "region": "UT",
+                                        "postalCode": "84604"},
+                          "email": "shipping-contact@example.com",
+                          "phone": "1-555-555-5555"},
+
+              "currency": { "code": "DKK",
                             "name": "Danish krone",
                             "number": 208,
                             "precision": 18,
                             "scale": 2},
+
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
-                                         "type": "seller" }}]}
+                                         "type": "seller"},
+                          "quantity": 24,
+                          "unitCost": 24.95 }]}
 
     2.  XML
 
-            <?xml version='1.0' encoding='utf-8'?>
+            <order>
+              <reference>
+                <referencesCount>2</referencesCount>
+                <references>
+                  <reference>
+                    <code>PO-2159403-2</code>
+                    <type>buyer</type>
+                  </reference>
+                  <reference>
+                    <code>PO-abc-q</code>
+                    <type>consumer</type>
+                  </reference>
+                </references>
+              </reference>
 
-            <stock>
+              <buyer>
+                <reference>
+                  <code>buyer-abc</code>
+                  <type>seller</type>
+                </reference>
+              </buyer>
+
+              <shipTo>
+                <location>
+                  <mtn>Jane Doe</mtn>
+                  <rcp>ECi Solutions, STG</rcp>
+                  <alt>Suite #200</alt>
+                  <dal>4626 N 300 W</dal>
+                  <city>Provo</city>
+                  <region>UT</region>
+                  <postalCode>84604</postalCode>
+                </location>
+                <email>shipping-contact@example.com</email>
+                <phone>1-555-555-5555></phone>
+              </shipTo>
+
               <currency>
                 <code>DKK</code>
                 <name>Danish krone</name>
@@ -288,6 +327,7 @@ In the example below the buyer would like to see costs and other monetary values
                 <precision>18</precision>
                 <scale>2</scale>
               </currency>
+
               <itemsCount>1</itemsCount>
               <items>
                 <item>
@@ -295,47 +335,11 @@ In the example below the buyer would like to see costs and other monetary values
                     <code>abc-123</code>
                     <type>seller</type>
                   </reference>
+                  <quantity>24</quantity>
+                  <unitCost>24.95</unitCost>
                 </item>
               </items>
-            </stock>
-
-2.  Response
-
-    1.  JSON
-
-            { "currency": { "code": "DKK",
-                            "name": "Danish krone",
-                            "number": 208,
-                            "precision": 18,
-                            "scale": 2},
-              "itemsCount": 1,
-              "items": [{ "reference": { "code": "abc-123",
-                                         "type": "seller" },
-                          "unitCost": 99.99}]}
-
-    2.  XML
-
-            <?xml version='1.0' encoding='utf-8'?>
-
-            <stock>
-              <currency>
-                <code>DKK</code>
-                <name>Danish krone</name>
-                <number>208</number>
-                <precision>18</precision>
-                <scale>2</scale>
-              </currency>
-              <itemsCount>1</itemsCount>
-              <items>
-                <item>
-                  <reference>
-                    <code>abc-123</code>
-                    <type>seller</type>
-                  </reference>
-                  <unitCost>99.99</unitCost>
-                </item>
-              </items>
-            </stock>
+            </order>
 
 
 ## Resource Schemas
@@ -357,6 +361,7 @@ No longer published
           "description": "",
           "type": "object",
           "additionalProperties": false,
+          "required": ["reference"],
           "properties": {
 
             "reference": { "$ref": "#/definitions/reference" },
@@ -1188,7 +1193,7 @@ No longer published
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'       type='ReferenceType'       minOccurs='1' maxOccurs='1' />
               <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
               <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
@@ -1245,8 +1250,8 @@ No longer published
               <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
 
-              <xs:element name='refsCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='refs'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='referencesCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='references'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 

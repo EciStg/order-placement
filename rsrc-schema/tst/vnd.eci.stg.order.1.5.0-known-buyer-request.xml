@@ -1,6 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <order>
+  <reference>
+    <referencesCount>2</referencesCount>
+    <references>
+      <reference>
+        <code>PO-2159403-2</code>
+        <type>buyer</type>
+      </reference>
+      <reference>
+        <code>PO-abc-q</code>
+        <type>consumer</type>
+      </reference>
+    </references>
+  </reference>
+
   <buyer>
     <reference>
       <code>buyer-abc</code>
@@ -22,11 +36,6 @@
     <phone>1-555-555-5555></phone>
   </shipTo>
 
-  <shippingCarrier>
-    <code>shipper-123</code>
-    <name>usps-2day</name>
-  </shippingCarrier>
-
   <itemsCount>1</itemsCount>
   <items>
     <item>
@@ -34,6 +43,8 @@
         <code>abc-123</code>
         <type>seller</type>
       </reference>
+      <quantity>24</quantity>
+      <unitCost>24.95</unitCost>
     </item>
   </items>
 </order>

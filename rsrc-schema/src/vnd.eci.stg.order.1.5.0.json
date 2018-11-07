@@ -5,6 +5,7 @@
   "description": "",
   "type": "object",
   "additionalProperties": false,
+  "required": ["reference"],
   "properties": {
 
     "reference": { "$ref": "#/definitions/reference" },
