@@ -859,6 +859,144 @@ In this example, the seller is providing the city and state ~Dallas, TX~
     </items>
   </stock>
 #+END_SRC
+*** As a buyer I would like to have an order delivered to a specific location
+
+**** Request
+
+In this example the buyer would like to know what the cost will be to have the order delivered to the
+following address:
+
+#+BEGIN_EXAMPLE
+Jane Doe
+ECi Solutions, STG
+Suite #200
+4626 N 300 W
+Provo, UT 84606
+#+END_EXAMPLE
+
+***** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json
+  { "shipTo": { "location": { "mtn": "Jane Doe",
+                               "rcp": "ECi Solutions, STG",
+                               "alt": "Suite #200",
+                               "dal": "4626 N 300 W",
+                               "city": "Provo",
+                               "region": "UT",
+                               "postalCode": "84604"},
+                 "email": "shipping-contact@example.com",
+                 "phone": "1-555-555-5555"},
+
+    "shippingCarrier": { "code": "shipper-123",
+                         "name": "usps-2day" },
+
+    "itemsCount": 1,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" }}]}
+#+END_SRC
+
+***** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <stock>
+    <shipTo>
+      <location>
+        <mtn>Jane Doe</mtn>
+        <rcp>ECi Solutions, STG</rcp>
+        <alt>Suite #200</alt>
+        <dal>4626 N 300 W</dal>
+        <city>Provo</city>
+        <region>UT</region>
+        <postalCode>84604</postalCode>
+      </location>
+      <email>shipping-contact@example.com</email>
+      <phone>1-555-555-5555></phone>
+    </shipTo>
+    <shippingCarrier>
+      <code>shipper-123</code>
+      <name>usps-2day</name>
+    </shippingCarrier>
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+      </item>
+    </items>
+  </stock>
+#+END_SRC
+
+**** Response
+
+The seller's response is intended to inform the buyer that shipping the order will cost /199.99$USD/.
+
+***** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json
+  { "shipTo": { "location": { "mtn": "Jane Doe",
+                               "rcp": "ECi Solutions, STG",
+                               "alt": "Suite #200",
+                               "dal": "4626 N 300 W",
+                               "city": "Provo",
+                               "region": "UT",
+                               "postalCode": "84604"},
+                 "email": "shipping-contact@example.com",
+                 "phone": "1-555-555-5555"},
+
+    "shippingCarrier": { "code": "shipper-123",
+                         "name": "usps-2day" },
+
+    "total": { "freightAmount": 199.99 },
+
+    "itemsCount": 1,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" },
+                "unitCost": 99.99}]}
+#+END_SRC
+
+***** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml
+  <?xml version='1.0' encoding='utf-8'?>
+
+  <stock>
+    <shipTo>
+      <location>
+        <mtn>Jane Doe</mtn>
+        <rcp>ECi Solutions, STG</rcp>
+        <alt>Suite #200</alt>
+        <dal>4626 N 300 W</dal>
+        <city>Provo</city>
+        <region>UT</region>
+        <postalCode>84604</postalCode>
+      </location>
+      <email>shipping-contact@example.com</email>
+      <phone>1-555-555-5555></phone>
+    </shipTo>
+    <shippingCarrier>
+      <code>shipper-123</code>
+      <name>usps-2day</name>
+    </shippingCarrier>
+    <total>
+      <freightAmount>199.99</freightAmount>
+    </total>
+    <itemsCount>1</itemsCount>
+    <items>
+      <item>
+        <reference>
+          <code>abc-123</code>
+          <type>seller</type>
+        </reference>
+        <unitCost>99.99</unitCost>
+      </item>
+    </items>
+  </stock>
+#+END_SRC
+
 *** As a buyer I would like to know the earliest date the order could be received
 
 **** Request
@@ -1000,144 +1138,6 @@ In this example the seller can provide item ~abc-123~ on ~24 April~ and provide 
         </item>
       </items>
     </stock>
-#+END_SRC
-
-*** As a buyer I would like to have an order delivered to a specific location
-
-**** Request
-
-In this example the buyer would like to know what the cost will be to have the order delivered to the
-following address:
-
-#+BEGIN_EXAMPLE
-Jane Doe
-ECi Solutions, STG
-Suite #200
-4626 N 300 W
-Provo, UT 84606
-#+END_EXAMPLE
-
-***** JSON
-
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json
-  { "shipTo": { "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
-                               "alt": "Suite #200",
-                               "dal": "4626 N 300 W",
-                               "city": "Provo",
-                               "region": "UT",
-                               "postalCode": "84604"},
-                 "email": "shipping-contact@example.com",
-                 "phone": "1-555-555-5555"},
-
-    "shippingCarrier": { "code": "shipper-123",
-                         "name": "usps-2day" },
-
-    "itemsCount": 1,
-    "items": [{ "reference": { "code": "abc-123",
-                               "type": "seller" }}]}
-#+END_SRC
-
-***** XML
-
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.xml
-  <?xml version='1.0' encoding='utf-8'?>
-
-  <stock>
-    <shipTo>
-      <location>
-        <mtn>Jane Doe</mtn>
-        <rcp>ECi Solutions, STG</rcp>
-        <alt>Suite #200</alt>
-        <dal>4626 N 300 W</dal>
-        <city>Provo</city>
-        <region>UT</region>
-        <postalCode>84604</postalCode>
-      </location>
-      <email>shipping-contact@example.com</email>
-      <phone>1-555-555-5555></phone>
-    </shipTo>
-    <shippingCarrier>
-      <code>shipper-123</code>
-      <name>usps-2day</name>
-    </shippingCarrier>
-    <itemsCount>1</itemsCount>
-    <items>
-      <item>
-        <reference>
-          <code>abc-123</code>
-          <type>seller</type>
-        </reference>
-      </item>
-    </items>
-  </stock>
-#+END_SRC
-
-**** Response
-
-The seller's response is intended to inform the buyer that shipping the order will cost /199.99$USD/.
-
-***** JSON
-
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json
-  { "shipTo": { "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
-                               "alt": "Suite #200",
-                               "dal": "4626 N 300 W",
-                               "city": "Provo",
-                               "region": "UT",
-                               "postalCode": "84604"},
-                 "email": "shipping-contact@example.com",
-                 "phone": "1-555-555-5555"},
-
-    "shippingCarrier": { "code": "shipper-123",
-                         "name": "usps-2day" },
-
-    "total": { "freightAmount": 199.99 },
-
-    "itemsCount": 1,
-    "items": [{ "reference": { "code": "abc-123",
-                               "type": "seller" },
-                "unitCost": 99.99}]}
-#+END_SRC
-
-***** XML
-
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.xml
-  <?xml version='1.0' encoding='utf-8'?>
-
-  <stock>
-    <shipTo>
-      <location>
-        <mtn>Jane Doe</mtn>
-        <rcp>ECi Solutions, STG</rcp>
-        <alt>Suite #200</alt>
-        <dal>4626 N 300 W</dal>
-        <city>Provo</city>
-        <region>UT</region>
-        <postalCode>84604</postalCode>
-      </location>
-      <email>shipping-contact@example.com</email>
-      <phone>1-555-555-5555></phone>
-    </shipTo>
-    <shippingCarrier>
-      <code>shipper-123</code>
-      <name>usps-2day</name>
-    </shippingCarrier>
-    <total>
-      <freightAmount>199.99</freightAmount>
-    </total>
-    <itemsCount>1</itemsCount>
-    <items>
-      <item>
-        <reference>
-          <code>abc-123</code>
-          <type>seller</type>
-        </reference>
-        <unitCost>99.99</unitCost>
-      </item>
-    </items>
-  </stock>
 #+END_SRC
 
 *** As a buyer I would like to see the total amount of any promotional or special discounts

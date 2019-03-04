@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-03-04T23:11:08Z</td>
+<td class="org-left">2019-03-04T23:14:59Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-03-04T23:11:08Z</td>
+<td class="org-left">2019-03-04T23:14:59Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1089,134 +1089,6 @@ support time to delivery with an estimated cost for shipping.
             </stock>
 
 
-### As a buyer I would like to know the earliest date the order could be received
-
-1.  Request
-
-    In this example the buyer is providing the date of the stock request `24 April 2018` and the date
-    when they would expect the order to be delivered `26 April 2018`.
-
-    Buyers will not always provide the expected date in the request. In these cases the seller can decide
-    if they want to always provide the expected delivery date or only when explicitly asked.
-
-    1.  JSON
-
-            { "when": "2018-04-24T17:00:00.000Z",
-              "whenExpected": "2018-04-26T17:00:00.000Z",
-              "itemsCount": 1,
-              "items": [{ "reference": { "code": "abc-123" }}]}
-
-    2.  XML
-
-            <?xml version='1.0' encoding='utf-8'?>
-
-            <stock>
-              <when>2018-04-24T17:00:00.000Z</when>
-              <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
-              <itemsCount>1</itemsCount>
-              <items>
-                <item>
-                  <reference>
-                    <code>abc-123</code>
-                    <type>seller</type>
-                  </reference>
-                </item>
-              </items>
-            </stock>
-
-2.  Response
-
-    1.  The seller can provide the expected date for the entire order
-
-        In this example the seller is providing the date of the stock response `24 April 2018` and the date
-        when the order could be delivered `26 April 2018`.
-
-        1.  JSON
-
-                { "when": "2018-04-24T17:00:00.000Z",
-                  "whenExpected": "2018-04-26T17:00:00.000Z",
-                  "itemsCount": 1,
-                  "items": [ { "reference": { "code": "abc-123" }}]}
-
-        2.  XML
-
-                <stock>
-                  <when>2018-04-24T17:00:00.000Z</when>
-                  <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
-                  <itemsCount>1</itemsCount>
-                  <items>
-                    <item>
-                      <reference>
-                        <code>abc-123</code>
-                        <type>seller</type>
-                      </reference>
-                    </item>
-                  </items>
-                </stock>
-
-    2.  The seller can provide the expected dates for individual line items
-
-        In this example the seller can provide item `abc-123` on `24 April` and provide item `def-456` on `30 April`.
-
-        1.  JSON
-
-                { "itemsCount": 2,
-                  "items": [ { "reference": { "code": "abc-123" },
-                               "when": "2018-04-24T17:00:00.000Z",
-                               "whenExpected": "2018-04-26T17:00:00.000Z"},
-                             { "reference": { "code": "def-456" },
-                               "when": "2018-04-24T17:00:00.000Z",
-                               "whenExpected": "2018-04-30T17:00:00.000Z"}]}
-
-        2.  XML
-
-                <stock>
-                  <itemsCount>2</itemsCount>
-                  <items>
-                    <item>
-                      <reference>
-                        <code>abc-123</code>
-                        <type>seller</type>
-                      </reference>
-                      <when>2018-04-24T17:00:00.000Z</when>
-                      <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
-                    </item>
-                    <item>
-                      <reference>
-                        <code>def-456</code>
-                        <type>seller</type>
-                      </reference>
-                      <when>2018-04-24T17:00:00.000Z</when>
-                      <whenExpected>2018-04-30T17:00:00.000Z</whenExpected>
-                    </item>
-                  </items>
-                </stock>
-
-    3.  When the seller does not support this feature omit the property called `whenExpected` in the response
-
-        1.  JSON
-
-                { "when": "2018-04-24T17:00:00.000Z",
-                  "itemsCount": 1,
-                  "items": [{ "reference": { "code": "abc-123",
-                                             "type": "seller" }}]}
-
-        2.  XML
-
-                <stock>
-                  <when>2018-04-24T17:00:00.000Z</when>
-                  <itemsCount>1</itemsCount>
-                  <items>
-                    <item>
-                      <reference>
-                        <code>abc-123</code>
-                        <type>seller</type>
-                      </reference>
-                    </item>
-                  </items>
-                </stock>
-
-
 ### As a buyer I would like to have an order delivered to a specific location
 
 1.  Request
@@ -1344,6 +1216,134 @@ support time to delivery with an estimated cost for shipping.
                 </item>
               </items>
             </stock>
+
+
+### As a buyer I would like to know the earliest date the order could be received
+
+1.  Request
+
+    In this example the buyer is providing the date of the stock request `24 April 2018` and the date
+    when they would expect the order to be delivered `26 April 2018`.
+
+    Buyers will not always provide the expected date in the request. In these cases the seller can decide
+    if they want to always provide the expected delivery date or only when explicitly asked.
+
+    1.  JSON
+
+            { "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:00:00.000Z",
+              "itemsCount": 1,
+              "items": [{ "reference": { "code": "abc-123" }}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <when>2018-04-24T17:00:00.000Z</when>
+              <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                </item>
+              </items>
+            </stock>
+
+2.  Response
+
+    1.  The seller can provide the expected date for the entire order
+
+        In this example the seller is providing the date of the stock response `24 April 2018` and the date
+        when the order could be delivered `26 April 2018`.
+
+        1.  JSON
+
+                { "when": "2018-04-24T17:00:00.000Z",
+                  "whenExpected": "2018-04-26T17:00:00.000Z",
+                  "itemsCount": 1,
+                  "items": [ { "reference": { "code": "abc-123" }}]}
+
+        2.  XML
+
+                <stock>
+                  <when>2018-04-24T17:00:00.000Z</when>
+                  <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </stock>
+
+    2.  The seller can provide the expected dates for individual line items
+
+        In this example the seller can provide item `abc-123` on `24 April` and provide item `def-456` on `30 April`.
+
+        1.  JSON
+
+                { "itemsCount": 2,
+                  "items": [ { "reference": { "code": "abc-123" },
+                               "when": "2018-04-24T17:00:00.000Z",
+                               "whenExpected": "2018-04-26T17:00:00.000Z"},
+                             { "reference": { "code": "def-456" },
+                               "when": "2018-04-24T17:00:00.000Z",
+                               "whenExpected": "2018-04-30T17:00:00.000Z"}]}
+
+        2.  XML
+
+                <stock>
+                  <itemsCount>2</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                      <when>2018-04-24T17:00:00.000Z</when>
+                      <whenExpected>2018-04-26T17:00:00.000Z</whenExpected>
+                    </item>
+                    <item>
+                      <reference>
+                        <code>def-456</code>
+                        <type>seller</type>
+                      </reference>
+                      <when>2018-04-24T17:00:00.000Z</when>
+                      <whenExpected>2018-04-30T17:00:00.000Z</whenExpected>
+                    </item>
+                  </items>
+                </stock>
+
+    3.  When the seller does not support this feature omit the property called `whenExpected` in the response
+
+        1.  JSON
+
+                { "when": "2018-04-24T17:00:00.000Z",
+                  "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" }}]}
+
+        2.  XML
+
+                <stock>
+                  <when>2018-04-24T17:00:00.000Z</when>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </stock>
 
 
 ### As a buyer I would like to see the total amount of any promotional or special discounts
