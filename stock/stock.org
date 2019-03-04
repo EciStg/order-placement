@@ -1002,7 +1002,7 @@ In this example the seller can provide item ~abc-123~ on ~24 April~ and provide 
     </stock>
 #+END_SRC
 
-*** As a buyer I would like to know the cost to have an order delivered to a specific location
+*** As a buyer I would like to have an order delivered to a specific location
 
 **** Request
 

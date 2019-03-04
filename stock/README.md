@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-03-04T22:52:10Z</td>
+<td class="org-left">2019-03-04T23:11:08Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-03-04T22:52:10Z</td>
+<td class="org-left">2019-03-04T23:11:08Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1217,7 +1217,7 @@ support time to delivery with an estimated cost for shipping.
                 </stock>
 
 
-### As a buyer I would like to know the cost to have an order delivered to a specific location
+### As a buyer I would like to have an order delivered to a specific location
 
 1.  Request
 
