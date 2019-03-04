@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-11-30T20:20:29Z</td>
+<td class="org-left">2019-03-04T19:57:41Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -333,7 +333,7 @@
 
 
 <tr>
-<td class="org-left">2018-11-30T20:20:29Z</td>
+<td class="org-left">2019-03-04T19:57:42Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -367,8 +367,8 @@ call with the required headers e.g.
 -   **buyer:** [optional] the person or organization inquiring about goods and services
 -   **consumer:** [optional]the person or organization the buyer is acting for
 -   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
--   **when:** [optional] date and time when the request was placed
--   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered
+-   **when:** [optional] date and time when the request was placed. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
+-   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
 -   **make:** [optional] make of the good being ordered or serviced
 -   **model:** [optional] model of the good being ordered or serviced
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
@@ -1723,6 +1723,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -1830,6 +1837,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -1883,6 +1897,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -1935,6 +1956,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -1991,6 +2019,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -2043,6 +2078,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
