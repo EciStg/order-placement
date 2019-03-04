@@ -79,7 +79,7 @@ call with the required headers e.g.
   {field} + currency : currency
   .. is/has-a collection ..
   {field} + itemsCount : int
-  {field} + items : [Probe]
+  {field} + items : [Stock]
   }
   @enduml
 #+END_SRC
@@ -1531,6 +1531,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -1638,6 +1645,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -1691,6 +1705,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -1743,6 +1764,13 @@ No longer published
         "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
+
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
           "name": {
             "description": "",
@@ -1799,6 +1827,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -1851,6 +1886,13 @@ No longer published
         "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
+
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
           "name": {
             "description": "",
