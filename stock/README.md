@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-03-04T19:57:41Z</td>
+<td class="org-left">2019-03-04T22:52:10Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -63,13 +63,19 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.xml</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-by-address-request.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.xml</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-by-reference-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
@@ -219,13 +225,19 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-by-address-request.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-request.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-by-reference-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-consumer-contract-request.json</td>
 <td class="org-left">valid</td>
 </tr>
 
@@ -333,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-03-04T19:57:42Z</td>
+<td class="org-left">2019-03-04T22:52:10Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -672,52 +684,104 @@ In the example below the buyer would like to see costs and other monetary values
             </stock>
 
 
-### As a known buyer, with a known customer, I would like to know the cost for one or more items
+### As a known buyer, with a known consumer, I would like to know the cost for one or more items
 
 In these examples, the response is no different any other cost request. The request contains
-information about the buyer and the buyer's customer. Here we are just providing the value
-`consumer-xyz`, which should be the unique id by which the seller's system will recognize the
-buyer's customer.
+information about the buyer and the consumer (buyer's customer).
 
 1.  Request
 
-    1.  JSON
+    1.  Identifying the consumer by reference
 
-            { "buyer": { "reference": { "code": "buyer-abc",
-                                         "type": "seller" }},
-              "consumer": { "reference": { "code": "consumer-xyz",
+        Here we are providing only the value `consumer-xyz`, which should be the unique id by
+        which the seller's system will recognize the consumer.
+
+        1.  JSON
+
+                { "buyer": { "reference": { "code": "buyer-abc",
+                                             "type": "seller" }},
+                  "consumer": { "reference": { "code": "consumer-xyz",
+                                                "type": "seller" }},
+                  "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" }}]}
+
+        2.  XML
+
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <stock>
+                  <buyer>
+                    <reference>
+                      <code>buyer-abc</code>
+                      <type>seller</type>
+                    </reference>
+                  </buyer>
+                  <consumer>
+                    <reference>
+                      <code>consumer-xyz</code>
+                      <type>seller</type>
+                    </reference>
+                  </consumer>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </stock>
+
+    2.  Identifying the consumer by address
+
+        1.  JSON
+
+                { "buyer": { "reference": { "code": "buyer-abc",
                                             "type": "seller" }},
-              "itemsCount": 1,
-              "items": [{ "reference": { "code": "abc-123",
-                                         "type": "seller" }}]}
 
-    2.  XML
+                  "consumer": { "location": { "rcp": "My Customer",
+                                              "dal": "10491 Old State Rd.",
+                                              "city": "Captiol City",
+                                              "region": "Alaska",
+                                              "postalCode": "99999-44444"},
+                                "phone": "916-363-2666"},
+                  "itemsCount": 1,
+                  "items": [{ "reference": { "code": "abc-123",
+                                             "type": "seller" }}]}
 
-            <?xml version='1.0' encoding='utf-8'?>
+        2.  XML
 
-            <stock>
-              <buyer>
-                <reference>
-                  <code>buyer-abc</code>
-                  <type>seller</type>
-                </reference>
-              </buyer>
-              <consumer>
-                <reference>
-                  <code>consumer-xyz</code>
-                  <type>seller</type>
-                </reference>
-              </consumer>
-              <itemsCount>1</itemsCount>
-              <items>
-                <item>
-                  <reference>
-                    <code>abc-123</code>
-                    <type>seller</type>
-                  </reference>
-                </item>
-              </items>
-            </stock>
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <stock>
+                  <buyer>
+                    <reference>
+                      <code>buyer-abc</code>
+                      <type>seller</type>
+                    </reference>
+                  </buyer>
+                  <consumer>
+                    <location>
+                      <rcp>My Customer</rcp>
+                      <dal>10491 Old State Rd.</dal>
+                      <city>Captiol City</city>
+                      <region>Alaska</region>
+                      <postalCode>99999-44444</postalCode>
+                    </location>
+                    <phone>916-363-2666</phone>
+                  </consumer>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>abc-123</code>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </stock>
 
 
 ### As a known buyer, with a known customer contract, I would like to know the cost for one or more items

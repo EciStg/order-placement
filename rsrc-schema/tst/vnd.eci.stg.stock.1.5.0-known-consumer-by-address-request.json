@@ -1,0 +1,12 @@
+{ "buyer": { "reference": { "code": "buyer-abc",
+                            "type": "seller" }},
+
+  "consumer": { "location": { "rcp": "My Customer",
+                              "dal": "10491 Old State Rd.",
+                              "city": "Captiol City",
+                              "region": "Alaska",
+                              "postalCode": "99999-44444"},
+                "phone": "916-363-2666"},
+  "itemsCount": 1,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" }}]}
