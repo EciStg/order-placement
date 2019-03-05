@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-03-04T23:14:59Z</td>
+<td class="org-left">2019-03-05T01:31:29Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-03-04T23:14:59Z</td>
+<td class="org-left">2019-03-05T01:31:30Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1094,7 +1094,9 @@ support time to delivery with an estimated cost for shipping.
 1.  Request
 
     In this example the buyer would like to know what the cost will be to have the order delivered to the
-    following address:
+    address below. In addition an email address and a phone number have been provided with the intention
+    that if there are questions or problems, the shipper has a means of contacting someone to help resolve
+    the problem.
 
         Jane Doe
         ECi Solutions, STG
