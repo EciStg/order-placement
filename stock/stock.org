@@ -864,7 +864,9 @@ In this example, the seller is providing the city and state ~Dallas, TX~
 **** Request
 
 In this example the buyer would like to know what the cost will be to have the order delivered to the
-following address:
+address below. In addition an email address and a phone number have been provided with the intention
+that if there are questions or problems, the shipper has a means of contacting someone to help resolve
+the problem.
 
 #+BEGIN_EXAMPLE
 Jane Doe
