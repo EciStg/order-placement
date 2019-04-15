@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-03-05T01:31:29Z</td>
+<td class="org-left">2019-04-15T23:36:06Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-03-05T01:31:30Z</td>
+<td class="org-left">2019-04-15T23:36:07Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1600,6 +1600,7 @@ No longer published
           },
 
           "definitions": {
+
             "reference": {
               "type": "object",
               "additionalProperties": false,
@@ -1952,7 +1953,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -2012,7 +2015,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -2074,7 +2079,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -2134,7 +2141,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -2192,7 +2201,9 @@ No longer published
                 "isDropShip": {
                   "description": "",
                   "type": "boolean"
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -2278,6 +2289,59 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 256
+                }
+              }
+            },
+
+            "contact": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
                 }
               }
             }

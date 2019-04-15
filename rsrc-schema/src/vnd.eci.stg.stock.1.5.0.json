@@ -115,6 +115,7 @@
   },
 
   "definitions": {
+
     "reference": {
       "type": "object",
       "additionalProperties": false,
@@ -467,7 +468,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -527,7 +530,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -589,7 +594,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -649,7 +656,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -707,7 +716,9 @@
         "isDropShip": {
           "description": "",
           "type": "boolean"
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -793,6 +804,59 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 256
+        }
+      }
+    },
+
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+
+        "reference": { "$ref": "#/definitions/reference" },
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "name": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "description": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+
+        "remarks": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+
+        "location": { "$ref": "#/definitions/address" },
+
+        "email": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+
+        "phone": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
         }
       }
     }
