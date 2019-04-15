@@ -20,14 +20,26 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-11-07T00:36:15Z</td>
+<td class="org-left">2019-04-15T23:45:13Z</td>
 <td class="org-left">started</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-currency-request.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.xml</td>
 <td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-currency-request.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
@@ -44,7 +56,7 @@
 
 
 <tr>
-<td class="org-left">2018-11-07T00:36:16Z</td>
+<td class="org-left">2019-04-15T23:45:14Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -472,6 +484,7 @@ No longer published
           },
 
           "definitions": {
+
             "reference": {
               "type": "object",
               "additionalProperties": false,
@@ -661,6 +674,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -768,6 +788,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -810,7 +837,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -821,6 +850,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -863,7 +899,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -873,6 +911,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -918,7 +963,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -928,6 +975,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -971,7 +1025,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -981,6 +1037,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -1022,7 +1085,9 @@ No longer published
                 "isDropShip": {
                   "description": "",
                   "type": "boolean"
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -1108,6 +1173,59 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 256
+                }
+              }
+            },
+
+            "contact": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
                 }
               }
             }

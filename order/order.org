@@ -255,7 +255,7 @@ In the example below the buyer would like to see costs and other monetary values
 
 ***** JSON
 
-#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.json
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-currency-request.json
   { "reference": { "referencesCount": 2,
                    "references": [ {"code": "PO-2159403-2",
                                     "type": "buyer" },
@@ -290,7 +290,7 @@ In the example below the buyer would like to see costs and other monetary values
 
 ***** XML
 
-#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-currency-request.xml
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-currency-request.xml
   <order>
     <reference>
       <referencesCount>2</referencesCount>
@@ -478,6 +478,7 @@ No longer published
     },
 
     "definitions": {
+
       "reference": {
         "type": "object",
         "additionalProperties": false,
@@ -667,6 +668,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -774,6 +782,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -816,7 +831,9 @@ No longer published
             "type": "string",
             "minLength": 1,
             "maxLength": 32
-          }
+          },
+
+          "contact": { "$ref": "#/definitions/contact" }
         }
       },
 
@@ -827,6 +844,13 @@ No longer published
 
           "reference": { "$ref": "#/definitions/reference" },
 
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
           "name": {
             "description": "",
             "type": "string",
@@ -869,7 +893,9 @@ No longer published
             "type": "string",
             "minLength": 1,
             "maxLength": 32
-          }
+          },
+
+          "contact": { "$ref": "#/definitions/contact" }
         }
       },
 
@@ -879,6 +905,13 @@ No longer published
         "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
+
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
           "name": {
             "description": "",
@@ -924,7 +957,9 @@ No longer published
             "type": "string",
             "minLength": 1,
             "maxLength": 32
-          }
+          },
+
+          "contact": { "$ref": "#/definitions/contact" }
         }
       },
 
@@ -934,6 +969,13 @@ No longer published
         "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
+
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
           "name": {
             "description": "",
@@ -977,7 +1019,9 @@ No longer published
             "type": "string",
             "minLength": 1,
             "maxLength": 32
-          }
+          },
+
+          "contact": { "$ref": "#/definitions/contact" }
         }
       },
 
@@ -987,6 +1031,13 @@ No longer published
         "properties": {
 
           "reference": { "$ref": "#/definitions/reference" },
+
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
 
           "name": {
             "description": "",
@@ -1028,7 +1079,9 @@ No longer published
           "isDropShip": {
             "description": "",
             "type": "boolean"
-          }
+          },
+
+          "contact": { "$ref": "#/definitions/contact" }
         }
       },
 
@@ -1116,9 +1169,63 @@ No longer published
             "maxLength": 256
           }
         }
+      },
+
+      "contact": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+
+          "reference": { "$ref": "#/definitions/reference" },
+
+          "code": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
+          "name": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+
+          "description": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+
+          "remarks": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+
+          "location": { "$ref": "#/definitions/address" },
+
+          "email": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+
+          "phone": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          }
+        }
       }
     }
   }
+
 #+END_SRC
 
 **** XML
