@@ -17,113 +17,53 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T23:16:04Z</td>
+<td class="org-left">2019-04-15T23:29:56Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-cost-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-response.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-responses.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">schema</td>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.json</td>
-<td class="org-left">is</td>
-<td class="org-left">invalid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-request.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">error:</td>
-<td class="org-left">can't</td>
-<td class="org-left">resolve</td>
-<td class="org-left">reference</td>
-<td class="org-left">#/definitions/referenceTypeEnum</td>
-<td class="org-left">from</td>
-<td class="org-left">id</td>
-<td class="org-left">vnd.eci.stg.invoice.1.5.0.json#</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0-response.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2018-10-29T23:16:04Z</td>
+<td class="org-left">2019-04-15T23:29:57Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -288,6 +228,8 @@ No longer published
 
             "total": { "$ref": "#/definitions/total"},
 
+            "terms": { "$ref": "#/definitions/terms"},
+
             "when": {
               "description": "",
               "type": "string",
@@ -320,6 +262,7 @@ No longer published
           },
 
           "definitions": {
+
             "reference": {
               "type": "object",
               "additionalProperties": false,
@@ -373,14 +316,12 @@ No longer published
                     "$ref": "#/definitions/reference"
                   }
                 }
-              },
-
-              "definitions": {
-                "referenceTypeEnum": {
-                  "type": "string",
-                  "enum": ["buyer", "consumer", "manufacturer", "seller" ]
-                }
               }
+            },
+
+            "referenceTypeEnum": {
+              "type": "string",
+              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
             },
 
             "tax": {
@@ -511,6 +452,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -618,6 +566,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -660,7 +615,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -671,6 +628,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -713,7 +677,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -723,6 +689,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -768,7 +741,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -778,6 +753,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -821,7 +803,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -831,6 +815,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -872,7 +863,9 @@ No longer published
                 "isDropShip": {
                   "description": "",
                   "type": "boolean"
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -955,6 +948,118 @@ No longer published
 
                 "remarks": {
                   "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                }
+              }
+            },
+
+            "contact": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                }
+              }
+            },
+
+            "terms": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties" : {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "amount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "rate": {
+                  "description": "",
+                  "type": "number",
+                  "minimum" : 0,
+                  "maximum" : 999999999999.999999
+                },
+
+                "date": {
+                  "type" : "string",
+                  "format": "date-time"
+                },
+
+                "dateExpected": {
+                  "type" : "string",
+                  "format": "date-time"
+                },
+
+                "remarks": {
+                  "description": "human to human information",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 256

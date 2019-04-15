@@ -83,6 +83,8 @@
 
     "total": { "$ref": "#/definitions/total"},
 
+    "terms": { "$ref": "#/definitions/terms"},
+
     "when": {
       "description": "",
       "type": "string",
@@ -115,6 +117,7 @@
   },
 
   "definitions": {
+
     "reference": {
       "type": "object",
       "additionalProperties": false,
@@ -168,14 +171,12 @@
             "$ref": "#/definitions/reference"
           }
         }
-      },
-
-      "definitions": {
-        "referenceTypeEnum": {
-          "type": "string",
-          "enum": ["buyer", "consumer", "manufacturer", "seller" ]
-        }
       }
+    },
+
+    "referenceTypeEnum": {
+      "type": "string",
+      "enum": ["buyer", "consumer", "manufacturer", "seller" ]
     },
 
     "tax": {
@@ -306,6 +307,13 @@
 
         "reference": { "$ref": "#/definitions/reference" },
 
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
         "name": {
           "description": "",
           "type": "string",
@@ -413,6 +421,13 @@
 
         "reference": { "$ref": "#/definitions/reference" },
 
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
         "name": {
           "description": "",
           "type": "string",
@@ -455,7 +470,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -466,6 +483,13 @@
 
         "reference": { "$ref": "#/definitions/reference" },
 
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
         "name": {
           "description": "",
           "type": "string",
@@ -508,7 +532,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -518,6 +544,13 @@
       "properties": {
 
         "reference": { "$ref": "#/definitions/reference" },
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
 
         "name": {
           "description": "",
@@ -563,7 +596,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -573,6 +608,13 @@
       "properties": {
 
         "reference": { "$ref": "#/definitions/reference" },
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
 
         "name": {
           "description": "",
@@ -616,7 +658,9 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -626,6 +670,13 @@
       "properties": {
 
         "reference": { "$ref": "#/definitions/reference" },
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
 
         "name": {
           "description": "",
@@ -667,7 +718,9 @@
         "isDropShip": {
           "description": "",
           "type": "boolean"
-        }
+        },
+
+        "contact": { "$ref": "#/definitions/contact" }
       }
     },
 
@@ -750,6 +803,118 @@
 
         "remarks": {
           "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      }
+    },
+
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+
+        "reference": { "$ref": "#/definitions/reference" },
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "name": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "description": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+
+        "remarks": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+
+        "location": { "$ref": "#/definitions/address" },
+
+        "email": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+
+        "phone": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        }
+      }
+    },
+
+    "terms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties" : {
+
+        "code": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "name": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+
+        "description": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+
+        "amount": {
+          "description": "",
+          "type": "number",
+          "minimum" : 0,
+          "maximum" : 999999999999.999999
+        },
+
+        "rate": {
+          "description": "",
+          "type": "number",
+          "minimum" : 0,
+          "maximum" : 999999999999.999999
+        },
+
+        "date": {
+          "type" : "string",
+          "format": "date-time"
+        },
+
+        "dateExpected": {
+          "type" : "string",
+          "format": "date-time"
+        },
+
+        "remarks": {
+          "description": "human to human information",
           "type": "string",
           "minLength": 1,
           "maxLength": 256
