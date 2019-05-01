@@ -6,8 +6,8 @@
 ## Test Results
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.0*.xml 2>&1
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order-ack*.json" 2>&1
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.?-*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.order-ack.1.5.?-*.json" 2>&1
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -32,7 +32,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T23:16:39Z</td>
+<td class="org-left">2019-05-01T18:58:18Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -92,7 +92,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T23:16:40Z</td>
+<td class="org-left">2019-05-01T18:58:18Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>

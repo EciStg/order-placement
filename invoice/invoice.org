@@ -11,8 +11,8 @@
 
 #+BEGIN_SRC shell :exports both :results table replace
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.0*.xml 2>&1
-  ajv -s ../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.invoice*.json" 2>&1
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.?-*.xml 2>&1
+  ajv -s ../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.invoice.1.5.?-*.json" 2>&1
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+END_SRC
 
