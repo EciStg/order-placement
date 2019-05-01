@@ -86,7 +86,16 @@ separately.
 
 These resource types are intended to represent data in flight and are not meant to represent data at rest.
 
-There are six resource types exchanged between the buyer's system and the seller's system:
+There are seven resource types exchanged between the buyer's system and the seller's system:
+
+- stock :: buyer requests cost and/or availability of one or more items
+- (stock&Delta;) :: seller modifies the received stock resource
+- shipping-method :: seller may provide the buyer with a selection of shipping options to choose from
+- order :: buyer provides a list of one or more items, the quantity of each item, to be purchased
+- order&Delta; :: seller may modify the order to indicate back orders, cost, etc.
+- shipping receipt :: seller provides the buyer with delivery and tracking information for each shipment
+- invoice :: seller provides the buyer a list of items purchased, the quantity purchased, and cost information
+- error :: buyer and seller systems may respond with error information
 
 #+BEGIN_SRC dot cmdline: -Kdot -Tpng :file ./images/resource-types.dot.png
     digraph {

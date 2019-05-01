@@ -51,7 +51,16 @@
 
     These resource types are intended to represent data in flight and are not meant to represent data at rest.
 
-    There are six resource types exchanged between the buyer's system and the seller's system:
+    There are seven resource types exchanged between the buyer's system and the seller's system:
+
+    -   **stock:** buyer requests cost and/or availability of one or more items
+    -   **(stock&Delta;):** seller modifies the received stock resource
+    -   **shipping-method:** seller may provide the buyer with a selection of shipping options to choose from
+    -   **order:** buyer provides a list of one or more items, the quantity of each item, to be purchased
+    -   **order&Delta;:** seller may modify the order to indicate back orders, cost, etc.
+    -   **shipping receipt:** seller provides the buyer with delivery and tracking information for each shipment
+    -   **invoice:** seller provides the buyer a list of items purchased, the quantity purchased, and cost information
+    -   **error:** buyer and seller systems may respond with error information
 
     ![img](./images/resource-types.dot.png)
 
@@ -91,9 +100,14 @@
 
 ### Shipping Method
 
-1.  TODO write non-technical description
+Shipping Method [documentation](./shipping-method/README.md)
 
-    Shipping Method [documentation](./shipping-method/README.md)
+A shipping method is the process by which the items on a purchase order are to be transported
+(e.g., FedEx, UPS, USPS, Vendor’s Delivery Truck) from the seller to the buyer or consumer. Using
+PO Processor, a shipping method may be selected for each order. In some cases, the seller may allow
+the buyer to specify alternate ship methods for delivering parts and/or items on back order.
+
+Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/172/welcome.htm#PO_Processor/Submitting_Purchase_Orders.htm)
 
 
 ### Stock
@@ -148,7 +162,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:47:21Z</td>
+    <td class="org-left">2019-05-01T22:08:05Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -166,7 +180,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:47:21Z</td>
+    <td class="org-left">2019-05-01T22:08:05Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -298,7 +312,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:47:25Z</td>
+    <td class="org-left">2019-05-01T22:08:09Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -316,7 +330,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:47:25Z</td>
+    <td class="org-left">2019-05-01T22:08:10Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -477,7 +491,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:47:29Z</td>
+    <td class="org-left">2019-05-01T22:08:13Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -519,7 +533,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:47:30Z</td>
+    <td class="org-left">2019-05-01T22:08:14Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -779,7 +793,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:47:33Z</td>
+    <td class="org-left">2019-05-01T22:08:18Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -815,7 +829,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:47:34Z</td>
+    <td class="org-left">2019-05-01T22:08:18Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
