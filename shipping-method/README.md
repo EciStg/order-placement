@@ -1,13 +1,20 @@
 
 
-# Ship Methods
+# Shipping Method
+
+    Accept: application/json
+    Accept: application/xml
+    Accept: application/vnd.eci.stg.shipping-method.json
+    Accept: application/vnd.eci.stg.shipping-method.xml
+    Accept: application/vnd.eci.stg.shipping-method-1.5.0.json
+    Accept: application/vnd.eci.stg.shipping-method-1.5.0.xml
 
 
 ## Test Results
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipmethod.1.5.0*.xml 2>&1
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.shipmethod*.json" 2>&1
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.shipping-method*.json" 2>&1
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -42,7 +49,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2018-10-29T23:18:34Z</td>
+<td class="org-left">2019-05-01T16:39:04Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -66,7 +73,7 @@
 <td class="org-left">The</td>
 <td class="org-left">XML</td>
 <td class="org-left">document</td>
-<td class="org-left">'../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd'</td>
+<td class="org-left">'../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd'</td>
 <td class="org-left">is</td>
 <td class="org-left">not</td>
 <td class="org-left">a</td>
@@ -78,7 +85,7 @@
 <tr>
 <td class="org-left">WXS</td>
 <td class="org-left">schema</td>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.xsd</td>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd</td>
 <td class="org-left">failed</td>
 <td class="org-left">to</td>
 <td class="org-left">compile</td>
@@ -94,7 +101,7 @@
 
 <tr>
 <td class="org-left">schema</td>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipmethod.1.5.0.json</td>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json</td>
 <td class="org-left">is</td>
 <td class="org-left">invalid</td>
 <td class="org-left">&#xa0;</td>
@@ -127,7 +134,7 @@
 
 
 <tr>
-<td class="org-left">2018-10-29T23:18:34Z</td>
+<td class="org-left">2019-05-01T16:39:05Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -150,16 +157,16 @@
 
 ### TODO
 
-![img](../images/shipmethod-sequence.puml.png)
+![img](../images/shipping-method-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
 received will be shown. It is assumed that the caller will make the actual *POST*
 call with the required headers e.g.
 
     curl --request GET \
-         --header "Accepts: application/vnd.eci.stg.shipmethod.1.5.0.xml; charset=utf-8" \
+         --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.xml; charset=utf-8" \
          --user user123:password123 \
-         --url http://vendor-host/vendor-shipmethod-endpoint
+         --url http://vendor-host/vendor-shippping-method-endpoint
 
 
 ## Definition of Terms
@@ -192,7 +199,7 @@ Version 1.0
     2.  XML
 
             <?xml version='1.0' encoding='utf-8'?>
-            <shipmethod/>
+            <shippingMethod/>
 
 2.  Response
 
@@ -205,7 +212,7 @@ Version 1.0
     2.  XML
 
             <?xml version='1.0' encoding='utf-8'?>
-            <shipmethod/>
+            <shippingMethod/>
 
 
 ## Resource Schemas
@@ -221,15 +228,15 @@ No longer published
 1.  JSON
 
         {
-          "id": "./vnd.eci.stg.shipmethod.1.5.0.json",
+          "id": "./vnd.eci.stg.shipping-method.1.5.0.json",
           "$schema": "http://json-schema.org/draft-08/schema#",
-          "title": "ShipMethod"
+          "title": "Shipping Method"
         }
 
 2.  XML
 
         <?xml version='1.0' encoding='utf-8'?>
-        <shipmethod/>
+        <shippingMethod/>
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.

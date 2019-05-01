@@ -1,0 +1,119 @@
+# -*- mode: org -*-
+
+#+EXPORT_FILE_NAME: ./README.md
+#+OPTIONS: toc:nil
+#+PROPERTY: mkdirp yes
+#+STARTUP: content
+
+* Shipping Method
+
+#+BEGIN_EXAMPLE
+Accept: application/json
+Accept: application/xml
+Accept: application/vnd.eci.stg.shipping-method.json
+Accept: application/vnd.eci.stg.shipping-method.xml
+Accept: application/vnd.eci.stg.shipping-method-1.5.0.json
+Accept: application/vnd.eci.stg.shipping-method-1.5.0.xml
+#+END_EXAMPLE
+
+** Test Results
+
+#+BEGIN_SRC shell :exports both :results table replace
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+  xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0*.xml 2>&1
+  ajv -s ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.shipping-method*.json" 2>&1
+  echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+#+END_SRC
+
+** Overview
+
+*** TODO
+
+#+BEGIN_SRC plantuml :file ../images/shipping-method-sequence.puml.png :exports results
+  @startuml shipping-method-sequence.png
+  Buyer -> Seller: [ GET ]
+  Seller -> Buyer: shippingMethod | error
+  @enduml
+#+END_SRC
+
+In the following section, Use Cases, examples of data ( ~--data~ ) to be sent and
+received will be shown. It is assumed that the caller will make the actual /POST/
+call with the required headers e.g.
+
+#+BEGIN_SRC shell :exports both
+  curl --request GET \
+       --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.xml; charset=utf-8" \
+       --user user123:password123 \
+       --url http://vendor-host/vendor-shippping-method-endpoint
+#+END_SRC
+
+** Definition of Terms
+
+*** TODO
+
+** Example
+
+*** TODO
+
+** Use Cases
+
+*** TODO
+
+Version 1.0
+
+**** Request
+
+In this example a buyer is
+
+***** JSON
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-request.json
+{}
+#+END_SRC
+
+***** XML
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-request.xml
+<?xml version='1.0' encoding='utf-8'?>
+<shippingMethod/>
+#+END_SRC
+
+**** Response
+
+The buyer's response is intended to
+
+***** JSON
+#+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.json
+{}
+#+END_SRC
+
+***** XML
+#+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.xml
+<?xml version='1.0' encoding='utf-8'?>
+<shippingMethod/>
+#+END_SRC
+
+** Resource Schemas
+
+*** Version 1.0
+
+No longer published
+
+*** Version 1.5
+
+**** JSON
+
+#+BEGIN_SRC json :tangle ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json
+{
+  "id": "./vnd.eci.stg.shipping-method.1.5.0.json",
+  "$schema": "http://json-schema.org/draft-08/schema#",
+  "title": "Shipping Method"
+}
+#+END_SRC
+
+**** XML
+
+#+BEGIN_SRC xml :tangle ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd
+<?xml version='1.0' encoding='utf-8'?>
+<shippingMethod/>
+#+END_SRC
+
+** © 2018 ECi Software Solutions, Inc. All rights reserved.

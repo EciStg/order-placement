@@ -1,0 +1,5 @@
+{
+  "id": "./vnd.eci.stg.shipping-method.1.5.0.json",
+  "$schema": "http://json-schema.org/draft-08/schema#",
+  "title": "Shipping Method"
+}
