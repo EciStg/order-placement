@@ -27,8 +27,6 @@ Accept: application/vnd.eci.stg.shipping-method-1.5.0.xml
 
 ** Overview
 
-*** TODO
-
 #+BEGIN_SRC plantuml :file ../images/shipping-method-sequence.puml.png :exports results
   @startuml shipping-method-sequence.png
   Buyer -> Seller: [ GET ]

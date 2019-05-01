@@ -25,7 +25,7 @@ Probe [[./probe/README.md][documentation]]
 
 **** TODO write non-technical description
 
-Ship Method [[./ship-method/README.md][documentation]]
+Shipping Method [[./shipping-method/README.md][documentation]]
 
 *** Stock
 

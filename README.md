@@ -41,8 +41,8 @@
 
     ![img](./images/resource-types.dot.png)
 
-    Not all Seller systems support resources or endpoints for Shipment Methods, Order&Delta;
-    (accept/reject), or Shipment information. We have chosen to represent resources using
+    Not all Seller systems support resources or endpoints for Shipping Methods, Order&Delta;
+    (accept/reject), or Shipping Receipts. We have chosen to represent resources using
     JSON Schema and prefer Seller implementations also choose a JSON representation. The
     Buyer's system can be programmed to send and receive resources in other representations,
     though this is not part of the standard agreement and will need to be addressed separately.
@@ -85,7 +85,7 @@
 
 1.  TODO write non-technical description
 
-    Ship Method [documentation](./ship-method/README.md)
+    Shipping Method [documentation](./shipping-method/README.md)
 
 
 ### Stock
@@ -140,7 +140,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T23:30:59Z</td>
+    <td class="org-left">2019-05-01T19:56:04Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -158,7 +158,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T23:31:00Z</td>
+    <td class="org-left">2019-05-01T19:56:05Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -290,7 +290,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T23:31:04Z</td>
+    <td class="org-left">2019-05-01T19:56:09Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -308,7 +308,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T23:31:04Z</td>
+    <td class="org-left">2019-05-01T19:56:10Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -469,7 +469,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T23:31:08Z</td>
+    <td class="org-left">2019-05-01T19:56:13Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -511,7 +511,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T23:31:08Z</td>
+    <td class="org-left">2019-05-01T19:56:14Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -771,7 +771,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2018-10-29T23:31:12Z</td>
+    <td class="org-left">2019-05-01T19:56:17Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -807,7 +807,7 @@
 
 
     <tr>
-    <td class="org-left">2018-10-29T23:31:13Z</td>
+    <td class="org-left">2019-05-01T19:56:18Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>

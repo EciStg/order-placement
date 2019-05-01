@@ -15,7 +15,7 @@ them.
 #+BEGIN_SRC plantuml :file ./images/buyer-usecases.puml.png :exports results
 @startuml sequence-buyer2seller.png
 Buyer -> (Place Order)
-Buyer -> (Select Shipment Method)
+Buyer -> (Select Shipping Method)
 Buyer -> (Stock, Cost, Date)
 @enduml
 #+END_SRC
@@ -42,7 +42,7 @@ There are six endpoints, three provided by the Seller's system
 #+BEGIN_SRC plantuml :file ./images/sequence-buyer2seller.puml.png :exports results
 @startuml sequence-buyer2seller.png
 Buyer -> Seller: [ POST ] stock
-Buyer -> Seller: [ GET ] shipment methods
+Buyer -> Seller: [ GET ] shipping methods
 Buyer -> Seller: [ POST ] order
 @enduml
 #+END_SRC
@@ -52,7 +52,7 @@ And three provided by the Buyer's system:
 #+BEGIN_SRC plantuml :file ./images/sequence-seller2buyer.puml.png :exports results
 @startuml sequence-seller2buyer.png
 Seller -> Buyer: [ POST ] order<U+0394> | error
-Seller -> Buyer: [ POST ] shipment
+Seller -> Buyer: [ POST ] shipping receipt
 Seller -> Buyer: [ POST ] invoice
 @enduml
 #+END_SRC
@@ -71,16 +71,16 @@ There are six resource types exchanged between the Buyer's system and the Seller
     stock -> error;
     stock -> stockD;
     stockD -> order;
-    shipment_method -> order;
+    shipping_method -> order;
     order -> error;
     order -> orderD;
-    orderD -> shipment;
+    orderD -> shipping_receipt;
     orderD -> invoice;
   }
 #+END_SRC
 
-Not all Seller systems support resources or endpoints for Shipment Methods, Order\Delta
-(accept/reject), or Shipment information. We have chosen to represent resources using
+Not all Seller systems support resources or endpoints for Shipping Methods, Order\Delta
+(accept/reject), or Shipping Receipts. We have chosen to represent resources using
 JSON Schema and prefer Seller implementations also choose a JSON representation. The
 Buyer's system can be programmed to send and receive resources in other representations,
 though this is not part of the standard agreement and will need to be addressed separately.
