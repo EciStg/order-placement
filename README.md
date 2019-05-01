@@ -11,41 +11,49 @@
 
 1.  Actors
 
-    Within the ECi Order Placement system a dealer typically takes on the role of *Buyer*. A vendor or
-    supplier (typical readers of this document) take the role of *Seller*. A *Consumer* is the buyer's
-    customer and in rare cases, the buyer. There are nuances to be discussed, we will not attempt to
-    explain right now rather we will take up the details for the specific use cases as we come across
-    them.
+    Within the ECi Order Placement system a dealer typically takes on the role of *buyer*. A vendor or
+    supplier (typical readers of this document) assume the role of *seller*.
 
     ![img](./images/buyer-usecases.puml.png)
 
     ![img](./images/seller-usecases.puml.png)
 
-    ![img](./images/consumer-usecases.puml.png)
-
 2.  Endpoints
 
-    There are six endpoints, three provided by the Seller's system
+    There are six endpoints, three provided by the seller's system and three provided by the buyer's
+    system. Not all seller systems support resources or endpoints for Shipping Methods, Order&Delta;
+    (accept/reject), or Shipping Receipts.
 
-    ![img](./images/sequence-buyer2seller.puml.png)
+    ![img](./images/endpoints.puml.png)
 
-    And three provided by the Buyer's system:
+    1.  Buyer to seller (seller provided endpoints)
 
-    ![img](./images/sequence-seller2buyer.puml.png)
+        Buyer to seller interactions often start off by asking the seller if the items they are interested in
+        purchasing are available in sufficient quantity and at an acceptable cost. The buyer's final act will
+        to post an order to the seller's system.
 
-3.  Endpoint Resource Types
+        ![img](./images/endpoints-buyer2seller.puml.png)
 
-    These types are intended to represent data in flight and are not meant to represent data at rest.
+    2.  Seller to buyer (buyer provided endpoints)
 
-    There are six resource types exchanged between the Buyer's system and the Seller's system:
+        Seller to buyer interactions may start with some type of document accepting the order as is, making
+        changes to the order, or rejecting the order. For orders that are accepted the seller will let the
+        buyer know when the order has been shipped along with delivery tracking information and an invoice.
+
+        ![img](./images/endpoints-seller2buyer.puml.png)
+
+3.  Resource Types
+
+    We have chosen to represent resources using JSON Schema and prefer seller implementations also choose
+    a JSON representation. The buyer's system will be programmed to send and receive resources in other
+    representations, though this is not part of the standard agreement and will need to be addressed
+    separately.
+
+    These resource types are intended to represent data in flight and are not meant to represent data at rest.
+
+    There are six resource types exchanged between the buyer's system and the seller's system:
 
     ![img](./images/resource-types.dot.png)
-
-    Not all Seller systems support resources or endpoints for Shipping Methods, Order&Delta;
-    (accept/reject), or Shipping Receipts. We have chosen to represent resources using
-    JSON Schema and prefer Seller implementations also choose a JSON representation. The
-    Buyer's system can be programmed to send and receive resources in other representations,
-    though this is not part of the standard agreement and will need to be addressed separately.
 
 4.  Connecting To Endpoints
 
@@ -57,18 +65,18 @@
 
         1.  Buyer -> Seller
 
-            The Seller is responsible for providing participating dealers (Buyers) a user name
-            and password which the ECi system will use to connect to the Seller's system. This
+            The seller is responsible for providing participating dealers (buyers) a user name
+            and password which the ECi system will use to connect to the seller's system. This
             information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
             Stock and Order resources allow for additional non-schema defined information
-            (opaque) to be supplied by the Buyer and delivered to the Seller.
+            (opaque) to be supplied by the buyer and delivered to the seller.
 
         2.  Seller -> Buyer
 
             ECi is responsible for assigning and maintaining an ID and an API key to each of
-            the Seller systems. This information will be passed to the buyer system via HTTP
+            the seller systems. This information will be passed to the buyer system via HTTP
             Basic Authentication. Stock and Order resources allow for additional non-schema
-            defined information (opaque) to be supplied by the Seller and delivered to the Buyer.
+            defined information (opaque) to be supplied by the seller and delivered to the buyer.
 
 
 ## Endpoint Major Resource Types
@@ -140,7 +148,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T19:56:04Z</td>
+    <td class="org-left">2019-05-01T20:40:59Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -158,7 +166,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T19:56:05Z</td>
+    <td class="org-left">2019-05-01T20:40:59Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -290,7 +298,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T19:56:09Z</td>
+    <td class="org-left">2019-05-01T20:41:03Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -308,7 +316,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T19:56:10Z</td>
+    <td class="org-left">2019-05-01T20:41:04Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -469,7 +477,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T19:56:13Z</td>
+    <td class="org-left">2019-05-01T20:41:07Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -511,7 +519,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T19:56:14Z</td>
+    <td class="org-left">2019-05-01T20:41:08Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -771,7 +779,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T19:56:17Z</td>
+    <td class="org-left">2019-05-01T20:41:12Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -807,7 +815,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T19:56:18Z</td>
+    <td class="org-left">2019-05-01T20:41:12Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
