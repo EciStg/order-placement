@@ -85,7 +85,7 @@
       <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
       <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
       <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
-      <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
       <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
       <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
       <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
@@ -165,7 +165,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name='ShippingCarrierType'>
+  <xs:complexType name='ShippingMethodType'>
     <xs:sequence>
       <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />

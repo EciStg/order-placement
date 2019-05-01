@@ -22,7 +22,7 @@
                "email": "shipping-contact@example.com",
                "phone": "1-555-555-5555"},
 
-  "shippingCarrier": { "code": "shipper-123",
+  "shippingMethod": { "code": "shipper-123",
                        "name": "usps-2day" },
 
   "when": "2018-04-24T17:00:00.000Z",

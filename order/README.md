@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-04-15T23:45:13Z</td>
+<td class="org-left">2019-05-01T16:21:59Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -56,7 +56,7 @@
 
 
 <tr>
-<td class="org-left">2019-04-15T23:45:14Z</td>
+<td class="org-left">2019-05-01T16:22:00Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -94,7 +94,7 @@ call with the required headers e.g.
 -   **consumer:** [optional] the person or organization the buyer is acting for
 -   **billTo:** [optional] the person or organization the paying for or financing the goods and sevices
 -   **shipTo:** the location of where purchases will be sent or services provided. also may include location contact information. [required] when describing the stock request.
--   **shipppingCarrier:** [optional] name of the carrier and method or SLA.
+-   **shipppingMethod:** [optional] name of the carrier and method or SLA.
 -   **when:** [optional] date and time when the request was placed
 -   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered
 -   **make:** [optional] make of the good being ordered or serviced
@@ -140,7 +140,7 @@ down into smaller chunks.
                        "email": "shipping-contact@example.com",
                        "phone": "1-555-555-5555"},
 
-          "shippingCarrier": { "code": "shipper-123",
+          "shippingMethod": { "code": "shipper-123",
                                "name": "usps-2day" },
 
           "when": "2018-04-24T17:00:00.000Z",
@@ -170,7 +170,7 @@ example below the seller's identity for the buyer is `buyer-abc`.
 
 The buyer must populate and send information that will uniquely identify the shipping location.
 
-The buyer may populate and send information that will uniqely identify the shipping method / carrier.
+The buyer may populate and send information that will uniqely identify the shipping method and carrier.
 
 1.  Request
 
@@ -430,7 +430,7 @@ No longer published
 
             "billTo": { "$ref": "#/definitions/billTo" },
 
-            "shippingCarrier": { "$ref": "#/definitions/shippingCarrier" },
+            "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
             "location": { "$ref": "#/definitions/address" },
 
@@ -614,7 +614,7 @@ No longer published
               "additionalProperties": false
             },
 
-            "shippingCarrier": {
+            "shippingMethod": {
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -648,7 +648,7 @@ No longer published
                 },
 
                 "itemsCount": {
-                  "description": "number of shipping carriers in the collection",
+                  "description": "number of shipping methods in the collection",
                   "type": "number",
                   "minimum": 1,
                   "maximum": 1000
@@ -661,7 +661,7 @@ No longer published
                   "maxItems": 1000,
                   "uniqueItems": true,
                   "items": {
-                    "$ref": "#/definitions/shippingCarrier"
+                    "$ref": "#/definitions/shippingMethod"
                   }
                 }
               }
@@ -1321,7 +1321,7 @@ No longer published
               <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
               <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
@@ -1401,7 +1401,7 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
-          <xs:complexType name='ShippingCarrierType'>
+          <xs:complexType name='ShippingMethodType'>
             <xs:sequence>
               <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
