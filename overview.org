@@ -49,7 +49,7 @@ seller -> buyer: invoice [ POST ]
 @enduml
 #+END_SRC
 
-** Buyer to seller (seller provided endpoints)
+** Seller provided endpoints
 
 Buyer to seller interactions often start off by asking the seller if the items they are interested in
 purchasing are available in sufficient quantity and at an acceptable cost. The buyer's final act will
@@ -63,7 +63,7 @@ buyer -> seller: [ POST ] order
 @enduml
 #+END_SRC
 
-** Seller to buyer (buyer provided endpoints)
+** Buyer provided endpoints
 
 Seller to buyer interactions may start with some type of document accepting the order as is, making
 changes to the order, or rejecting the order. For orders that are accepted the seller will let the

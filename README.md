@@ -26,7 +26,7 @@
 
     ![img](./images/endpoints.puml.png)
 
-    1.  Buyer to seller (seller provided endpoints)
+    1.  Seller provided endpoints
 
         Buyer to seller interactions often start off by asking the seller if the items they are interested in
         purchasing are available in sufficient quantity and at an acceptable cost. The buyer's final act will
@@ -34,7 +34,7 @@
 
         ![img](./images/endpoints-buyer2seller.puml.png)
 
-    2.  Seller to buyer (buyer provided endpoints)
+    2.  Buyer provided endpoints
 
         Seller to buyer interactions may start with some type of document accepting the order as is, making
         changes to the order, or rejecting the order. For orders that are accepted the seller will let the
@@ -148,7 +148,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:40:59Z</td>
+    <td class="org-left">2019-05-01T20:47:21Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -166,7 +166,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:40:59Z</td>
+    <td class="org-left">2019-05-01T20:47:21Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -298,7 +298,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:41:03Z</td>
+    <td class="org-left">2019-05-01T20:47:25Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -316,7 +316,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:41:04Z</td>
+    <td class="org-left">2019-05-01T20:47:25Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -477,7 +477,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:41:07Z</td>
+    <td class="org-left">2019-05-01T20:47:29Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -519,7 +519,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:41:08Z</td>
+    <td class="org-left">2019-05-01T20:47:30Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -779,7 +779,7 @@
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T20:41:12Z</td>
+    <td class="org-left">2019-05-01T20:47:33Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -815,7 +815,7 @@
 
 
     <tr>
-    <td class="org-left">2019-05-01T20:41:12Z</td>
+    <td class="org-left">2019-05-01T20:47:34Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
