@@ -15,11 +15,6 @@
       <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
       <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
       <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
-      <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
-      <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
-      <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
-      <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
-      <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 

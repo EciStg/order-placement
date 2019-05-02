@@ -24,344 +24,47 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-02T00:46:22Z</td>
+<td class="org-left">2019-05-02T00:52:18Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:18:</td>
-<td class="org-left">element</td>
-<td class="org-left">element:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">element</td>
-<td class="org-left">decl.</td>
-<td class="org-left">'billTo',</td>
-<td class="org-left">attribute</td>
-<td class="org-left">'type':</td>
-<td class="org-left">The</td>
-<td class="org-left">QName</td>
-<td class="org-left">value</td>
-<td class="org-left">'BillToType'</td>
-<td class="org-left">does</td>
-<td class="org-left">not</td>
-<td class="org-left">resolve</td>
-<td class="org-left">to</td>
-<td class="org-left">a(n)</td>
-<td class="org-left">type</td>
-<td class="org-left">definition.</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-best-available.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:19:</td>
-<td class="org-left">element</td>
-<td class="org-left">element:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">element</td>
-<td class="org-left">decl.</td>
-<td class="org-left">'buyer',</td>
-<td class="org-left">attribute</td>
-<td class="org-left">'type':</td>
-<td class="org-left">The</td>
-<td class="org-left">QName</td>
-<td class="org-left">value</td>
-<td class="org-left">'BuyerType'</td>
-<td class="org-left">does</td>
-<td class="org-left">not</td>
-<td class="org-left">resolve</td>
-<td class="org-left">to</td>
-<td class="org-left">a(n)</td>
-<td class="org-left">type</td>
-<td class="org-left">definition.</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:20:</td>
-<td class="org-left">element</td>
-<td class="org-left">element:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">element</td>
-<td class="org-left">decl.</td>
-<td class="org-left">'consumer',</td>
-<td class="org-left">attribute</td>
-<td class="org-left">'type':</td>
-<td class="org-left">The</td>
-<td class="org-left">QName</td>
-<td class="org-left">value</td>
-<td class="org-left">'ConsumerType'</td>
-<td class="org-left">does</td>
-<td class="org-left">not</td>
-<td class="org-left">resolve</td>
-<td class="org-left">to</td>
-<td class="org-left">a(n)</td>
-<td class="org-left">type</td>
-<td class="org-left">definition.</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:21:</td>
-<td class="org-left">element</td>
-<td class="org-left">element:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">element</td>
-<td class="org-left">decl.</td>
-<td class="org-left">'seller',</td>
-<td class="org-left">attribute</td>
-<td class="org-left">'type':</td>
-<td class="org-left">The</td>
-<td class="org-left">QName</td>
-<td class="org-left">value</td>
-<td class="org-left">'SellerType'</td>
-<td class="org-left">does</td>
-<td class="org-left">not</td>
-<td class="org-left">resolve</td>
-<td class="org-left">to</td>
-<td class="org-left">a(n)</td>
-<td class="org-left">type</td>
-<td class="org-left">definition.</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:22:</td>
-<td class="org-left">element</td>
-<td class="org-left">element:</td>
-<td class="org-left">Schemas</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">element</td>
-<td class="org-left">decl.</td>
-<td class="org-left">'shipTo',</td>
-<td class="org-left">attribute</td>
-<td class="org-left">'type':</td>
-<td class="org-left">The</td>
-<td class="org-left">QName</td>
-<td class="org-left">value</td>
-<td class="org-left">'ShipToType'</td>
-<td class="org-left">does</td>
-<td class="org-left">not</td>
-<td class="org-left">resolve</td>
-<td class="org-left">to</td>
-<td class="org-left">a(n)</td>
-<td class="org-left">type</td>
-<td class="org-left">definition.</td>
-</tr>
-
-
-<tr>
-<td class="org-left">WXS</td>
-<td class="org-left">schema</td>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd</td>
-<td class="org-left">failed</td>
-<td class="org-left">to</td>
-<td class="org-left">compile</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-best-available.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-example-response.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-05-02T00:46:23Z</td>
+<td class="org-left">2019-05-02T00:52:19Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -662,11 +365,6 @@ No longer published
               <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
               <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
