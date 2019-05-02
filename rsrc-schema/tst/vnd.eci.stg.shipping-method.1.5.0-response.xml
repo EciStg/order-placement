@@ -1,2 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
-<shippingMethod/>
+
+<shippingMethod>
+  <itemsCount>3</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>FEDX-1</code>
+        <name>Federal Express, One Day Delivery</name>
+        <type>seller</type>
+      </reference>
+    </item>
+    <item>
+      <reference>
+        <code>FEDX-2</code>
+        <name>Federal Express, Two Day Delivery</name>
+        <type>seller</type>
+      </reference>
+    </item>
+    <item>
+      <reference>
+        <code>USPS</code>
+        <name>United States Postal Service, Standard Delivery</name>
+        <type>seller</type>
+      </reference>
+    </item>
+  </items>
+</shippingMethod>

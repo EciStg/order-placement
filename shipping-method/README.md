@@ -14,7 +14,7 @@
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-*.xml 2>&1
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.shipping-method-1.5.0-*.json" 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.?-*.json" 2>&1
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -46,11 +46,41 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-01T18:59:14Z</td>
+<td class="org-left">2019-05-02T00:46:22Z</td>
 <td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -66,19 +96,137 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:18:</td>
+<td class="org-left">element</td>
+<td class="org-left">element:</td>
 <td class="org-left">Schemas</td>
 <td class="org-left">parser</td>
 <td class="org-left">error</td>
 <td class="org-left">:</td>
+<td class="org-left">element</td>
+<td class="org-left">decl.</td>
+<td class="org-left">'billTo',</td>
+<td class="org-left">attribute</td>
+<td class="org-left">'type':</td>
 <td class="org-left">The</td>
-<td class="org-left">XML</td>
-<td class="org-left">document</td>
-<td class="org-left">'../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd'</td>
-<td class="org-left">is</td>
+<td class="org-left">QName</td>
+<td class="org-left">value</td>
+<td class="org-left">'BillToType'</td>
+<td class="org-left">does</td>
 <td class="org-left">not</td>
-<td class="org-left">a</td>
-<td class="org-left">schema</td>
-<td class="org-left">document.</td>
+<td class="org-left">resolve</td>
+<td class="org-left">to</td>
+<td class="org-left">a(n)</td>
+<td class="org-left">type</td>
+<td class="org-left">definition.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:19:</td>
+<td class="org-left">element</td>
+<td class="org-left">element:</td>
+<td class="org-left">Schemas</td>
+<td class="org-left">parser</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">element</td>
+<td class="org-left">decl.</td>
+<td class="org-left">'buyer',</td>
+<td class="org-left">attribute</td>
+<td class="org-left">'type':</td>
+<td class="org-left">The</td>
+<td class="org-left">QName</td>
+<td class="org-left">value</td>
+<td class="org-left">'BuyerType'</td>
+<td class="org-left">does</td>
+<td class="org-left">not</td>
+<td class="org-left">resolve</td>
+<td class="org-left">to</td>
+<td class="org-left">a(n)</td>
+<td class="org-left">type</td>
+<td class="org-left">definition.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:20:</td>
+<td class="org-left">element</td>
+<td class="org-left">element:</td>
+<td class="org-left">Schemas</td>
+<td class="org-left">parser</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">element</td>
+<td class="org-left">decl.</td>
+<td class="org-left">'consumer',</td>
+<td class="org-left">attribute</td>
+<td class="org-left">'type':</td>
+<td class="org-left">The</td>
+<td class="org-left">QName</td>
+<td class="org-left">value</td>
+<td class="org-left">'ConsumerType'</td>
+<td class="org-left">does</td>
+<td class="org-left">not</td>
+<td class="org-left">resolve</td>
+<td class="org-left">to</td>
+<td class="org-left">a(n)</td>
+<td class="org-left">type</td>
+<td class="org-left">definition.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:21:</td>
+<td class="org-left">element</td>
+<td class="org-left">element:</td>
+<td class="org-left">Schemas</td>
+<td class="org-left">parser</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">element</td>
+<td class="org-left">decl.</td>
+<td class="org-left">'seller',</td>
+<td class="org-left">attribute</td>
+<td class="org-left">'type':</td>
+<td class="org-left">The</td>
+<td class="org-left">QName</td>
+<td class="org-left">value</td>
+<td class="org-left">'SellerType'</td>
+<td class="org-left">does</td>
+<td class="org-left">not</td>
+<td class="org-left">resolve</td>
+<td class="org-left">to</td>
+<td class="org-left">a(n)</td>
+<td class="org-left">type</td>
+<td class="org-left">definition.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.xsd:22:</td>
+<td class="org-left">element</td>
+<td class="org-left">element:</td>
+<td class="org-left">Schemas</td>
+<td class="org-left">parser</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">element</td>
+<td class="org-left">decl.</td>
+<td class="org-left">'shipTo',</td>
+<td class="org-left">attribute</td>
+<td class="org-left">'type':</td>
+<td class="org-left">The</td>
+<td class="org-left">QName</td>
+<td class="org-left">value</td>
+<td class="org-left">'ShipToType'</td>
+<td class="org-left">does</td>
+<td class="org-left">not</td>
+<td class="org-left">resolve</td>
+<td class="org-left">to</td>
+<td class="org-left">a(n)</td>
+<td class="org-left">type</td>
+<td class="org-left">definition.</td>
 </tr>
 
 
@@ -96,14 +244,7 @@
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">schema</td>
-<td class="org-left">../rsrc-schema/src/vnd.eci.stg.shipping-method.1.5.0.json</td>
-<td class="org-left">is</td>
-<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -117,14 +258,24 @@
 
 
 <tr>
-<td class="org-left">error:</td>
-<td class="org-left">no</td>
-<td class="org-left">schema</td>
-<td class="org-left">with</td>
-<td class="org-left">key</td>
-<td class="org-left">or</td>
-<td class="org-left">ref</td>
-<td class="org-left"><http://json-schema.org/draft-08/schema>#</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-best-available.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -134,8 +285,72 @@
 
 
 <tr>
-<td class="org-left">2019-05-01T18:59:14Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-example-response.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2019-05-02T00:46:23Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -154,14 +369,28 @@
 
 ## Overview
 
-
-### TODO
-
 ![img](../images/shipping-method-sequence.puml.png)
 
-In the following section, Use Cases, examples of data ( `--data` ) to be sent and
-received will be shown. It is assumed that the caller will make the actual *POST*
-call with the required headers e.g.
+
+## Definition of Terms
+
+![img](../images/shipping-method-class-diagram.puml.png)
+
+-   **code:** software facing identity function; used to identify the object to a software system
+-   **name:** [optional] human facing name of the shipping method
+-   **description:** [optional] human facing description of the shipping method
+-   **remarks:** [optional] human to human communication
+-   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+-   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
+-   **items:** an array of shipping methods. [optional] if there is only one item in the request. [required] if there is more than one item in the request
+
+
+## Example
+
+It is assumed that the caller will make the http *GET* call with the required headers e.g.
+
+
+### HTTP GET
 
     curl --request GET \
          --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.xml; charset=utf-8" \
@@ -169,50 +398,113 @@ call with the required headers e.g.
          --url http://vendor-host/vendor-shippping-method-endpoint
 
 
-## Definition of Terms
+### JSON Response
 
-
-### TODO
-
-
-## Example
-
-
-### TODO
+    { "itemsCount": 3,
+      "items": [{ "reference": {"code": "FEDX-1",
+                                "name": "Federal Express, One Day",
+                                "type": "seller" }},
+                { "reference": {"code": "FEDX-2",
+                                "name": "Federal Express, Two Day",
+                                "type": "seller" }},
+                { "reference": { "code": "USPS",
+                                 "name": "United States Postal Service",
+                                 "type": "seller" }}]}
 
 
 ## Use Cases
 
 
-### TODO
+### As an unidentified buyer, I would like to see a list of shipping methods that are available:
 
-Version 1.0
+1.  Response
 
-1.  Request
+    1.  Seller supports buyer selection of, or influence on, the shipping method
 
-    In this example a buyer is
+        The seller's response is intended to tell the buyer that there are three shipping methods available
 
-    1.  JSON
+        -   Federal Express, One Day
+        -   Federal Express, Two Day
+        -   United States Postal Service
 
-            {}
+        1.  JSON
 
-    2.  XML
+                { "itemsCount": 3,
+                  "items": [{ "reference": {"code": "FEDX-1",
+                                            "name": "Federal Express, One Day",
+                                            "type": "seller" }},
+                            { "reference": {"code": "FEDX-2",
+                                            "name": "Federal Express, Two Day",
+                                            "type": "seller" }},
+                            { "reference": { "code": "USPS",
+                                             "name": "United States Postal Service",
+                                             "type": "seller" }}]}
 
-            <?xml version='1.0' encoding='utf-8'?>
-            <shippingMethod/>
+        2.  XML
 
-2.  Response
+                <?xml version='1.0' encoding='utf-8'?>
 
-    The buyer's response is intended to
+                <shippingMethod>
+                  <itemsCount>3</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>FEDX-1</code>
+                        <name>Federal Express, One Day Delivery</name>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                    <item>
+                      <reference>
+                        <code>FEDX-2</code>
+                        <name>Federal Express, Two Day Delivery</name>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                    <item>
+                      <reference>
+                        <code>USPS</code>
+                        <name>United States Postal Service, Standard Delivery</name>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </shippingMethod>
 
-    1.  JSON
+    2.  Seller does not support buyer selection of, or influence on, the shipping method
 
-            {}
+        If the seller does not now or in the future intend on providing this capability, do not provide
+        an endpoint, instead, when discussing your implementation with ECi let them know and when adding
+        the seller to the order placement system they will configure things such that no attempt will be
+        made to contact the seller system.
 
-    2.  XML
+        However, if the seller may want to provide this option to the user in the future, return a single
+        shipping method that indicates the seller will choose the shipping method, or something like that.
+        Then, in the future, when the seller is ready, things "just work".
 
-            <?xml version='1.0' encoding='utf-8'?>
-            <shippingMethod/>
+        1.  JSON
+
+                { "itemsCount": 1,
+                  "items": [{ "reference": {"code": "best",
+                                            "name": "Best Available",
+                                            "type": "seller" }}]}
+
+        2.  XML
+
+                <?xml version='1.0' encoding='utf-8'?>
+
+                <shippingMethod>
+                  <itemsCount>1</itemsCount>
+                  <items>
+                    <item>
+                      <reference>
+                        <code>best</code>
+                        <name>Best Available</name>
+                        <type>seller</type>
+                      </reference>
+                    </item>
+                  </items>
+                </shippingMethod>
 
 
 ## Resource Schemas
@@ -229,14 +521,190 @@ No longer published
 
         {
           "id": "./vnd.eci.stg.shipping-method.1.5.0.json",
-          "$schema": "http://json-schema.org/draft-08/schema#",
-          "title": "Shipping Method"
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Shipping Method",
+          "description": "",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+
+            "code": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
+            "name": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
+            "description": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+
+            "remarks": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+
+            "reference": { "$ref": "#/definitions/reference" },
+
+            "itemsCount": {
+              "description": "number of things in the items collection",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 1000
+            },
+
+            "items": {
+              "description": "",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1000,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#"
+              }
+            }
+          },
+
+          "definitions": {
+
+            "reference": {
+              "type": "object",
+              "additionalProperties": false,
+
+              "properties": {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "type": { "$ref": "#/definitions/referenceTypeEnum" },
+
+                "referencesCount": {
+                  "description": "number of things in the references collection",
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "references": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/definitions/reference"
+                  }
+                }
+              }
+            },
+
+            "referenceTypeEnum": {
+              "type": "string",
+              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+            }
+          }
         }
 
 2.  XML
 
+
         <?xml version='1.0' encoding='utf-8'?>
-        <shippingMethod/>
+
+        <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                   elementFormDefault='qualified'
+                   xml:lang='en'>
+
+          <xs:element name='shippingMethod' type='ItemType'/>
+
+          <xs:complexType name='ItemType'>
+            <xs:sequence>
+              <xs:element name='code'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='buyer'           type='BuyerType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
+              <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ItemsType'>
+            <xs:sequence minOccurs='1' maxOccurs='5000'>
+              <xs:element name='item' type='ItemType'/>
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:complexType name='ReferenceType'>
+            <xs:sequence>
+              <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
+
+              <xs:element name='referencesCount' type='xs:integer'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='references'      type='ReferencesType' minOccurs='0' maxOccurs='1' />
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:simpleType name='ReferenceTypeEnum'>
+            <xs:restriction base='xs:string'>
+              <xs:enumeration value='buyer'/>
+              <xs:enumeration value='consumer'/>
+              <xs:enumeration value='manufacturer'/>
+              <xs:enumeration value='seller'/>
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:complexType name='ReferencesType'>
+            <xs:sequence minOccurs='0' maxOccurs='1000'>
+              <xs:element name='reference' type='ReferenceType'/>
+            </xs:sequence>
+          </xs:complexType>
+
+        </xs:schema>
 
 
 ## © 2018 ECi Software Solutions, Inc. All rights reserved.

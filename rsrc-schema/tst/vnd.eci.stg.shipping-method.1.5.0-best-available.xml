@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<shippingMethod>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>best</code>
+        <name>Best Available</name>
+        <type>seller</type>
+      </reference>
+    </item>
+  </items>
+</shippingMethod>

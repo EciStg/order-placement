@@ -8,8 +8,8 @@
                "email": "shipping-contact@example.com",
                "phone": "1-555-555-5555"},
 
-  "shippingCarrier": { "code": "shipper-123",
-                       "name": "usps-2day" },
+  "shippingMethod": { "code": "shipper-123",
+                      "name": "usps-2day" },
 
   "total": { "freightAmount": 199.99 },
 

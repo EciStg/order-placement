@@ -51,6 +51,8 @@
       "maxLength": 32
     },
 
+    "billTo": { "$ref": "#/definitions/billTo" },
+
     "buyer": { "$ref": "#/definitions/buyer" },
 
     "consumer": { "$ref": "#/definitions/consumer" },
@@ -59,9 +61,7 @@
 
     "shipTo": { "$ref": "#/definitions/shipTo" },
 
-    "billTo": { "$ref": "#/definitions/billTo" },
-
-    "shippingCarrier": { "$ref": "#/definitions/shippingCarrier" },
+    "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
     "location": { "$ref": "#/definitions/address" },
 
@@ -245,7 +245,7 @@
       "additionalProperties": false
     },
 
-    "shippingCarrier": {
+    "shippingMethod": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -279,7 +279,7 @@
         },
 
         "itemsCount": {
-          "description": "number of shipping carriers in the collection",
+          "description": "number of shipping methods in the collection",
           "type": "number",
           "minimum": 1,
           "maximum": 1000
@@ -292,7 +292,7 @@
           "maxItems": 1000,
           "uniqueItems": true,
           "items": {
-            "$ref": "#/definitions/shippingCarrier"
+            "$ref": "#/definitions/shippingMethod"
           }
         }
       }

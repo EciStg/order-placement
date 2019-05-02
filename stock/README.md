@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-01T18:59:38Z</td>
+<td class="org-left">2019-05-01T23:53:51Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-01T18:59:38Z</td>
+<td class="org-left">2019-05-01T23:53:51Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -357,7 +357,7 @@
 ![img](../images/stock-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
-received will be shown. It is assumed that the caller will make the actual *POST*
+received will be shown. It is assumed that the caller will make the http *POST*
 call with the required headers e.g.
 
     curl --request POST \
@@ -371,14 +371,19 @@ call with the required headers e.g.
 
 ![img](../images/stock-class-diagram.puml.png)
 
--   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+-   **code:** software facing identity function; used to identify the object to a software system
 -   **name:** [optional] name of the stock request or stock item
 -   **description:** [optional] description of the stock request or stock item
 -   **remarks:** [optional] human to human communication
+-   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
+-   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
+-   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 -   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
+-   **billTo:** [optional] the person or organization that will be invoiced for goods and services
 -   **buyer:** [optional] the person or organization inquiring about goods and services
--   **consumer:** [optional]the person or organization the buyer is acting for
+-   **consumer:** [optional] the person or organization the buyer is acting for
 -   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
+-   **seller:** [optional] the person or organization providing goods and services to buyers and consumers
 -   **when:** [optional] date and time when the request was placed. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
 -   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
 -   **make:** [optional] make of the good being ordered or serviced
@@ -388,8 +393,6 @@ call with the required headers e.g.
 -   **unitMeasure:** [optional] each, box, etc.
 -   **unitCost:** [optiona] amount of currency required to purchase the good or service
 -   **currency:** [optional] describes the transactional currency
--   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
--   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 
 
 ## Example
@@ -423,8 +426,8 @@ down into smaller chunks.
                        "email": "shipping-contact@example.com",
                        "phone": "1-555-555-5555"},
 
-          "shippingCarrier": { "code": "shipper-123",
-                               "name": "usps-2day" },
+          "shippingMethod": { "code": "shipper-123",
+                              "name": "usps-2day" },
 
           "when": "2018-04-24T17:00:00.000Z",
 
@@ -1116,8 +1119,8 @@ support time to delivery with an estimated cost for shipping.
                            "email": "shipping-contact@example.com",
                            "phone": "1-555-555-5555"},
 
-              "shippingCarrier": { "code": "shipper-123",
-                                   "name": "usps-2day" },
+              "shippingMethod": { "code": "shipper-123",
+                                  "name": "usps-2day" },
 
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
@@ -1141,10 +1144,10 @@ support time to delivery with an estimated cost for shipping.
                 <email>shipping-contact@example.com</email>
                 <phone>1-555-555-5555></phone>
               </shipTo>
-              <shippingCarrier>
+              <shippingMethod>
                 <code>shipper-123</code>
                 <name>usps-2day</name>
-              </shippingCarrier>
+              </shippingMethod>
               <itemsCount>1</itemsCount>
               <items>
                 <item>
@@ -1172,8 +1175,8 @@ support time to delivery with an estimated cost for shipping.
                            "email": "shipping-contact@example.com",
                            "phone": "1-555-555-5555"},
 
-              "shippingCarrier": { "code": "shipper-123",
-                                   "name": "usps-2day" },
+              "shippingMethod": { "code": "shipper-123",
+                                  "name": "usps-2day" },
 
               "total": { "freightAmount": 199.99 },
 
@@ -1200,10 +1203,10 @@ support time to delivery with an estimated cost for shipping.
                 <email>shipping-contact@example.com</email>
                 <phone>1-555-555-5555></phone>
               </shipTo>
-              <shippingCarrier>
+              <shippingMethod>
                 <code>shipper-123</code>
                 <name>usps-2day</name>
-              </shippingCarrier>
+              </shippingMethod>
               <total>
                 <freightAmount>199.99</freightAmount>
               </total>
@@ -1536,6 +1539,8 @@ No longer published
               "maxLength": 32
             },
 
+            "billTo": { "$ref": "#/definitions/billTo" },
+
             "buyer": { "$ref": "#/definitions/buyer" },
 
             "consumer": { "$ref": "#/definitions/consumer" },
@@ -1544,9 +1549,7 @@ No longer published
 
             "shipTo": { "$ref": "#/definitions/shipTo" },
 
-            "billTo": { "$ref": "#/definitions/billTo" },
-
-            "shippingCarrier": { "$ref": "#/definitions/shippingCarrier" },
+            "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
             "location": { "$ref": "#/definitions/address" },
 
@@ -1730,7 +1733,7 @@ No longer published
               "additionalProperties": false
             },
 
-            "shippingCarrier": {
+            "shippingMethod": {
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -1764,7 +1767,7 @@ No longer published
                 },
 
                 "itemsCount": {
-                  "description": "number of shipping carriers in the collection",
+                  "description": "number of shipping methods in the collection",
                   "type": "number",
                   "minimum": 1,
                   "maximum": 1000
@@ -1777,7 +1780,7 @@ No longer published
                   "maxItems": 1000,
                   "uniqueItems": true,
                   "items": {
-                    "$ref": "#/definitions/shippingCarrier"
+                    "$ref": "#/definitions/shippingMethod"
                   }
                 }
               }
@@ -2437,7 +2440,7 @@ No longer published
               <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='shippingCarrier' type='ShippingCarrierType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
               <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
@@ -2517,7 +2520,7 @@ No longer published
             </xs:sequence>
           </xs:complexType>
 
-          <xs:complexType name='ShippingCarrierType'>
+          <xs:complexType name='ShippingMethodType'>
             <xs:sequence>
               <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
@@ -2525,13 +2528,13 @@ No longer published
               <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
 
               <xs:element name='itemsCount' type='xs:integer'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='items'      type='ShippingCarriersType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'      type='ShippingMethodsType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
-          <xs:complexType name='ShippingCarriersType'>
+          <xs:complexType name='ShippingMethodsType'>
             <xs:sequence minOccurs='0' maxOccurs='1000'>
-              <xs:element name='shippingCarrier' type='ReferenceType'/>
+              <xs:element name='shippingMethod' type='ReferenceType'/>
             </xs:sequence>
           </xs:complexType>
 
