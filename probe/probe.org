@@ -214,7 +214,7 @@ Recommended for Seller implementations.
 ***** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-probes-bottom.xml
-  <item>
+  <probe>
     <code>bottom</code>
     <name>Bottom Probe</name>
     <description>The database cannot be contacted. Ensure the database is running and network reachable.</description>
@@ -222,7 +222,7 @@ Recommended for Seller implementations.
     <status>500</status>
     <when>2018-04-23T18:25:40.611Z</when>
     <self>https://some-host/some-api/probes/bottom</self>
-  </item>
+  </probe>
 #+END_SRC
 
 *** List custom probes ~./probes~
@@ -271,7 +271,7 @@ Optional.
 ***** XML
 
 #+BEGIN_SRC xml :tangle ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.0-list.xml
-  <item>
+  <probe>
     <code>probes</code>
     <self>https://some-host/some-api/probes</self>
     <itemsCount>3</itemsCount>
@@ -297,7 +297,7 @@ Optional.
         <self>https://some-host/some-api/items/con-db</self>
       </item>
     </items>
-  </item>
+  </probe>
 #+END_SRC
 
 ** Resource Schema
@@ -406,7 +406,7 @@ Not supported.
              elementFormDefault='qualified'
              xml:lang='en'>
 
-    <xs:element name='item' type='itemType' />
+    <xs:element name='probe' type='itemType' />
 
     <xs:complexType name='itemType'>
       <xs:sequence>

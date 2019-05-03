@@ -1,4 +1,4 @@
-<item>
+<probe>
   <code>probes</code>
   <self>https://some-host/some-api/probes</self>
   <itemsCount>3</itemsCount>
@@ -24,4 +24,4 @@
       <self>https://some-host/some-api/items/con-db</self>
     </item>
   </items>
-</item>
+</probe>

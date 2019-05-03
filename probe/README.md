@@ -30,7 +30,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-03T20:31:58Z</td>
+<td class="org-left">2019-05-03T20:51:57Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +60,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2019-05-03T20:31:58Z</td>
+<td class="org-left">2019-05-03T20:51:58Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -198,7 +198,7 @@ The bottom probe's `code` value must be `bottom`.
 
     2.  XML
 
-            <item>
+            <probe>
               <code>bottom</code>
               <name>Bottom Probe</name>
               <description>The database cannot be contacted. Ensure the database is running and network reachable.</description>
@@ -206,7 +206,7 @@ The bottom probe's `code` value must be `bottom`.
               <status>500</status>
               <when>2018-04-23T18:25:40.611Z</when>
               <self>https://some-host/some-api/probes/bottom</self>
-            </item>
+            </probe>
 
 
 ### List custom probes `./probes`
@@ -248,7 +248,7 @@ systems and applications.
 
     2.  XML
 
-            <item>
+            <probe>
               <code>probes</code>
               <self>https://some-host/some-api/probes</self>
               <itemsCount>3</itemsCount>
@@ -274,7 +274,7 @@ systems and applications.
                   <self>https://some-host/some-api/items/con-db</self>
                 </item>
               </items>
-            </item>
+            </probe>
 
 
 ## Resource Schema
@@ -380,7 +380,7 @@ systems and applications.
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='item' type='itemType' />
+          <xs:element name='probe' type='itemType' />
 
           <xs:complexType name='itemType'>
             <xs:sequence>

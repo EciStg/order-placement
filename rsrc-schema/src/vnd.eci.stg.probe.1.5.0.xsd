@@ -4,7 +4,7 @@
            elementFormDefault='qualified'
            xml:lang='en'>
 
-  <xs:element name='item' type='itemType' />
+  <xs:element name='probe' type='itemType' />
 
   <xs:complexType name='itemType'>
     <xs:sequence>
