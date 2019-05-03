@@ -93,9 +93,13 @@
 
 ### Probe
 
-1.  TODO write non-technical description
+Probe [documentation](./probe/README.md)
 
-    Probe [documentation](./probe/README.md)
+The purpose of a Probe is to allow buyer and seller health monitoring applications and staff to detect
+problems before customers do and provide actionable information, allowing problems to be identified
+and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
+systems and staff will have access to these probes and will access them multiple times throughout
+the day.
 
 
 ### Shipping Method
@@ -162,7 +166,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T22:08:05Z</td>
+    <td class="org-left">2019-05-03T19:28:18Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -180,7 +184,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-05-01T22:08:05Z</td>
+    <td class="org-left">2019-05-03T19:28:19Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -312,7 +316,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T22:08:09Z</td>
+    <td class="org-left">2019-05-03T19:28:23Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -330,7 +334,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-05-01T22:08:10Z</td>
+    <td class="org-left">2019-05-03T19:28:23Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -491,7 +495,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T22:08:13Z</td>
+    <td class="org-left">2019-05-03T19:28:27Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -533,7 +537,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-05-01T22:08:14Z</td>
+    <td class="org-left">2019-05-03T19:28:27Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -793,7 +797,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-01T22:08:18Z</td>
+    <td class="org-left">2019-05-03T19:28:31Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -829,7 +833,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-05-01T22:08:18Z</td>
+    <td class="org-left">2019-05-03T19:28:32Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>

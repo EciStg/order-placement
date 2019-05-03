@@ -3,7 +3,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Probe",
   "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
-
   "type": "object",
   "additionalProperties": false,
   "required": ["self"],
@@ -42,13 +41,6 @@
       "maxLength": 256
     },
 
-    "self": {
-      "description": "system function identifying a unique system owned resource as a URL",
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 1024
-    },
-
     "status": {
       "description": "usually used bottom probe but may also be returned by api or application specific probes",
       "type": "string",
@@ -60,6 +52,13 @@
       "description": "origination date and time of probe execution",
       "type": "string",
       "format": "date-time"
+    },
+
+    "self": {
+      "description": "system function identifying a unique system owned resource as a URL",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
     },
 
     "itemsCount": {

@@ -30,7 +30,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-01T18:58:35Z</td>
+<td class="org-left">2019-05-03T19:25:47Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +60,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2019-05-01T18:58:35Z</td>
+<td class="org-left">2019-05-03T19:25:48Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -69,7 +69,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 ## Overview
 
-The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
+The purpose of a Probe is to allow buyer and seller health monitoring applications and staff to detect
 problems before customers do and provide actionable information, allowing problems to be identified
 and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
 systems and staff will have access to these probes and will access them multiple times throughout
@@ -121,9 +121,11 @@ including white listing.
 -   **description:** Human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.
 -   **name:** Human facing value that uniquely identifies the probe. If `name` is not populated, `description` must be.
 -   **remarks:** Human facing text, populated when there is a failure or warning. The text should give the human user some idea of where and why the failure or warning is occurring and what can be done to correct the problem.
--   **self:** URL identifying the probe that was executed. It is always required.
 -   **status:** Human and Software facing value populated in the returned body of an HTTP GET for all probes except the top probe. Values in the **200s** are successful, values in the **500s** indicate something is wrong with the API. If `status` is populated, `when` must also be populated.
 -   **when:** Date and time of probe execution. If `when` is populated, `status` must be.
+-   **self:** URL identifying the probe that was executed. It is always required.
+-   **itemsCount:** if the resource is being used as a collection of probes, not an instance of a probe, this value tells us how many probes are to be expected in the items collection
+-   **items:** a collection of one or more probes.
 
 
 ## Use Cases
@@ -137,6 +139,7 @@ This probe must be a light weight and fast running indicator of API availability
 a **ping**. It must do as little as possible yet still be able to announce that the API is up and
 running. It is expected this probe will be called one or more times per minute. Calling applications
 are required to check the HTTP Status Code and interpret it as pass, **200 - 299**, or fail, **400 - 599**.
+
 A body must not be returned to the caller.
 
 1.  Version 1.0
@@ -166,9 +169,9 @@ Implementors are required to return a valid, meaningful HTTP Status Code.
 Calling applications are required to check the HTTP Status Code. Calling applications are also
 required to read and obey HTTP/1.1 Cache-Control headers.
 
-A body is optional. When a body is provided, it must contain an array of one or more probe objects,
-each of which will contain its own HTTP Status Code. If the array contains a single object, the HTTP
-Status Code must match the value returned by the HTTP GET.
+A body is optional. When a body is provided, it must contain one or more probe objects, each of which
+will contain its own HTTP Status Code. If the probe is a single object, the HTTP Status Code must match
+the value returned by the HTTP GET.
 
 The bottom probe's `code` value must be `bottom`.
 
@@ -185,12 +188,13 @@ The bottom probe's `code` value must be `bottom`.
     1.  JSON
 
             { "code": "bottom",
-              "name": "Bottom Probe",
-              "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
-              "remarks": "The database cannot be contacted. Ensure the database is running and network reachable.",
-              "self": "https://some-host/some-api/probes/bottom",
-              "status": "500",
-              "when": "2018-04-23T18:25:40.611Z" }
+               "name": "Bottom Probe",
+               "description": "Ensures the API can reach all of the systems, databases, files, and other resources required to operate normally.",
+               "remarks": "The database cannot be contacted. Ensure the database is running and network reachable.",
+               "status": "500",
+               "when": "2018-04-23T18:25:40.611Z",
+               "self": "https://some-host/some-api/probes/bottom"
+            }
 
     2.  XML
 
@@ -199,9 +203,9 @@ The bottom probe's `code` value must be `bottom`.
               <name>Bottom Probe</name>
               <description>The database cannot be contacted. Ensure the database is running and network reachable.</description>
               <remarks>The database cannot be contacted. Ensure the database is running and network reachable.</remarks>
-              <self>https://some-host/some-api/probes/bottom</self>
               <status>500</status>
               <when>2018-04-23T18:25:40.611Z</when>
+              <self>https://some-host/some-api/probes/bottom</self>
             </item>
 
 
@@ -290,7 +294,6 @@ systems and applications.
           "$schema": "http://json-schema.org/draft-07/schema#",
           "title": "Probe",
           "description": "Defines the location and description of a probe. Upon execution ( HTTP GET ) defines the state of the probe.",
-
           "type": "object",
           "additionalProperties": false,
           "required": ["self"],
@@ -329,13 +332,6 @@ systems and applications.
               "maxLength": 256
             },
 
-            "self": {
-              "description": "system function identifying a unique system owned resource as a URL",
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 1024
-            },
-
             "status": {
               "description": "usually used bottom probe but may also be returned by api or application specific probes",
               "type": "string",
@@ -347,6 +343,13 @@ systems and applications.
               "description": "origination date and time of probe execution",
               "type": "string",
               "format": "date-time"
+            },
+
+            "self": {
+              "description": "system function identifying a unique system owned resource as a URL",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
             },
 
             "itemsCount": {
@@ -383,18 +386,22 @@ systems and applications.
             <xs:sequence>
               <xs:annotation>
                 <xs:documentation>
-                  TODO
+                  The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
+                  problems before customers do and provide actionable information, allowing problems to be identified
+                  and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
+                  systems and staff will have access to these probes and will access them multiple times throughout
+                  the day.
                 </xs:documentation>
               </xs:annotation>
-              <xs:element name='code'        type='xs:string'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'        type='xs:string'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='description' type='xs:string'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'     type='xs:string'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='self'        type='xs:string'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='status'      type='xs:string'   minOccurs='0' maxOccurs='1' />
-              <xs:element name='when'        type='xs:dateTime' minOccurs='0' maxOccurs='1' />
-              <xs:element name='itemsCount'  type='xs:integer' minOccurs='0' maxOccurs='1' />
-              <xs:element name='items' minOccurs='0' maxOccurs='1'>
+              <xs:element name='code'        type='string-32'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='string-32'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='string-128'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='string-256'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='status'      type='string-32'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='when'        type='xs:dateTime'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='self'        type='string-1024'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'  type='xs:integer'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'                           minOccurs='0' maxOccurs='1'>
                 <xs:complexType>
                   <xs:sequence minOccurs='1' maxOccurs='500'>
                     <xs:element name='item' type='itemType'/>
@@ -403,6 +410,47 @@ systems and applications.
               </xs:element>
             </xs:sequence>
           </xs:complexType>
+
+          <xs:simpleType name='string-16'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='16' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:simpleType name='string-32'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='32' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:simpleType name='string-128'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='128' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:simpleType name='string-256'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='256' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:simpleType name='string-1024'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='1024' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
         </xs:schema>
 
 

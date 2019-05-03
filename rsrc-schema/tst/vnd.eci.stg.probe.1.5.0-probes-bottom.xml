@@ -3,7 +3,7 @@
   <name>Bottom Probe</name>
   <description>The database cannot be contacted. Ensure the database is running and network reachable.</description>
   <remarks>The database cannot be contacted. Ensure the database is running and network reachable.</remarks>
-  <self>https://some-host/some-api/probes/bottom</self>
   <status>500</status>
   <when>2018-04-23T18:25:40.611Z</when>
+  <self>https://some-host/some-api/probes/bottom</self>
 </item>
