@@ -24,47 +24,235 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-02T00:52:18Z</td>
+<td class="org-left">2019-05-03T20:44:02Z</td>
 <td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-best-available.xml:3:</td>
+<td class="org-left">element</td>
+<td class="org-left">shippingMethod:</td>
+<td class="org-left">Schemas</td>
+<td class="org-left">validity</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">Element</td>
+<td class="org-left">'shippingMethod':</td>
+<td class="org-left">No</td>
+<td class="org-left">matching</td>
+<td class="org-left">global</td>
+<td class="org-left">declaration</td>
+<td class="org-left">available</td>
+<td class="org-left">for</td>
+<td class="org-left">the</td>
+<td class="org-left">validation</td>
+<td class="org-left">root.</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-best-available.xml</td>
-<td class="org-left">validates</td>
+<td class="org-left">fails</td>
+<td class="org-left">to</td>
+<td class="org-left">validate</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.xml:3:</td>
+<td class="org-left">element</td>
+<td class="org-left">shippingMethod:</td>
+<td class="org-left">Schemas</td>
+<td class="org-left">validity</td>
+<td class="org-left">error</td>
+<td class="org-left">:</td>
+<td class="org-left">Element</td>
+<td class="org-left">'shippingMethod':</td>
+<td class="org-left">No</td>
+<td class="org-left">matching</td>
+<td class="org-left">global</td>
+<td class="org-left">declaration</td>
+<td class="org-left">available</td>
+<td class="org-left">for</td>
+<td class="org-left">the</td>
+<td class="org-left">validation</td>
+<td class="org-left">root.</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.xml</td>
-<td class="org-left">validates</td>
+<td class="org-left">fails</td>
+<td class="org-left">to</td>
+<td class="org-left">validate</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-best-available.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-example-response.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.shipping-method.1.5.0-response.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-05-02T00:52:19Z</td>
+<td class="org-left">2019-05-03T20:44:02Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -153,21 +341,21 @@ It is assumed that the caller will make the http *GET* call with the required he
                     <item>
                       <reference>
                         <code>FEDX-1</code>
-                        <name>Federal Express, One Day Delivery</name>
+                        <name>Federal Express, One Day</name>
                         <type>seller</type>
                       </reference>
                     </item>
                     <item>
                       <reference>
                         <code>FEDX-2</code>
-                        <name>Federal Express, Two Day Delivery</name>
+                        <name>Federal Express, Two Day</name>
                         <type>seller</type>
                       </reference>
                     </item>
                     <item>
                       <reference>
                         <code>USPS</code>
-                        <name>United States Postal Service, Standard Delivery</name>
+                        <name>United States Postal Service</name>
                         <type>seller</type>
                       </reference>
                     </item>
@@ -316,7 +504,7 @@ No longer published
                   "maxLength": 256
                 },
 
-                "type": { "$ref": "#/definitions/referenceTypeEnum" },
+                "type": { "$ref": "#/definitions/reference/definitions/referenceTypeEnum" },
 
                 "referencesCount": {
                   "description": "number of things in the references collection",
@@ -335,12 +523,14 @@ No longer published
                     "$ref": "#/definitions/reference"
                   }
                 }
-              }
-            },
+              },
 
-            "referenceTypeEnum": {
-              "type": "string",
-              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+              "definitions": {
+                "referenceTypeEnum": {
+                  "type": "string",
+                  "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+                }
+              }
             }
           }
         }
@@ -354,17 +544,17 @@ No longer published
                    elementFormDefault='qualified'
                    xml:lang='en'>
 
-          <xs:element name='shippingMethod' type='ItemType'/>
+          <xs:element name='hippingMethod' type='ItemType'/>
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
-              <xs:element name='code'            type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
-              <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
+              <xs:element name='code'            type='string-32'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'            type='string-32'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='description'     type='string-128'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'         type='string-256'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'       type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='itemsCount'      type='xs:integer'    minOccurs='0' maxOccurs='1' />
+              <xs:element name='items'           type='ItemsType'     minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
@@ -376,10 +566,10 @@ No longer published
 
           <xs:complexType name='ReferenceType'>
             <xs:sequence>
-              <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
-              <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+              <xs:element name='code'        type='string-32'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='string-32'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='string-128' minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='string-256' minOccurs='0' maxOccurs='1' />
               <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
 
               <xs:element name='referencesCount' type='xs:integer'     minOccurs='0' maxOccurs='1' />
@@ -401,6 +591,30 @@ No longer published
               <xs:element name='reference' type='ReferenceType'/>
             </xs:sequence>
           </xs:complexType>
+
+          <xs:simpleType name='string-32'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='32' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:simpleType name='string-128'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='128' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
+
+          <xs:simpleType name='string-256'>
+            <xs:restriction base='xs:string'>
+              <xs:maxLength value='256' />
+              <xs:minLength value='0' />
+              <xs:whiteSpace value='preserve' />
+            </xs:restriction>
+          </xs:simpleType>
 
         </xs:schema>
 

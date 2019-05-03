@@ -8,13 +8,13 @@
 
   <xs:complexType name='ItemType'>
     <xs:sequence>
-      <xs:element name='code'            type='xs:string'           minOccurs='0' maxOccurs='1' />
-      <xs:element name='name'            type='xs:string'           minOccurs='0' maxOccurs='1' />
-      <xs:element name='description'     type='xs:string'           minOccurs='0' maxOccurs='1' />
-      <xs:element name='remarks'         type='xs:string'           minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
-      <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
-      <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
+      <xs:element name='code'            type='string-32'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'            type='string-32'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description'     type='string-128'    minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'         type='string-256'    minOccurs='0' maxOccurs='1' />
+      <xs:element name='reference'       type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='itemsCount'      type='xs:integer'    minOccurs='0' maxOccurs='1' />
+      <xs:element name='items'           type='ItemsType'     minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
@@ -26,10 +26,10 @@
 
   <xs:complexType name='ReferenceType'>
     <xs:sequence>
-      <xs:element name='code'        type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='name'        type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
-      <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
+      <xs:element name='code'        type='string-32'  minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='string-32'  minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='string-128' minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='string-256' minOccurs='0' maxOccurs='1' />
       <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
 
       <xs:element name='referencesCount' type='xs:integer'     minOccurs='0' maxOccurs='1' />
@@ -51,5 +51,29 @@
       <xs:element name='reference' type='ReferenceType'/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name='string-32'>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='32' />
+      <xs:minLength value='0' />
+      <xs:whiteSpace value='preserve' />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='string-128'>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='128' />
+      <xs:minLength value='0' />
+      <xs:whiteSpace value='preserve' />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='string-256'>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='256' />
+      <xs:minLength value='0' />
+      <xs:whiteSpace value='preserve' />
+    </xs:restriction>
+  </xs:simpleType>
 
 </xs:schema>

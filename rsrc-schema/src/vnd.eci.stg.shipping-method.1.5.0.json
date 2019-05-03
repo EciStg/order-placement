@@ -92,7 +92,7 @@
           "maxLength": 256
         },
 
-        "type": { "$ref": "#/definitions/referenceTypeEnum" },
+        "type": { "$ref": "#/definitions/reference/definitions/referenceTypeEnum" },
 
         "referencesCount": {
           "description": "number of things in the references collection",
@@ -111,12 +111,14 @@
             "$ref": "#/definitions/reference"
           }
         }
-      }
-    },
+      },
 
-    "referenceTypeEnum": {
-      "type": "string",
-      "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+      "definitions": {
+        "referenceTypeEnum": {
+          "type": "string",
+          "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+        }
+      }
     }
   }
 }
