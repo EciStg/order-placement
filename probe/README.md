@@ -30,7 +30,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-03T19:25:47Z</td>
+<td class="org-left">2019-05-03T20:31:58Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +60,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2019-05-03T19:25:48Z</td>
+<td class="org-left">2019-05-03T20:31:58Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -410,14 +410,6 @@ systems and applications.
               </xs:element>
             </xs:sequence>
           </xs:complexType>
-
-          <xs:simpleType name='string-16'>
-            <xs:restriction base='xs:string'>
-              <xs:maxLength value='16' />
-              <xs:minLength value='0' />
-              <xs:whiteSpace value='preserve' />
-            </xs:restriction>
-          </xs:simpleType>
 
           <xs:simpleType name='string-32'>
             <xs:restriction base='xs:string'>

@@ -35,14 +35,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name='string-16'>
-    <xs:restriction base='xs:string'>
-      <xs:maxLength value='16' />
-      <xs:minLength value='0' />
-      <xs:whiteSpace value='preserve' />
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name='string-32'>
     <xs:restriction base='xs:string'>
       <xs:maxLength value='32' />
