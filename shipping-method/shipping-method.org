@@ -42,10 +42,10 @@ Accept: application/vnd.eci.stg.shipping-method-1.5.0.xml
 
   interface shipping-method {
   .. is-a code ..
-  {field} + code : string
-  {field} + name : string
-  {field} + description : string
-  {field} + remarks : string
+  {field} + code : string-32
+  {field} + name : string-32
+  {field} + description : string-128
+  {field} + remarks : string-256
 
   .. has-a-reference ..
   {field} + reference : reference
@@ -415,4 +415,4 @@ No longer published
 
 #+END_SRC
 
-** © 2018 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.

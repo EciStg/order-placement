@@ -107,15 +107,15 @@ hide circle
 
 interface probe {
 .. is-a code ..
-{field} + code : string
-{field} + description : string
-{field} + name : string
-{field} + remarks : string
+{field} + code : string-32
+{field} + name : string-32
+{field} + description : string-128
+{field} + remarks : string-256
 .. is-an event ..
-{field} + status : string
+{field} + status : string-32
 {field} + when : datetime
 .. is-linkable ..
-{field} + self : string
+{field} + self : string-1024
 .. is/has-a collection ..
 {field} + itemsCount : int
 {field} + items : [Probe]
@@ -473,4 +473,4 @@ Not supported.
 
 #+END_SRC
 
-** © 2018 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.

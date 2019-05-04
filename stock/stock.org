@@ -56,10 +56,10 @@ call with the required headers e.g.
   interface stock {
 
   .. is-a code ..
-  {field} + code : string
-  {field} + name : string
-  {field} + description : string
-  {field} + remarks : string
+  {field} + code : string-32
+  {field} + name : string-32
+  {field} + description : string-128
+  {field} + remarks : string-256
 
   .. has-a-reference ..
   {field} + reference : reference
@@ -72,9 +72,9 @@ call with the required headers e.g.
   {field} + consumer : consumer
   {field} + seller : seller
   {field} + shipTo : shipto
-  {field} + make : string
-  {field} + model : string
-  {field} + serialNumber : string
+  {field} + make : string-32
+  {field} + model : string-32
+  {field} + serialNumber : string-32
   {field} + quantity : float
   {field} + unitMeasure : unitMeasure
   {field} + unitCost : decimal
@@ -2530,4 +2530,4 @@ No longer published
   </xs:schema>
 #+END_SRC
 
-** © 2018 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
