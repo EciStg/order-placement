@@ -30,7 +30,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-04T00:35:43Z</td>
+<td class="org-left">2019-05-04T00:44:37Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +60,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2019-05-04T00:35:43Z</td>
+<td class="org-left">2019-05-04T00:44:38Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -117,12 +117,12 @@ including white listing.
 
 ![img](../images/probe-class-diagram.puml.png)
 
--   **code:** Software facing value that uniquely identifies the probe. If `code` is not populated, `name` must be.
--   **description:** Human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.
--   **name:** Human facing value that uniquely identifies the probe. If `name` is not populated, `description` must be.
--   **remarks:** Human facing text, populated when there is a failure or warning. The text should give the human user some idea of where and why the failure or warning is occurring and what can be done to correct the problem.
--   **status:** Human and Software facing value populated in the returned body of an HTTP GET for all probes except the top probe. Values in the **200s** are successful, values in the **500s** indicate something is wrong with the API. If `status` is populated, `when` must also be populated.
--   **when:** Date and time of probe execution. If `when` is populated, `status` must be.
+-   **code:** software facing value that uniquely identifies the probe. If `code` is not populated, `name` must be.
+-   **description:** human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.
+-   **name:** human facing value that uniquely identifies the probe. If `name` is not populated, `description` must be.
+-   **remarks:** human facing text, populated when there is a failure or warning. The text should give the human user some idea of where and why the failure or warning is occurring and what can be done to correct the problem.
+-   **status:** human and Software facing value populated in the returned body of an HTTP GET for all probes except the top probe. Values in the **200s** are successful, values in the **500s** indicate something is wrong with the API. If `status` is populated, `when` must also be populated.
+-   **when:** date and time of probe execution. If `when` is populated, `status` must be.
 -   **self:** URL identifying the probe that was executed. It is always required.
 -   **itemsCount:** if the resource is being used as a collection of probes, not an instance of a probe, this value tells us how many probes are to be expected in the items collection
 -   **items:** a collection of one or more probes.
