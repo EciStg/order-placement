@@ -3,6 +3,7 @@
                                   "type": "buyer" },
                                  {"code": "PO-abc-q",
                                   "type": "consumer" }]},
+  "when": "2018-04-24T17:00:00.000Z",
 
   "buyer": { "reference": { "code": "buyer-abc",
                              "type": "seller" }},
@@ -24,8 +25,6 @@
 
   "shippingMethod": { "code": "shipper-123",
                       "name": "usps-2day" },
-
-  "when": "2018-04-24T17:00:00.000Z",
 
   "currency": { "code": "DKK",
                 "name": "Danish krone",

@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-01T23:53:51Z</td>
+<td class="org-left">2019-05-03T23:45:40Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-01T23:53:51Z</td>
+<td class="org-left">2019-05-03T23:45:41Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -376,23 +376,25 @@ call with the required headers e.g.
 -   **description:** [optional] description of the stock request or stock item
 -   **remarks:** [optional] human to human communication
 -   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
--   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
--   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
--   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
+-   **when:** [optional] date and time when the request was placed. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
+-   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
 -   **billTo:** [optional] the person or organization that will be invoiced for goods and services
 -   **buyer:** [optional] the person or organization inquiring about goods and services
 -   **consumer:** [optional] the person or organization the buyer is acting for
--   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
 -   **seller:** [optional] the person or organization providing goods and services to buyers and consumers
--   **when:** [optional] date and time when the request was placed. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
--   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
+-   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
 -   **make:** [optional] make of the good being ordered or serviced
 -   **model:** [optional] model of the good being ordered or serviced
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
 -   **quantity:** the number of goods or services the buyer wishes to purchase
 -   **unitMeasure:** [optional] each, box, etc.
--   **unitCost:** [optiona] amount of currency required to purchase the good or service
+-   **unitCost:** [optional] amount of currency required to purchase the good or service
+-   **total:** [optional] total amount of currency for the item
 -   **currency:** [optional] describes the transactional currency
+-   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
+-   **shippingMethod:** [optional] shipping carrier and method
+-   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
+-   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 
 
 ## Example
@@ -407,6 +409,7 @@ down into smaller chunks.
                                           "type": "buyer" },
                                          {"code": "PO-abc-q",
                                           "type": "consumer" }]},
+          "when": "2018-04-24T17:00:00.000Z",
 
           "buyer": { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
@@ -428,8 +431,6 @@ down into smaller chunks.
 
           "shippingMethod": { "code": "shipper-123",
                               "name": "usps-2day" },
-
-          "when": "2018-04-24T17:00:00.000Z",
 
           "currency": { "code": "DKK",
                         "name": "Danish krone",
@@ -1479,7 +1480,7 @@ support time to delivery with an estimated cost for shipping.
 
 ### Version 1.0
 
-No longer published
+> No longer published
 
 
 ### Version 1.5
@@ -1495,7 +1496,12 @@ No longer published
           "additionalProperties": false,
           "properties": {
 
-            "reference": { "$ref": "#/definitions/reference" },
+            "code": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
 
             "name": {
               "description": "",
@@ -1518,6 +1524,30 @@ No longer published
               "maxLength": 256
             },
 
+            "reference": { "$ref": "#/definitions/reference" },
+
+            "when": {
+              "description": "",
+              "type": "string",
+              "format": "date-time"
+            },
+
+            "whenExpected": {
+              "description": "",
+              "type": "string",
+              "format": "date-time"
+            },
+
+            "billTo": { "$ref": "#/definitions/billTo" },
+
+            "buyer": { "$ref": "#/definitions/buyer" },
+
+            "consumer": { "$ref": "#/definitions/consumer" },
+
+            "seller": { "$ref": "#/definitions/seller" },
+
+            "shipTo": { "$ref": "#/definitions/shipTo" },
+
             "make": {
               "description": "",
               "type": "string",
@@ -1532,26 +1562,16 @@ No longer published
               "maxLength": 32
             },
 
-            "serialnumber": {
+            "serialNumber": {
               "description": "",
               "type": "string",
               "minLength": 1,
               "maxLength": 32
             },
 
-            "billTo": { "$ref": "#/definitions/billTo" },
-
-            "buyer": { "$ref": "#/definitions/buyer" },
-
-            "consumer": { "$ref": "#/definitions/consumer" },
-
-            "seller": { "$ref": "#/definitions/seller" },
-
-            "shipTo": { "$ref": "#/definitions/shipTo" },
+            "location": { "$ref": "#/definitions/address" },
 
             "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
-
-            "location": { "$ref": "#/definitions/address" },
 
             "quantity": {
               "description": "",
@@ -1560,7 +1580,7 @@ No longer published
               "maximum": 999999999.999999
             },
 
-            "currency": { "$ref": "#/definitions/currency"},
+            "unitMeasure": { "$ref": "#/definitions/unitMeasure" },
 
             "unitCost": {
               "description": "",
@@ -1571,17 +1591,7 @@ No longer published
 
             "total": { "$ref": "#/definitions/total"},
 
-            "when": {
-              "description": "",
-              "type": "string",
-              "format": "date-time"
-            },
-
-            "whenExpected": {
-              "description": "",
-              "type": "string",
-              "format": "date-time"
-            },
+            "currency": { "$ref": "#/definitions/currency"},
 
             "itemsCount": {
               "description": "number of things in the items collection",
@@ -1638,7 +1648,7 @@ No longer published
                   "maxLength": 256
                 },
 
-                "type": { "$ref": "#/definitions/referenceTypeEnum" },
+                "type": { "$ref": "#/definitions/reference/definitions/referenceTypeEnum" },
 
                 "referencesCount": {
                   "description": "number of things in the references collection",
@@ -1657,12 +1667,14 @@ No longer published
                     "$ref": "#/definitions/reference"
                   }
                 }
-              }
-            },
+              },
 
-            "referenceTypeEnum": {
-              "type": "string",
-              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+              "definitions": {
+                "referenceTypeEnum": {
+                  "type": "string",
+                  "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+                }
+              }
             },
 
             "tax": {
@@ -1791,8 +1803,6 @@ No longer published
               "additionalProperties": false,
               "properties": {
 
-                "reference": { "$ref": "#/definitions/reference" },
-
                 "code": {
                   "description": "",
                   "type": "string",
@@ -1820,6 +1830,8 @@ No longer published
                   "minLength": 1,
                   "maxLength": 256
                 },
+
+                "reference": { "$ref": "#/definitions/reference" },
 
                 "msc": {
                   "description": "mail stop code",
@@ -1884,7 +1896,7 @@ No longer published
                   "maxLength": 40
                 },
 
-                "binLocation": {
+                "bin": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
@@ -1904,8 +1916,6 @@ No longer published
               "type": "object",
               "additionalProperties": false,
               "properties": {
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "code": {
                   "description": "",
@@ -1934,6 +1944,8 @@ No longer published
                   "minLength": 1,
                   "maxLength": 256
                 },
+
+                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -1967,8 +1979,6 @@ No longer published
               "additionalProperties": false,
               "properties": {
 
-                "reference": { "$ref": "#/definitions/reference" },
-
                 "code": {
                   "description": "",
                   "type": "string",
@@ -1996,6 +2006,8 @@ No longer published
                   "minLength": 1,
                   "maxLength": 256
                 },
+
+                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2029,8 +2041,6 @@ No longer published
               "additionalProperties": false,
               "properties": {
 
-                "reference": { "$ref": "#/definitions/reference" },
-
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2059,9 +2069,9 @@ No longer published
                   "maxLength": 256
                 },
 
-                "location": { "$ref": "#/definitions/address" },
+                "reference": { "$ref": "#/definitions/reference" },
 
-                "contract": { "$ref": "#/definitions/reference" },
+                "location": { "$ref": "#/definitions/address" },
 
                 "email": {
                   "description": "",
@@ -2084,7 +2094,9 @@ No longer published
                   "maxLength": 32
                 },
 
-                "contact": { "$ref": "#/definitions/contact" }
+                "contact": { "$ref": "#/definitions/contact" },
+
+                "contract": { "$ref": "#/definitions/reference" }
               }
             },
 
@@ -2092,8 +2104,6 @@ No longer published
               "type": "object",
               "additionalProperties": false,
               "properties": {
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "code": {
                   "description": "",
@@ -2122,6 +2132,8 @@ No longer published
                   "minLength": 1,
                   "maxLength": 256
                 },
+
+                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2155,8 +2167,6 @@ No longer published
               "additionalProperties": false,
               "properties": {
 
-                "reference": { "$ref": "#/definitions/reference" },
-
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2185,6 +2195,8 @@ No longer published
                   "maxLength": 256
                 },
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "location": { "$ref": "#/definitions/address" },
 
                 "email": {
@@ -2201,12 +2213,12 @@ No longer published
                   "maxLength": 32
                 },
 
+                "contact": { "$ref": "#/definitions/contact" },
+
                 "isDropShip": {
                   "description": "",
                   "type": "boolean"
-                },
-
-                "contact": { "$ref": "#/definitions/contact" }
+                }
               }
             },
 
@@ -2227,6 +2239,20 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
                 },
 
                 "number": {
@@ -2257,6 +2283,13 @@ No longer published
               "additionalProperties": false,
               "properties": {
 
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
                 "amount": {
                   "description": "",
                   "type": "number",
@@ -2285,13 +2318,47 @@ No longer published
                   "maximum": 999999999999.999999
                 },
 
-                "tax": { "$ref": "#/definitions/tax" },
+                "tax": { "$ref": "#/definitions/tax" }
+              }
+            },
+
+            "unitMeasure": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
 
                 "remarks": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 256
+                },
+
+                "quantity": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 999999999.999999
                 }
               }
             },
@@ -2300,8 +2367,6 @@ No longer published
               "type": "object",
               "additionalProperties": false,
               "properties": {
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "code": {
                   "description": "",
@@ -2330,6 +2395,8 @@ No longer published
                   "minLength": 1,
                   "maxLength": 256
                 },
+
+                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2363,11 +2430,12 @@ No longer published
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+              <xs:element name='code'        type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='msc'         type='xs:string'     minOccurs='0' maxOccurs='1' />
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='mtn'         type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='rcp'         type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='alt'         type='xs:string'     minOccurs='0' maxOccurs='1' />
