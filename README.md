@@ -163,59 +163,29 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
-
-    <col  class="org-right" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-05T01:19:10Z</td>
+    <td class="org-left">2019-05-05T01:40:57Z</td>
     <td class="org-left">started</td>
-    <td class="org-right">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.code.1.0.0.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-right">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">/bin/bash:</td>
-    <td class="org-left">line</td>
-    <td class="org-right">3:</td>
-    <td class="org-left">ajv:</td>
-    <td class="org-left">command</td>
-    <td class="org-left">not</td>
-    <td class="org-left">found</td>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.code.1.0.0.json</td>
+    <td class="org-left">valid</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">2019-05-05T01:19:10Z</td>
+    <td class="org-left">2019-05-05T01:40:57Z</td>
     <td class="org-left">stopped</td>
-    <td class="org-right">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -343,59 +313,29 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
-
-    <col  class="org-right" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-05T01:19:14Z</td>
+    <td class="org-left">2019-05-05T01:41:00Z</td>
     <td class="org-left">started</td>
-    <td class="org-right">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-right">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">/bin/bash:</td>
-    <td class="org-left">line</td>
-    <td class="org-right">3:</td>
-    <td class="org-left">ajv:</td>
-    <td class="org-left">command</td>
-    <td class="org-left">not</td>
-    <td class="org-left">found</td>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.json</td>
+    <td class="org-left">valid</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">2019-05-05T01:19:14Z</td>
+    <td class="org-left">2019-05-05T01:41:01Z</td>
     <td class="org-left">stopped</td>
-    <td class="org-right">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -552,81 +492,53 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-05T01:19:17Z</td>
+    <td class="org-left">2019-05-05T01:41:04Z</td>
     <td class="org-left">started</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-multiple.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-nested.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-single.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">/bin/bash:</td>
-    <td class="org-left">line</td>
-    <td class="org-left">3:</td>
-    <td class="org-left">ajv:</td>
-    <td class="org-left">command</td>
-    <td class="org-left">not</td>
-    <td class="org-left">found</td>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-multiple.json</td>
+    <td class="org-left">valid</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">2019-05-05T01:19:17Z</td>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-nested.json</td>
+    <td class="org-left">valid</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-single.json</td>
+    <td class="org-left">valid</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">2019-05-05T01:41:04Z</td>
     <td class="org-left">stopped</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -882,70 +794,47 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
-
-    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-05T01:19:21Z</td>
+    <td class="org-left">2019-05-05T01:41:08Z</td>
     <td class="org-left">started</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0-as-code.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0.xml</td>
     <td class="org-left">validates</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">/bin/bash:</td>
-    <td class="org-left">line</td>
-    <td class="org-left">3:</td>
-    <td class="org-left">ajv:</td>
-    <td class="org-left">command</td>
-    <td class="org-left">not</td>
-    <td class="org-left">found</td>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0-as-code.json</td>
+    <td class="org-left">valid</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">2019-05-05T01:19:21Z</td>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0.-as-code.json</td>
+    <td class="org-left">valid</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0.json</td>
+    <td class="org-left">valid</td>
+    </tr>
+
+
+    <tr>
+    <td class="org-left">2019-05-05T01:41:08Z</td>
     <td class="org-left">stopped</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>

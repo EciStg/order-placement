@@ -27,11 +27,14 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-05T01:16:45Z</td>
+<td class="org-left">2019-05-05T01:42:34Z</td>
 <td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -48,6 +51,7 @@
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
@@ -59,23 +63,38 @@
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">/bin/bash:</td>
-<td class="org-left">line</td>
-<td class="org-left">3:</td>
-<td class="org-left">ajv:</td>
-<td class="org-left">command</td>
-<td class="org-left">not</td>
-<td class="org-left">found</td>
+<td class="org-left">schema</td>
+<td class="org-left">../rsrc-schema/src/vnd.eci.stg.order-ack.1.5.0.json</td>
+<td class="org-left">is</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-05-05T01:16:45Z</td>
+<td class="org-left">error:</td>
+<td class="org-left">can't</td>
+<td class="org-left">resolve</td>
+<td class="org-left">reference</td>
+<td class="org-left">#/definitions/referenceTypeEnum</td>
+<td class="org-left">from</td>
+<td class="org-left">id</td>
+<td class="org-left">vnd.eci.stg.order-ack.1.5.0.json#</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2019-05-05T01:42:34Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
