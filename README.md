@@ -64,7 +64,7 @@
 
     ![img](./images/resource-types.dot.png)
 
-4.  Connecting To Endpoints
+4.  Connecting
 
     1.  HTTPS / TLS
 
@@ -88,7 +88,7 @@
             defined information (opaque) to be supplied by the seller and delivered to the buyer.
 
 
-## Endpoint Major Resource Types
+## Resource Type Documentation
 
 
 ### Probe
@@ -142,7 +142,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     Shipping Receipts [documentation](./receipt/README.md)
 
 
-## Other (embedded) Resource Types
+## Embedded Resource Types
 
 
 ### Code
@@ -163,29 +163,59 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
+
+    <col  class="org-right" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-03T19:28:18Z</td>
+    <td class="org-left">2019-05-05T01:19:10Z</td>
     <td class="org-left">started</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.code.1.0.0.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.code.1.0.0.json</td>
-    <td class="org-left">valid</td>
+    <td class="org-left">/bin/bash:</td>
+    <td class="org-left">line</td>
+    <td class="org-right">3:</td>
+    <td class="org-left">ajv:</td>
+    <td class="org-left">command</td>
+    <td class="org-left">not</td>
+    <td class="org-left">found</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">2019-05-03T19:28:19Z</td>
+    <td class="org-left">2019-05-05T01:19:10Z</td>
     <td class="org-left">stopped</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -313,29 +343,59 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
+
+    <col  class="org-right" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-03T19:28:23Z</td>
+    <td class="org-left">2019-05-05T01:19:14Z</td>
     <td class="org-left">started</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.currency.1.5.0.json</td>
-    <td class="org-left">valid</td>
+    <td class="org-left">/bin/bash:</td>
+    <td class="org-left">line</td>
+    <td class="org-right">3:</td>
+    <td class="org-left">ajv:</td>
+    <td class="org-left">command</td>
+    <td class="org-left">not</td>
+    <td class="org-left">found</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">2019-05-03T19:28:23Z</td>
+    <td class="org-left">2019-05-05T01:19:14Z</td>
     <td class="org-left">stopped</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -471,7 +531,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
                     </xs:complexType>
                 </xs:schema>
 
-6.  © 2018 ECi Software Solutions, Inc. All rights reserved.
+6.  © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
 
 
 ### Error
@@ -492,53 +552,81 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-03T19:28:27Z</td>
+    <td class="org-left">2019-05-05T01:19:17Z</td>
     <td class="org-left">started</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-multiple.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-nested.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-single.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-multiple.json</td>
-    <td class="org-left">valid</td>
+    <td class="org-left">/bin/bash:</td>
+    <td class="org-left">line</td>
+    <td class="org-left">3:</td>
+    <td class="org-left">ajv:</td>
+    <td class="org-left">command</td>
+    <td class="org-left">not</td>
+    <td class="org-left">found</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-nested.json</td>
-    <td class="org-left">valid</td>
-    </tr>
-
-
-    <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.error.1.5.0-single.json</td>
-    <td class="org-left">valid</td>
-    </tr>
-
-
-    <tr>
-    <td class="org-left">2019-05-03T19:28:27Z</td>
+    <td class="org-left">2019-05-05T01:19:17Z</td>
     <td class="org-left">stopped</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -794,47 +882,70 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     <col  class="org-left" />
 
     <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
+
+    <col  class="org-left" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-05-03T19:28:31Z</td>
+    <td class="org-left">2019-05-05T01:19:21Z</td>
     <td class="org-left">started</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0-as-code.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
     <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0.xml</td>
     <td class="org-left">validates</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0-as-code.json</td>
-    <td class="org-left">valid</td>
+    <td class="org-left">/bin/bash:</td>
+    <td class="org-left">line</td>
+    <td class="org-left">3:</td>
+    <td class="org-left">ajv:</td>
+    <td class="org-left">command</td>
+    <td class="org-left">not</td>
+    <td class="org-left">found</td>
     </tr>
 
 
     <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0.-as-code.json</td>
-    <td class="org-left">valid</td>
-    </tr>
-
-
-    <tr>
-    <td class="org-left">./other-schema/tst/vnd.eci.stg.reference.1.5.0.json</td>
-    <td class="org-left">valid</td>
-    </tr>
-
-
-    <tr>
-    <td class="org-left">2019-05-03T19:28:32Z</td>
+    <td class="org-left">2019-05-05T01:19:21Z</td>
     <td class="org-left">stopped</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
     </tr>
     </tbody>
     </table>
@@ -1049,9 +1160,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
-     of 2017-09-12
-    org version: 9.1.8
+    emacs version: GNU Emacs 26.2 (build 1, x86_64-apple-darwin18.2.0, NS appkit-1671.20 Version 10.14.3 (Build 18D109))
+     of 2019-04-12
+    org version: 9.1.9
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images
@@ -1077,4 +1188,4 @@ To export documents use the key binding **C-c C-e** and choose your preferred ex
 project I am using Markdown e.g. **C-c C-e m m**
 
 
-## © 2018 ECi Software Solutions, Inc. All rights reserved.
+## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.

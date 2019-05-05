@@ -115,7 +115,7 @@ There are seven resource types exchanged between the buyer's system and the sell
     }
 #+END_SRC
 
-* Connecting To Endpoints
+* Connecting
 
 ** HTTPS / TLS
 
