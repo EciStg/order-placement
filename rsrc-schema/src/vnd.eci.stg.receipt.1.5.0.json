@@ -61,7 +61,7 @@
 
     "billTo": { "$ref": "#/definitions/billTo" },
 
-    "shippingCarrier": { "$ref": "#/definitions/shippingCarrier" },
+    "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
     "location": { "$ref": "#/definitions/address" },
 
@@ -268,7 +268,7 @@
       "additionalProperties": false
     },
 
-    "shippingCarrier": {
+    "shippingMethod": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -302,7 +302,7 @@
         },
 
         "itemsCount": {
-          "description": "number of shipping carriers in the collection",
+          "description": "number of shipping receipts in the collection",
           "type": "number",
           "minimum": 1,
           "maximum": 1000
@@ -315,7 +315,7 @@
           "maxItems": 1000,
           "uniqueItems": true,
           "items": {
-            "$ref": "#/definitions/shippingCarrier"
+            "$ref": "#/definitions/shippingMethod"
           }
         }
       }
