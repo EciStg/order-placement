@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-17T21:31:29Z</td>
+<td class="org-left">2019-05-29T15:03:25Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -345,7 +345,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-17T21:31:30Z</td>
+<td class="org-left">2019-05-29T15:03:26Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1110,15 +1110,17 @@ support time to delivery with an estimated cost for shipping.
 
     1.  JSON
 
-            { "shipTo": { "location": { "mtn": "Jane Doe",
+            { "shipTo": { "reference": { "code": "xyz-789",
+                                         "type": "seller" },
+                          "location": { "mtn": "Jane Doe",
                                          "rcp": "ECi Solutions, STG",
                                          "alt": "Suite #200",
                                          "dal": "4626 N 300 W",
                                          "city": "Provo",
                                          "region": "UT",
                                          "postalCode": "84604"},
-                           "email": "shipping-contact@example.com",
-                           "phone": "1-555-555-5555"},
+                          "email": "shipping-contact@example.com",
+                          "phone": "1-555-555-5555"},
 
               "shippingMethod": { "code": "shipper-123",
                                   "name": "usps-2day" },
@@ -1133,6 +1135,10 @@ support time to delivery with an estimated cost for shipping.
 
             <stock>
               <shipTo>
+                <reference>
+                  <code>xyz-789</code>
+                  <type>seller</type>
+                </reference>
                 <location>
                   <mtn>Jane Doe</mtn>
                   <rcp>ECi Solutions, STG</rcp>

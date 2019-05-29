@@ -2,6 +2,10 @@
 
 <stock>
   <shipTo>
+    <reference>
+      <code>xyz-789</code>
+      <type>seller</type>
+    </reference>
     <location>
       <mtn>Jane Doe</mtn>
       <rcp>ECi Solutions, STG</rcp>
