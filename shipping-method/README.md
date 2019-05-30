@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-05T01:43:29Z</td>
+<td class="org-left">2019-05-30T17:19:45Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -63,7 +63,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-05T01:43:29Z</td>
+<td class="org-left">2019-05-30T17:19:45Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -83,9 +83,9 @@
 -   **name:** [optional] human facing name of the shipping method
 -   **description:** [optional] human facing description of the shipping method
 -   **remarks:** [optional] human to human communication
--   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
--   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
--   **items:** an array of shipping methods. [optional] if there is only one item in the request. [required] if there is more than one item in the request
+-   **reference:** an identify function that relates an entity to an actor.
+-   **itemsCount:** [required] if there is one or more shipping methods in the items arrary. [optional] if there there is only a single shipping method, i.e. it is described by the fields listed above.
+-   **items:** [required] if there is one or more shipping methods in the items arrary. [optional] if there there is only a single shipping method, i.e. it is described by the fields listed above.
 
 
 ## Example
@@ -96,7 +96,7 @@ It is assumed that the caller will make the http *GET* call with the required he
 ### HTTP GET
 
     curl --request GET \
-         --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.xml; charset=utf-8" \
+         --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.json; charset=utf-8" \
          --user user123:password123 \
          --url http://vendor-host/vendor-shippping-method-endpoint
 
@@ -432,3 +432,4 @@ No longer published
 
 
 ## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+    
