@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-29T15:03:25Z</td>
+<td class="org-left">2019-06-03T17:05:18Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -219,6 +219,12 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-item-location-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-known-buyer-request.json</td>
 <td class="org-left">valid</td>
 </tr>
@@ -345,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-29T15:03:26Z</td>
+<td class="org-left">2019-06-03T17:05:19Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -383,6 +389,8 @@ call with the required headers e.g.
 -   **consumer:** [optional] the person or organization the buyer is acting for
 -   **seller:** [optional] the person or organization providing goods and services to buyers and consumers
 -   **shipTo:** [optional] the location of where purchases will be sent or services provided. also may include location contact information
+-   **location:** [optional] location of the equipment within the shipTo address
+-   **shippingMethod:** [optional] carrier and delivery method
 -   **make:** [optional] make of the good being ordered or serviced
 -   **model:** [optional] model of the good being ordered or serviced
 -   **serialNumber:** [optional] manufacturer serial number of the good being ordered for, or serviced
@@ -391,8 +399,6 @@ call with the required headers e.g.
 -   **unitCost:** [optional] amount of currency required to purchase the good or service
 -   **total:** [optional] total amount of currency for the item
 -   **currency:** [optional] describes the transactional currency
--   **location:** [optional] when a good or service is being ordered for a specific asset the location tells you exactly where to find the asset
--   **shippingMethod:** [optional] shipping carrier and method
 -   **itemsCount:** [optional] if there is only one item in the request. [required] if there is more than one item in the request
 -   **items:** the goods or services being ordered. [optional] if there is only one item in the request. [required] if there is more than one item in the request
 
@@ -1182,11 +1188,10 @@ support time to delivery with an estimated cost for shipping.
                            "email": "shipping-contact@example.com",
                            "phone": "1-555-555-5555"},
 
-              "total": { "freightAmount": 199.99 },
-
               "shippingMethod": { "code": "shipper-123",
                                   "name": "usps-2day" },
 
+              "total": { "freightAmount": 199.99 },
 
               "itemsCount": 1,
               "items": [{ "reference": { "code": "abc-123",
@@ -1211,13 +1216,13 @@ support time to delivery with an estimated cost for shipping.
                 <email>shipping-contact@example.com</email>
                 <phone>1-555-555-5555></phone>
               </shipTo>
-              <total>
-                <freightAmount>199.99</freightAmount>
-              </total>
               <shippingMethod>
                 <code>shipper-123</code>
                 <name>usps-2day</name>
               </shippingMethod>
+              <total>
+                <freightAmount>199.99</freightAmount>
+              </total>
               <itemsCount>1</itemsCount>
               <items>
                 <item>
@@ -1555,6 +1560,10 @@ support time to delivery with an estimated cost for shipping.
 
             "shipTo": { "$ref": "#/definitions/shipTo" },
 
+            "location": { "$ref": "#/definitions/address" },
+
+            "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
             "make": {
               "description": "",
               "type": "string",
@@ -1575,10 +1584,6 @@ support time to delivery with an estimated cost for shipping.
               "minLength": 1,
               "maxLength": 32
             },
-
-            "location": { "$ref": "#/definitions/address" },
-
-            "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
             "quantity": {
               "description": "",
@@ -2541,6 +2546,8 @@ support time to delivery with an estimated cost for shipping.
               <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
               <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
+              <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
               <xs:element name='make'            type='string-32'           minOccurs='0' maxOccurs='1' />
               <xs:element name='model'           type='string-32'           minOccurs='0' maxOccurs='1' />
               <xs:element name='serialNumber'    type='string-32'           minOccurs='0' maxOccurs='1' />
@@ -2549,9 +2556,6 @@ support time to delivery with an estimated cost for shipping.
               <xs:element name='unitCost'        type='MoneyType'           minOccurs='0' maxOccurs='1' />
               <xs:element name='total'           type='TotalType'           minOccurs='0' maxOccurs='1' />
               <xs:element name='currency'        type='CurrencyType'        minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
-              <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
-              <xs:element name='lineNumber'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
               <xs:element name='itemsCount'      type='xs:integer'          minOccurs='0' maxOccurs='1' />
               <xs:element name='items'           type='ItemsType'           minOccurs='0' maxOccurs='1' />
             </xs:sequence>

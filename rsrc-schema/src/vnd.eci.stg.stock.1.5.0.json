@@ -59,6 +59,10 @@
 
     "shipTo": { "$ref": "#/definitions/shipTo" },
 
+    "location": { "$ref": "#/definitions/address" },
+
+    "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
     "make": {
       "description": "",
       "type": "string",
@@ -79,10 +83,6 @@
       "minLength": 1,
       "maxLength": 32
     },
-
-    "location": { "$ref": "#/definitions/address" },
-
-    "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
     "quantity": {
       "description": "",
