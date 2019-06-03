@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-17T21:33:07Z</td>
+<td class="org-left">2019-06-03T17:13:12Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -50,13 +50,19 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-item-location-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-05-17T21:33:08Z</td>
+<td class="org-left">2019-06-03T17:13:12Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -352,6 +358,41 @@ In the example below the buyer would like to see costs and other monetary values
                 </item>
               </items>
             </order>
+
+
+### As a buyer, I want individual line items delivered to a specific location in my organziation
+
+    { "reference": { "referencesCount": 2,
+                     "references": [ {"code": "PO-2159403-2",
+                                      "type": "buyer" },
+                                     {"code": "PO-abc-q",
+                                      "type": "consumer" }]},
+
+      "buyer": { "reference": { "code": "buyer-abc",
+                                "type": "seller" }},
+
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                "rcp": "ECi Solutions, STG",
+                                "alt": "Suite #200",
+                                "dal": "4626 N 300 W",
+                                "city": "Provo",
+                                "region": "UT",
+                                "postalCode": "84604"},
+                  "email": "shipping-contact@example.com",
+                  "phone": "1-555-555-5555"},
+
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
+
+      "itemsCount": 1,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller"},
+                  "quantity": 24,
+                  "unitCost": 24.95,
+                  "shipTo": { "remarks": "HP Laser printer third floor"}}]}
 
 
 ## Resource Schemas
