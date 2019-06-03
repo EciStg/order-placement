@@ -16,15 +16,6 @@
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+END_SRC
 
-#+RESULTS:
-| 2019-05-31T16:24:41Z                                                | started   |
-| ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-currency-request.xml     | validates |
-| ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.xml  | validates |
-| ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-currency-request.json    | valid     |
-| ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-example-request.json     | valid     |
-| ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-known-buyer-request.json | valid     |
-| 2019-05-31T16:24:42Z                                                | stopped   |
-
 ** Overview
 
 *** TODO
