@@ -2,8 +2,8 @@
 
 # Probe
 
-Client applications that do not send an Accept header or choose to accept the unversioned or
-"untyped" content types should receive the latest version of the probe.
+Client applications that do not send an `Accept` header, or choose to accept non-vendor content types,
+or ab unversioned vendor content type, should receive the latest version of the probe representation.
 
     Accept: application/json
     Accept: application/xml
@@ -14,6 +14,11 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 ## Test Results
+
+All examples in this document are validated against its [schema](#orgdb6b773) when it is published *(C-c C-e)* or
+when working in this document e.g. *(C-c C-c)* in the source buffer. Readers can test their work
+similar to what we have done below or can copy the [schema](#orgdb6b773) and document into an online validator/lint
+such as [this one.](https://www.jsonschemavalidator.net)
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.probe.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.probe.1.5.?-*.xml 2>&1
@@ -30,7 +35,7 @@ Client applications that do not send an Accept header or choose to accept the un
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-05T01:42:46Z</td>
+<td class="org-left">2019-06-04T21:28:41Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -60,7 +65,7 @@ Client applications that do not send an Accept header or choose to accept the un
 
 
 <tr>
-<td class="org-left">2019-05-05T01:42:46Z</td>
+<td class="org-left">2019-06-04T21:28:41Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -135,29 +140,33 @@ including white listing.
 
 ### Execute top probe `./probes/top`
 
+> As an IT administrator I can easily know when a web application (app, api, service, etc.) is up
+> (can be reached) and when it is down (it cannot be reached) so that I am aware of problems, ideally,
+> before my customers experience them.
+>
+> Required for ECi implementations
+>
+> Recommended for Seller implementations
+
 This probe must be a light weight and fast running indicator of API availability; think of it like
 a **ping**. It must do as little as possible yet still be able to announce that the API is up and
 running. It is expected this probe will be called one or more times per minute. Calling applications
-are required to check the HTTP Status Code and interpret it as pass, **200 - 299**, or fail, **400 - 599**.
+are required to check the HTTP Status Code and interpret it as pass, **200 - 299**, or fail, **500 - 599**.
 
 A body must not be returned to the caller.
 
-1.  Version 1.0
+Example of calling the top probe from the command line:
 
-    > Not supported.
-
-2.  Version 1.5
-
-    > Required for ECi implementations.
-    >
-    > Recommended for Seller implementations.
-
-    Checking the HTTP Status Code for the top probe:
-
-        curl -sw "%{http_code}\\n" http://some-host/some-api/probes/top
+    $ curl --silent --output /dev/null -w "%{http_code}" http://www.example.org/probes/top
+    200
+    $
 
 
 ### Execute bottom probe `./probes/bottom`
+
+> Required for ECi implementations.
+>
+> Recommended for Seller implementations.
 
 The bottom probe should test all of the layers of the API or application and all vital connections
 to other systems, APIs, databases, etc. IT, QA, and Support staff and their applications must be
@@ -180,10 +189,6 @@ The bottom probe's `code` value must be `bottom`.
     > Not supported.
 
 2.  Version 1.5
-
-    > Required for ECi implementations.
-    >
-    > Recommended for Seller implementations.
 
     1.  JSON
 
@@ -211,6 +216,8 @@ The bottom probe's `code` value must be `bottom`.
 
 ### List custom probes `./probes`
 
+> Optional.
+
 In addition to top and bottom probes, implementors may choose to support additional probes that can
 provide useful information to QA, IT, and Support staff. The purpose of this route is to enumerate
 all of the probes supported by the API, including top and bottom. With this probe, IT, QA, and Support
@@ -225,8 +232,6 @@ systems and applications.
     > Not supported.
 
 2.  Version 1.5
-
-    > Optional.
 
     1.  JSON
 
@@ -278,6 +283,8 @@ systems and applications.
 
 
 ## Resource Schema
+
+<a id="orgdb6b773"></a>
 
 
 ### Version 1.0
