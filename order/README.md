@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-03T17:13:12Z</td>
+<td class="org-left">2019-06-18T03:02:12Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -62,7 +62,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-03T17:13:12Z</td>
+<td class="org-left">2019-06-18T03:02:12Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -473,7 +473,7 @@ No longer published
 
             "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
-            "location": { "$ref": "#/definitions/address" },
+            "location": { "$ref": "#" },
 
             "quantity": {
               "description": "",
@@ -1307,7 +1307,7 @@ No longer published
               <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='ItemType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />

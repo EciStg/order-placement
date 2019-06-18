@@ -53,7 +53,7 @@ call with the required headers e.g.
   {field} + name : string
   {field} + remarks : string
   .. is-a-item ..
-  {field} + location : location
+  {field} + location : order (item)
   {field} + buyer : buyer
   {field} + consumer : consumer
   {field} + seller : seller
@@ -388,7 +388,6 @@ In the example below the buyer would like to see costs and other monetary values
 
 
 
-
 ** Resource Schemas
 
 *** Version 1.0
@@ -466,7 +465,7 @@ No longer published
 
       "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
-      "location": { "$ref": "#/definitions/address" },
+      "location": { "$ref": "#" },
 
       "quantity": {
         "description": "",
@@ -1303,7 +1302,7 @@ No longer published
         <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
         <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
         <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-        <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'    type='ItemType'   minOccurs='0' maxOccurs='1' />
         <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
         <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
         <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />

@@ -64,7 +64,7 @@
 
     "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
 
-    "location": { "$ref": "#/definitions/address" },
+    "location": { "$ref": "#" },
 
     "quantity": {
       "description": "",
