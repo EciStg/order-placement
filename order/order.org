@@ -71,7 +71,7 @@ call with the required headers e.g.
   {field} + currency : currency
   .. is/has-a collection ..
   {field} + itemsCount : int
-  {field} + items : [Probe]
+  {field} + items : [order]
   }
   @enduml
 #+END_SRC
