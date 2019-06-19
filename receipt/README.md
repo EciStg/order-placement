@@ -2,6 +2,13 @@
 
 # Receipt
 
+    Accept: application/json
+    Accept: application/xml
+    Accept: application/vnd.eci.stg.receipt.json
+    Accept: application/vnd.eci.stg.receipt.xml
+    Accept: application/vnd.eci.stg.receipt-1.5.0.json
+    Accept: application/vnd.eci.stg.receipt-1.5.0.xml
+
 
 ## Test Results
 
@@ -30,7 +37,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-17T21:37:00Z</td>
+<td class="org-left">2019-06-19T18:01:11Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -52,7 +59,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-17T21:37:01Z</td>
+<td class="org-left">2019-06-19T18:01:12Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>

@@ -6,6 +6,16 @@
 #+STARTUP: content
 
 * OrderAck
+
+#+BEGIN_EXAMPLE
+Accept: application/json
+Accept: application/xml
+Accept: application/vnd.eci.stg.order-ack.json
+Accept: application/vnd.eci.stg.order-ack.xml
+Accept: application/vnd.eci.stg.order-ack-1.5.0.json
+Accept: application/vnd.eci.stg.order-ack-1.5.0.xml
+#+END_EXAMPLE
+
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace

@@ -2,6 +2,13 @@
 
 # Invoice
 
+    Accept: application/json
+    Accept: application/xml
+    Accept: application/vnd.eci.stg.invoice.json
+    Accept: application/vnd.eci.stg.invoice.xml
+    Accept: application/vnd.eci.stg.invoice-1.5.0.json
+    Accept: application/vnd.eci.stg.invoice-1.5.0.xml
+
 
 ## Test Results
 
@@ -20,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-17T21:29:27Z</td>
+<td class="org-left">2019-06-19T17:59:31Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -50,7 +57,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-17T21:29:28Z</td>
+<td class="org-left">2019-06-19T17:59:31Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>

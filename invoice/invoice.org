@@ -7,6 +7,15 @@
 
 * Invoice
 
+#+BEGIN_EXAMPLE
+Accept: application/json
+Accept: application/xml
+Accept: application/vnd.eci.stg.invoice.json
+Accept: application/vnd.eci.stg.invoice.xml
+Accept: application/vnd.eci.stg.invoice-1.5.0.json
+Accept: application/vnd.eci.stg.invoice-1.5.0.xml
+#+END_EXAMPLE
+
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace
