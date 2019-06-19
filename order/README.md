@@ -2,6 +2,13 @@
 
 # Order
 
+    Accept: application/json
+    Accept: application/xml
+    Accept: application/vnd.eci.stg.order.json
+    Accept: application/vnd.eci.stg.order.xml
+    Accept: application/vnd.eci.stg.order-1.5.0.json
+    Accept: application/vnd.eci.stg.order-1.5.0.xml
+
 
 ## Test Results
 
@@ -20,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-19T14:50:05Z</td>
+<td class="org-left">2019-06-19T17:56:46Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -62,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-19T14:50:06Z</td>
+<td class="org-left">2019-06-19T17:56:46Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -483,6 +490,8 @@ No longer published
             },
 
             "currency": { "$ref": "#/definitions/currency"},
+
+            "unitMeasure": { "$ref": "#/definitions/unitMeasure" },
 
             "unitCost": {
               "description": "",
@@ -1216,6 +1225,47 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 256
+                }
+              }
+            },
+
+            "unitMeasure": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "quantity": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 999999999.999999
                 }
               }
             },
