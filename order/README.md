@@ -20,7 +20,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-18T03:02:12Z</td>
+<td class="org-left">2019-06-19T14:50:05Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -62,7 +62,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-18T03:02:12Z</td>
+<td class="org-left">2019-06-19T14:50:06Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -687,6 +687,8 @@ No longer published
                   "minLength": 1,
                   "maxLength": 256
                 },
+
+                "billTo": { "$ref": "#/definitions/billTo" },
 
                 "itemsCount": {
                   "description": "number of shipping methods in the collection",

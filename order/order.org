@@ -680,6 +680,8 @@ No longer published
             "maxLength": 256
           },
 
+          "billTo": { "$ref": "#/definitions/billTo" },
+
           "itemsCount": {
             "description": "number of shipping methods in the collection",
             "type": "number",
