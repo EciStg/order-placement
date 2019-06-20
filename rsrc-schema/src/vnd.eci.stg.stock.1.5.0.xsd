@@ -22,8 +22,6 @@
       <xs:element name='region'      type='string-40'     minOccurs='0' maxOccurs='1' />
       <xs:element name='postalCode'  type='string-40'     minOccurs='0' maxOccurs='1' />
       <xs:element name='country'     type='string-40'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='bin'         type='string-32'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='warehouse'   type='string-128'    minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 

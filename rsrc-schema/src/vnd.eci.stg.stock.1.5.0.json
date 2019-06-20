@@ -405,20 +405,6 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 40
-        },
-
-        "bin": {
-          "description": "",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 40
-        },
-
-        "warehouse": {
-          "description": "",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128
         }
       }
     },

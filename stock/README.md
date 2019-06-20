@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T20:37:02Z</td>
+<td class="org-left">2019-06-20T20:56:18Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T20:37:02Z</td>
+<td class="org-left">2019-06-20T20:56:18Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1906,20 +1906,6 @@ support time to delivery with an estimated cost for shipping.
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 40
-                },
-
-                "bin": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 40
-                },
-
-                "warehouse": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
                 }
               }
             },
@@ -2456,8 +2442,6 @@ support time to delivery with an estimated cost for shipping.
               <xs:element name='region'      type='string-40'     minOccurs='0' maxOccurs='1' />
               <xs:element name='postalCode'  type='string-40'     minOccurs='0' maxOccurs='1' />
               <xs:element name='country'     type='string-40'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='bin'         type='string-32'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='warehouse'   type='string-128'    minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
