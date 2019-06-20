@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T21:11:12Z</td>
+<td class="org-left">2019-06-20T21:24:35Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T21:11:12Z</td>
+<td class="org-left">2019-06-20T21:24:35Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -377,11 +377,11 @@ call with the required headers e.g.
 
 ![img](../images/stock-class-diagram.puml.png)
 
+-   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
 -   **code:** software facing identity function; used to identify the object to a software system
 -   **name:** [optional] name of the stock request or stock item
 -   **description:** [optional] description of the stock request or stock item
 -   **remarks:** [optional] human to human communication
--   **reference:** an identify function that relates an entity to an actor. a reference is [optional] when describing the stock request and [required] when describing an item in the collection
 -   **when:** [optional] date and time when the request was placed. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
 -   **whenExepcted:** [optional] when the buyer expects the good or service to be delivered. Documentation for the JSON [date string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).
 -   **billTo:** [optional] the person or organization that will be invoiced for goods and services
