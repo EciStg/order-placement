@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T20:56:18Z</td>
+<td class="org-left">2019-06-20T21:11:12Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T20:56:18Z</td>
+<td class="org-left">2019-06-20T21:11:12Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1508,6 +1508,8 @@ support time to delivery with an estimated cost for shipping.
           "additionalProperties": false,
           "properties": {
 
+            "reference": { "$ref": "#/definitions/reference" },
+
             "code": {
               "description": "",
               "type": "string",
@@ -1535,8 +1537,6 @@ support time to delivery with an estimated cost for shipping.
               "minLength": 1,
               "maxLength": 256
             },
-
-            "reference": { "$ref": "#/definitions/reference" },
 
             "when": {
               "description": "",
@@ -1815,6 +1815,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -1842,8 +1844,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "msc": {
                   "description": "mail stop code",
@@ -1915,6 +1915,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -1942,8 +1944,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -1977,6 +1977,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2004,8 +2006,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2039,6 +2039,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2066,8 +2068,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2103,6 +2103,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2130,8 +2132,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2165,6 +2165,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2192,8 +2194,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2366,6 +2366,8 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
+                "reference": { "$ref": "#/definitions/reference" },
+
                 "code": {
                   "description": "",
                   "type": "string",
@@ -2393,8 +2395,6 @@ support time to delivery with an estimated cost for shipping.
                   "minLength": 1,
                   "maxLength": 256
                 },
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "location": { "$ref": "#/definitions/address" },
 
@@ -2428,11 +2428,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='AddressType'>
             <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='msc'         type='string-40'     minOccurs='0' maxOccurs='1' />
               <xs:element name='mtn'         type='string-40'     minOccurs='0' maxOccurs='1' />
               <xs:element name='rcp'         type='string-40'     minOccurs='0' maxOccurs='1' />
@@ -2447,11 +2447,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='BillToType'>
             <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -2462,11 +2462,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='BuyerType'>
             <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -2477,11 +2477,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='ConsumerType'>
             <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -2493,11 +2493,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='ContactType'>
             <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -2518,11 +2518,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='ItemType'>
             <xs:sequence>
+              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='code'            type='string-32'           minOccurs='0' maxOccurs='1' />
               <xs:element name='name'            type='string-32'           minOccurs='0' maxOccurs='1' />
               <xs:element name='description'     type='string-128'          minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'         type='string-256'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
               <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
               <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
@@ -2597,11 +2597,11 @@ support time to delivery with an estimated cost for shipping.
 
           <xs:complexType name='SellerType'>
             <xs:sequence>
+              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-              <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
               <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -2616,7 +2616,6 @@ support time to delivery with an estimated cost for shipping.
               <xs:element name='name'        type='string-32'  minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='string-128' minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='string-256' minOccurs='0' maxOccurs='1' />
-
               <xs:element name='itemsCount' type='xs:integer'          minOccurs='0' maxOccurs='1' />
               <xs:element name='items'      type='ShippingMethodsType' minOccurs='0' maxOccurs='1' />
             </xs:sequence>

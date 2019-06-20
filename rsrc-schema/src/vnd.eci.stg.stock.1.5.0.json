@@ -7,6 +7,8 @@
   "additionalProperties": false,
   "properties": {
 
+    "reference": { "$ref": "#/definitions/reference" },
+
     "code": {
       "description": "",
       "type": "string",
@@ -34,8 +36,6 @@
       "minLength": 1,
       "maxLength": 256
     },
-
-    "reference": { "$ref": "#/definitions/reference" },
 
     "when": {
       "description": "",
@@ -314,6 +314,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -341,8 +343,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "msc": {
           "description": "mail stop code",
@@ -414,6 +414,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -441,8 +443,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "location": { "$ref": "#/definitions/address" },
 
@@ -476,6 +476,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -503,8 +505,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "location": { "$ref": "#/definitions/address" },
 
@@ -538,6 +538,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -565,8 +567,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "location": { "$ref": "#/definitions/address" },
 
@@ -602,6 +602,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -629,8 +631,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "location": { "$ref": "#/definitions/address" },
 
@@ -664,6 +664,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -691,8 +693,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "location": { "$ref": "#/definitions/address" },
 
@@ -865,6 +865,8 @@
       "additionalProperties": false,
       "properties": {
 
+        "reference": { "$ref": "#/definitions/reference" },
+
         "code": {
           "description": "",
           "type": "string",
@@ -892,8 +894,6 @@
           "minLength": 1,
           "maxLength": 256
         },
-
-        "reference": { "$ref": "#/definitions/reference" },
 
         "location": { "$ref": "#/definitions/address" },
 

@@ -8,11 +8,11 @@
 
   <xs:complexType name='AddressType'>
     <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='msc'         type='string-40'     minOccurs='0' maxOccurs='1' />
       <xs:element name='mtn'         type='string-40'     minOccurs='0' maxOccurs='1' />
       <xs:element name='rcp'         type='string-40'     minOccurs='0' maxOccurs='1' />
@@ -27,11 +27,11 @@
 
   <xs:complexType name='BillToType'>
     <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -42,11 +42,11 @@
 
   <xs:complexType name='BuyerType'>
     <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -57,11 +57,11 @@
 
   <xs:complexType name='ConsumerType'>
     <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -73,11 +73,11 @@
 
   <xs:complexType name='ContactType'>
     <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -98,11 +98,11 @@
 
   <xs:complexType name='ItemType'>
     <xs:sequence>
+      <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
       <xs:element name='code'            type='string-32'           minOccurs='0' maxOccurs='1' />
       <xs:element name='name'            type='string-32'           minOccurs='0' maxOccurs='1' />
       <xs:element name='description'     type='string-128'          minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'         type='string-256'          minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'       type='ReferenceType'       minOccurs='0' maxOccurs='1' />
       <xs:element name='when'            type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
       <xs:element name='whenExpected'    type='xs:dateTime'         minOccurs='0' maxOccurs='1' />
       <xs:element name='billTo'          type='BillToType'          minOccurs='0' maxOccurs='1' />
@@ -177,11 +177,11 @@
 
   <xs:complexType name='SellerType'>
     <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='code'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='name'        type='string-32'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128'    minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256'    minOccurs='0' maxOccurs='1' />
-      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
       <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='string-256'    minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='string-32'     minOccurs='0' maxOccurs='1' />
@@ -196,7 +196,6 @@
       <xs:element name='name'        type='string-32'  minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='string-128' minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='string-256' minOccurs='0' maxOccurs='1' />
-
       <xs:element name='itemsCount' type='xs:integer'          minOccurs='0' maxOccurs='1' />
       <xs:element name='items'      type='ShippingMethodsType' minOccurs='0' maxOccurs='1' />
     </xs:sequence>
