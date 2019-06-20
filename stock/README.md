@@ -10,7 +10,7 @@
     Accept: application/vnd.eci.stg.stock-1.5.0.xml
 
 
-## Test Results
+## Testing and Test Results
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.stock.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.?-*.xml 2>&1
@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-03T17:13:40Z</td>
+<td class="org-left">2019-06-20T20:37:02Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-03T17:13:40Z</td>
+<td class="org-left">2019-06-20T20:37:02Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1560,9 +1560,9 @@ support time to delivery with an estimated cost for shipping.
 
             "shipTo": { "$ref": "#/definitions/shipTo" },
 
-            "location": { "$ref": "#/definitions/address" },
-
             "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
+            "location": { "$ref": "#/definitions/address" },
 
             "make": {
               "description": "",
@@ -2546,8 +2546,8 @@ support time to delivery with an estimated cost for shipping.
               <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
               <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
               <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
               <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
               <xs:element name='make'            type='string-32'           minOccurs='0' maxOccurs='1' />
               <xs:element name='model'           type='string-32'           minOccurs='0' maxOccurs='1' />
               <xs:element name='serialNumber'    type='string-32'           minOccurs='0' maxOccurs='1' />

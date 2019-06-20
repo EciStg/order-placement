@@ -59,9 +59,9 @@
 
     "shipTo": { "$ref": "#/definitions/shipTo" },
 
-    "location": { "$ref": "#/definitions/address" },
-
     "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
+    "location": { "$ref": "#/definitions/address" },
 
     "make": {
       "description": "",

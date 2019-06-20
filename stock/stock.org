@@ -16,7 +16,7 @@ Accept: application/vnd.eci.stg.stock-1.5.0.json
 Accept: application/vnd.eci.stg.stock-1.5.0.xml
 #+END_EXAMPLE
 
-** Test Results
+** Testing and Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
@@ -1363,9 +1363,9 @@ No longer published
 
       "shipTo": { "$ref": "#/definitions/shipTo" },
 
-      "location": { "$ref": "#/definitions/address" },
-
       "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
+      "location": { "$ref": "#/definitions/address" },
 
       "make": {
         "description": "",
@@ -2352,8 +2352,8 @@ No longer published
         <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
         <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
         <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
-        <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
         <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
+        <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
         <xs:element name='make'            type='string-32'           minOccurs='0' maxOccurs='1' />
         <xs:element name='model'           type='string-32'           minOccurs='0' maxOccurs='1' />
         <xs:element name='serialNumber'    type='string-32'           minOccurs='0' maxOccurs='1' />

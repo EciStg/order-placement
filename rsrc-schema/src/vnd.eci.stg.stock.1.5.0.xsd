@@ -112,8 +112,8 @@
       <xs:element name='consumer'        type='ConsumerType'        minOccurs='0' maxOccurs='1' />
       <xs:element name='seller'          type='SellerType'          minOccurs='0' maxOccurs='1' />
       <xs:element name='shipTo'          type='ShipToType'          minOccurs='0' maxOccurs='1' />
-      <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
       <xs:element name='shippingMethod'  type='ShippingMethodType'  minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'        type='AddressType'         minOccurs='0' maxOccurs='1' />
       <xs:element name='make'            type='string-32'           minOccurs='0' maxOccurs='1' />
       <xs:element name='model'           type='string-32'           minOccurs='0' maxOccurs='1' />
       <xs:element name='serialNumber'    type='string-32'           minOccurs='0' maxOccurs='1' />
