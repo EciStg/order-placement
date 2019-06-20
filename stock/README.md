@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T21:24:35Z</td>
+<td class="org-left">2019-06-20T21:39:05Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T21:24:35Z</td>
+<td class="org-left">2019-06-20T21:39:05Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -2281,13 +2281,6 @@ support time to delivery with an estimated cost for shipping.
               "additionalProperties": false,
               "properties": {
 
-                "remarks": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256
-                },
-
                 "amount": {
                   "description": "",
                   "type": "number",
@@ -2316,7 +2309,14 @@ support time to delivery with an estimated cost for shipping.
                   "maximum": 999999999999.999999
                 },
 
-                "tax": { "$ref": "#/definitions/tax" }
+                "tax": { "$ref": "#/definitions/tax" },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                }
               }
             },
 

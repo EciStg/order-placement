@@ -2084,13 +2084,6 @@ No longer published
         "additionalProperties": false,
         "properties": {
 
-          "remarks": {
-            "description": "",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 256
-          },
-
           "amount": {
             "description": "",
             "type": "number",
@@ -2119,7 +2112,14 @@ No longer published
             "maximum": 999999999999.999999
           },
 
-          "tax": { "$ref": "#/definitions/tax" }
+          "tax": { "$ref": "#/definitions/tax" },
+
+          "remarks": {
+            "description": "",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
         }
       },
 
