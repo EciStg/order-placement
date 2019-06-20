@@ -45,7 +45,7 @@
       "maxLength": 32
     },
 
-    "serialnumber": {
+    "serialNumber": {
       "description": "",
       "type": "string",
       "minLength": 1,

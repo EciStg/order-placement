@@ -14,8 +14,8 @@
                             "city": "Provo",
                             "region": "UT",
                             "postalCode": "84604"},
-              "email": "shipping-contact@example.com",
-              "phone": "1-555-555-5555"},
+              "contact": { "email": "shipping-contact@example.com",
+                           "phone": "1-555-555-5555" }},
 
   "currency": { "code": "DKK",
                 "name": "Danish krone",
@@ -28,4 +28,11 @@
                              "type": "seller"},
               "quantity": 24,
               "unitCost": 24.95,
-              "shipTo": { "remarks": "HP Laser printer third floor"}}]}
+              "location": { "reference": { "code": "eq-2345",
+                                           "type": "buyer" },
+                            "remarks": "Laser printer third floor",
+                            "make": "Acme Inc.",
+                            "model": "printer-1000",
+                            "serialNumber": "prn123abc098",
+                            "shipTo": { "contact": { "email": "equipment-shipping-contact@example.com",
+                                                     "phone": "1-555-555-5555"}}}}]}

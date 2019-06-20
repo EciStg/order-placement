@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-19T17:56:46Z</td>
+<td class="org-left">2019-06-20T19:56:14Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-19T17:56:46Z</td>
+<td class="org-left">2019-06-20T19:56:15Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -88,7 +88,7 @@ received will be shown. It is assumed that the caller will make the actual *POST
 call with the required headers e.g.
 
     curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.order.1.5.0.xml; charset=utf-8" \
+         --header "Content-Type: application/vnd.eci.stg.order.1.5.0.json; charset=utf-8" \
          --user user123:password123 \
          --url http://vendor-host/vendor-order-endpoint
          --data ''
@@ -171,9 +171,6 @@ down into smaller chunks.
 
 
 ## Use Cases
-
-
-### TODO Provoide text and diagrams
 
 
 ### As a buyer known to the seller I would like to submit an order
@@ -367,7 +364,14 @@ In the example below the buyer would like to see costs and other monetary values
             </order>
 
 
-### As a buyer, I want individual line items delivered to a specific location in my organziation
+### As a buyer, I want individual line items delivered to a specific location within my organziation
+
+In this example the buyer wishes to order item `abc-123` and have it delivered to
+a specific asset located within the organization, a printer on the third floor.
+
+To aide the person who has received the ordered item, and needs to deliver it to
+the right locations inside the business, the email and phone number for the person
+responsible for shipping questions has been provided.
 
     { "reference": { "referencesCount": 2,
                      "references": [ {"code": "PO-2159403-2",
@@ -385,8 +389,8 @@ In the example below the buyer would like to see costs and other monetary values
                                 "city": "Provo",
                                 "region": "UT",
                                 "postalCode": "84604"},
-                  "email": "shipping-contact@example.com",
-                  "phone": "1-555-555-5555"},
+                  "contact": { "email": "shipping-contact@example.com",
+                               "phone": "1-555-555-5555" }},
 
       "currency": { "code": "DKK",
                     "name": "Danish krone",
@@ -399,7 +403,14 @@ In the example below the buyer would like to see costs and other monetary values
                                  "type": "seller"},
                   "quantity": 24,
                   "unitCost": 24.95,
-                  "shipTo": { "remarks": "HP Laser printer third floor"}}]}
+                  "location": { "reference": { "code": "eq-2345",
+                                               "type": "buyer" },
+                                "remarks": "Laser printer third floor",
+                                "make": "Acme Inc.",
+                                "model": "printer-1000",
+                                "serialNumber": "prn123abc098",
+                                "shipTo": { "contact": { "email": "equipment-shipping-contact@example.com",
+                                                         "phone": "1-555-555-5555"}}}}]}
 
 
 ## Resource Schemas
@@ -461,7 +472,7 @@ No longer published
               "maxLength": 32
             },
 
-            "serialnumber": {
+            "serialNumber": {
               "description": "",
               "type": "string",
               "minLength": 1,
