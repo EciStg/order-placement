@@ -362,7 +362,7 @@ In this example the buyer wishes to order item ~abc-123~ and have it delivered t
 a specific asset located within the organization, a printer on the third floor.
 
 To aide the person who has received the ordered item, and needs to deliver it to
-the right locations inside the business, the email and phone number for the person
+the right location inside the business, the email and phone number for the person
 responsible for shipping questions has been provided.
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.order.1.5.0-item-location-request.json

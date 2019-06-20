@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T19:56:14Z</td>
+<td class="org-left">2019-06-20T20:07:30Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T19:56:15Z</td>
+<td class="org-left">2019-06-20T20:07:30Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -370,7 +370,7 @@ In this example the buyer wishes to order item `abc-123` and have it delivered t
 a specific asset located within the organization, a printer on the third floor.
 
 To aide the person who has received the ordered item, and needs to deliver it to
-the right locations inside the business, the email and phone number for the person
+the right location inside the business, the email and phone number for the person
 responsible for shipping questions has been provided.
 
     { "reference": { "referencesCount": 2,
