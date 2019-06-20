@@ -63,6 +63,8 @@ The three well-defined probe routes are:
 ./probes/bottom
 #+END_EXAMPLE
 
+All converstations will be initiated by IT, Developers and Testers, or Support staff and systems.
+
 #+BEGIN_SRC plantuml :file ../images/probe-sequence-diagram.puml.png :exports results
   @startuml sequence-probe.png
   group top probe
