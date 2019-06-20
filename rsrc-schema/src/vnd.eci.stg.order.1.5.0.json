@@ -5,10 +5,16 @@
   "description": "",
   "type": "object",
   "additionalProperties": false,
-  "required": ["reference"],
   "properties": {
 
     "reference": { "$ref": "#/definitions/reference" },
+
+    "code": {
+      "description": "",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
 
     "name": {
       "description": "",
@@ -31,6 +37,32 @@
       "maxLength": 256
     },
 
+    "when": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "whenExpected": {
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "billTo": { "$ref": "#/definitions/billTo" },
+
+    "buyer": { "$ref": "#/definitions/buyer" },
+
+    "consumer": { "$ref": "#/definitions/consumer" },
+
+    "seller": { "$ref": "#/definitions/seller" },
+
+    "shipTo": { "$ref": "#/definitions/shipTo" },
+
+    "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
+    "location": { "$ref": "#" },
+
     "make": {
       "description": "",
       "type": "string",
@@ -52,28 +84,12 @@
       "maxLength": 32
     },
 
-    "buyer": { "$ref": "#/definitions/buyer" },
-
-    "consumer": { "$ref": "#/definitions/consumer" },
-
-    "seller": { "$ref": "#/definitions/seller" },
-
-    "shipTo": { "$ref": "#/definitions/shipTo" },
-
-    "billTo": { "$ref": "#/definitions/billTo" },
-
-    "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
-
-    "location": { "$ref": "#" },
-
     "quantity": {
       "description": "",
       "type": "number",
       "minimum": 0,
       "maximum": 999999999.999999
     },
-
-    "currency": { "$ref": "#/definitions/currency"},
 
     "unitMeasure": { "$ref": "#/definitions/unitMeasure" },
 
@@ -86,17 +102,7 @@
 
     "total": { "$ref": "#/definitions/total"},
 
-    "when": {
-      "description": "",
-      "type": "string",
-      "format": "date-time"
-    },
-
-    "whenExpected": {
-      "description": "",
-      "type": "string",
-      "format": "date-time"
-    },
+    "currency": { "$ref": "#/definitions/currency"},
 
     "itemsCount": {
       "description": "number of things in the items collection",
@@ -153,7 +159,7 @@
           "maxLength": 256
         },
 
-        "type": { "$ref": "#/definitions/referenceTypeEnum" },
+        "type": { "$ref": "#/definitions/reference/definitions/referenceTypeEnum" },
 
         "referencesCount": {
           "description": "number of things in the references collection",
@@ -172,12 +178,14 @@
             "$ref": "#/definitions/reference"
           }
         }
-      }
-    },
+      },
 
-    "referenceTypeEnum": {
-      "type": "string",
-      "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+      "definitions": {
+        "referenceTypeEnum": {
+          "type": "string",
+          "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+        }
+      }
     },
 
     "tax": {
@@ -399,20 +407,6 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 40
-        },
-
-        "binLocation": {
-          "description": "",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 40
-        },
-
-        "warehouse": {
-          "description": "",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 128
         }
       }
     },
@@ -578,8 +572,6 @@
 
         "location": { "$ref": "#/definitions/address" },
 
-        "contract": { "$ref": "#/definitions/reference" },
-
         "email": {
           "description": "",
           "type": "string",
@@ -601,7 +593,9 @@
           "maxLength": 32
         },
 
-        "contact": { "$ref": "#/definitions/contact" }
+        "contact": { "$ref": "#/definitions/contact" },
+
+        "contract": { "$ref": "#/definitions/reference" }
       }
     },
 
@@ -718,12 +712,12 @@
           "maxLength": 32
         },
 
+        "contact": { "$ref": "#/definitions/contact" },
+
         "isDropShip": {
           "description": "",
           "type": "boolean"
-        },
-
-        "contact": { "$ref": "#/definitions/contact" }
+        }
       }
     },
 
@@ -744,6 +738,20 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 32
+        },
+
+        "description": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+
+        "remarks": {
+          "description": "",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
         },
 
         "number": {
