@@ -15,9 +15,9 @@ or ab unversioned vendor content type, should receive the latest version of the 
 
 ## Test Results
 
-All examples in this document are validated against its [schema](#orge7eb4ba) when it is published *(C-c C-e)* or
+All examples in this document are validated against its [schema](#org8f08e0e) when it is published *(C-c C-e)* or
 when working in this document e.g. *(C-c C-c)* in the source buffer. Readers can test their work
-similar to what we have done below or can copy the [schema](#orge7eb4ba) and document into an online validator/lint
+similar to what we have done below or can copy the [schema](#org8f08e0e) and document into an online validator/lint
 such as [this one.](https://www.jsonschemavalidator.net)
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
@@ -35,7 +35,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T23:31:11Z</td>
+<td class="org-left">2019-06-24T05:42:43Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -65,7 +65,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 
 
 <tr>
-<td class="org-left">2019-06-20T23:31:11Z</td>
+<td class="org-left">2019-06-24T05:42:44Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -286,7 +286,7 @@ systems and applications.
 
 ## Resource Schema
 
-<a id="orge7eb4ba"></a>
+<a id="org8f08e0e"></a>
 
 
 ### Version 1.0
@@ -342,7 +342,7 @@ systems and applications.
             },
 
             "status": {
-              "description": "usually used bottom probe but may also be returned by api or application specific probes",
+              "description": "populated by bottom and custom probes.",
               "type": "string",
               "minLength": 1,
               "maxLength": 32
@@ -369,7 +369,7 @@ systems and applications.
             },
 
             "items": {
-              "description": "one or more things a buyer wishes a seller to provide ",
+              "description": "one or more probes.",
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
