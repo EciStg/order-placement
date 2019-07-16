@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-05-30T17:19:45Z</td>
+<td class="org-left">2019-07-16T19:18:58Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -63,7 +63,7 @@
 
 
 <tr>
-<td class="org-left">2019-05-30T17:19:45Z</td>
+<td class="org-left">2019-07-16T19:19:00Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -96,7 +96,7 @@ It is assumed that the caller will make the http *GET* call with the required he
 ### HTTP GET
 
     curl --request GET \
-         --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.json; charset=utf-8" \
+         --header "Accept: application/vnd.eci.stg.shipping-method.1.5.0.json; charset=utf-8" \
          --user user123:password123 \
          --url http://vendor-host/vendor-shippping-method-endpoint
 
@@ -432,4 +432,3 @@ No longer published
 
 
 ## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
-    

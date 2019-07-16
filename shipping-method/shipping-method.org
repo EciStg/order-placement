@@ -73,7 +73,7 @@ It is assumed that the caller will make the http /GET/ call with the required he
 
 #+BEGIN_SRC shell :exports both
   curl --request GET \
-       --header "Accepts: application/vnd.eci.stg.shipping-method.1.5.0.json; charset=utf-8" \
+       --header "Accept: application/vnd.eci.stg.shipping-method.1.5.0.json; charset=utf-8" \
        --user user123:password123 \
        --url http://vendor-host/vendor-shippping-method-endpoint
 #+END_SRC
