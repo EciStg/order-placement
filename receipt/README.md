@@ -37,7 +37,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-19T18:01:11Z</td>
+<td class="org-left">2019-07-18T20:32:14Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -59,7 +59,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-19T18:01:12Z</td>
+<td class="org-left">2019-07-18T20:32:14Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -85,6 +85,7 @@ call with the required headers e.g.
     curl --request POST \
          --header "Content-Type: application/vnd.eci.stg.receipt.1.0.0.xml; charset=utf-8" \
          --user user123:password123 \
+         --basic \
          --url http://vendor-host/vendor-receipt-endpoint
          --data ''
 

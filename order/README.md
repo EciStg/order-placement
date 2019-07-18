@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T23:21:34Z</td>
+<td class="org-left">2019-07-18T20:24:08Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T23:21:35Z</td>
+<td class="org-left">2019-07-18T20:24:09Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -90,6 +90,7 @@ call with the required headers e.g.
     curl --request POST \
          --header "Content-Type: application/vnd.eci.stg.order.1.5.0.json; charset=utf-8" \
          --user user123:password123 \
+         --basic \
          --url http://vendor-host/vendor-order-endpoint
          --data ''
 
