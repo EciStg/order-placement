@@ -9,13 +9,29 @@
 
 ** Overview
 
-*** TODO write non-technical description
+The ECi Order Placement system benefits buyers who purchase parts and supplies for
+their customers as a part of their day-to-day business regardless of whether they
+drop ship those items or stock them before distributing to their customers. The
+Order Placement system empowers dealers by delivering real-time cost, cost
+comparison, and current stocking levels from sellers. Because costs are provided
+in real time, many of the problems of "invoice to purchase order matching" are
+eliminated. Additionally, e-automate item prices can kept current.
+
+The Order Placement system relieves the dealer of the labor intensive aspects of:
+- Purchasing
+- Receiving
+- Invoice matching
+- Maintaining up-to-date distributor pricing
+
+A dealer who is fully utilizing the Order Placement system can have purchase orders:
+- Automatically created and transmitted to the supplier.
+- Automatically received along with an auto-created A/P voucher in advance of the invoice.
 
 #+INCLUDE: "./overview.org"
 
 ** Resource Type Documentation
 
-*** Probe
+*** Health monitoring probes
 
 Probe [[./probe/README.md][documentation]]
 

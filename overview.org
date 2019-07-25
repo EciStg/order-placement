@@ -4,6 +4,25 @@
 #+PROPERTY: mkdirp yes
 #+STARTUP: content
 
+* Order Form
+
+| Description                                                      | Yes / No |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] provide health monitoring endpoint(s) (probes) |          |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] provide buyers with a list of shipping options |          |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] provide buyers with the current cost data      |          |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] provide buyers with the current stock level    |          |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] allow buyers to place orders                   |          |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] provide shipping information for orders        |          |
+|------------------------------------------------------------------+----------|
+| Will seller [xxx] provide invoices for orders                    |          |
+|------------------------------------------------------------------+----------|
+
 * Actors
 
 Within the ECi Order Placement system a dealer typically takes on the role of /buyer/. A vendor or
@@ -12,8 +31,9 @@ supplier (typical readers of this document) assume the role of /seller/.
 #+BEGIN_SRC plantuml :file ./images/buyer-usecases.puml.png :exports results
 @startuml sequence-buyer2seller.png
 buyer -> (Place Order)
-buyer -> (Select Shipping Method)
-buyer -> (Stock, Cost, Date)
+buyer -> (Get Cost)
+buyer -> (Get Stocking Level)
+buyer -> (Get Shipping Methods)
 @enduml
 #+END_SRC
 
