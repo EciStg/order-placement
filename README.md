@@ -18,7 +18,7 @@ The Order Placement system relieves the dealer of the labor intensive aspects of
 -   Purchasing
 -   Receiving
 -   Invoice matching
--   Maintaining up-to-date distributor pricing
+-   Maintaining up-to-date seller costs
 
 A dealer who is fully utilizing the Order Placement system can have purchase orders:
 
@@ -254,7 +254,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:46Z</td>
+    <td class="org-left">2019-07-25T19:27:11Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -272,7 +272,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:46Z</td>
+    <td class="org-left">2019-07-25T19:27:12Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -404,7 +404,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:50Z</td>
+    <td class="org-left">2019-07-25T19:27:15Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -422,7 +422,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:51Z</td>
+    <td class="org-left">2019-07-25T19:27:16Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -583,7 +583,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:54Z</td>
+    <td class="org-left">2019-07-25T19:27:19Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -625,7 +625,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:55Z</td>
+    <td class="org-left">2019-07-25T19:27:19Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -885,7 +885,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:58Z</td>
+    <td class="org-left">2019-07-25T19:27:23Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -921,7 +921,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:59Z</td>
+    <td class="org-left">2019-07-25T19:27:23Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -1137,9 +1137,9 @@ These documents were created using [emacs's](https://www.gnu.org/software/emacs/
 support from packages such as babel, htmlize, graphviz, plantuml, etc. Emacs was hosted on macOS
 High Sierra (10.13.3). Supporting libraries and applications were installed and updated using Homebrew.
 
-    emacs version: GNU Emacs 25.3.1 (x86_64-apple-darwin13.4.0, NS appkit-1265.21 Version 10.9.5 (Build 13F1911))
-     of 2017-09-12
-    org version: 9.1.8
+    emacs version: GNU Emacs 26.2 (build 1, x86_64-apple-darwin18.2.0, NS appkit-1671.20 Version 10.14.3 (Build 18D109))
+     of 2019-04-12
+    org version: 9.1.9
 
 Embedded within this document are code fragments that are executed and do actual
 work. As an example the next bit of code creates directories to hold images

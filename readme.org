@@ -21,7 +21,7 @@ The Order Placement system relieves the dealer of the labor intensive aspects of
 - Purchasing
 - Receiving
 - Invoice matching
-- Maintaining up-to-date distributor pricing
+- Maintaining up-to-date seller costs
 
 A dealer who is fully utilizing the Order Placement system can have purchase orders:
 - Automatically created and transmitted to the supplier.
