@@ -44,6 +44,7 @@ call with the required headers e.g.
   curl --request POST \
        --header "Content-Type: application/vnd.eci.stg.order.1.5.0.json; charset=utf-8" \
        --user user123:password123 \
+       --basic \
        --url http://vendor-host/vendor-order-endpoint
        --data ''
 #+END_SRC

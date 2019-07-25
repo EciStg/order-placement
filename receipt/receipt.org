@@ -43,6 +43,7 @@ call with the required headers e.g.
   curl --request POST \
        --header "Content-Type: application/vnd.eci.stg.receipt.1.0.0.xml; charset=utf-8" \
        --user user123:password123 \
+       --basic \
        --url http://vendor-host/vendor-receipt-endpoint
        --data ''
 #+END_SRC

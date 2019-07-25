@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-20T23:15:04Z</td>
+<td class="org-left">2019-07-18T20:32:33Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-20T23:15:04Z</td>
+<td class="org-left">2019-07-18T20:32:34Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -369,6 +369,7 @@ call with the required headers e.g.
     curl --request POST \
          --header "Content-Type: application/vnd.eci.stg.stock.1.5.0.json; charset=utf-8" \
          --user user123:password123 \
+         --basic \
          --url http://vendor-host/vendor-stock-endpoint
          --data ''
 

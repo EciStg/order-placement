@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-19T17:59:31Z</td>
+<td class="org-left">2019-07-18T20:34:35Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -57,7 +57,7 @@
 
 
 <tr>
-<td class="org-left">2019-06-19T17:59:31Z</td>
+<td class="org-left">2019-07-18T20:34:35Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -78,6 +78,7 @@ call with the required headers e.g.
     curl --request POST \
          --header "Content-Type: application/vnd.eci.stg.invoice.1.5.0.xml; charset=utf-8" \
          --user user123:password123 \
+         --basic \
          --url http://vendor-host/vendor-invoice-endpoint
          --data ''
 

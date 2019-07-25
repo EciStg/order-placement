@@ -75,6 +75,7 @@ It is assumed that the caller will make the http /GET/ call with the required he
   curl --request GET \
        --header "Accept: application/vnd.eci.stg.shipping-method.1.5.0.json; charset=utf-8" \
        --user user123:password123 \
+       --basic \
        --url http://vendor-host/vendor-shippping-method-endpoint
 #+END_SRC
 
