@@ -1,32 +1,24 @@
 
 
-# Order Placement System
+# VendorConnector, ECi order placement services
+
+ECi’s order processing service, VendorConnector, allow partners to provide their
+Dealers end-to-end order placement services from within their ECi e-automate®
+business management software. These services benefit both Partners (seller/vendor)
+and Dealers (buyer/purchaser) by automating the exchange of information between
+seller and buyer to increase the accuracy of, and to reduce the time and cost
+associated with, placing, fulfilling, tracking, and receiving orders.
+
+![img](./images/vendor-connector.dot.png)
 
 
-## Overview
+## Deliverables
 
-The ECi Order Placement system benefits buyers who purchase parts and supplies for
-their customers as a part of their day-to-day business regardless of whether they
-drop ship those items or stock them before distributing to their customers. The
-Order Placement system empowers dealers by delivering real-time cost, cost
-comparison, and current stocking levels from sellers. Because costs are provided
-in real time, many of the problems of "invoice to purchase order matching" are
-eliminated. Additionally, e-automate item prices can kept current.
+The documention, source code, schemas, and examples in this repository are here to
+help sellers integrate their new or existing systems with ECi's order placement
+services.
 
-The Order Placement system relieves the dealer of the labor intensive aspects of:
-
--   Purchasing
--   Receiving
--   Invoice matching
--   Maintaining up-to-date distributor pricing
-
-A dealer who is fully utilizing the Order Placement system can have purchase orders:
-
--   Automatically created and transmitted to the supplier.
--   Automatically received along with an auto-created A/P voucher in advance of the invoice.
-
-
-### Order Form
+Sellers can choose to provide one or more of the following deliverables:
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -38,73 +30,78 @@ A dealer who is fully utilizing the Order Placement system can have purchase ord
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Description of Deliverable</th>
 <th scope="col" class="org-left">Yes / No</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] provide health monitoring endpoint(s) (probes)</td>
+<td class="org-left">provides health monitoring endpoint(s) (probes)</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] provide buyers with a list of shipping options</td>
+<td class="org-left">provides buyers with a list of shipping options</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] provide buyers with the current cost data</td>
+<td class="org-left">provides buyers with current cost data</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] provide buyers with the current stock level</td>
+<td class="org-left">provides buyers with current stock level</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] allow buyers to place orders</td>
+<td class="org-left">allows buyers to place orders</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] provide shipping information for orders</td>
+<td class="org-left">provides shipping information for orders</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
-<td class="org-left">Will seller [xxx] provide invoices for orders</td>
+<td class="org-left">provides invoices for orders</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 
 
-### Actors
+## Actors
 
-Within the ECi Order Placement system a dealer typically takes on the role of *buyer*. A vendor or
-supplier (typical readers of this document) assume the role of *seller*.
+Within the ECi Order Placement system a dealer typically takes on the role of **buyer**. A vendor or
+supplier (typical readers of this document) assume the role of **seller**. The **buyer** purchases
+from the **seller** on behalf of the **consumer**.
+
+-   **buyer:** The entity doing the purchasing. In e-automate™ terms, the buyer is the **dealer**.
+-   **consumer:** When the buyer is purchasing for a specific customer, the customer is said to be a consumer.
+-   **seller:** You. The entity doing the selling.
 
 ![img](./images/buyer-usecases.puml.png)
 
 ![img](./images/seller-usecases.puml.png)
 
 
-### Endpoints
+## Endpoints
 
 There are six endpoints, three provided by the seller's system and three provided by the buyer's
 system. Not all seller systems support resources or endpoints for Shipping Methods, Order&Delta;
@@ -112,24 +109,26 @@ system. Not all seller systems support resources or endpoints for Shipping Metho
 
 ![img](./images/endpoints.puml.png)
 
-1.  Seller provided endpoints
 
-    Buyer to seller interactions often start off by asking the seller if the items they are interested in
-    purchasing are available in sufficient quantity and at an acceptable cost. The buyer's final act will
-    to post an order to the seller's system.
+### Seller provided endpoints
 
-    ![img](./images/endpoints-buyer2seller.puml.png)
+Buyer to seller interactions often start off by asking the seller if the items they are interested in
+purchasing are available in sufficient quantity and at an acceptable cost. The buyer's final act will
+to post an order to the seller's system.
 
-2.  Buyer provided endpoints
-
-    Seller to buyer interactions may start with some type of document accepting the order as is, making
-    changes to the order, or rejecting the order. For orders that are accepted the seller will let the
-    buyer know when the order has been shipped along with delivery tracking information and an invoice.
-
-    ![img](./images/endpoints-seller2buyer.puml.png)
+![img](./images/endpoints-buyer2seller.puml.png)
 
 
-### Resource Types
+### Buyer provided endpoints
+
+Seller to buyer interactions may start with some type of document accepting the order as is, making
+changes to the order, or rejecting the order. For orders that are accepted the seller will let the
+buyer know when the order has been shipped along with delivery tracking information and an invoice.
+
+![img](./images/endpoints-seller2buyer.puml.png)
+
+
+## Resource Types
 
 We have chosen to represent resources using JSON Schema and prefer seller implementations also choose
 a JSON representation. The buyer's system will be programmed to send and receive resources in other
@@ -152,28 +151,30 @@ There are seven resource types exchanged between the buyer's system and the sell
 ![img](./images/resource-types.dot.png)
 
 
-### Connecting
+## Connecting
 
-1.  HTTPS / TLS
 
-    The ECi Order Placement services will always connect using a minimum of TLS 1.2.
+### HTTPS / TLS
 
-2.  Authentication
+The ECi Order Placement services will always connect using a minimum of TLS 1.2.
 
-    1.  Buyer -> Seller
 
-        The seller is responsible for providing participating dealers (buyers) a user name
-        and password which the ECi system will use to connect to the seller's system. This
-        information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
-        Stock and Order resources allow for additional non-schema defined information
-        (opaque) to be supplied by the buyer and delivered to the seller.
+### Authentication
 
-    2.  Seller -> Buyer
+1.  Buyer -> Seller
 
-        ECi is responsible for assigning and maintaining an ID and an API key to each of
-        the seller systems. This information will be passed to the buyer system via HTTP
-        Basic Authentication. Stock and Order resources allow for additional non-schema
-        defined information (opaque) to be supplied by the seller and delivered to the buyer.
+    The seller is responsible for providing participating dealers (buyers) a user name
+    and password which the ECi system will use to connect to the seller's system. This
+    information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
+    Stock and Order resources allow for additional non-schema defined information
+    (opaque) to be supplied by the buyer and delivered to the seller.
+
+2.  Seller -> Buyer
+
+    ECi is responsible for assigning and maintaining an ID and an API key to each of
+    the seller systems. This information will be passed to the buyer system via HTTP
+    Basic Authentication. Stock and Order resources allow for additional non-schema
+    defined information (opaque) to be supplied by the seller and delivered to the buyer.
 
 
 ## Resource Type Documentation
@@ -254,7 +255,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:46Z</td>
+    <td class="org-left">2019-07-26T00:14:34Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -272,7 +273,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:46Z</td>
+    <td class="org-left">2019-07-26T00:14:34Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -404,7 +405,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:50Z</td>
+    <td class="org-left">2019-07-26T00:14:38Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -422,7 +423,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:51Z</td>
+    <td class="org-left">2019-07-26T00:14:39Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -583,7 +584,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:54Z</td>
+    <td class="org-left">2019-07-26T00:14:43Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -625,7 +626,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:55Z</td>
+    <td class="org-left">2019-07-26T00:14:43Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -885,7 +886,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-25T18:50:58Z</td>
+    <td class="org-left">2019-07-26T00:14:47Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -921,7 +922,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-25T18:50:59Z</td>
+    <td class="org-left">2019-07-26T00:14:48Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>

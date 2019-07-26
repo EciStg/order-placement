@@ -4,29 +4,67 @@
 #+PROPERTY: mkdirp yes
 #+STARTUP: content
 
-* Order Form
+ECi’s order processing service, VendorConnector, allow partners to provide their
+Dealers end-to-end order placement services from within their ECi e-automate®
+business management software. These services benefit both Partners (seller/vendor)
+and Dealers (buyer/purchaser) by automating the exchange of information between
+seller and buyer to increase the accuracy of, and to reduce the time and cost
+associated with, placing, fulfilling, tracking, and receiving orders.
 
-| Description                                                      | Yes / No |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] provide health monitoring endpoint(s) (probes) |          |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] provide buyers with a list of shipping options |          |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] provide buyers with the current cost data      |          |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] provide buyers with the current stock level    |          |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] allow buyers to place orders                   |          |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] provide shipping information for orders        |          |
-|------------------------------------------------------------------+----------|
-| Will seller [xxx] provide invoices for orders                    |          |
-|------------------------------------------------------------------+----------|
+#+BEGIN_SRC dot cmdline: -Kdot -Tpng :file ./images/vendor-connector.dot.png
+  digraph {
+    ea     [ label="e-automate®\nbuyer ERP" ]
+    pip    [ label="API" ]
+    poe    [ label="PO Export" ]
+    poi    [ label="PO Import" ]
+    seller [ label="seller\nERP" shape=doubleoctagon color=aquamarine4 style=filled ]
+    vc     [ label="VendorConnector" ]
+
+    pip -> ea    [ arrowhead="none" ];
+    poe -> pip   [ arrowhead="none" ];
+    poe -> vc    [ arrowhead="none" ];
+    poi -> pip   [ arrowhead="none" ];
+    poi -> vc    [ arrowhead="none" ];
+    seller -> vc;
+    vc -> seller;
+  }
+#+END_SRC
+
+
+* Deliverables
+
+The documention, source code, schemas, and examples in this repository are here to
+help sellers integrate their new or existing systems with ECi's order placement
+services.
+
+Sellers can choose to provide one or more of the following deliverables:
+
+| Description of Deliverable                      | Yes / No |
+|-------------------------------------------------+----------|
+| provides health monitoring endpoint(s) (probes) |          |
+|-------------------------------------------------+----------|
+| provides buyers with a list of shipping options |          |
+|-------------------------------------------------+----------|
+| provides buyers with current cost data          |          |
+|-------------------------------------------------+----------|
+| provides buyers with current stock level        |          |
+|-------------------------------------------------+----------|
+| allows buyers to place orders                   |          |
+|-------------------------------------------------+----------|
+| provides shipping information for orders        |          |
+|-------------------------------------------------+----------|
+| provides invoices for orders                    |          |
+|-------------------------------------------------+----------|
 
 * Actors
 
-Within the ECi Order Placement system a dealer typically takes on the role of /buyer/. A vendor or
-supplier (typical readers of this document) assume the role of /seller/.
+Within the ECi Order Placement system a dealer typically takes on the role of *buyer*. A vendor or
+supplier (typical readers of this document) assume the role of *seller*. The *buyer* purchases
+from the *seller* on behalf of the *consumer*.
+
+- buyer :: The entity doing the purchasing. In e-automate™ terms, the buyer is the *dealer*.
+- consumer :: When the buyer is purchasing for a specific customer, the customer is said to be a consumer.
+- seller :: You. The entity doing the selling.
 
 #+BEGIN_SRC plantuml :file ./images/buyer-usecases.puml.png :exports results
 @startuml sequence-buyer2seller.png
