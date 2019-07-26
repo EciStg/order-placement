@@ -15,8 +15,7 @@ associated with, placing, fulfilling, tracking, and receiving orders.
 ## Deliverables
 
 The documention, source code, schemas, and examples in this repository are here to
-help sellers integrate their new or existing systems with ECi's order placement
-services.
+help sellers integrate new or existing systems with ECi's order placement services.
 
 Sellers can choose to provide one or more of the following deliverables:
 
@@ -106,6 +105,9 @@ from the **seller** on behalf of the **consumer**.
 There are six endpoints, three provided by the seller's system and three provided by the buyer's
 system. Not all seller systems support resources or endpoints for Shipping Methods, Order&Delta;
 (accept/reject), or Shipping Receipts.
+
+
+### General Sequence of Events
 
 ![img](./images/endpoints.puml.png)
 
@@ -255,7 +257,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T00:14:34Z</td>
+    <td class="org-left">2019-07-26T18:38:25Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -273,7 +275,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T00:14:34Z</td>
+    <td class="org-left">2019-07-26T18:38:26Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -405,7 +407,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T00:14:38Z</td>
+    <td class="org-left">2019-07-26T18:38:30Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -423,7 +425,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T00:14:39Z</td>
+    <td class="org-left">2019-07-26T18:38:30Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -584,7 +586,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T00:14:43Z</td>
+    <td class="org-left">2019-07-26T18:38:34Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -626,7 +628,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T00:14:43Z</td>
+    <td class="org-left">2019-07-26T18:38:34Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -886,7 +888,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T00:14:47Z</td>
+    <td class="org-left">2019-07-26T18:38:38Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -922,7 +924,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T00:14:48Z</td>
+    <td class="org-left">2019-07-26T18:38:39Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>

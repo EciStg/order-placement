@@ -20,6 +20,8 @@ associated with, placing, fulfilling, tracking, and receiving orders.
     seller [ label="seller\nERP" shape=doubleoctagon color=aquamarine4 style=filled ]
     vc     [ label="VendorConnector" ]
 
+    buyer -> poe;
+    buyer -> poi;
     pip -> ea    [ arrowhead="none" ];
     poe -> pip   [ arrowhead="none" ];
     poe -> vc    [ arrowhead="none" ];
@@ -30,12 +32,10 @@ associated with, placing, fulfilling, tracking, and receiving orders.
   }
 #+END_SRC
 
-
 * Deliverables
 
 The documention, source code, schemas, and examples in this repository are here to
-help sellers integrate their new or existing systems with ECi's order placement
-services.
+help sellers integrate new or existing systems with ECi's order placement services.
 
 Sellers can choose to provide one or more of the following deliverables:
 
@@ -95,6 +95,8 @@ seller -> (Reject Order)
 There are six endpoints, three provided by the seller's system and three provided by the buyer's
 system. Not all seller systems support resources or endpoints for Shipping Methods, Order\Delta
 (accept/reject), or Shipping Receipts.
+
+** General Sequence of Events
 
 #+BEGIN_SRC plantuml :file ./images/endpoints.puml.png :exports results
 @startuml sequence-buyer2seller.png
