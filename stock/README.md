@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-18T20:32:33Z</td>
+<td class="org-left">2019-07-29T19:29:31Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-07-18T20:32:34Z</td>
+<td class="org-left">2019-07-29T19:29:31Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -427,7 +427,7 @@ down into smaller chunks.
                                         "type": "seller" }},
 
           "shipTo": { "location": { "mtn": "Jane Doe",
-                                     "rcp": "ECi Solutions, STG",
+                                     "rcp": "ECI Solutions, STG",
                                      "alt": "Suite #200",
                                      "dal": "4626 N 300 W",
                                      "city": "Provo",
@@ -469,7 +469,7 @@ down into smaller chunks.
                                         "type": "seller" }},
 
           "shipTo": { "location": { "mtn": "Jane Doe",
-                                     "rcp": "ECi Solutions, STG",
+                                     "rcp": "ECI Solutions, STG",
                                      "alt": "Suite #200",
                                      "dal": "4626 N 300 W",
                                      "city": "Provo",
@@ -1110,7 +1110,7 @@ support time to delivery with an estimated cost for shipping.
     the problem.
 
         Jane Doe
-        ECi Solutions, STG
+        ECI Solutions, STG
         Suite #200
         4626 N 300 W
         Provo, UT 84606
@@ -1120,7 +1120,7 @@ support time to delivery with an estimated cost for shipping.
             { "shipTo": { "reference": { "code": "xyz-789",
                                          "type": "seller" },
                           "location": { "mtn": "Jane Doe",
-                                         "rcp": "ECi Solutions, STG",
+                                         "rcp": "ECI Solutions, STG",
                                          "alt": "Suite #200",
                                          "dal": "4626 N 300 W",
                                          "city": "Provo",
@@ -1148,7 +1148,7 @@ support time to delivery with an estimated cost for shipping.
                 </reference>
                 <location>
                   <mtn>Jane Doe</mtn>
-                  <rcp>ECi Solutions, STG</rcp>
+                  <rcp>ECI Solutions, STG</rcp>
                   <alt>Suite #200</alt>
                   <dal>4626 N 300 W</dal>
                   <city>Provo</city>
@@ -1180,7 +1180,7 @@ support time to delivery with an estimated cost for shipping.
     1.  JSON
 
             { "shipTo": { "location": { "mtn": "Jane Doe",
-                                         "rcp": "ECi Solutions, STG",
+                                         "rcp": "ECI Solutions, STG",
                                          "alt": "Suite #200",
                                          "dal": "4626 N 300 W",
                                          "city": "Provo",
@@ -1207,7 +1207,7 @@ support time to delivery with an estimated cost for shipping.
               <shipTo>
                 <location>
                   <mtn>Jane Doe</mtn>
-                  <rcp>ECi Solutions, STG</rcp>
+                  <rcp>ECI Solutions, STG</rcp>
                   <alt>Suite #200</alt>
                   <dal>4626 N 300 W</dal>
                   <city>Provo</city>
@@ -2712,4 +2712,4 @@ support time to delivery with an estimated cost for shipping.
         </xs:schema>
 
 
-## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+## © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

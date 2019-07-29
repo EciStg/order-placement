@@ -151,7 +151,7 @@ As an IT administrator I can easily know when a web application (app, api, servi
 (can be reached) and when it is down (it cannot be reached) so that I am aware of problems, ideally,
 before my customers experience them.
 
-Required for ECi implementations
+Required for ECI implementations
 
 Recommended for Seller implementations
 #+END_QUOTE
@@ -174,7 +174,7 @@ Example of calling the top probe from the command line:
 *** Execute bottom probe ~./probes/bottom~
 
 #+BEGIN_QUOTE
-Required for ECi implementations.
+Required for ECI implementations.
 
 Recommended for Seller implementations.
 #+END_QUOTE
@@ -418,7 +418,7 @@ Not supported.
       <xs:sequence>
         <xs:annotation>
           <xs:documentation>
-            The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
+            The purpose of a Probe is to allow ECI and Seller health monitoring applications and staff to detect
             problems before customers do and provide actionable information, allowing problems to be identified
             and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
             systems and staff will have access to these probes and will access them multiple times throughout
@@ -479,4 +479,4 @@ Not supported.
 
 #+END_SRC
 
-** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

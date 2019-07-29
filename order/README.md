@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-18T20:24:08Z</td>
+<td class="org-left">2019-07-29T19:25:15Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-07-18T20:24:09Z</td>
+<td class="org-left">2019-07-29T19:25:16Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -147,7 +147,7 @@ down into smaller chunks.
                                         "type": "seller" }},
 
           "shipTo": { "location": { "mtn": "Jane Doe",
-                                     "rcp": "ECi Solutions, STG",
+                                     "rcp": "ECI Solutions, STG",
                                      "alt": "Suite #200",
                                      "dal": "4626 N 300 W",
                                      "city": "Provo",
@@ -199,7 +199,7 @@ The buyer may populate and send information that will uniqely identify the shipp
                                         "type": "seller" }},
 
               "shipTo": { "location": { "mtn": "Jane Doe",
-                                        "rcp": "ECi Solutions, STG",
+                                        "rcp": "ECI Solutions, STG",
                                         "alt": "Suite #200",
                                         "dal": "4626 N 300 W",
                                         "city": "Provo",
@@ -243,7 +243,7 @@ The buyer may populate and send information that will uniqely identify the shipp
               <shipTo>
                 <location>
                   <mtn>Jane Doe</mtn>
-                  <rcp>ECi Solutions, STG</rcp>
+                  <rcp>ECI Solutions, STG</rcp>
                   <alt>Suite #200</alt>
                   <dal>4626 N 300 W</dal>
                   <city>Provo</city>
@@ -286,7 +286,7 @@ In the example below the buyer would like to see costs and other monetary values
                                         "type": "seller" }},
 
               "shipTo": { "location": { "mtn": "Jane Doe",
-                                        "rcp": "ECi Solutions, STG",
+                                        "rcp": "ECI Solutions, STG",
                                         "alt": "Suite #200",
                                         "dal": "4626 N 300 W",
                                         "city": "Provo",
@@ -334,7 +334,7 @@ In the example below the buyer would like to see costs and other monetary values
               <shipTo>
                 <location>
                   <mtn>Jane Doe</mtn>
-                  <rcp>ECi Solutions, STG</rcp>
+                  <rcp>ECI Solutions, STG</rcp>
                   <alt>Suite #200</alt>
                   <dal>4626 N 300 W</dal>
                   <city>Provo</city>
@@ -386,7 +386,7 @@ responsible for shipping questions has been provided.
                                 "type": "seller" }},
 
       "shipTo": { "location": { "mtn": "Jane Doe",
-                                "rcp": "ECi Solutions, STG",
+                                "rcp": "ECI Solutions, STG",
                                 "alt": "Suite #200",
                                 "dal": "4626 N 300 W",
                                 "city": "Provo",
@@ -1587,4 +1587,4 @@ No longer published
         </xs:schema>
 
 
-## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+## © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

@@ -157,7 +157,7 @@ The seller's response is intended to tell the buyer that there are three shippin
 ***** Seller does not support buyer selection of, or influence on, the shipping method
 
 If the seller does not now or in the future intend on providing this capability, do not provide
-an endpoint, instead, when discussing your implementation with ECi let them know and when adding
+an endpoint, instead, when discussing your implementation with ECI let them know and when adding
 the seller to the order placement system they will configure things such that no attempt will be
 made to contact the seller system.
 
@@ -416,4 +416,4 @@ No longer published
 
 #+END_SRC
 
-** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

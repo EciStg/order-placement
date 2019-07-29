@@ -1104,4 +1104,4 @@ No longer published
 #+END_SRC
 
 
-** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

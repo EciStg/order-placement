@@ -1,9 +1,9 @@
 
 
-# VendorConnector, ECi order placement services
+# VendorConnector, ECI order placement services
 
-ECi’s order processing service, VendorConnector, allow partners to provide their
-Dealers end-to-end order placement services from within their ECi e-automate®
+ECI’s order processing service, VendorConnector, allow partners to provide their
+Dealers end-to-end order placement services from within their ECI e-automate®
 business management software. These services benefit both Partners (seller/vendor)
 and Dealers (buyer/purchaser) by automating the exchange of information between
 seller and buyer to increase the accuracy of, and to reduce the time and cost
@@ -15,7 +15,7 @@ associated with, placing, fulfilling, tracking, and receiving orders.
 ## Deliverables
 
 The documention, source code, schemas, and examples in this repository are here to
-help sellers integrate new or existing systems with ECi's order placement services.
+help sellers integrate new or existing systems with ECI's order placement services.
 
 Sellers can choose to provide one or more of the following deliverables:
 
@@ -87,7 +87,7 @@ Sellers can choose to provide one or more of the following deliverables:
 
 ## Actors
 
-Within the ECi Order Placement system a dealer typically takes on the role of **buyer**. A vendor or
+Within the ECI Order Placement system a dealer typically takes on the role of **buyer**. A vendor or
 supplier (typical readers of this document) assume the role of **seller**. The **buyer** purchases
 from the **seller** on behalf of the **consumer**.
 
@@ -158,7 +158,7 @@ There are seven resource types exchanged between the buyer's system and the sell
 
 ### HTTPS / TLS
 
-The ECi Order Placement services will always connect using a minimum of TLS 1.2.
+The ECI Order Placement services will always connect using a minimum of TLS 1.2.
 
 
 ### Authentication
@@ -166,14 +166,14 @@ The ECi Order Placement services will always connect using a minimum of TLS 1.2.
 1.  Buyer -> Seller
 
     The seller is responsible for providing participating dealers (buyers) a user name
-    and password which the ECi system will use to connect to the seller's system. This
+    and password which the ECI system will use to connect to the seller's system. This
     information will be passed to the seller via HTTP Basic Authentication [RFC 7617](http://www.rfc-editor.org/info/rfc7617).
     Stock and Order resources allow for additional non-schema defined information
     (opaque) to be supplied by the buyer and delivered to the seller.
 
 2.  Seller -> Buyer
 
-    ECi is responsible for assigning and maintaining an ID and an API key to each of
+    ECI is responsible for assigning and maintaining an ID and an API key to each of
     the seller systems. This information will be passed to the buyer system via HTTP
     Basic Authentication. Stock and Order resources allow for additional non-schema
     defined information (opaque) to be supplied by the seller and delivered to the buyer.
@@ -257,7 +257,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T18:38:25Z</td>
+    <td class="org-left">2019-07-29T19:23:59Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -275,7 +275,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T18:38:26Z</td>
+    <td class="org-left">2019-07-29T19:24:00Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -407,7 +407,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T18:38:30Z</td>
+    <td class="org-left">2019-07-29T19:24:04Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -425,7 +425,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T18:38:30Z</td>
+    <td class="org-left">2019-07-29T19:24:04Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -562,7 +562,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
                     </xs:complexType>
                 </xs:schema>
 
-6.  © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+6.  © 2018-2019 ECI Software Solutions, Inc. All rights reserved.
 
 
 ### Error
@@ -586,7 +586,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T18:38:34Z</td>
+    <td class="org-left">2019-07-29T19:24:08Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -628,7 +628,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T18:38:34Z</td>
+    <td class="org-left">2019-07-29T19:24:08Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -888,7 +888,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">2019-07-26T18:38:38Z</td>
+    <td class="org-left">2019-07-29T19:24:12Z</td>
     <td class="org-left">started</td>
     </tr>
 
@@ -924,7 +924,7 @@ Related Help Topic: [Submitting Purchase Orders](http://webhelp.e-automate.com/1
 
 
     <tr>
-    <td class="org-left">2019-07-26T18:38:39Z</td>
+    <td class="org-left">2019-07-29T19:24:13Z</td>
     <td class="org-left">stopped</td>
     </tr>
     </tbody>
@@ -1168,4 +1168,4 @@ To export documents use the key binding **C-c C-e** and choose your preferred ex
 project I am using Markdown e.g. **C-c C-e m m**
 
 
-## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+## © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

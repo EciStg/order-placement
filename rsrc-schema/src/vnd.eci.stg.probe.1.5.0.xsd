@@ -10,7 +10,7 @@
     <xs:sequence>
       <xs:annotation>
         <xs:documentation>
-          The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
+          The purpose of a Probe is to allow ECI and Seller health monitoring applications and staff to detect
           problems before customers do and provide actionable information, allowing problems to be identified
           and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
           systems and staff will have access to these probes and will access them multiple times throughout

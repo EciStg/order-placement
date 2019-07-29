@@ -15,9 +15,9 @@ or ab unversioned vendor content type, should receive the latest version of the 
 
 ## Test Results
 
-All examples in this document are validated against its [schema](#org8f08e0e) when it is published *(C-c C-e)* or
+All examples in this document are validated against its [schema](#orgd523d7a) when it is published *(C-c C-e)* or
 when working in this document e.g. *(C-c C-c)* in the source buffer. Readers can test their work
-similar to what we have done below or can copy the [schema](#org8f08e0e) and document into an online validator/lint
+similar to what we have done below or can copy the [schema](#orgd523d7a) and document into an online validator/lint
 such as [this one.](https://www.jsonschemavalidator.net)
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
@@ -35,7 +35,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-06-24T05:42:43Z</td>
+<td class="org-left">2019-07-29T19:27:21Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -65,7 +65,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 
 
 <tr>
-<td class="org-left">2019-06-24T05:42:44Z</td>
+<td class="org-left">2019-07-29T19:27:22Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -146,7 +146,7 @@ including white listing.
 > (can be reached) and when it is down (it cannot be reached) so that I am aware of problems, ideally,
 > before my customers experience them.
 >
-> Required for ECi implementations
+> Required for ECI implementations
 >
 > Recommended for Seller implementations
 
@@ -166,7 +166,7 @@ Example of calling the top probe from the command line:
 
 ### Execute bottom probe `./probes/bottom`
 
-> Required for ECi implementations.
+> Required for ECI implementations.
 >
 > Recommended for Seller implementations.
 
@@ -286,7 +286,7 @@ systems and applications.
 
 ## Resource Schema
 
-<a id="org8f08e0e"></a>
+<a id="orgd523d7a"></a>
 
 
 ### Version 1.0
@@ -395,7 +395,7 @@ systems and applications.
             <xs:sequence>
               <xs:annotation>
                 <xs:documentation>
-                  The purpose of a Probe is to allow ECi and Seller health monitoring applications and staff to detect
+                  The purpose of a Probe is to allow ECI and Seller health monitoring applications and staff to detect
                   problems before customers do and provide actionable information, allowing problems to be identified
                   and corrected as quickly as possible. It is expected that QA, IT, and Support health monitoring
                   systems and staff will have access to these probes and will access them multiple times throughout
@@ -455,4 +455,4 @@ systems and applications.
         </xs:schema>
 
 
-## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+## © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

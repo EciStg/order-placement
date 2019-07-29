@@ -4,8 +4,8 @@
 #+PROPERTY: mkdirp yes
 #+STARTUP: content
 
-ECi’s order processing service, VendorConnector, allow partners to provide their
-Dealers end-to-end order placement services from within their ECi e-automate®
+ECI’s order processing service, VendorConnector, allow partners to provide their
+Dealers end-to-end order placement services from within their ECI e-automate®
 business management software. These services benefit both Partners (seller/vendor)
 and Dealers (buyer/purchaser) by automating the exchange of information between
 seller and buyer to increase the accuracy of, and to reduce the time and cost
@@ -35,7 +35,7 @@ associated with, placing, fulfilling, tracking, and receiving orders.
 * Deliverables
 
 The documention, source code, schemas, and examples in this repository are here to
-help sellers integrate new or existing systems with ECi's order placement services.
+help sellers integrate new or existing systems with ECI's order placement services.
 
 Sellers can choose to provide one or more of the following deliverables:
 
@@ -58,7 +58,7 @@ Sellers can choose to provide one or more of the following deliverables:
 
 * Actors
 
-Within the ECi Order Placement system a dealer typically takes on the role of *buyer*. A vendor or
+Within the ECI Order Placement system a dealer typically takes on the role of *buyer*. A vendor or
 supplier (typical readers of this document) assume the role of *seller*. The *buyer* purchases
 from the *seller* on behalf of the *consumer*.
 
@@ -179,21 +179,21 @@ There are seven resource types exchanged between the buyer's system and the sell
 
 ** HTTPS / TLS
 
-The ECi Order Placement services will always connect using a minimum of TLS 1.2.
+The ECI Order Placement services will always connect using a minimum of TLS 1.2.
 
 ** Authentication
 
 *** Buyer -> Seller
 
 The seller is responsible for providing participating dealers (buyers) a user name
-and password which the ECi system will use to connect to the seller's system. This
+and password which the ECI system will use to connect to the seller's system. This
 information will be passed to the seller via HTTP Basic Authentication [[http://www.rfc-editor.org/info/rfc7617][RFC 7617]].
 Stock and Order resources allow for additional non-schema defined information
 (opaque) to be supplied by the buyer and delivered to the seller.
 
 *** Seller -> Buyer
 
-ECi is responsible for assigning and maintaining an ID and an API key to each of
+ECI is responsible for assigning and maintaining an ID and an API key to each of
 the seller systems. This information will be passed to the buyer system via HTTP
 Basic Authentication. Stock and Order resources allow for additional non-schema
 defined information (opaque) to be supplied by the seller and delivered to the buyer.

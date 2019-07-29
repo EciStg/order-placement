@@ -140,7 +140,7 @@ down into smaller chunks.
                                   "type": "seller" }},
 
     "shipTo": { "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
+                               "rcp": "ECI Solutions, STG",
                                "alt": "Suite #200",
                                "dal": "4626 N 300 W",
                                "city": "Provo",
@@ -184,7 +184,7 @@ down into smaller chunks.
                                   "type": "seller" }},
 
     "shipTo": { "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
+                               "rcp": "ECI Solutions, STG",
                                "alt": "Suite #200",
                                "dal": "4626 N 300 W",
                                "city": "Provo",
@@ -881,7 +881,7 @@ the problem.
 
 #+BEGIN_EXAMPLE
 Jane Doe
-ECi Solutions, STG
+ECI Solutions, STG
 Suite #200
 4626 N 300 W
 Provo, UT 84606
@@ -893,7 +893,7 @@ Provo, UT 84606
   { "shipTo": { "reference": { "code": "xyz-789",
                                "type": "seller" },
                 "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
+                               "rcp": "ECI Solutions, STG",
                                "alt": "Suite #200",
                                "dal": "4626 N 300 W",
                                "city": "Provo",
@@ -923,7 +923,7 @@ Provo, UT 84606
       </reference>
       <location>
         <mtn>Jane Doe</mtn>
-        <rcp>ECi Solutions, STG</rcp>
+        <rcp>ECI Solutions, STG</rcp>
         <alt>Suite #200</alt>
         <dal>4626 N 300 W</dal>
         <city>Provo</city>
@@ -957,7 +957,7 @@ The seller's response is intended to inform the buyer that shipping the order wi
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-response.json
   { "shipTo": { "location": { "mtn": "Jane Doe",
-                               "rcp": "ECi Solutions, STG",
+                               "rcp": "ECI Solutions, STG",
                                "alt": "Suite #200",
                                "dal": "4626 N 300 W",
                                "city": "Provo",
@@ -986,7 +986,7 @@ The seller's response is intended to inform the buyer that shipping the order wi
     <shipTo>
       <location>
         <mtn>Jane Doe</mtn>
-        <rcp>ECi Solutions, STG</rcp>
+        <rcp>ECI Solutions, STG</rcp>
         <alt>Suite #200</alt>
         <dal>4626 N 300 W</dal>
         <city>Provo</city>
@@ -2517,4 +2517,4 @@ No longer published
   </xs:schema>
 #+END_SRC
 
-** © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+** © 2018-2019 ECI Software Solutions, Inc. All rights reserved.
