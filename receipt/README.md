@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T20:54:33Z</td>
+<td class="org-left">2019-08-28T21:18:33Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -63,6 +63,12 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-one-receipt-no-items.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-one-receipt.json</td>
 <td class="org-left">valid</td>
 </tr>
@@ -87,7 +93,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T20:54:33Z</td>
+<td class="org-left">2019-08-28T21:18:33Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -301,10 +307,8 @@ All use cases in this document will be based off of the following order:
                                               "type": "buyer" },
                                             { "code": "PO-XYZ-a",
                                               "type": "consumer" }]},
-
               "shippingMethod": { "code": "shipper-123",
                                   "name": "usps 2day" },
-
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC" }
@@ -343,7 +347,24 @@ All use cases in this document will be based off of the following order:
 
 ### As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for a one order (PO-ABC123-2)
 
-1.  One Order, Many Shipments, One Receipt, No Items
+1.  One Order, Many Shipments, One Receipt, No Order Items
+
+        { "reference": { "referencesCount": 2,
+                         "references": [{ "code": "PO-ABC123-2",
+                                          "type": "buyer" },
+                                        { "code": "PO-XYZ-a",
+                                          "type": "consumer" }]},
+          "itemsCount": 2,
+          "items": [ { "shippingMethod": { "code": "shipper-123",
+                                           "name": "usps 2day" },
+                       "when": "2018-04-24T17:00:00.000Z",
+                       "whenExpected": "2018-04-26T17:11:30.000Z",
+                       "tracking": "T-123-ABC" },
+                     { "shippingMethod": { "code": "shipper-ABC",
+                                           "name": "fedx 2day" },
+                       "when": "2018-04-24T17:00:00.000Z",
+                       "whenExpected": "2018-04-26T17:11:30.000Z",
+                       "tracking": "T-456-DEF" }]}
 
 2.  One Order, Many Shipments, One Receipt
 
