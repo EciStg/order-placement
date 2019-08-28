@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-29T19:29:31Z</td>
+<td class="org-left">2019-08-28T17:10:52Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -351,7 +351,7 @@
 
 
 <tr>
-<td class="org-left">2019-07-29T19:29:31Z</td>
+<td class="org-left">2019-08-28T17:10:54Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -409,98 +409,100 @@ call with the required headers e.g.
 Below is an example of a JSON request and response. In the use cases section below, we break this
 down into smaller chunks.
 
-1.  Request
 
-        { "reference": { "referencesCount": 2,
-                         "references": [ {"code": "PO-2159403-2",
-                                          "type": "buyer" },
-                                         {"code": "PO-abc-q",
-                                          "type": "consumer" }]},
-          "when": "2018-04-24T17:00:00.000Z",
+### Request
 
-          "buyer": { "reference": { "code": "buyer-abc",
-                                     "type": "seller" }},
+    { "reference": { "referencesCount": 2,
+                     "references": [ {"code": "PO-2159403-2",
+                                      "type": "buyer" },
+                                     {"code": "PO-abc-q",
+                                      "type": "consumer" }]},
+      "when": "2018-04-24T17:00:00.000Z",
 
-          "consumer": { "reference": { "code": "consumer-xyz",
-                                        "type": "seller" },
-                         "contract": { "code": "contract-789",
-                                        "type": "seller" }},
+      "buyer": { "reference": { "code": "buyer-abc",
+                                 "type": "seller" }},
 
-          "shipTo": { "location": { "mtn": "Jane Doe",
-                                     "rcp": "ECI Solutions, STG",
-                                     "alt": "Suite #200",
-                                     "dal": "4626 N 300 W",
-                                     "city": "Provo",
-                                     "region": "UT",
-                                     "postalCode": "84604"},
-                       "email": "shipping-contact@example.com",
-                       "phone": "1-555-555-5555"},
+      "consumer": { "reference": { "code": "consumer-xyz",
+                                    "type": "seller" },
+                     "contract": { "code": "contract-789",
+                                    "type": "seller" }},
 
-          "shippingMethod": { "code": "shipper-123",
-                              "name": "usps-2day" },
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                 "rcp": "ECI Solutions, STG",
+                                 "alt": "Suite #200",
+                                 "dal": "4626 N 300 W",
+                                 "city": "Provo",
+                                 "region": "UT",
+                                 "postalCode": "84604"},
+                   "email": "shipping-contact@example.com",
+                   "phone": "1-555-555-5555"},
 
-          "currency": { "code": "DKK",
-                        "name": "Danish krone",
-                        "number": 208,
-                        "precision": 18,
-                        "scale": 2},
+      "shippingMethod": { "code": "shipper-123",
+                          "name": "usps-2day" },
 
-          "itemsCount": 1,
-          "items": [{ "reference": { "code": "abc-123",
-                                     "type": "seller"},
-                      "quantity": 24 }]}
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
 
-2.  Response
+      "itemsCount": 1,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller"},
+                  "quantity": 24 }]}
 
-        { "reference": { "referencesCount": 3,
-                         "references": [ {"code": "PO-2159403-2",
-                                          "type": "buyer" },
-                                         {"code": "PO-abc-q",
-                                          "type": "consumer" },
-                                        { "code": "SO-33445953_2",
-                                          "type": "seller" }]},
 
-          "buyer": { "reference": { "code": "buyer-abc",
-                                     "type": "seller" }},
+### Response
 
-          "consumer": { "reference": { "code": "consumer-xyz",
-                                        "type": "seller" },
-                         "contract": { "code": "contract-789",
-                                        "type": "seller" }},
+    { "reference": { "referencesCount": 3,
+                     "references": [ {"code": "PO-2159403-2",
+                                      "type": "buyer" },
+                                     {"code": "PO-abc-q",
+                                      "type": "consumer" },
+                                    { "code": "SO-33445953_2",
+                                      "type": "seller" }]},
 
-          "shipTo": { "location": { "mtn": "Jane Doe",
-                                     "rcp": "ECI Solutions, STG",
-                                     "alt": "Suite #200",
-                                     "dal": "4626 N 300 W",
-                                     "city": "Provo",
-                                     "region": "UT",
-                                     "postalCode": "84604"},
-                       "email": "shipping-contact@example.com",
-                       "phone": "1-555-555-5555"},
+      "buyer": { "reference": { "code": "buyer-abc",
+                                 "type": "seller" }},
 
-          "when": "2018-04-24T17:00:00.000Z",
+      "consumer": { "reference": { "code": "consumer-xyz",
+                                    "type": "seller" },
+                     "contract": { "code": "contract-789",
+                                    "type": "seller" }},
 
-          "whenExpected": "2018-04-26T17:00:00.000Z",
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                 "rcp": "ECI Solutions, STG",
+                                 "alt": "Suite #200",
+                                 "dal": "4626 N 300 W",
+                                 "city": "Provo",
+                                 "region": "UT",
+                                 "postalCode": "84604"},
+                   "email": "shipping-contact@example.com",
+                   "phone": "1-555-555-5555"},
 
-          "total": { "amount": 2623.55,
-                     "freightAmount": 199.99,
-                     "discountAmount": 11.18,
-                     "tax": { "amount": 34.98 }},
+      "when": "2018-04-24T17:00:00.000Z",
 
-          "currency": { "code": "DKK",
-                        "name": "Danish krone",
-                        "number": 208,
-                        "precision": 18,
-                        "scale": 2},
+      "whenExpected": "2018-04-26T17:00:00.000Z",
 
-          "itemsCount": 2,
-          "items": [{ "reference": { "code": "abc-123",
-                                     "type": "seller"},
-                      "quantity": 24,
-                      "location": { "name": "Main Warehouse",
-                                    "city": "Dallas",
-                                    "region": "TX" },
-                      "unitCost": 99.99}]}
+      "total": { "amount": 2623.55,
+                 "freightAmount": 199.99,
+                 "discountAmount": 11.18,
+                 "tax": { "amount": 34.98 }},
+
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
+
+      "itemsCount": 2,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller"},
+                  "quantity": 24,
+                  "location": { "name": "Main Warehouse",
+                                "city": "Dallas",
+                                "region": "TX" },
+                  "unitCost": 99.99}]}
 
 
 ## Use Cases

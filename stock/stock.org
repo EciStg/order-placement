@@ -27,7 +27,6 @@ Accept: application/vnd.eci.stg.stock-1.5.0.xml
 
 ** Overview
 
-
 #+BEGIN_SRC plantuml :file ../images/stock-sequence.puml.png :exports results
 @startuml stock-sequence.png
 Buyer -> Seller: [ POST ] stock
@@ -121,7 +120,7 @@ call with the required headers e.g.
 Below is an example of a JSON request and response. In the use cases section below, we break this
 down into smaller chunks.
 
-**** Request
+*** Request
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-request.json
   { "reference": { "referencesCount": 2,
@@ -164,7 +163,7 @@ down into smaller chunks.
                 "quantity": 24 }]}
 #+END_SRC
 
-**** Response
+*** Response
 
 #+BEGIN_SRC json :tangle ../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-example-response.json
   { "reference": { "referencesCount": 3,
