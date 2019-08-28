@@ -1,0 +1,7 @@
+{ "reference": { "referencesCount": 2,
+                 "references": [{ "code": "PO-ABC123-2",
+                                  "type": "buyer" },
+                                { "code": "PO-XYZ-a",
+                                  "type": "consumer" }]},
+  "itemsCount": 1,
+  "items": [{ "tracking": "T-123-ABC" }]}

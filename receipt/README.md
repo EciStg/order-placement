@@ -10,7 +10,7 @@
     Accept: application/vnd.eci.stg.receipt-1.5.0.xml
 
 
-## Test Results
+## Testing and Test Results
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
     xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.?-*.xml 2>&1
@@ -34,33 +34,104 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-29T19:28:12Z</td>
+<td class="org-left">2019-08-28T19:36:51Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">warning:</td>
-<td class="org-left">failed</td>
-<td class="org-left">to</td>
-<td class="org-left">load</td>
-<td class="org-left">external</td>
-<td class="org-left">entity</td>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.?-\*.xml</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.xml</td>
+<td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-07-29T19:28:13Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-no-order-lines.json</td>
+<td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">error:</td>
+<td class="org-left">/Users/me/code/architecture/order-placement/rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-order-lines-adfsa.json:</td>
+<td class="org-left">Unexpected</td>
+<td class="org-left">token</td>
+<td class="org-left">]</td>
+<td class="org-left">in</td>
+<td class="org-left">JSON</td>
+<td class="org-left">at</td>
+<td class="org-left">position</td>
+<td class="org-left">731</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2019-08-28T19:36:52Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -73,9 +144,6 @@
 
 ## Overview
 
-
-### TODO
-
 ![img](../images/receipt-sequence.puml.png)
 
 In the following section, Use Cases, examples of data ( `--data` ) to be sent and
@@ -83,7 +151,7 @@ received will be shown. It is assumed that the caller will make the actual *POST
 call with the required headers e.g.
 
     curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.receipt.1.0.0.xml; charset=utf-8" \
+         --header "Content-Type: application/vnd.eci.stg.receipt.1.5.0.xml; charset=utf-8" \
          --user user123:password123 \
          --basic \
          --url http://vendor-host/vendor-receipt-endpoint
@@ -93,19 +161,258 @@ call with the required headers e.g.
 ## Definition of Terms
 
 
-### TODO
-
-
 ## Example
 
+Let us assume the Buyer has placed the following order in the code block below. When the order has
+been fulfilled and shipped the Seller will POST a shipping receipt providing tracking information.
+In this case, we are going to show two shipments from the same carrier with tracking numbers
+**T-LMNOP-123** and **T-XYZ-456**. In the section below called UseCases, we will demonstrate other ways
+the receipt can be expressed.
 
-### TODO
+    { "reference": { "referencesCount": 2,
+                     "references": [{ "code": "PO-ABC123-2",
+                                      "type": "buyer" },
+                                    { "code": "PO-XYZ-a",
+                                      "type": "consumer" }]},
+
+      "buyer": { "reference": { "code": "buyer-abc",
+                                "type": "seller" }},
+
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                "rcp": "ECI Solutions, STG",
+                                "alt": "Suite #200",
+                                "dal": "4626 N 300 W",
+                                "city": "Provo",
+                                "region": "UT",
+                                "postalCode": "84604" },
+                  "email": "shipping-contact@example.com",
+                  "phone": "1-555-555-5555" },
+
+      "itemsCount": 1,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller" },
+                  "quantity": 24,
+                  "unitCost": 24.99 }]}
+
+
+### Request
+
+1.  JSON
+
+        { "reference": { "referencesCount": 2,
+                         "references": [{ "code": "PO-2159403-2",
+                                          "type": "buyer" },
+                                        { "code": "PO-abc-q",
+                                          "type": "consumer" }]},
+          "when": "2018-04-24T17:00:00.000Z",
+          "whenExpected": "2018-04-26T17:11:30.000Z",
+          "buyer": { "reference": { "code": "buyer-abc",
+                                    "type": "seller" }},
+
+          "shipTo": { "location": { "mtn": "Jane Doe",
+                                    "rcp": "ECI Solutions, STG",
+                                    "alt": "Suite #200",
+                                    "dal": "4626 N 300 W",
+                                    "city": "Provo",
+                                    "region": "UT",
+                                    "postalCode": "84604" },
+                      "email": "shipping-contact@example.com",
+                      "phone": "1-555-555-5555" },
+
+          "shippingMethod": { "code": "shipper-123",
+                              "name": "usps-2day" },
+
+          "itemsCount": 2,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 20,
+                      "tracking": "T-LMNOP-123" },
+                    { "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 4,
+                      "tracking": "T-XYZ-456" }]}
+
+2.  XML
+
+        <receipt>
+          <reference>
+            <referencesCount>2</referencesCount>
+            <references>
+              <reference>
+                <code>PO-2159403-2</code>
+                <type>buyer</type>
+              </reference>
+              <reference>
+                <code>PO-abc-q</code>
+                <type>consumer</type>
+              </reference>
+            </references>
+          </reference>
+
+          <buyer>
+            <reference>
+              <code>buyer-abc</code>
+              <type>seller</type>
+            </reference>
+          </buyer>
+
+          <shipTo>
+            <location>
+              <mtn>Jane Doe</mtn>
+              <rcp>ECI Solutions, STG</rcp>
+              <alt>Suite #200</alt>
+              <dal>4626 N 300 W"</dal>
+              <city>Provo</city>
+              <region>UT</region>
+              <postalCode>84604</postalCode>
+            </location>
+            <email>shipping-contact@example.com></email>
+            <phone>1-555-555-5555</phone>
+          </shipTo>
+
+          <shippingMethod>
+              <code>shipper-123</code>
+              <name>usps-2day</name>
+          </shippingMethod>
+
+          <when>2018-04-24T17:00:00.000Z</when>
+          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+
+          <itemsCount>2</itemsCount>
+          <items>
+            <item>
+              <reference>
+                <code>abc-123</code>
+                <type>seller</type>
+              </reference>
+              <quantity>20</quantity>
+              <tracking>T-LMNOP-123</tracking>
+            </item>
+            <item>
+              <reference>
+                <code>abc-123</code>
+                <type>seller</type>
+              </reference>
+              <quantity>4</quantity>
+              <tracking>T-XYZ-456</tracking>
+            </item>
+          </items>
+        </receipt>
 
 
 ## Use Cases
 
+All of the receipt use cases will be based off of the following order:
 
-### TODO write some use cases
+    { "reference": { "referencesCount": 2,
+                     "references": [ { "code": "PO-ABC123-2",
+                                       "type": "buyer" },
+                                     { "code": "PO-XYZ-a",
+                                       "type": "consumer" }]},
+
+      "buyer": { "reference": { "code": "buyer-abc",
+                                "type": "seller" }},
+
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                "rcp": "ECI Solutions, STG",
+                                "alt": "Suite #200",
+                                "dal": "4626 N 300 W",
+                                "city": "Provo",
+                                "region": "UT",
+                                "postalCode": "84604" },
+                  "email": "shipping-contact@example.com",
+                  "phone": "1-555-555-5555" },
+
+      "itemsCount": 3,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller" },
+                  "quantity": 24,
+                  "unitCost": 24.99 },
+                { "reference": { "code": "def-456",
+                                 "type": "seller" },
+                  "quantity": 2,
+                  "unitCost": 2.99 },
+                { "reference": { "code": "ghi-789",
+                                 "type": "seller" },
+                  "quantity": 1,
+                  "unitCost": 1.99 }]}
+
+
+### As a seller I would like to provide a tracking number (T-123-ABC) for the entire order (PO-ABC123-2)
+
+1.  JSON
+
+    1.  Tracking Number Only
+
+            { "reference": { "referencesCount": 2,
+                             "references": [{ "code": "PO-ABC123-2",
+                                              "type": "buyer" },
+                                            { "code": "PO-XYZ-a",
+                                              "type": "consumer" }]},
+              "itemsCount": 1,
+              "items": [{ "tracking": "T-123-ABC" }]}
+
+    2.  Tracking Number with Order Lines
+
+            { "reference": { "referencesCount": 2,
+                               "references": [ { "code": "PO-ABC123-2",
+                                                 "type": "buyer" },
+                                               { "code": "PO-XYZ-a",
+                                                 "type": "consumer" }]},
+              "tracking": "T-123-ABC",
+
+              "itemsCount": 2,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "quantity": 24,
+                          "unitCost": 24.99 },
+                        { "reference": { "code": "def-456",
+                                         "type": "seller" },
+                          "quantity": 2,
+                          "unitCost": 2.99 },
+                        { "reference": { "code": "ghi-789",
+                                         "type": "seller" },
+                          "quantity": 1,
+                          "unitCost": 1.99 }]}
+
+    3.  Two Tracking Numbers, One Order
+
+        POST first tracking number
+
+            { "reference": { "referencesCount": 2,
+                             "references": [{ "code": "PO-ABC123-2",
+                                              "type": "buyer" },
+                                            { "code": "PO-XYZ-a",
+                                              "type": "consumer" }]},
+              "tracking": "T-123-ABC",
+
+              "itemsCount": 2,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller"},
+                          "quantity": 24,
+                          "unitCost": 24.99 },
+                        { "reference": { "code": "def-456",
+                                         "type": "seller"},
+                          "quantity": 2,
+                          "unitCost": 2.99 },
+                        { "reference": { "code": "ghi-789",
+                                         "type": "seller" }]}
+
+        POST second tracking number
+
+            { "reference": { "referencesCount": 2,
+                             "references": [ { "code": "PO-ABC123-2",
+                                               "type": "buyer" },
+                                             { "code": "PO-XYZ-a",
+                                               "type": "consumer" }]},
+              "tracking": "T-456-DEF",
+
+              "itemsCount": 1,
+              "items": [
+                { "reference": { "code": "ghi-789",
+                                 "type": "seller" },
+                          "quantity": 1,
+                          "unitCost": 1.99 }]}
 
 
 ## Resource Schemas
