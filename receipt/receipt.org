@@ -194,7 +194,7 @@ the receipt can be expressed.
 
 ** Use Cases
 
-All of the receipt use cases will be based off of the following order:
+All use cases in this document will be based off of the following order:
 
 #+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json
   { "reference": { "referencesCount": 2,
@@ -233,7 +233,7 @@ All of the receipt use cases will be based off of the following order:
 
 *** As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
 
-**** Single Order, Single Receipt, No Order Lines
+**** Single Order, Single Shipment, Single Receipt, No Order Items
 
 ***** JSON
 
@@ -249,7 +249,7 @@ All of the receipt use cases will be based off of the following order:
     "tracking": "T-123-ABC" }
 #+end_src
 
-**** Tracking Number with Order Lines
+**** Single Order, Single Shipmment, Single Receipt, with Order Items
 
 ***** JSON
 

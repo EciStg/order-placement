@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T20:29:27Z</td>
+<td class="org-left">2019-08-28T20:38:06Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -87,7 +87,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T20:29:28Z</td>
+<td class="org-left">2019-08-28T20:38:07Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -254,7 +254,7 @@ the receipt can be expressed.
 
 ## Use Cases
 
-All of the receipt use cases will be based off of the following order:
+All use cases in this document will be based off of the following order:
 
     { "reference": { "referencesCount": 2,
                      "references": [ { "code": "PO-ABC123-2",
@@ -292,7 +292,7 @@ All of the receipt use cases will be based off of the following order:
 
 ### As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
 
-1.  Single Order, Single Receipt, No Order Lines
+1.  Single Order, Single Shipment, Single Receipt, No Order Items
 
     1.  JSON
 
@@ -306,7 +306,7 @@ All of the receipt use cases will be based off of the following order:
               "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC" }
 
-2.  Tracking Number with Order Lines
+2.  Single Order, Single Shipmment, Single Receipt, with Order Items
 
     1.  JSON
 
