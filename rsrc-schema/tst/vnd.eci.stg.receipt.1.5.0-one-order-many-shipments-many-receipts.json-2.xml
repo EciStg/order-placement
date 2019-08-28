@@ -1,0 +1,52 @@
+<receipt>
+  <reference>
+    <referencesCount>2</referencesCount>
+    <references>
+      <reference>
+        <code>PO-2159403-2</code>
+        <type>buyer</type>
+      </reference>
+      <reference>
+        <code>PO-abc-q</code>
+        <type>consumer</type>
+      </reference>
+    </references>
+  </reference>
+  <buyer>
+    <reference>
+      <code>buyer-abc</code>
+      <type>seller</type>
+    </reference>
+  </buyer>
+  <shipTo>
+    <location>
+      <mtn>Jane Doe</mtn>
+      <rcp>ECI Solutions, STG</rcp>
+      <alt>Suite #200</alt>
+      <dal>4626 N 300 W"</dal>
+      <city>Provo</city>
+      <region>UT</region>
+      <postalCode>84604</postalCode>
+    </location>
+    <email>shipping-contact@example.com></email>
+    <phone>1-555-555-5555</phone>
+  </shipTo>
+  <shippingMethod>
+      <code>shipper-123</code>
+      <name>usps 2day</name>
+  </shippingMethod>
+  <when>2018-04-24T17:00:00.000Z</when>
+  <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+  <tracking>T-456-DEF</tracking>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>ghi-789</code>
+        <type>seller</type>
+      </reference>
+      <quantity>1</quantity>
+      <unitCost>1.99</unitCost>
+    </item>
+  </items>
+</receipt>

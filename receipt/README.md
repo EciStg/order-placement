@@ -24,353 +24,77 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T23:21:33Z</td>
+<td class="org-left">2019-08-28T23:33:02Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml:49:</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">Opening</td>
-<td class="org-left">and</td>
-<td class="org-left">ending</td>
-<td class="org-left">tag</td>
-<td class="org-left">mismatch:</td>
-<td class="org-left">unitCost</td>
-<td class="org-left">line</td>
-<td class="org-right">49</td>
-<td class="org-left">and</td>
-<td class="org-left">quantity</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
-<td class="org-left"><unitCost>24.99</quantity></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
-<td class="org-left">^</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml:57:</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">Opening</td>
-<td class="org-left">and</td>
-<td class="org-left">ending</td>
-<td class="org-left">tag</td>
-<td class="org-left">mismatch:</td>
-<td class="org-left">unitCost</td>
-<td class="org-left">line</td>
-<td class="org-right">57</td>
-<td class="org-left">and</td>
-<td class="org-left">quantity</td>
-</tr>
-
-
-<tr>
-<td class="org-left"><unitCost>2.99</quantity></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">^</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml:65:</td>
-<td class="org-left">parser</td>
-<td class="org-left">error</td>
-<td class="org-left">:</td>
-<td class="org-left">Opening</td>
-<td class="org-left">and</td>
-<td class="org-left">ending</td>
-<td class="org-left">tag</td>
-<td class="org-left">mismatch:</td>
-<td class="org-left">unitCost</td>
-<td class="org-left">line</td>
-<td class="org-right">65</td>
-<td class="org-left">and</td>
-<td class="org-left">quantity</td>
-</tr>
-
-
-<tr>
-<td class="org-left"><unitCost>1.99</quantity></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">^</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml</td>
+<td class="org-left">validates</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-08-28T23:21:33Z</td>
+<td class="org-left">2019-08-28T23:33:02Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -565,154 +289,270 @@ All use cases in this document will be based off of the following order:
 
 ### As a seller I would like to provide one tracking number (T-123-ABC) for one order (PO-ABC123-2)
 
-1.  One Order, One Shipmment, One Receipt
+1.  JSON
 
-    1.  JSON
+        { "reference": { "referencesCount": 2,
+                         "references": [ { "code": "PO-ABC123-2",
+                                           "type": "buyer" },
+                                         { "code": "PO-XYZ-a",
+                                           "type": "consumer" }]},
+          "shippingMethod": { "code": "shipper-123",
+                              "name": "usps 2day" },
+          "when": "2018-04-24T17:00:00.000Z",
+          "whenExpected": "2018-04-26T17:11:30.000Z",
+          "tracking": "T-123-ABC",
+          "itemsCount": 3,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 24,
+                      "unitCost": 24.99 },
+                    { "reference": { "code": "def-456",
+                                     "type": "seller" },
+                      "quantity": 2,
+                      "unitCost": 2.99 },
+                    { "reference": { "code": "ghi-789",
+                                     "type": "seller" },
+                      "quantity": 1,
+                      "unitCost": 1.99 }]}
 
-            { "reference": { "referencesCount": 2,
-                             "references": [ { "code": "PO-ABC123-2",
-                                               "type": "buyer" },
-                                             { "code": "PO-XYZ-a",
-                                               "type": "consumer" }]},
-              "shippingMethod": { "code": "shipper-123",
-                                  "name": "usps 2day" },
-              "when": "2018-04-24T17:00:00.000Z",
-              "whenExpected": "2018-04-26T17:11:30.000Z",
-              "tracking": "T-123-ABC",
-              "itemsCount": 2,
-              "items": [{ "reference": { "code": "abc-123",
-                                         "type": "seller" },
-                          "quantity": 24,
-                          "unitCost": 24.99 },
-                        { "reference": { "code": "def-456",
-                                         "type": "seller" },
-                          "quantity": 2,
-                          "unitCost": 2.99 },
-                        { "reference": { "code": "ghi-789",
-                                         "type": "seller" },
-                          "quantity": 1,
-                          "unitCost": 1.99 }]}
+2.  XML
 
-    2.  XML
-
-            <receipt>
+        <receipt>
+          <reference>
+            <referencesCount>2</referencesCount>
+            <references>
               <reference>
-                <referencesCount>2</referencesCount>
-                <references>
-                  <reference>
-                    <code>PO-2159403-2</code>
-                    <type>buyer</type>
-                  </reference>
-                  <reference>
-                    <code>PO-abc-q</code>
-                    <type>consumer</type>
-                  </reference>
-                </references>
+                <code>PO-2159403-2</code>
+                <type>buyer</type>
               </reference>
-              <buyer>
-                <reference>
-                  <code>buyer-abc</code>
-                  <type>seller</type>
-                </reference>
-              </buyer>
-              <shipTo>
-                <location>
-                  <mtn>Jane Doe</mtn>
-                  <rcp>ECI Solutions, STG</rcp>
-                  <alt>Suite #200</alt>
-                  <dal>4626 N 300 W"</dal>
-                  <city>Provo</city>
-                  <region>UT</region>
-                  <postalCode>84604</postalCode>
-                </location>
-                <email>shipping-contact@example.com></email>
-                <phone>1-555-555-5555</phone>
-              </shipTo>
-              <shippingMethod>
-                  <code>shipper-123</code>
-                  <name>usps 2day</name>
-              </shippingMethod>
-              <when>2018-04-24T17:00:00.000Z</when>
-              <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
-              <tracking>T-123-ABC</tracking>
-              <itemsCount>3</itemsCount>
-              <items>
-                <item>
-                  <reference>
-                    <code>abc-123</code>
-                    <type>seller</type>
-                  </reference>
-                  <quantity>24</quantity>
-                  <unitCost>24.99</quantity>
-                </item>
-                <item>
-                  <reference>
-                    <code>def-456</code>
-                    <type>seller</type>
-                  </reference>
-                  <quantity>2</quantity>
-                  <unitCost>2.99</quantity>
-                </item>
-                <item>
-                  <reference>
-                    <code>ghi-789</code>
-                    <type>seller</type>
-                  </reference>
-                  <quantity>1</quantity>
-                  <unitCost>1.99</quantity>
-                </item>
-              </items>
-            </receipt>
+              <reference>
+                <code>PO-abc-q</code>
+                <type>consumer</type>
+              </reference>
+            </references>
+          </reference>
+          <buyer>
+            <reference>
+              <code>buyer-abc</code>
+              <type>seller</type>
+            </reference>
+          </buyer>
+          <shipTo>
+            <location>
+              <mtn>Jane Doe</mtn>
+              <rcp>ECI Solutions, STG</rcp>
+              <alt>Suite #200</alt>
+              <dal>4626 N 300 W"</dal>
+              <city>Provo</city>
+              <region>UT</region>
+              <postalCode>84604</postalCode>
+            </location>
+            <email>shipping-contact@example.com></email>
+            <phone>1-555-555-5555</phone>
+          </shipTo>
+          <shippingMethod>
+              <code>shipper-123</code>
+              <name>usps 2day</name>
+          </shippingMethod>
+          <when>2018-04-24T17:00:00.000Z</when>
+          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+          <tracking>T-123-ABC</tracking>
+          <itemsCount>3</itemsCount>
+          <items>
+            <item>
+              <reference>
+                <code>abc-123</code>
+                <type>seller</type>
+              </reference>
+              <quantity>24</quantity>
+              <unitCost>24.99</unitCost>
+            </item>
+            <item>
+              <reference>
+                <code>def-456</code>
+                <type>seller</type>
+              </reference>
+              <quantity>2</quantity>
+              <unitCost>2.99</unitCost>
+            </item>
+            <item>
+              <reference>
+                <code>ghi-789</code>
+                <type>seller</type>
+              </reference>
+              <quantity>1</quantity>
+              <unitCost>1.99</unitCost>
+            </item>
+          </items>
+        </receipt>
 
 
 ### As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
 
-1.  One Order, Many Shipments, Many Receipts
+1.  JSON
 
-    1.  JSON
+    POST first tracking number (T-123-ABC)
 
-        POST first tracking number (T-123-ABC)
+        { "reference": { "referencesCount": 2,
+                         "references": [{ "code": "PO-ABC123-2",
+                                          "type": "buyer" },
+                                        { "code": "PO-XYZ-a",
+                                          "type": "consumer" }]},
+          "shippingMethod": { "code": "shipper-123",
+                              "name": "usps 2day" },
+          "when": "2018-04-24T17:00:00.000Z",
+          "whenExpected": "2018-04-26T17:11:30.000Z",
+          "tracking": "T-123-ABC",
+          "itemsCount": 2,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller"},
+                      "quantity": 24,
+                      "unitCost": 24.99 },
+                    { "reference": { "code": "def-456",
+                                     "type": "seller" },
+                      "quantity": 2,
+                      "unitCost": 2.99 },
+                    { "reference": { "code": "ghi-789",
+                                     "type": "seller" }}]}
 
-            { "reference": { "referencesCount": 2,
-                             "references": [{ "code": "PO-ABC123-2",
-                                              "type": "buyer" },
-                                            { "code": "PO-XYZ-a",
-                                              "type": "consumer" }]},
-              "shippingMethod": { "code": "shipper-123",
-                                  "name": "usps 2day" },
-              "when": "2018-04-24T17:00:00.000Z",
-              "whenExpected": "2018-04-26T17:11:30.000Z",
-              "tracking": "T-123-ABC",
-              "itemsCount": 2,
-              "items": [{ "reference": { "code": "abc-123",
-                                         "type": "seller"},
-                          "quantity": 24,
-                          "unitCost": 24.99 },
-                        { "reference": { "code": "def-456",
-                                         "type": "seller" },
-                          "quantity": 2,
-                          "unitCost": 2.99 },
-                        { "reference": { "code": "ghi-789",
-                                         "type": "seller" }}]}
+    POST second tracking number (T-456-DEF)
 
-        POST second tracking number (T-456-DEF)
+        { "reference": { "referencesCount": 2,
+                         "references": [ { "code": "PO-ABC123-2",
+                                           "type": "buyer" },
+                                         { "code": "PO-XYZ-a",
+                                           "type": "consumer" }]},
+          "shippingMethod": { "code": "shipper-ABC",
+                              "name": "fedx 2day" },
+          "when": "2018-04-24T17:00:00.000Z",
+          "whenExpected": "2018-04-26T17:11:30.000Z",
+          "tracking": "T-456-DEF",
+          "itemsCount": 1,
+          "items": [
+            { "reference": { "code": "ghi-789",
+                             "type": "seller" },
+              "quantity": 1,
+              "unitCost": 1.99 }]}
 
-            { "reference": { "referencesCount": 2,
-                             "references": [ { "code": "PO-ABC123-2",
-                                               "type": "buyer" },
-                                             { "code": "PO-XYZ-a",
-                                               "type": "consumer" }]},
-              "shippingMethod": { "code": "shipper-ABC",
-                                  "name": "fedx 2day" },
-              "when": "2018-04-24T17:00:00.000Z",
-              "whenExpected": "2018-04-26T17:11:30.000Z",
-              "tracking": "T-456-DEF",
-              "itemsCount": 1,
-              "items": [
-                { "reference": { "code": "ghi-789",
-                                 "type": "seller" },
-                  "quantity": 1,
-                  "unitCost": 1.99 }]}
+2.  XML
+
+    POST first tracking number (T-123-ABC)
+
+        <receipt>
+          <reference>
+            <referencesCount>2</referencesCount>
+            <references>
+              <reference>
+                <code>PO-2159403-2</code>
+                <type>buyer</type>
+              </reference>
+              <reference>
+                <code>PO-abc-q</code>
+                <type>consumer</type>
+              </reference>
+            </references>
+          </reference>
+          <buyer>
+            <reference>
+              <code>buyer-abc</code>
+              <type>seller</type>
+            </reference>
+          </buyer>
+          <shipTo>
+            <location>
+              <mtn>Jane Doe</mtn>
+              <rcp>ECI Solutions, STG</rcp>
+              <alt>Suite #200</alt>
+              <dal>4626 N 300 W"</dal>
+              <city>Provo</city>
+              <region>UT</region>
+              <postalCode>84604</postalCode>
+            </location>
+            <email>shipping-contact@example.com></email>
+            <phone>1-555-555-5555</phone>
+          </shipTo>
+          <shippingMethod>
+              <code>shipper-123</code>
+              <name>usps 2day</name>
+          </shippingMethod>
+          <when>2018-04-24T17:00:00.000Z</when>
+          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+          <tracking>T-123-ABC</tracking>
+          <itemsCount>2</itemsCount>
+          <items>
+            <item>
+              <reference>
+                <code>abc-123</code>
+                <type>seller</type>
+              </reference>
+              <quantity>24</quantity>
+              <unitCost>24.99</unitCost>
+            </item>
+            <item>
+              <reference>
+                <code>def-456</code>
+                <type>seller</type>
+              </reference>
+              <quantity>2</quantity>
+              <unitCost>2.99</unitCost>
+            </item>
+          </items>
+        </receipt>
+
+    POST second tracking number (T-456-DEF)
+
+        <receipt>
+          <reference>
+            <referencesCount>2</referencesCount>
+            <references>
+              <reference>
+                <code>PO-2159403-2</code>
+                <type>buyer</type>
+              </reference>
+              <reference>
+                <code>PO-abc-q</code>
+                <type>consumer</type>
+              </reference>
+            </references>
+          </reference>
+          <buyer>
+            <reference>
+              <code>buyer-abc</code>
+              <type>seller</type>
+            </reference>
+          </buyer>
+          <shipTo>
+            <location>
+              <mtn>Jane Doe</mtn>
+              <rcp>ECI Solutions, STG</rcp>
+              <alt>Suite #200</alt>
+              <dal>4626 N 300 W"</dal>
+              <city>Provo</city>
+              <region>UT</region>
+              <postalCode>84604</postalCode>
+            </location>
+            <email>shipping-contact@example.com></email>
+            <phone>1-555-555-5555</phone>
+          </shipTo>
+          <shippingMethod>
+              <code>shipper-123</code>
+              <name>usps 2day</name>
+          </shippingMethod>
+          <when>2018-04-24T17:00:00.000Z</when>
+          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+          <tracking>T-456-DEF</tracking>
+          <itemsCount>1</itemsCount>
+          <items>
+            <item>
+              <reference>
+                <code>ghi-789</code>
+                <type>seller</type>
+              </reference>
+              <quantity>1</quantity>
+              <unitCost>1.99</unitCost>
+            </item>
+          </items>
+        </receipt>
 
 
 ## Resource Schemas
