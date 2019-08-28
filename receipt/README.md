@@ -24,119 +24,71 @@
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T19:36:51Z</td>
+<td class="org-left">2019-08-28T19:52:25Z</td>
 <td class="org-left">started</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.xml</td>
 <td class="org-left">validates</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-no-order-lines.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-many-receipts-1.json</td>
 <td class="org-left">valid</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">error:</td>
-<td class="org-left">/Users/me/code/architecture/order-placement/rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-order-lines-adfsa.json:</td>
-<td class="org-left">Unexpected</td>
-<td class="org-left">token</td>
-<td class="org-left">]</td>
-<td class="org-left">in</td>
-<td class="org-left">JSON</td>
-<td class="org-left">at</td>
-<td class="org-left">position</td>
-<td class="org-left">731</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-many-receipts-2.json</td>
+<td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-08-28T19:36:52Z</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-one-document.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number-only.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number-with-order-lines.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2019-08-28T19:52:26Z</td>
 <td class="org-left">stopped</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -375,9 +327,52 @@ All of the receipt use cases will be based off of the following order:
                           "quantity": 1,
                           "unitCost": 1.99 }]}
 
-    3.  Two Tracking Numbers, One Order
 
-        POST first tracking number
+### As a seller I would like to provide two tracking numbers (T-123-ABC, T-456-DEF) for the entire order (PO-ABC123-2)
+
+1.  POST single receipt
+
+        { "reference": { "referencesCount": 2,
+                         "references": [ { "code": "PO-ABC123-2",
+                                           "type": "buyer" },
+                                         { "code": "PO-XYZ-a",
+                                           "type": "consumer" }]},
+
+          "buyer": { "reference": { "code": "buyer-abc",
+                                    "type": "seller" }},
+
+          "shipTo": { "location": { "mtn": "Jane Doe",
+                                    "rcp": "ECI Solutions, STG",
+                                    "alt": "Suite #200",
+                                    "dal": "4626 N 300 W",
+                                    "city": "Provo",
+                                    "region": "UT",
+                                    "postalCode": "84604" },
+                      "email": "shipping-contact@example.com",
+                      "phone": "1-555-555-5555" },
+
+          "itemsCount": 3,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 24,
+                      "unitCost": 24.99,
+                      "tracking": "T-123-ABC" },
+                    { "reference": { "code": "def-456",
+                                     "type": "seller" },
+                      "quantity": 2,
+                      "unitCost": 2.99,
+                      "tracking": "T-123-ABC" },
+                    { "reference": { "code": "ghi-789",
+                                     "type": "seller" },
+                      "quantity": 1,
+                      "unitCost": 1.99,
+                      "tracking": "T-456-DEF" }]}
+
+2.  POST multiple documents
+
+    1.  JSON
+
+        POST first tracking number (T-123-ABC)
 
             { "reference": { "referencesCount": 2,
                              "references": [{ "code": "PO-ABC123-2",
@@ -392,13 +387,13 @@ All of the receipt use cases will be based off of the following order:
                           "quantity": 24,
                           "unitCost": 24.99 },
                         { "reference": { "code": "def-456",
-                                         "type": "seller"},
+                                         "type": "seller" },
                           "quantity": 2,
                           "unitCost": 2.99 },
                         { "reference": { "code": "ghi-789",
-                                         "type": "seller" }]}
+                                         "type": "seller" }}]}
 
-        POST second tracking number
+        POST second tracking number (T-456-DEF)
 
             { "reference": { "referencesCount": 2,
                              "references": [ { "code": "PO-ABC123-2",
@@ -411,8 +406,8 @@ All of the receipt use cases will be based off of the following order:
               "items": [
                 { "reference": { "code": "ghi-789",
                                  "type": "seller" },
-                          "quantity": 1,
-                          "unitCost": 1.99 }]}
+                  "quantity": 1,
+                  "unitCost": 1.99 }]}
 
 
 ## Resource Schemas

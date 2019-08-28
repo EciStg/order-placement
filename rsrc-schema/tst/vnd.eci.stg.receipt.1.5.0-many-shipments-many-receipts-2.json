@@ -9,5 +9,5 @@
   "items": [
     { "reference": { "code": "ghi-789",
                      "type": "seller" },
-              "quantity": 1,
-              "unitCost": 1.99 }]}
+      "quantity": 1,
+      "unitCost": 1.99 }]}

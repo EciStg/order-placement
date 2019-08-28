@@ -286,11 +286,53 @@ All of the receipt use cases will be based off of the following order:
                 "unitCost": 1.99 }]}
 #+end_src
 
-***** Two Tracking Numbers, One Order
+*** As a seller I would like to provide two tracking numbers (T-123-ABC, T-456-DEF) for the entire order (PO-ABC123-2)
+
+**** POST single receipt
+#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-one-document.json
+  { "reference": { "referencesCount": 2,
+                   "references": [ { "code": "PO-ABC123-2",
+                                     "type": "buyer" },
+                                   { "code": "PO-XYZ-a",
+                                     "type": "consumer" }]},
+
+    "buyer": { "reference": { "code": "buyer-abc",
+                              "type": "seller" }},
+
+    "shipTo": { "location": { "mtn": "Jane Doe",
+                              "rcp": "ECI Solutions, STG",
+                              "alt": "Suite #200",
+                              "dal": "4626 N 300 W",
+                              "city": "Provo",
+                              "region": "UT",
+                              "postalCode": "84604" },
+                "email": "shipping-contact@example.com",
+                "phone": "1-555-555-5555" },
+
+    "itemsCount": 3,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" },
+                "quantity": 24,
+                "unitCost": 24.99,
+                "tracking": "T-123-ABC" },
+              { "reference": { "code": "def-456",
+                               "type": "seller" },
+                "quantity": 2,
+                "unitCost": 2.99,
+                "tracking": "T-123-ABC" },
+              { "reference": { "code": "ghi-789",
+                               "type": "seller" },
+                "quantity": 1,
+                "unitCost": 1.99,
+                "tracking": "T-456-DEF" }]}
+#+end_src
+
+**** POST multiple documents
+***** JSON
 
 POST first tracking number (T-123-ABC)
 
-#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-two-shipments-1.json
+#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-many-receipts-1.json
   { "reference": { "referencesCount": 2,
                    "references": [{ "code": "PO-ABC123-2",
                                     "type": "buyer" },
@@ -314,7 +356,7 @@ POST first tracking number (T-123-ABC)
 
 POST second tracking number (T-456-DEF)
 
-#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-two-shipments-2.json
+#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-many-receipts-2.json
   { "reference": { "referencesCount": 2,
                    "references": [ { "code": "PO-ABC123-2",
                                      "type": "buyer" },
@@ -326,8 +368,8 @@ POST second tracking number (T-456-DEF)
     "items": [
       { "reference": { "code": "ghi-789",
                        "type": "seller" },
-                "quantity": 1,
-                "unitCost": 1.99 }]}
+        "quantity": 1,
+        "unitCost": 1.99 }]}
 #+end_src
 
 ** Resource Schemas
