@@ -19,7 +19,7 @@
               "phone": "1-555-555-5555" },
 
   "shippingMethod": { "code": "shipper-123",
-                      "name": "usps-2day" },
+                      "name": "usps 2day" },
 
   "itemsCount": 2,
   "items": [{ "reference": { "code": "abc-123",

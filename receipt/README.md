@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T20:38:06Z</td>
+<td class="org-left">2019-08-28T20:54:33Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -51,31 +51,31 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-many-shipments-many-receipts.json-1.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-many-shipments-many-receipts.json-2.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-many-shipments-single-receipt.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-one-receipt.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-single-receipt-items.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt-no-items.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-single-receipt-no-items.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.json</td>
 <td class="org-left">valid</td>
 </tr>
 
@@ -87,7 +87,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T20:38:07Z</td>
+<td class="org-left">2019-08-28T20:54:33Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -172,7 +172,7 @@ the receipt can be expressed.
                       "phone": "1-555-555-5555" },
 
           "shippingMethod": { "code": "shipper-123",
-                              "name": "usps-2day" },
+                              "name": "usps 2day" },
 
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -224,7 +224,7 @@ the receipt can be expressed.
 
           <shippingMethod>
               <code>shipper-123</code>
-              <name>usps-2day</name>
+              <name>usps 2day</name>
           </shippingMethod>
 
           <when>2018-04-24T17:00:00.000Z</when>
@@ -292,7 +292,7 @@ All use cases in this document will be based off of the following order:
 
 ### As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
 
-1.  Single Order, Single Shipment, Single Receipt, No Order Items
+1.  One Order, One Shipment, One Receipt, No Order Items
 
     1.  JSON
 
@@ -302,11 +302,14 @@ All use cases in this document will be based off of the following order:
                                             { "code": "PO-XYZ-a",
                                               "type": "consumer" }]},
 
+              "shippingMethod": { "code": "shipper-123",
+                                  "name": "usps 2day" },
+
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC" }
 
-2.  Single Order, Single Shipmment, Single Receipt, with Order Items
+2.  One Order, One Shipmment, One Receipt
 
     1.  JSON
 
@@ -315,6 +318,9 @@ All use cases in this document will be based off of the following order:
                                                "type": "buyer" },
                                              { "code": "PO-XYZ-a",
                                                "type": "consumer" }]},
+
+              "shippingMethod": { "code": "shipper-123",
+                                  "name": "usps 2day" },
 
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",
@@ -335,9 +341,11 @@ All use cases in this document will be based off of the following order:
                           "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide two tracking numbers (T-123-ABC, T-456-DEF) for a single order (PO-ABC123-2)
+### As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for a one order (PO-ABC123-2)
 
-1.  Single Order, Many Shipments, Single Receipt
+1.  One Order, Many Shipments, One Receipt, No Items
+
+2.  One Order, Many Shipments, One Receipt
 
     1.  JSON
 
@@ -365,6 +373,8 @@ All use cases in this document will be based off of the following order:
                                          "type": "seller" },
                           "quantity": 24,
                           "unitCost": 24.99,
+                          "shippingMethod": { "code": "shipper-123",
+                                              "name": "usps 2day" },
                           "when": "2018-04-24T17:00:00.000Z",
                           "whenExpected": "2018-04-26T17:11:30.000Z",
                           "tracking": "T-123-ABC" },
@@ -372,6 +382,8 @@ All use cases in this document will be based off of the following order:
                                          "type": "seller" },
                           "quantity": 2,
                           "unitCost": 2.99,
+                          "shippingMethod": { "code": "shipper-123",
+                                              "name": "usps 2day" },
                           "when": "2018-04-24T17:00:00.000Z",
                           "whenExpected": "2018-04-26T17:11:30.000Z",
                           "tracking": "T-123-ABC" },
@@ -379,11 +391,13 @@ All use cases in this document will be based off of the following order:
                                          "type": "seller" },
                           "quantity": 1,
                           "unitCost": 1.99,
+                          "shippingMethod": { "code": "shipper-ABC",
+                                              "name": "fedx 2day" },
                           "when": "2018-04-24T17:00:00.000Z",
                           "whenExpected": "2018-04-26T17:11:30.000Z",
                           "tracking": "T-456-DEF" }]}
 
-2.  Single Order, Many Shipments, Many Receipts
+3.  One Order, Many Shipments, Many Receipts
 
     1.  JSON
 
@@ -394,6 +408,9 @@ All use cases in this document will be based off of the following order:
                                               "type": "buyer" },
                                             { "code": "PO-XYZ-a",
                                               "type": "consumer" }]},
+
+              "shippingMethod": { "code": "shipper-123",
+                                  "name": "usps 2day" },
 
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",
@@ -418,6 +435,9 @@ All use cases in this document will be based off of the following order:
                                                "type": "buyer" },
                                              { "code": "PO-XYZ-a",
                                                "type": "consumer" }]},
+
+              "shippingMethod": { "code": "shipper-ABC",
+                                  "name": "fedx 2day" },
 
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",

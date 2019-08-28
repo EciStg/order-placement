@@ -4,6 +4,9 @@
                                  { "code": "PO-XYZ-a",
                                    "type": "consumer" }]},
 
+  "shippingMethod": { "code": "shipper-123",
+                      "name": "usps 2day" },
+
   "when": "2018-04-24T17:00:00.000Z",
   "whenExpected": "2018-04-26T17:11:30.000Z",
   "tracking": "T-123-ABC",
