@@ -231,7 +231,7 @@ All use cases in this document will be based off of the following order:
                 "unitCost": 1.99 }]}
 #+end_src
 
-*** As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
+*** As a seller I would like to provide a one tracking number (T-123-ABC) for one order (PO-ABC123-2)
 
 **** One Order, One Shipment, One Receipt, No Order Items
 
@@ -283,7 +283,7 @@ All use cases in this document will be based off of the following order:
                 "unitCost": 1.99 }]}
 #+end_src
 
-*** As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for a one order (PO-ABC123-2)
+*** As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
 
 **** One Order, Many Shipments, One Receipt, No Order Items
 
@@ -417,6 +417,12 @@ POST second tracking number (T-456-DEF)
         "quantity": 1,
         "unitCost": 1.99 }]}
 #+end_src
+
+*** As a seller I would like to ship many orders in one shipment (T-123-ABC)
+
+**** Many Orders, One Shipment, One Receipt
+
+**** Many Orders, One Shipment, Many Receipts
 
 ** Resource Schemas
 
