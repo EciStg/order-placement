@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T19:52:25Z</td>
+<td class="org-left">2019-08-28T20:29:27Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -51,31 +51,31 @@
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-many-receipts-1.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-many-shipments-many-receipts.json-1.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-many-receipts-2.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-many-shipments-many-receipts.json-2.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-shipments-one-document.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-many-shipments-single-receipt.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number-only.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-single-receipt-items.json</td>
 <td class="org-left">valid</td>
 </tr>
 
 
 <tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number-with-order-lines.json</td>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-single-order-single-receipt-no-items.json</td>
 <td class="org-left">valid</td>
 </tr>
 
@@ -87,7 +87,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T19:52:26Z</td>
+<td class="org-left">2019-08-28T20:29:28Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -290,27 +290,34 @@ All of the receipt use cases will be based off of the following order:
                   "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide a tracking number (T-123-ABC) for the entire order (PO-ABC123-2)
+### As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
 
-1.  JSON
+1.  Single Order, Single Receipt, No Order Lines
 
-    1.  Tracking Number Only
+    1.  JSON
 
             { "reference": { "referencesCount": 2,
                              "references": [{ "code": "PO-ABC123-2",
                                               "type": "buyer" },
                                             { "code": "PO-XYZ-a",
                                               "type": "consumer" }]},
-              "itemsCount": 1,
-              "items": [{ "tracking": "T-123-ABC" }]}
 
-    2.  Tracking Number with Order Lines
+              "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:11:30.000Z",
+              "tracking": "T-123-ABC" }
+
+2.  Tracking Number with Order Lines
+
+    1.  JSON
 
             { "reference": { "referencesCount": 2,
-                               "references": [ { "code": "PO-ABC123-2",
-                                                 "type": "buyer" },
-                                               { "code": "PO-XYZ-a",
-                                                 "type": "consumer" }]},
+                             "references": [ { "code": "PO-ABC123-2",
+                                               "type": "buyer" },
+                                             { "code": "PO-XYZ-a",
+                                               "type": "consumer" }]},
+
+              "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC",
 
               "itemsCount": 2,
@@ -328,47 +335,55 @@ All of the receipt use cases will be based off of the following order:
                           "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide two tracking numbers (T-123-ABC, T-456-DEF) for the entire order (PO-ABC123-2)
+### As a seller I would like to provide two tracking numbers (T-123-ABC, T-456-DEF) for a single order (PO-ABC123-2)
 
-1.  POST single receipt
+1.  Single Order, Many Shipments, Single Receipt
 
-        { "reference": { "referencesCount": 2,
-                         "references": [ { "code": "PO-ABC123-2",
-                                           "type": "buyer" },
-                                         { "code": "PO-XYZ-a",
-                                           "type": "consumer" }]},
+    1.  JSON
 
-          "buyer": { "reference": { "code": "buyer-abc",
-                                    "type": "seller" }},
+            { "reference": { "referencesCount": 2,
+                             "references": [ { "code": "PO-ABC123-2",
+                                               "type": "buyer" },
+                                             { "code": "PO-XYZ-a",
+                                               "type": "consumer" }]},
 
-          "shipTo": { "location": { "mtn": "Jane Doe",
-                                    "rcp": "ECI Solutions, STG",
-                                    "alt": "Suite #200",
-                                    "dal": "4626 N 300 W",
-                                    "city": "Provo",
-                                    "region": "UT",
-                                    "postalCode": "84604" },
-                      "email": "shipping-contact@example.com",
-                      "phone": "1-555-555-5555" },
+              "buyer": { "reference": { "code": "buyer-abc",
+                                        "type": "seller" }},
 
-          "itemsCount": 3,
-          "items": [{ "reference": { "code": "abc-123",
-                                     "type": "seller" },
-                      "quantity": 24,
-                      "unitCost": 24.99,
-                      "tracking": "T-123-ABC" },
-                    { "reference": { "code": "def-456",
-                                     "type": "seller" },
-                      "quantity": 2,
-                      "unitCost": 2.99,
-                      "tracking": "T-123-ABC" },
-                    { "reference": { "code": "ghi-789",
-                                     "type": "seller" },
-                      "quantity": 1,
-                      "unitCost": 1.99,
-                      "tracking": "T-456-DEF" }]}
+              "shipTo": { "location": { "mtn": "Jane Doe",
+                                        "rcp": "ECI Solutions, STG",
+                                        "alt": "Suite #200",
+                                        "dal": "4626 N 300 W",
+                                        "city": "Provo",
+                                        "region": "UT",
+                                        "postalCode": "84604" },
+                          "email": "shipping-contact@example.com",
+                          "phone": "1-555-555-5555" },
 
-2.  POST multiple documents
+              "itemsCount": 3,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "quantity": 24,
+                          "unitCost": 24.99,
+                          "when": "2018-04-24T17:00:00.000Z",
+                          "whenExpected": "2018-04-26T17:11:30.000Z",
+                          "tracking": "T-123-ABC" },
+                        { "reference": { "code": "def-456",
+                                         "type": "seller" },
+                          "quantity": 2,
+                          "unitCost": 2.99,
+                          "when": "2018-04-24T17:00:00.000Z",
+                          "whenExpected": "2018-04-26T17:11:30.000Z",
+                          "tracking": "T-123-ABC" },
+                        { "reference": { "code": "ghi-789",
+                                         "type": "seller" },
+                          "quantity": 1,
+                          "unitCost": 1.99,
+                          "when": "2018-04-24T17:00:00.000Z",
+                          "whenExpected": "2018-04-26T17:11:30.000Z",
+                          "tracking": "T-456-DEF" }]}
+
+2.  Single Order, Many Shipments, Many Receipts
 
     1.  JSON
 
@@ -379,6 +394,9 @@ All of the receipt use cases will be based off of the following order:
                                               "type": "buyer" },
                                             { "code": "PO-XYZ-a",
                                               "type": "consumer" }]},
+
+              "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC",
 
               "itemsCount": 2,
@@ -400,6 +418,9 @@ All of the receipt use cases will be based off of the following order:
                                                "type": "buyer" },
                                              { "code": "PO-XYZ-a",
                                                "type": "consumer" }]},
+
+              "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-456-DEF",
 
               "itemsCount": 1,
