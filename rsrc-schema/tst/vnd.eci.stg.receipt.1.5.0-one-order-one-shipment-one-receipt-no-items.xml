@@ -1,0 +1,18 @@
+<receipt>
+  <reference>
+    <referencesCount>2</referencesCount>
+    <references>
+      <reference>
+        <code>PO-ABC123-2</code>
+        <type>buyer</type>
+      </reference>
+    </references>
+  </reference>
+  <shippingMethod>
+    <code>shipper-123</code>
+    <name>usps 2day</name>
+  </shippingMethod>
+  <when>2018-04-24T17:00:00.000Z</when>
+  <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+  <tracking>T-123-ABC</tracking>
+</receipt>

@@ -1,5 +1,7 @@
 { "reference": { "referencesCount": 2,
                  "references": [{ "code": "PO-ABC123-2",
+                                  "type": "buyer" },
+                                { "code": "PO-XYZ",
                                   "type": "buyer" }]},
   "shippingMethod": { "code": "shipper-123",
                       "name": "usps 2day" },

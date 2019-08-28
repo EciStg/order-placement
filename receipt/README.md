@@ -27,13 +27,19 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T21:18:33Z</td>
+<td class="org-left">2019-08-28T22:55:51Z</td>
 <td class="org-left">started</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt-no-items.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
@@ -46,6 +52,12 @@
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-many-orders-one-shipment-one-receipt-no-items.json</td>
 <td class="org-left">valid</td>
 </tr>
 
@@ -93,7 +105,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T21:18:33Z</td>
+<td class="org-left">2019-08-28T22:55:51Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -129,9 +141,7 @@ the receipt can be expressed.
 
     { "reference": { "referencesCount": 2,
                      "references": [{ "code": "PO-ABC123-2",
-                                      "type": "buyer" },
-                                    { "code": "PO-XYZ-a",
-                                      "type": "consumer" }]},
+                                      "type": "buyer" }]},
 
       "buyer": { "reference": { "code": "buyer-abc",
                                 "type": "seller" }},
@@ -159,9 +169,7 @@ the receipt can be expressed.
 
         { "reference": { "referencesCount": 2,
                          "references": [{ "code": "PO-2159403-2",
-                                          "type": "buyer" },
-                                        { "code": "PO-abc-q",
-                                          "type": "consumer" }]},
+                                          "type": "buyer" }]},
           "when": "2018-04-24T17:00:00.000Z",
           "whenExpected": "2018-04-26T17:11:30.000Z",
           "buyer": { "reference": { "code": "buyer-abc",
@@ -199,10 +207,6 @@ the receipt can be expressed.
               <reference>
                 <code>PO-2159403-2</code>
                 <type>buyer</type>
-              </reference>
-              <reference>
-                <code>PO-abc-q</code>
-                <type>consumer</type>
               </reference>
             </references>
           </reference>
@@ -264,9 +268,7 @@ All use cases in this document will be based off of the following order:
 
     { "reference": { "referencesCount": 2,
                      "references": [ { "code": "PO-ABC123-2",
-                                       "type": "buyer" },
-                                     { "code": "PO-XYZ-a",
-                                       "type": "consumer" }]},
+                                       "type": "buyer" }]},
 
       "buyer": { "reference": { "code": "buyer-abc",
                                 "type": "seller" }},
@@ -296,7 +298,7 @@ All use cases in this document will be based off of the following order:
                   "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
+### As a seller I would like to provide a one tracking number (T-123-ABC) for one order (PO-ABC123-2)
 
 1.  One Order, One Shipment, One Receipt, No Order Items
 
@@ -304,14 +306,33 @@ All use cases in this document will be based off of the following order:
 
             { "reference": { "referencesCount": 2,
                              "references": [{ "code": "PO-ABC123-2",
-                                              "type": "buyer" },
-                                            { "code": "PO-XYZ-a",
-                                              "type": "consumer" }]},
+                                              "type": "buyer" }]},
               "shippingMethod": { "code": "shipper-123",
                                   "name": "usps 2day" },
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC" }
+
+    2.  XML
+
+            <receipt>
+              <reference>
+                <referencesCount>2</referencesCount>
+                <references>
+                  <reference>
+                    <code>PO-ABC123-2</code>
+                    <type>buyer</type>
+                  </reference>
+                </references>
+              </reference>
+              <shippingMethod>
+                <code>shipper-123</code>
+                <name>usps 2day</name>
+              </shippingMethod>
+              <when>2018-04-24T17:00:00.000Z</when>
+              <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
+              <tracking>T-123-ABC</tracking>
+            </receipt>
 
 2.  One Order, One Shipmment, One Receipt
 
@@ -319,17 +340,12 @@ All use cases in this document will be based off of the following order:
 
             { "reference": { "referencesCount": 2,
                              "references": [ { "code": "PO-ABC123-2",
-                                               "type": "buyer" },
-                                             { "code": "PO-XYZ-a",
-                                               "type": "consumer" }]},
-
+                                               "type": "buyer" }]},
               "shippingMethod": { "code": "shipper-123",
                                   "name": "usps 2day" },
-
               "when": "2018-04-24T17:00:00.000Z",
               "whenExpected": "2018-04-26T17:11:30.000Z",
               "tracking": "T-123-ABC",
-
               "itemsCount": 2,
               "items": [{ "reference": { "code": "abc-123",
                                          "type": "seller" },
@@ -345,15 +361,13 @@ All use cases in this document will be based off of the following order:
                           "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for a one order (PO-ABC123-2)
+### As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
 
 1.  One Order, Many Shipments, One Receipt, No Order Items
 
         { "reference": { "referencesCount": 2,
                          "references": [{ "code": "PO-ABC123-2",
-                                          "type": "buyer" },
-                                        { "code": "PO-XYZ-a",
-                                          "type": "consumer" }]},
+                                          "type": "buyer" }]},
           "itemsCount": 2,
           "items": [ { "shippingMethod": { "code": "shipper-123",
                                            "name": "usps 2day" },
@@ -372,9 +386,7 @@ All use cases in this document will be based off of the following order:
 
             { "reference": { "referencesCount": 2,
                              "references": [ { "code": "PO-ABC123-2",
-                                               "type": "buyer" },
-                                             { "code": "PO-XYZ-a",
-                                               "type": "consumer" }]},
+                                               "type": "buyer" }]},
 
               "buyer": { "reference": { "code": "buyer-abc",
                                         "type": "seller" }},
@@ -426,9 +438,7 @@ All use cases in this document will be based off of the following order:
 
             { "reference": { "referencesCount": 2,
                              "references": [{ "code": "PO-ABC123-2",
-                                              "type": "buyer" },
-                                            { "code": "PO-XYZ-a",
-                                              "type": "consumer" }]},
+                                              "type": "buyer" }]},
 
               "shippingMethod": { "code": "shipper-123",
                                   "name": "usps 2day" },
@@ -453,9 +463,7 @@ All use cases in this document will be based off of the following order:
 
             { "reference": { "referencesCount": 2,
                              "references": [ { "code": "PO-ABC123-2",
-                                               "type": "buyer" },
-                                             { "code": "PO-XYZ-a",
-                                               "type": "consumer" }]},
+                                               "type": "buyer" }]},
 
               "shippingMethod": { "code": "shipper-ABC",
                                   "name": "fedx 2day" },
@@ -470,6 +478,26 @@ All use cases in this document will be based off of the following order:
                                  "type": "seller" },
                   "quantity": 1,
                   "unitCost": 1.99 }]}
+
+
+### As a seller I would like to ship many orders (PO-ABC123-2, PO-XYZ) in one shipment (T-123-ABC)
+
+1.  Many Orders, One Shipment, One Receipt, No Order Items
+
+    1.  JSON
+
+            { "reference": { "referencesCount": 2,
+                             "references": [{ "code": "PO-ABC123-2",
+                                              "type": "buyer" },
+                                            { "code": "PO-XYZ",
+                                              "type": "buyer" }]},
+              "shippingMethod": { "code": "shipper-123",
+                                  "name": "usps 2day" },
+              "when": "2018-04-24T17:00:00.000Z",
+              "whenExpected": "2018-04-26T17:11:30.000Z",
+              "tracking": "T-123-ABC" }
+
+2.  Many Orders, One Shipment, One Receipt
 
 
 ## Resource Schemas
