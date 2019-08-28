@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T22:03:59Z</td>
+<td class="org-left">2019-08-28T22:34:01Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -75,7 +75,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T22:03:59Z</td>
+<td class="org-left">2019-08-28T22:34:02Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -274,7 +274,7 @@ All use cases in this document will be based off of the following order:
                   "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide a single tracking number (T-123-ABC) a single order (PO-ABC123-2)
+### As a seller I would like to provide one tracking number (T-123-ABC) for one order (PO-ABC123-2)
 
 1.  One Order, One Shipmment, One Receipt
 
