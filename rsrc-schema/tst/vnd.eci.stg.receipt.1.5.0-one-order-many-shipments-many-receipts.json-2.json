@@ -3,14 +3,11 @@
                                    "type": "buyer" },
                                  { "code": "PO-XYZ-a",
                                    "type": "consumer" }]},
-
   "shippingMethod": { "code": "shipper-ABC",
                       "name": "fedx 2day" },
-
   "when": "2018-04-24T17:00:00.000Z",
   "whenExpected": "2018-04-26T17:11:30.000Z",
   "tracking": "T-456-DEF",
-
   "itemsCount": 1,
   "items": [
     { "reference": { "code": "ghi-789",

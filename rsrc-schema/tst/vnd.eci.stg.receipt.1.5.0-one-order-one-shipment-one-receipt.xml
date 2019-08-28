@@ -37,22 +37,32 @@
   </shippingMethod>
   <when>2018-04-24T17:00:00.000Z</when>
   <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
-  <tracking>T-LMNOP-123</tracking>
-  <itemsCount>2</itemsCount>
+  <tracking>T-123-ABC</tracking>
+  <itemsCount>3</itemsCount>
   <items>
     <item>
       <reference>
         <code>abc-123</code>
         <type>seller</type>
       </reference>
-      <quantity>20</quantity>
+      <quantity>24</quantity>
+      <unitCost>24.99</unitCost>
     </item>
     <item>
       <reference>
-        <code>abc-123</code>
+        <code>def-456</code>
         <type>seller</type>
       </reference>
-      <quantity>4</quantity>
+      <quantity>2</quantity>
+      <unitCost>2.99</unitCost>
+    </item>
+    <item>
+      <reference>
+        <code>ghi-789</code>
+        <type>seller</type>
+      </reference>
+      <quantity>1</quantity>
+      <unitCost>1.99</unitCost>
     </item>
   </items>
 </receipt>
