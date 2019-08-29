@@ -3,7 +3,7 @@
                                    "type": "buyer" },
                                  { "code": "PO-XYZ-a",
                                    "type": "consumer" }]},
-  "shipment": "S-QRS-987",
+  "tracking": "T-123-ABC",
   "itemsCount": 3,
   "items": [{ "reference": { "code": "abc-123",
                              "type": "seller" },

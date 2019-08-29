@@ -18,7 +18,7 @@ Accept: application/vnd.eci.stg.receipt-1.5.0.xml
 
 ** tl;dr
 
-Conceptually a receipt extends an order e.g *~{order} V (package X shipment X tracking)~*. Compare
+Conceptually, a receipt extends an order e.g *~{order} V (package X shipment X tracking)~*. Compare
 the order schema with the receipt schema, ignoring a few details, we will see the additions in
 defined in the tuple above.
 
@@ -229,7 +229,85 @@ All use cases in this document will be based off of the following order:
                 "unitCost": 1.99 }]}
 #+end_src
 
-*** As a seller I would like to provide one tracking number (T-123-ABC) for one order (PO-ABC123-2)
+*** As a seller I would like to provide a tracking number to buyer
+
+**** JSON
+
+#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number.json
+  { "reference": { "referencesCount": 2,
+                   "references": [ { "code": "PO-ABC123-2",
+                                     "type": "buyer" },
+                                   { "code": "PO-XYZ-a",
+                                     "type": "consumer" }]},
+    "tracking": "T-123-ABC",
+    "itemsCount": 3,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" },
+                "quantity": 24,
+                "unitCost": 24.99 },
+              { "reference": { "code": "def-456",
+                               "type": "seller" },
+                "quantity": 2,
+                "unitCost": 2.99 },
+              { "reference": { "code": "ghi-789",
+                               "type": "seller" },
+                "quantity": 1,
+                "unitCost": 1.99 }]}
+#+end_src
+
+*** As a seller I would like to provide a shipment number to buyer
+
+**** JSON
+
+#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-shipment-number.json
+  { "reference": { "referencesCount": 2,
+                   "references": [ { "code": "PO-ABC123-2",
+                                     "type": "buyer" },
+                                   { "code": "PO-XYZ-a",
+                                     "type": "consumer" }]},
+    "shipment": "T-123-ABC",
+    "itemsCount": 3,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" },
+                "quantity": 24,
+                "unitCost": 24.99 },
+              { "reference": { "code": "def-456",
+                               "type": "seller" },
+                "quantity": 2,
+                "unitCost": 2.99 },
+              { "reference": { "code": "ghi-789",
+                               "type": "seller" },
+                "quantity": 1,
+                "unitCost": 1.99 }]}
+#+end_src
+
+*** As a seller I would like to provide a package number to the buyer
+
+**** JSON
+
+#+begin_src json :tangle ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-package-number.json
+  { "reference": { "referencesCount": 2,
+                   "references": [ { "code": "PO-ABC123-2",
+                                     "type": "buyer" },
+                                   { "code": "PO-XYZ-a",
+                                     "type": "consumer" }]},
+    "package": "1 of 1",
+    "itemsCount": 3,
+    "items": [{ "reference": { "code": "abc-123",
+                               "type": "seller" },
+                "quantity": 24,
+                "unitCost": 24.99 },
+              { "reference": { "code": "def-456",
+                               "type": "seller" },
+                "quantity": 2,
+                "unitCost": 2.99 },
+              { "reference": { "code": "ghi-789",
+                               "type": "seller" },
+                "quantity": 1,
+                "unitCost": 1.99 }]}
+#+end_src
+
+*** As a seller I would like to provide one receipt (T-123-ABC) for one order (PO-ABC123-2)
 
 **** JSON
 
@@ -239,7 +317,7 @@ All use cases in this document will be based off of the following order:
                                      "type": "buyer" },
                                    { "code": "PO-XYZ-a",
                                      "type": "consumer" }]},
-    "tracking": "T-123-ABC",
+    "shipment": "S-QRS-987",
     "itemsCount": 3,
     "items": [{ "reference": { "code": "abc-123",
                                "type": "seller" },
@@ -316,7 +394,7 @@ All use cases in this document will be based off of the following order:
   </receipt>
 #+end_src
 
-*** As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
+*** As a seller I would like to provide many receipts (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
 
 **** JSON
 

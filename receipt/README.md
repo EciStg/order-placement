@@ -12,7 +12,7 @@
 
 ## tl;dr
 
-Conceptually a receipt extends an order e.g **`{order} V (package X shipment X tracking)`**. Compare
+Conceptually, a receipt extends an order e.g **`{order} V (package X shipment X tracking)`**. Compare
 the order schema with the receipt schema, ignoring a few details, we will see the additions in
 defined in the tuple above.
 
@@ -151,71 +151,303 @@ ways the receipt can be expressed.
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T03:02:25Z</td>
+<td class="org-left">2019-08-29T03:49:35Z</td>
 <td class="org-left">started</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml</td>
 <td class="org-left">validates</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-receipt.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.json</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'type',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.shipment',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/properties/shipment/type',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">type:</td>
+<td class="org-left">'integer'</td>
+<td class="org-left">},</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left">integer'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-package-number.json</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'type',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.package',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/properties/package/type',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">type:</td>
+<td class="org-left">'integer'</td>
+<td class="org-left">},</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left">integer'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-shipment-number.json</td>
+<td class="org-left">invalid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">[</td>
+<td class="org-left">{</td>
+<td class="org-left">keyword:</td>
+<td class="org-left">'type',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">dataPath:</td>
+<td class="org-left">'.shipment',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">schemaPath:</td>
+<td class="org-left">'#/properties/shipment/type',</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">params:</td>
+<td class="org-left">{</td>
+<td class="org-left">type:</td>
+<td class="org-left">'integer'</td>
+<td class="org-left">},</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">message:</td>
+<td class="org-left">'should</td>
+<td class="org-left">be</td>
+<td class="org-left">integer'</td>
+<td class="org-left">}</td>
+<td class="org-left">]</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json</td>
 <td class="org-left">valid</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 
 <tr>
-<td class="org-left">2019-08-29T03:02:26Z</td>
+<td class="org-left">2019-08-29T03:49:35Z</td>
 <td class="org-left">stopped</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -288,7 +520,7 @@ All use cases in this document will be based off of the following order:
                   "unitCost": 1.99 }]}
 
 
-### As a seller I would like to provide one tracking number (T-123-ABC) for one order (PO-ABC123-2)
+### As a seller I would like to provide a tracking number to buyer
 
 1.  JSON
 
@@ -298,6 +530,81 @@ All use cases in this document will be based off of the following order:
                                          { "code": "PO-XYZ-a",
                                            "type": "consumer" }]},
           "tracking": "T-123-ABC",
+          "itemsCount": 3,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 24,
+                      "unitCost": 24.99 },
+                    { "reference": { "code": "def-456",
+                                     "type": "seller" },
+                      "quantity": 2,
+                      "unitCost": 2.99 },
+                    { "reference": { "code": "ghi-789",
+                                     "type": "seller" },
+                      "quantity": 1,
+                      "unitCost": 1.99 }]}
+
+
+### As a seller I would like to provide a shipment number to buyer
+
+1.  JSON
+
+        { "reference": { "referencesCount": 2,
+                         "references": [ { "code": "PO-ABC123-2",
+                                           "type": "buyer" },
+                                         { "code": "PO-XYZ-a",
+                                           "type": "consumer" }]},
+          "shipment": "T-123-ABC",
+          "itemsCount": 3,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 24,
+                      "unitCost": 24.99 },
+                    { "reference": { "code": "def-456",
+                                     "type": "seller" },
+                      "quantity": 2,
+                      "unitCost": 2.99 },
+                    { "reference": { "code": "ghi-789",
+                                     "type": "seller" },
+                      "quantity": 1,
+                      "unitCost": 1.99 }]}
+
+
+### As a seller I would like to provide a package number to the buyer
+
+1.  JSON
+
+        { "reference": { "referencesCount": 2,
+                         "references": [ { "code": "PO-ABC123-2",
+                                           "type": "buyer" },
+                                         { "code": "PO-XYZ-a",
+                                           "type": "consumer" }]},
+          "package": "1 of 1",
+          "itemsCount": 3,
+          "items": [{ "reference": { "code": "abc-123",
+                                     "type": "seller" },
+                      "quantity": 24,
+                      "unitCost": 24.99 },
+                    { "reference": { "code": "def-456",
+                                     "type": "seller" },
+                      "quantity": 2,
+                      "unitCost": 2.99 },
+                    { "reference": { "code": "ghi-789",
+                                     "type": "seller" },
+                      "quantity": 1,
+                      "unitCost": 1.99 }]}
+
+
+### As a seller I would like to provide one receipt (T-123-ABC) for one order (PO-ABC123-2)
+
+1.  JSON
+
+        { "reference": { "referencesCount": 2,
+                         "references": [ { "code": "PO-ABC123-2",
+                                           "type": "buyer" },
+                                         { "code": "PO-XYZ-a",
+                                           "type": "consumer" }]},
+          "shipment": "S-QRS-987",
           "itemsCount": 3,
           "items": [{ "reference": { "code": "abc-123",
                                      "type": "seller" },
@@ -372,7 +679,7 @@ All use cases in this document will be based off of the following order:
         </receipt>
 
 
-### As a seller I would like to provide many tracking numbers (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
+### As a seller I would like to provide many receipts (T-123-ABC, T-456-DEF) for one order (PO-ABC123-2)
 
 1.  JSON
 
