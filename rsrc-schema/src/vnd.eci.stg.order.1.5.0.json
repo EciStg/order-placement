@@ -525,7 +525,6 @@
     "reference": {
       "type": "object",
       "additionalProperties": false,
-
       "properties": {
 
         "code": {

@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T00:06:48Z</td>
+<td class="org-left">2019-08-29T02:36:36Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-29T00:06:48Z</td>
+<td class="org-left">2019-08-29T02:36:36Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -949,7 +949,6 @@ No longer published
             "reference": {
               "type": "object",
               "additionalProperties": false,
-
               "properties": {
 
                 "code": {

@@ -15,10 +15,29 @@
 
 ### Receipt extends order
 
-If we compare the order schema with the receipt schema, we will see a few additions. The example
-below shows the most commonly added extenstion, a tracking number.
+Ok. Not exactly, but conceptually. If we compare the order schema with the receipt schema, we will see
+a few additions. The example below shows the most commonly added extenstion, a tracking number.
 
-
+    106a107,125
+    >     "package": {
+    >       "description": "",
+    >       "type": "integer",
+    >       "minimum": 1
+    >     },
+    >
+    >     "shipment": {
+    >       "description": "",
+    >       "type": "integer",
+    >       "minimum": 1
+    >     },
+    >
+    >     "tracking": {
+    >       "description": "",
+    >       "type": "string",
+    >       "minLength": 1,
+    >       "maxLength": 32
+    >     },
+    >
 
 If we compare an instance of an order with and instance of a typical receipt, we will see two changes
 and one addition
@@ -138,7 +157,7 @@ demonstrate other ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T02:02:13Z</td>
+<td class="org-left">2019-08-29T02:36:20Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -198,7 +217,7 @@ demonstrate other ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T02:02:13Z</td>
+<td class="org-left">2019-08-29T02:36:20Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -515,6 +534,13 @@ No longer published
 
             "reference": { "$ref": "#/definitions/reference" },
 
+            "code": {
+              "description": "",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+
             "name": {
               "description": "",
               "type": "string",
@@ -536,6 +562,32 @@ No longer published
               "maxLength": 256
             },
 
+            "when": {
+              "description": "",
+              "type": "string",
+              "format": "date-time"
+            },
+
+            "whenExpected": {
+              "description": "",
+              "type": "string",
+              "format": "date-time"
+            },
+
+            "billTo": { "$ref": "#/definitions/billTo" },
+
+            "buyer": { "$ref": "#/definitions/buyer" },
+
+            "consumer": { "$ref": "#/definitions/consumer" },
+
+            "seller": { "$ref": "#/definitions/seller" },
+
+            "shipTo": { "$ref": "#/definitions/shipTo" },
+
+            "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
+
+            "location": { "$ref": "#/definitions/address" },
+
             "make": {
               "description": "",
               "type": "string",
@@ -550,26 +602,12 @@ No longer published
               "maxLength": 32
             },
 
-            "serialnumber": {
+            "serialNumber": {
               "description": "",
               "type": "string",
               "minLength": 1,
               "maxLength": 32
             },
-
-            "buyer": { "$ref": "#/definitions/buyer" },
-
-            "consumer": { "$ref": "#/definitions/consumer" },
-
-            "seller": { "$ref": "#/definitions/seller" },
-
-            "shipTo": { "$ref": "#/definitions/shipTo" },
-
-            "billTo": { "$ref": "#/definitions/billTo" },
-
-            "shippingMethod": { "$ref": "#/definitions/shippingMethod" },
-
-            "location": { "$ref": "#/definitions/address" },
 
             "quantity": {
               "description": "",
@@ -578,7 +616,7 @@ No longer published
               "maximum": 999999999.999999
             },
 
-            "currency": { "$ref": "#/definitions/currency"},
+            "unitMeasure": { "$ref": "#/definitions/unitMeasure" },
 
             "unitCost": {
               "description": "",
@@ -589,22 +627,7 @@ No longer published
 
             "total": { "$ref": "#/definitions/total"},
 
-            "when": {
-              "description": "",
-              "type": "string",
-              "format": "date-time"
-            },
-
-            "whenExpected": {
-              "description": "",
-              "type": "string",
-              "format": "date-time"
-            },
-
-            "order": {
-              "description": "",
-              "$ref": "#/definitions/reference"
-            },
+            "currency": { "$ref": "#/definitions/currency"},
 
             "package": {
               "description": "",
@@ -645,187 +668,6 @@ No longer published
           },
 
           "definitions": {
-            "reference": {
-              "type": "object",
-              "additionalProperties": false,
-
-              "properties": {
-
-                "code": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "name": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
-                },
-
-                "remarks": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256
-                },
-
-                "type": { "$ref": "#/definitions/referenceTypeEnum" },
-
-                "referencesCount": {
-                  "description": "number of things in the references collection",
-                  "type": "number",
-                  "minimum": 1,
-                  "maximum": 1000
-                },
-
-                "references": {
-                  "description": "",
-                  "type": "array",
-                  "minItems": 1,
-                  "maxItems": 1000,
-                  "uniqueItems": true,
-                  "items": {
-                    "$ref": "#/definitions/reference"
-                  }
-                }
-              }
-            },
-
-            "referenceTypeEnum": {
-              "type": "string",
-              "enum": ["buyer", "consumer", "manufacturer", "seller" ]
-            },
-
-            "tax": {
-              "type": "object",
-              "properties": {
-
-                "code": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "name": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
-                },
-
-                "remarks": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256
-                },
-
-                "amount": {
-                  "description": "",
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 999999999999.999999
-                },
-
-                "authority": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "itemsCount": {
-                  "description": "number of things in the items collection",
-                  "type": "number",
-                  "minimum": 1,
-                  "maximum": 1000
-                },
-
-                "items": {
-                  "description": "",
-                  "type": "array",
-                  "minItems": 1,
-                  "maxItems": 1000,
-                  "uniqueItems": true,
-                  "items": {
-                    "$ref": "#/definitions/tax"
-                  }
-                }
-              },
-
-              "additionalProperties": false
-            },
-
-            "shippingMethod": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-
-                "code": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "name": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
-                },
-
-                "remarks": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256
-                },
-
-                "itemsCount": {
-                  "description": "number of shipping receipts in the collection",
-                  "type": "number",
-                  "minimum": 1,
-                  "maximum": 1000
-                },
-
-                "items": {
-                  "description": "",
-                  "type": "array",
-                  "minItems": 1,
-                  "maxItems": 1000,
-                  "uniqueItems": true,
-                  "items": {
-                    "$ref": "#/definitions/shippingMethod"
-                  }
-                }
-              }
-            },
 
             "address": {
               "type": "object",
@@ -833,6 +675,13 @@ No longer published
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -916,20 +765,6 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 40
-                },
-
-                "binLocation": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 40
-                },
-
-                "warehouse": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
                 }
               }
             },
@@ -941,6 +776,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -983,7 +825,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -994,6 +838,13 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
                 "name": {
                   "description": "",
                   "type": "string",
@@ -1036,7 +887,9 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
               }
             },
 
@@ -1047,60 +900,12 @@ No longer published
 
                 "reference": { "$ref": "#/definitions/reference" },
 
-                "name": {
+                "code": {
                   "description": "",
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
                 },
-
-                "description": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
-                },
-
-                "remarks": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256
-                },
-
-                "location": { "$ref": "#/definitions/address" },
-
-                "contract": { "$ref": "#/definitions/reference" },
-
-                "email": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256
-                },
-
-                "phone": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                },
-
-                "taxID": {
-                  "description": "",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 32
-                }
-              }
-            },
-
-            "seller": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-
-                "reference": { "$ref": "#/definitions/reference" },
 
                 "name": {
                   "description": "",
@@ -1144,16 +949,27 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                }
+                },
+
+                "contact": { "$ref": "#/definitions/contact" },
+
+                "contract": { "$ref": "#/definitions/reference" }
               }
             },
 
-            "shipTo": {
+            "contact": {
               "type": "object",
               "additionalProperties": false,
               "properties": {
 
                 "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
 
                 "name": {
                   "description": "",
@@ -1190,11 +1006,6 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 32
-                },
-
-                "isDropShip": {
-                  "description": "",
-                  "type": "boolean"
                 }
               }
             },
@@ -1218,6 +1029,20 @@ No longer published
                   "maxLength": 32
                 },
 
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
                 "number": {
                   "description": "",
                   "type": "number",
@@ -1239,6 +1064,313 @@ No longer published
                   "maximum": 6
                 }
               }
+            },
+
+            "reference": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "type": { "$ref": "#/definitions/reference/definitions/referenceTypeEnum" },
+
+                "referencesCount": {
+                  "description": "number of things in the references collection",
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "references": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/definitions/reference"
+                  }
+                }
+              },
+
+              "definitions": {
+                "referenceTypeEnum": {
+                  "type": "string",
+                  "enum": ["buyer", "consumer", "manufacturer", "seller" ]
+                }
+              }
+            },
+
+            "seller": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "taxID": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "contact": { "$ref": "#/definitions/contact" }
+              }
+            },
+
+            "shippingMethod": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "billTo": { "$ref": "#/definitions/billTo" },
+
+                "itemsCount": {
+                  "description": "number of shipping methods in the collection",
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "items": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/definitions/shippingMethod"
+                  }
+                }
+              }
+            },
+
+            "shipTo": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+
+                "reference": { "$ref": "#/definitions/reference" },
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "location": { "$ref": "#/definitions/address" },
+
+                "email": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "contact": { "$ref": "#/definitions/contact" },
+
+                "isDropShip": {
+                  "description": "",
+                  "type": "boolean"
+                }
+              }
+            },
+
+            "tax": {
+              "type": "object",
+              "properties": {
+
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "amount": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 999999999999.999999
+                },
+
+                "authority": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "itemsCount": {
+                  "description": "number of things in the items collection",
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+
+                "items": {
+                  "description": "",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1000,
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/definitions/tax"
+                  }
+                }
+              },
+
+              "additionalProperties": false
             },
 
             "total": {
@@ -1281,6 +1413,47 @@ No longer published
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 256
+                }
+              }
+            },
+
+            "unitMeasure": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "name": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+
+                "description": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+
+                "remarks": {
+                  "description": "",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+
+                "quantity": {
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 999999999.999999
                 }
               }
             }
