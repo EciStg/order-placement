@@ -37,7 +37,7 @@ tuple above are easy to see.
     >     },
     >
 
-The example diff below shows the most commonly added extenstion to the order, a tracking number.
+The example diff below shows the most commonly added extension to the order, a tracking number.
 
     23,24c23,24
     <   "when": "2018-04-24T17:00:00.000Z",
@@ -57,7 +57,7 @@ The Seller may create a receipt by make a few small modifications to an order.
 -   [optional] Populate the date when the shipment was sent or omit `when` from the receipt
 -   [optional] Populate the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
 -   [optional] Supply a shipment number
--   [optional] Supply a pacakge number
+-   [optional] Supply a package number
 
 Let us assume the Buyer has placed an order (two code blocks down). When the order has been fulfilled
 and shipped the Seller will POST a shipping receipt providing tracking information for one shipment
@@ -156,7 +156,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T04:42:36Z</td>
+<td class="org-left">2019-08-29T04:50:37Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -234,7 +234,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T04:42:37Z</td>
+<td class="org-left">2019-08-29T04:50:38Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
