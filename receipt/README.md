@@ -27,14 +27,8 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T23:33:02Z</td>
+<td class="org-left">2019-08-29T00:05:57Z</td>
 <td class="org-left">started</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.xml</td>
-<td class="org-left">validates</td>
 </tr>
 
 
@@ -93,7 +87,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T23:33:02Z</td>
+<td class="org-left">2019-08-29T00:05:58Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -123,29 +117,41 @@ call with the required headers e.g.
 
 Let us assume the Buyer has placed the following order in the code block below. When the order has
 been fulfilled and shipped the Seller will POST a shipping receipt providing tracking information.
-In this case, we are going to show two shipments from the same carrier with tracking number
-**T-LMNOP-123** In the section below called UseCases, we will demonstrate other ways the receipt can
-be expressed.
+In this case, we are going to show one shipment **T-LMNOP-123** In the section below called UseCases,
+we will demonstrate other ways the receipt can be expressed.
+
+
+### The Order
 
     { "reference": { "referencesCount": 2,
-                     "references": [{ "code": "PO-ABC123-2",
+                     "references": [ {"code": "PO-2159403-2",
                                       "type": "buyer" },
-                                    { "code": "PO-XYZ-a",
+                                     {"code": "PO-abc-q",
                                       "type": "consumer" }]},
-
       "buyer": { "reference": { "code": "buyer-abc",
-                                "type": "seller" }},
-
+                                 "type": "seller" }},
+      "consumer": { "reference": { "code": "consumer-xyz",
+                                    "type": "seller" },
+                     "contract": { "code": "contract-789",
+                                    "type": "seller" }},
       "shipTo": { "location": { "mtn": "Jane Doe",
-                                "rcp": "ECI Solutions, STG",
-                                "alt": "Suite #200",
-                                "dal": "4626 N 300 W",
-                                "city": "Provo",
-                                "region": "UT",
-                                "postalCode": "84604" },
-                  "email": "shipping-contact@example.com",
-                  "phone": "1-555-555-5555" },
-
+                                 "rcp": "ECI Solutions, STG",
+                                 "alt": "Suite #200",
+                                 "dal": "4626 N 300 W",
+                                 "city": "Provo",
+                                 "region": "UT",
+                                 "postalCode": "84604"},
+                   "email": "shipping-contact@example.com",
+                   "phone": "1-555-555-5555"},
+      "shippingMethod": { "code": "shipper-123",
+                           "name": "usps-2day" },
+      "when": "2018-04-24T17:00:00.000Z",
+      "whenExpected": "2018-07-24T17:00:00.000Z",
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
       "itemsCount": 1,
       "items": [{ "reference": { "code": "abc-123",
                                  "type": "seller" },
@@ -153,100 +159,61 @@ be expressed.
                   "unitCost": 24.99 }]}
 
 
-### Request
+### The Receipt
 
-1.  JSON
+The Seller may create a receipt by make a few small modifications to the order.
 
-        { "reference": { "referencesCount": 2,
-                         "references": [{ "code": "PO-2159403-2",
-                                          "type": "buyer" },
-                                        { "code": "PO-abc-q",
-                                          "type": "consumer" }]},
-          "buyer": { "reference": { "code": "buyer-abc",
-                                    "type": "seller" }},
-          "shipTo": { "location": { "mtn": "Jane Doe",
-                                    "rcp": "ECI Solutions, STG",
-                                    "alt": "Suite #200",
-                                    "dal": "4626 N 300 W",
-                                    "city": "Provo",
-                                    "region": "UT",
-                                    "postalCode": "84604" },
-                      "email": "shipping-contact@example.com",
-                      "phone": "1-555-555-5555" },
+-   [required] Append a tracking number
+-   [optional] Supply the date when the shipment was sent
+-   [optional] Supply the date the shipment is expected to be delivered
 
-          "shippingMethod": { "code": "shipper-123",
-                              "name": "usps 2day" },
-          "when": "2018-04-24T17:00:00.000Z",
-          "whenExpected": "2018-04-26T17:11:30.000Z",
-          "tracking": "T-LMNOP-123",
-          "itemsCount": 2,
-          "items": [{ "reference": { "code": "abc-123",
-                                     "type": "seller" },
-                      "quantity": 20 },
-                    { "reference": { "code": "abc-123",
-                                     "type": "seller" },
-                      "quantity": 4 }]}
+    { "reference": { "referencesCount": 2,
+                     "references": [ {"code": "PO-2159403-2",
+                                      "type": "buyer" },
+                                     {"code": "PO-abc-q",
+                                      "type": "consumer" }]},
+      "buyer": { "reference": { "code": "buyer-abc",
+                                "type": "seller" }},
+      "consumer": { "reference": { "code": "consumer-xyz",
+                                   "type": "seller" },
+                    "contract": { "code": "contract-789",
+                                  "type": "seller" }},
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                "rcp": "ECI Solutions, STG",
+                                "alt": "Suite #200",
+                                "dal": "4626 N 300 W",
+                                "city": "Provo",
+                                "region": "UT",
+                                "postalCode": "84604"},
+                  "email": "shipping-contact@example.com",
+                  "phone": "1-555-555-5555"},
+      "shippingMethod": { "code": "shipper-123",
+                          "name": "usps-2day" },
+      "when": "2018-06-24T17:00:00.000Z",
+      "whenExpected": "2018-08-24T17:00:00.000Z",
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
+      "tracking": "T-LMNOP-123",
+      "itemsCount": 1,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller" },
+                  "quantity": 24,
+                  "unitCost": 24.99 }]}
 
-2.  XML
 
-        <receipt>
-          <reference>
-            <referencesCount>2</referencesCount>
-            <references>
-              <reference>
-                <code>PO-2159403-2</code>
-                <type>buyer</type>
-              </reference>
-              <reference>
-                <code>PO-abc-q</code>
-                <type>consumer</type>
-              </reference>
-            </references>
-          </reference>
-          <buyer>
-            <reference>
-              <code>buyer-abc</code>
-              <type>seller</type>
-            </reference>
-          </buyer>
-          <shipTo>
-            <location>
-              <mtn>Jane Doe</mtn>
-              <rcp>ECI Solutions, STG</rcp>
-              <alt>Suite #200</alt>
-              <dal>4626 N 300 W"</dal>
-              <city>Provo</city>
-              <region>UT</region>
-              <postalCode>84604</postalCode>
-            </location>
-            <email>shipping-contact@example.com></email>
-            <phone>1-555-555-5555</phone>
-          </shipTo>
-          <shippingMethod>
-              <code>shipper-123</code>
-              <name>usps 2day</name>
-          </shippingMethod>
-          <when>2018-04-24T17:00:00.000Z</when>
-          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
-          <tracking>T-LMNOP-123</tracking>
-          <itemsCount>2</itemsCount>
-          <items>
-            <item>
-              <reference>
-                <code>abc-123</code>
-                <type>seller</type>
-              </reference>
-              <quantity>20</quantity>
-            </item>
-            <item>
-              <reference>
-                <code>abc-123</code>
-                <type>seller</type>
-              </reference>
-              <quantity>4</quantity>
-            </item>
-          </items>
-        </receipt>
+### Receipt extends Order
+
+    23,24c23,24
+    <   "when": "2018-04-24T17:00:00.000Z",
+    <   "whenExpected": "2018-07-24T17:00:00.000Z",
+    ---
+    >   "when": "2018-06-24T17:00:00.000Z",
+    >   "whenExpected": "2018-08-24T17:00:00.000Z",
+    29a30
+    >   "tracking": "T-LMNOP-123",
 
 
 ## Use Cases
@@ -254,24 +221,34 @@ be expressed.
 All use cases in this document will be based off of the following order:
 
     { "reference": { "referencesCount": 2,
-                     "references": [ { "code": "PO-ABC123-2",
-                                       "type": "buyer" },
-                                     { "code": "PO-XYZ-a",
-                                       "type": "consumer" }]},
-
+                     "references": [ {"code": "PO-2159403-2",
+                                      "type": "buyer" },
+                                     {"code": "PO-abc-q",
+                                      "type": "consumer" }]},
       "buyer": { "reference": { "code": "buyer-abc",
-                                "type": "seller" }},
-
+                                 "type": "seller" }},
+      "consumer": { "reference": { "code": "consumer-xyz",
+                                    "type": "seller" },
+                     "contract": { "code": "contract-789",
+                                    "type": "seller" }},
       "shipTo": { "location": { "mtn": "Jane Doe",
-                                "rcp": "ECI Solutions, STG",
-                                "alt": "Suite #200",
-                                "dal": "4626 N 300 W",
-                                "city": "Provo",
-                                "region": "UT",
-                                "postalCode": "84604" },
-                  "email": "shipping-contact@example.com",
-                  "phone": "1-555-555-5555" },
-
+                                 "rcp": "ECI Solutions, STG",
+                                 "alt": "Suite #200",
+                                 "dal": "4626 N 300 W",
+                                 "city": "Provo",
+                                 "region": "UT",
+                                 "postalCode": "84604"},
+                   "email": "shipping-contact@example.com",
+                   "phone": "1-555-555-5555"},
+      "shippingMethod": { "code": "shipper-123",
+                           "name": "usps-2day" },
+      "when": "2018-04-24T17:00:00.000Z",
+      "whenExpected": "2018-07-24T17:00:00.000Z",
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
       "itemsCount": 3,
       "items": [{ "reference": { "code": "abc-123",
                                  "type": "seller" },
@@ -296,10 +273,6 @@ All use cases in this document will be based off of the following order:
                                            "type": "buyer" },
                                          { "code": "PO-XYZ-a",
                                            "type": "consumer" }]},
-          "shippingMethod": { "code": "shipper-123",
-                              "name": "usps 2day" },
-          "when": "2018-04-24T17:00:00.000Z",
-          "whenExpected": "2018-04-26T17:11:30.000Z",
           "tracking": "T-123-ABC",
           "itemsCount": 3,
           "items": [{ "reference": { "code": "abc-123",
@@ -331,12 +304,6 @@ All use cases in this document will be based off of the following order:
               </reference>
             </references>
           </reference>
-          <buyer>
-            <reference>
-              <code>buyer-abc</code>
-              <type>seller</type>
-            </reference>
-          </buyer>
           <shipTo>
             <location>
               <mtn>Jane Doe</mtn>
@@ -350,12 +317,6 @@ All use cases in this document will be based off of the following order:
             <email>shipping-contact@example.com></email>
             <phone>1-555-555-5555</phone>
           </shipTo>
-          <shippingMethod>
-              <code>shipper-123</code>
-              <name>usps 2day</name>
-          </shippingMethod>
-          <when>2018-04-24T17:00:00.000Z</when>
-          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
           <tracking>T-123-ABC</tracking>
           <itemsCount>3</itemsCount>
           <items>
@@ -398,10 +359,6 @@ All use cases in this document will be based off of the following order:
                                           "type": "buyer" },
                                         { "code": "PO-XYZ-a",
                                           "type": "consumer" }]},
-          "shippingMethod": { "code": "shipper-123",
-                              "name": "usps 2day" },
-          "when": "2018-04-24T17:00:00.000Z",
-          "whenExpected": "2018-04-26T17:11:30.000Z",
           "tracking": "T-123-ABC",
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -422,10 +379,6 @@ All use cases in this document will be based off of the following order:
                                            "type": "buyer" },
                                          { "code": "PO-XYZ-a",
                                            "type": "consumer" }]},
-          "shippingMethod": { "code": "shipper-ABC",
-                              "name": "fedx 2day" },
-          "when": "2018-04-24T17:00:00.000Z",
-          "whenExpected": "2018-04-26T17:11:30.000Z",
           "tracking": "T-456-DEF",
           "itemsCount": 1,
           "items": [
@@ -452,12 +405,6 @@ All use cases in this document will be based off of the following order:
               </reference>
             </references>
           </reference>
-          <buyer>
-            <reference>
-              <code>buyer-abc</code>
-              <type>seller</type>
-            </reference>
-          </buyer>
           <shipTo>
             <location>
               <mtn>Jane Doe</mtn>
@@ -471,12 +418,6 @@ All use cases in this document will be based off of the following order:
             <email>shipping-contact@example.com></email>
             <phone>1-555-555-5555</phone>
           </shipTo>
-          <shippingMethod>
-              <code>shipper-123</code>
-              <name>usps 2day</name>
-          </shippingMethod>
-          <when>2018-04-24T17:00:00.000Z</when>
-          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
           <tracking>T-123-ABC</tracking>
           <itemsCount>2</itemsCount>
           <items>
@@ -515,12 +456,6 @@ All use cases in this document will be based off of the following order:
               </reference>
             </references>
           </reference>
-          <buyer>
-            <reference>
-              <code>buyer-abc</code>
-              <type>seller</type>
-            </reference>
-          </buyer>
           <shipTo>
             <location>
               <mtn>Jane Doe</mtn>
@@ -534,12 +469,6 @@ All use cases in this document will be based off of the following order:
             <email>shipping-contact@example.com></email>
             <phone>1-555-555-5555</phone>
           </shipTo>
-          <shippingMethod>
-              <code>shipper-123</code>
-              <name>usps 2day</name>
-          </shippingMethod>
-          <when>2018-04-24T17:00:00.000Z</when>
-          <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
           <tracking>T-456-DEF</tracking>
           <itemsCount>1</itemsCount>
           <items>

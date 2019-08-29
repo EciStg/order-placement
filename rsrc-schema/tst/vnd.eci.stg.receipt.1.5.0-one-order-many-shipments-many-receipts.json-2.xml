@@ -12,12 +12,6 @@
       </reference>
     </references>
   </reference>
-  <buyer>
-    <reference>
-      <code>buyer-abc</code>
-      <type>seller</type>
-    </reference>
-  </buyer>
   <shipTo>
     <location>
       <mtn>Jane Doe</mtn>
@@ -31,12 +25,6 @@
     <email>shipping-contact@example.com></email>
     <phone>1-555-555-5555</phone>
   </shipTo>
-  <shippingMethod>
-      <code>shipper-123</code>
-      <name>usps 2day</name>
-  </shippingMethod>
-  <when>2018-04-24T17:00:00.000Z</when>
-  <whenExpected>2018-04-26T17:11:30.000Z</whenExpected>
   <tracking>T-456-DEF</tracking>
   <itemsCount>1</itemsCount>
   <items>

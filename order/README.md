@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-29T19:25:15Z</td>
+<td class="org-left">2019-08-29T00:06:48Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-07-29T19:25:16Z</td>
+<td class="org-left">2019-08-29T00:06:48Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -137,15 +137,12 @@ down into smaller chunks.
                                           "type": "buyer" },
                                          {"code": "PO-abc-q",
                                           "type": "consumer" }]},
-
           "buyer": { "reference": { "code": "buyer-abc",
                                      "type": "seller" }},
-
           "consumer": { "reference": { "code": "consumer-xyz",
                                         "type": "seller" },
                          "contract": { "code": "contract-789",
                                         "type": "seller" }},
-
           "shipTo": { "location": { "mtn": "Jane Doe",
                                      "rcp": "ECI Solutions, STG",
                                      "alt": "Suite #200",
@@ -155,18 +152,15 @@ down into smaller chunks.
                                      "postalCode": "84604"},
                        "email": "shipping-contact@example.com",
                        "phone": "1-555-555-5555"},
-
           "shippingMethod": { "code": "shipper-123",
                                "name": "usps-2day" },
-
           "when": "2018-04-24T17:00:00.000Z",
-
+          "whenExpected": "2018-07-24T17:00:00.000Z",
           "currency": { "code": "DKK",
                         "name": "Danish krone",
                         "number": 208,
                         "precision": 18,
                         "scale": 2},
-
           "itemsCount": 1,
           "items": [{ "reference": { "code": "abc-123",
                                      "type": "seller"},
