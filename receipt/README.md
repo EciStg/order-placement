@@ -16,17 +16,19 @@ Conceptually, a receipt extends an order e.g **`order V (package X shipment X tr
 the order schema with the receipt schema, ignoring a few details, and the additions in defined in the
 tuple above are easy to see.
 
-    106a107,125
+    106a107,127
     >     "package": {
     >       "description": "",
-    >       "type": "integer",
-    >       "minimum": 1
+    >       "type": "string",
+    >       "minLength": 1,
+    >       "maxLength": 32
     >     },
     >
     >     "shipment": {
     >       "description": "",
-    >       "type": "integer",
-    >       "minimum": 1
+    >       "type": "string",
+    >       "minLength": 1,
+    >       "maxLength": 32
     >     },
     >
     >     "tracking": {
@@ -35,7 +37,6 @@ tuple above are easy to see.
     >       "minLength": 1,
     >       "maxLength": 32
     >     },
-    >
 
 The example diff below shows the most commonly added extension to the order, a tracking number.
 
@@ -156,7 +157,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T04:55:23Z</td>
+<td class="org-left">2019-08-29T15:16:37Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -234,7 +235,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T04:55:24Z</td>
+<td class="org-left">2019-08-29T15:16:38Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
