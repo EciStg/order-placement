@@ -12,9 +12,9 @@
 
 ## tl;dr
 
-Conceptually, a receipt extends an order e.g **`{order} V (package X shipment X tracking)`**. Compare
-the order schema with the receipt schema, ignoring a few details, we will see the additions in
-defined in the tuple above.
+Conceptually, a receipt extends an order e.g **`order V (package X shipment X tracking)`**. Compare
+the order schema with the receipt schema, ignoring a few details, and the additions in defined in the
+tuple above are easy to see.
 
     106a107,125
     >     "package": {
@@ -53,9 +53,11 @@ The example diff below shows the most commonly added extenstion to the order, a 
 
 The Seller may create a receipt by make a few small modifications to the order.
 
--   [required] Append a tracking number
--   [optional] Supply the date when the shipment was sent or omit `when` from the receipt
--   [optional] Supply the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+-   [required] Add a tracking number
+-   [optional] Populate the date when the shipment was sent or omit `when` from the receipt
+-   [optional] Populate the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+-   [optional] Supply a shipment number
+-   [optional] Supply a pacakge number
 
 Let us assume the Buyer has placed an order (two code blocks down). When the order has been fulfilled
 and shipped the Seller will POST a shipping receipt providing tracking information for one shipment
@@ -162,7 +164,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T03:49:35Z</td>
+<td class="org-left">2019-08-29T04:33:51Z</td>
 <td class="org-left">started</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -442,7 +444,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T03:49:35Z</td>
+<td class="org-left">2019-08-29T04:33:52Z</td>
 <td class="org-left">stopped</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>

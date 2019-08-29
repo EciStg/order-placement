@@ -18,9 +18,9 @@ Accept: application/vnd.eci.stg.receipt-1.5.0.xml
 
 ** tl;dr
 
-Conceptually, a receipt extends an order e.g *~{order} V (package X shipment X tracking)~*. Compare
-the order schema with the receipt schema, ignoring a few details, we will see the additions in
-defined in the tuple above.
+Conceptually, a receipt extends an order e.g *~order V (package X shipment X tracking)~*. Compare
+the order schema with the receipt schema, ignoring a few details, and the additions in defined in the
+tuple above are easy to see.
 
 #+begin_src diff
 106a107,125
@@ -62,9 +62,11 @@ The example diff below shows the most commonly added extenstion to the order, a 
 
 The Seller may create a receipt by make a few small modifications to the order.
 
-- [required] Append a tracking number
-- [optional] Supply the date when the shipment was sent or omit ~when~ from the receipt
-- [optional] Supply the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+- [required] Add a tracking number
+- [optional] Populate the date when the shipment was sent or omit ~when~ from the receipt
+- [optional] Populate the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+- [optional] Supply a shipment number
+- [optional] Supply a pacakge number
 
 Let us assume the Buyer has placed an order (two code blocks down). When the order has been fulfilled
 and shipped the Seller will POST a shipping receipt providing tracking information for one shipment
