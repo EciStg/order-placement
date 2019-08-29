@@ -12,10 +12,9 @@
 
 ## tl;dr
 
-Conceptually a receipt extends an order e.g **`{order} V (package X shipment X tracking)`**
-
-Compare the order schema with the receipt schema, ignoring a few details, we will see the additions
-in defined in the tuple above.
+Conceptually a receipt extends an order e.g **`{order} V (package X shipment X tracking)`**. Compare
+the order schema with the receipt schema, ignoring a few details, we will see the additions in
+defined in the tuple above.
 
     106a107,125
     >     "package": {
@@ -155,7 +154,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T03:00:10Z</td>
+<td class="org-left">2019-08-29T03:02:25Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -215,7 +214,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T03:00:10Z</td>
+<td class="org-left">2019-08-29T03:02:26Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>

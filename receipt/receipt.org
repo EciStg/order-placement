@@ -18,10 +18,9 @@ Accept: application/vnd.eci.stg.receipt-1.5.0.xml
 
 ** tl;dr
 
-Conceptually a receipt extends an order e.g *~{order} V (package X shipment X tracking)~*
-
-Compare the order schema with the receipt schema, ignoring a few details, we will see the additions
-in defined in the tuple above.
+Conceptually a receipt extends an order e.g *~{order} V (package X shipment X tracking)~*. Compare
+the order schema with the receipt schema, ignoring a few details, we will see the additions in
+defined in the tuple above.
 
 #+begin_src diff
 106a107,125
