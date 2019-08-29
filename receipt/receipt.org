@@ -159,37 +159,6 @@ ways the receipt can be expressed.
   echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
 #+end_src
 
-#+RESULTS:
-| 2019-08-29T04:35:46Z                                                                            | started                       |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.xml  | validates                     |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.xml  | validates                     |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml             | validates                     |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json                                 | valid                         |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-receipt.json                               | valid                         |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.json | valid                         |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.json | valid                         |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.json            | invalid                       |          |           |    |   |
-| [                                                                                               | {                             | keyword: | 'type',   |    |   |
-| dataPath:                                                                                       | '.shipment',                  |          |           |    |   |
-| schemaPath:                                                                                     | '#/properties/shipment/type', |          |           |    |   |
-| params:                                                                                         | {                             | type:    | 'integer' | }, |   |
-| message:                                                                                        | 'should                       | be       | integer'  | }  | ] |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-package-number.json                                | invalid                       |          |           |    |   |
-| [                                                                                               | {                             | keyword: | 'type',   |    |   |
-| dataPath:                                                                                       | '.package',                   |          |           |    |   |
-| schemaPath:                                                                                     | '#/properties/package/type',  |          |           |    |   |
-| params:                                                                                         | {                             | type:    | 'integer' | }, |   |
-| message:                                                                                        | 'should                       | be       | integer'  | }  | ] |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-shipment-number.json                               | invalid                       |          |           |    |   |
-| [                                                                                               | {                             | keyword: | 'type',   |    |   |
-| dataPath:                                                                                       | '.shipment',                  |          |           |    |   |
-| schemaPath:                                                                                     | '#/properties/shipment/type', |          |           |    |   |
-| params:                                                                                         | {                             | type:    | 'integer' | }, |   |
-| message:                                                                                        | 'should                       | be       | integer'  | }  | ] |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-tracking-number.json                               | valid                         |          |           |    |   |
-| ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json                                 | valid                         |          |           |    |   |
-| 2019-08-29T04:35:46Z                                                                            | stopped                       |          |           |    |   |
-
 ** Overview
 
 #+begin_src plantuml :file ../images/receipt-sequence.puml.png :exports results
