@@ -12,11 +12,10 @@
 
 ## tl;dr
 
+Conceptually a receipt extends an order e.g **`{order} V (package X shipment X tracking)`**
 
-### Receipt extends order
-
-Ok. Not exactly, but conceptually. If we compare the order schema with the receipt schema, we will see
-a few additions. The example below shows the most commonly added extenstion, a tracking number.
+Compare the order schema with the receipt schema, ignoring a few details, we will see the additions
+in defined in the tuple above.
 
     106a107,125
     >     "package": {
@@ -39,8 +38,7 @@ a few additions. The example below shows the most commonly added extenstion, a t
     >     },
     >
 
-If we compare an instance of an order with and instance of a typical receipt, we will see two changes
-and one addition
+The example diff below shows the most commonly added extenstion to the order, a tracking number.
 
     23,24c23,24
     <   "when": "2018-04-24T17:00:00.000Z",
@@ -60,10 +58,10 @@ The Seller may create a receipt by make a few small modifications to the order.
 -   [optional] Supply the date when the shipment was sent or omit `when` from the receipt
 -   [optional] Supply the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
 
-Let us assume the Buyer has placed the following order (two code blocks down). When the order has
-been fulfilled and shipped the Seller will POST a shipping receipt providing tracking information for
-one shipment with tracking number **T-LMNOP-123**. In the section below called UseCases, we will
-demonstrate other ways the receipt can be expressed.
+Let us assume the Buyer has placed an order (two code blocks down). When the order has been fulfilled
+and shipped the Seller will POST a shipping receipt providing tracking information for one shipment
+with tracking number **T-LMNOP-123**. In the section below called UseCases, we will demonstrate other
+ways the receipt can be expressed.
 
     { "reference": { "referencesCount": 2,
                      "references": [ {"code": "PO-2159403-2",
@@ -157,7 +155,7 @@ demonstrate other ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T02:36:20Z</td>
+<td class="org-left">2019-08-29T03:00:10Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -217,7 +215,7 @@ demonstrate other ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T02:36:20Z</td>
+<td class="org-left">2019-08-29T03:00:10Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
