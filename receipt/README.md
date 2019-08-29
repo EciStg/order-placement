@@ -51,7 +51,7 @@ The example diff below shows the most commonly added extenstion to the order, a 
 
 ### Example receipt
 
-The Seller may create a receipt by make a few small modifications to the order.
+The Seller may create a receipt by make a few small modifications to an order.
 
 -   [required] Add a tracking number
 -   [optional] Populate the date when the shipment was sent or omit `when` from the receipt
@@ -156,7 +156,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T04:39:51Z</td>
+<td class="org-left">2019-08-29T04:42:36Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -234,7 +234,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T04:39:52Z</td>
+<td class="org-left">2019-08-29T04:42:37Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
