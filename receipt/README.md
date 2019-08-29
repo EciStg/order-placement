@@ -156,7 +156,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T04:50:37Z</td>
+<td class="org-left">2019-08-29T04:53:44Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -234,7 +234,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T04:50:38Z</td>
+<td class="org-left">2019-08-29T04:53:44Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -314,9 +314,7 @@ All use cases in this document will be based off of the following order:
 
         { "reference": { "referencesCount": 2,
                          "references": [ { "code": "PO-ABC123-2",
-                                           "type": "buyer" },
-                                         { "code": "PO-XYZ-a",
-                                           "type": "consumer" }]},
+                                           "type": "buyer" }]},
           "tracking": "T-123-ABC",
           "itemsCount": 3,
           "items": [{ "reference": { "code": "abc-123",
@@ -339,9 +337,7 @@ All use cases in this document will be based off of the following order:
 
         { "reference": { "referencesCount": 2,
                          "references": [ { "code": "PO-ABC123-2",
-                                           "type": "buyer" },
-                                         { "code": "PO-XYZ-a",
-                                           "type": "consumer" }]},
+                                           "type": "buyer" }]},
           "shipment": "T-123-ABC",
           "itemsCount": 3,
           "items": [{ "reference": { "code": "abc-123",
@@ -364,9 +360,7 @@ All use cases in this document will be based off of the following order:
 
         { "reference": { "referencesCount": 2,
                          "references": [ { "code": "PO-ABC123-2",
-                                           "type": "buyer" },
-                                         { "code": "PO-XYZ-a",
-                                           "type": "consumer" }]},
+                                           "type": "buyer" }]},
           "package": "1 of 1",
           "itemsCount": 3,
           "items": [{ "reference": { "code": "abc-123",
@@ -389,9 +383,7 @@ All use cases in this document will be based off of the following order:
 
         { "reference": { "referencesCount": 2,
                          "references": [ { "code": "PO-ABC123-2",
-                                           "type": "buyer" },
-                                         { "code": "PO-XYZ-a",
-                                           "type": "consumer" }]},
+                                           "type": "buyer" }]},
           "shipment": "S-QRS-987",
           "itemsCount": 3,
           "items": [{ "reference": { "code": "abc-123",
@@ -416,10 +408,6 @@ All use cases in this document will be based off of the following order:
               <reference>
                 <code>PO-2159403-2</code>
                 <type>buyer</type>
-              </reference>
-              <reference>
-                <code>PO-abc-q</code>
-                <type>consumer</type>
               </reference>
             </references>
           </reference>
@@ -475,9 +463,7 @@ All use cases in this document will be based off of the following order:
 
         { "reference": { "referencesCount": 2,
                          "references": [{ "code": "PO-ABC123-2",
-                                          "type": "buyer" },
-                                        { "code": "PO-XYZ-a",
-                                          "type": "consumer" }]},
+                                          "type": "buyer" }]},
           "tracking": "T-123-ABC",
           "itemsCount": 2,
           "items": [{ "reference": { "code": "abc-123",
@@ -495,9 +481,7 @@ All use cases in this document will be based off of the following order:
 
         { "reference": { "referencesCount": 2,
                          "references": [ { "code": "PO-ABC123-2",
-                                           "type": "buyer" },
-                                         { "code": "PO-XYZ-a",
-                                           "type": "consumer" }]},
+                                           "type": "buyer" }]},
           "tracking": "T-456-DEF",
           "itemsCount": 1,
           "items": [
@@ -517,10 +501,6 @@ All use cases in this document will be based off of the following order:
               <reference>
                 <code>PO-2159403-2</code>
                 <type>buyer</type>
-              </reference>
-              <reference>
-                <code>PO-abc-q</code>
-                <type>consumer</type>
               </reference>
             </references>
           </reference>
@@ -568,10 +548,6 @@ All use cases in this document will be based off of the following order:
               <reference>
                 <code>PO-2159403-2</code>
                 <type>buyer</type>
-              </reference>
-              <reference>
-                <code>PO-abc-q</code>
-                <type>consumer</type>
               </reference>
             </references>
           </reference>
