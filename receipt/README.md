@@ -55,7 +55,7 @@ The Seller may create a receipt by make a few small modifications to an order.
 
 -   [required] Add a tracking number
 -   [optional] Populate the date when the shipment was sent or omit `when` from the receipt
--   [optional] Populate the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+-   [optional] Populate the date the shipment is expected to be delivered or omit `whenExpected` from the receipt
 -   [optional] Supply a shipment number
 -   [optional] Supply a package number
 
@@ -156,7 +156,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T04:53:44Z</td>
+<td class="org-left">2019-08-29T04:55:23Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -234,7 +234,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T04:53:44Z</td>
+<td class="org-left">2019-08-29T04:55:24Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>

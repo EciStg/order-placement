@@ -64,7 +64,7 @@ The Seller may create a receipt by make a few small modifications to an order.
 
 - [required] Add a tracking number
 - [optional] Populate the date when the shipment was sent or omit ~when~ from the receipt
-- [optional] Populate the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+- [optional] Populate the date the shipment is expected to be delivered or omit ~whenExpected~ from the receipt
 - [optional] Supply a shipment number
 - [optional] Supply a package number
 
