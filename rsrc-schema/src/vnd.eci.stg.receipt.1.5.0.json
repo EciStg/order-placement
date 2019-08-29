@@ -106,14 +106,16 @@
 
     "package": {
       "description": "",
-      "type": "integer",
-      "minimum": 1
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
     },
 
     "shipment": {
       "description": "",
-      "type": "integer",
-      "minimum": 1
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
     },
 
     "tracking": {
