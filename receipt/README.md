@@ -10,162 +10,41 @@
     Accept: application/vnd.eci.stg.receipt-1.5.0.xml
 
 
-## Testing and Test Results
-
-    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
-    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.?-*.xml 2>&1
-    ajv -s ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.?-*.json" 2>&1
-    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+## tl;dr
 
 
-<colgroup>
-<col  class="org-left" />
+### Receipt extends order
 
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">2019-08-29T00:05:57Z</td>
-<td class="org-left">started</td>
-</tr>
+If we compare the order schema with the receipt schema, we will see a few additions. The example
+below shows the most commonly added extenstion, a tracking number.
 
 
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.xml</td>
-<td class="org-left">validates</td>
-</tr>
+
+If we compare an instance of an order with and instance of a typical receipt, we will see two changes
+and one addition
+
+    23,24c23,24
+    <   "when": "2018-04-24T17:00:00.000Z",
+    <   "whenExpected": "2018-07-24T17:00:00.000Z",
+    ---
+    >   "when": "2018-06-24T17:00:00.000Z",
+    >   "whenExpected": "2018-08-24T17:00:00.000Z",
+    29a30
+    >   "tracking": "T-LMNOP-123",
 
 
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.xml</td>
-<td class="org-left">validates</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml</td>
-<td class="org-left">validates</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-request.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json</td>
-<td class="org-left">valid</td>
-</tr>
-
-
-<tr>
-<td class="org-left">2019-08-29T00:05:58Z</td>
-<td class="org-left">stopped</td>
-</tr>
-</tbody>
-</table>
-
-
-## Overview
-
-![img](../images/receipt-sequence.puml.png)
-
-In the following section, Use Cases, examples of data ( `--data` ) to be sent and
-received will be shown. It is assumed that the caller will make the actual *POST*
-call with the required headers e.g.
-
-    curl --request POST \
-         --header "Content-Type: application/vnd.eci.stg.receipt.1.5.0.xml; charset=utf-8" \
-         --user user123:password123 \
-         --basic \
-         --url http://vendor-host/vendor-receipt-endpoint
-         --data ''
-
-
-## Definition of Terms
-
-
-## Example
-
-Let us assume the Buyer has placed the following order in the code block below. When the order has
-been fulfilled and shipped the Seller will POST a shipping receipt providing tracking information.
-In this case, we are going to show one shipment **T-LMNOP-123** In the section below called UseCases,
-we will demonstrate other ways the receipt can be expressed.
-
-
-### The Order
-
-    { "reference": { "referencesCount": 2,
-                     "references": [ {"code": "PO-2159403-2",
-                                      "type": "buyer" },
-                                     {"code": "PO-abc-q",
-                                      "type": "consumer" }]},
-      "buyer": { "reference": { "code": "buyer-abc",
-                                 "type": "seller" }},
-      "consumer": { "reference": { "code": "consumer-xyz",
-                                    "type": "seller" },
-                     "contract": { "code": "contract-789",
-                                    "type": "seller" }},
-      "shipTo": { "location": { "mtn": "Jane Doe",
-                                 "rcp": "ECI Solutions, STG",
-                                 "alt": "Suite #200",
-                                 "dal": "4626 N 300 W",
-                                 "city": "Provo",
-                                 "region": "UT",
-                                 "postalCode": "84604"},
-                   "email": "shipping-contact@example.com",
-                   "phone": "1-555-555-5555"},
-      "shippingMethod": { "code": "shipper-123",
-                           "name": "usps-2day" },
-      "when": "2018-04-24T17:00:00.000Z",
-      "whenExpected": "2018-07-24T17:00:00.000Z",
-      "currency": { "code": "DKK",
-                    "name": "Danish krone",
-                    "number": 208,
-                    "precision": 18,
-                    "scale": 2},
-      "itemsCount": 1,
-      "items": [{ "reference": { "code": "abc-123",
-                                 "type": "seller" },
-                  "quantity": 24,
-                  "unitCost": 24.99 }]}
-
-
-### The Receipt
+### Example receipt
 
 The Seller may create a receipt by make a few small modifications to the order.
 
 -   [required] Append a tracking number
--   [optional] Supply the date when the shipment was sent
--   [optional] Supply the date the shipment is expected to be delivered
+-   [optional] Supply the date when the shipment was sent or omit `when` from the receipt
+-   [optional] Supply the date the shipment is expected to be delivered or omit whenExpected~ from the receipt
+
+Let us assume the Buyer has placed the following order (two code blocks down). When the order has
+been fulfilled and shipped the Seller will POST a shipping receipt providing tracking information for
+one shipment with tracking number **T-LMNOP-123**. In the section below called UseCases, we will
+demonstrate other ways the receipt can be expressed.
 
     { "reference": { "referencesCount": 2,
                      "references": [ {"code": "PO-2159403-2",
@@ -204,16 +83,145 @@ The Seller may create a receipt by make a few small modifications to the order.
                   "unitCost": 24.99 }]}
 
 
-### Receipt extends Order
+### Order used to generate the receipt
 
-    23,24c23,24
-    <   "when": "2018-04-24T17:00:00.000Z",
-    <   "whenExpected": "2018-07-24T17:00:00.000Z",
-    ---
-    >   "when": "2018-06-24T17:00:00.000Z",
-    >   "whenExpected": "2018-08-24T17:00:00.000Z",
-    29a30
-    >   "tracking": "T-LMNOP-123",
+    { "reference": { "referencesCount": 2,
+                     "references": [ {"code": "PO-2159403-2",
+                                      "type": "buyer" },
+                                     {"code": "PO-abc-q",
+                                      "type": "consumer" }]},
+      "buyer": { "reference": { "code": "buyer-abc",
+                                 "type": "seller" }},
+      "consumer": { "reference": { "code": "consumer-xyz",
+                                    "type": "seller" },
+                     "contract": { "code": "contract-789",
+                                    "type": "seller" }},
+      "shipTo": { "location": { "mtn": "Jane Doe",
+                                 "rcp": "ECI Solutions, STG",
+                                 "alt": "Suite #200",
+                                 "dal": "4626 N 300 W",
+                                 "city": "Provo",
+                                 "region": "UT",
+                                 "postalCode": "84604"},
+                   "email": "shipping-contact@example.com",
+                   "phone": "1-555-555-5555"},
+      "shippingMethod": { "code": "shipper-123",
+                           "name": "usps-2day" },
+      "when": "2018-04-24T17:00:00.000Z",
+      "whenExpected": "2018-07-24T17:00:00.000Z",
+      "currency": { "code": "DKK",
+                    "name": "Danish krone",
+                    "number": 208,
+                    "precision": 18,
+                    "scale": 2},
+      "itemsCount": 1,
+      "items": [{ "reference": { "code": "abc-123",
+                                 "type": "seller" },
+                  "quantity": 24,
+                  "unitCost": 24.99 }]}
+
+
+## Testing and Test Results
+
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
+    xmllint --noout --schema ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.xsd ../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.?-*.xml 2>&1
+    ajv -s ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.json -d "../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.?-*.json" 2>&1
+    echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") stopped
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">2019-08-29T02:02:13Z</td>
+<td class="org-left">started</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-order.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-example-receipt.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-1.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-many-shipments-many-receipts.json-2.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-one-order-one-shipment-one-receipt.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.receipt.1.5.0-usecase-order.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
+<td class="org-left">2019-08-29T02:02:13Z</td>
+<td class="org-left">stopped</td>
+</tr>
+</tbody>
+</table>
+
+
+## Overview
+
+![img](../images/receipt-sequence.puml.png)
+
+In the following section, Use Cases, examples of data ( `--data` ) to be sent and
+received will be shown. It is assumed that the caller will make the actual *POST*
+call with the required headers e.g.
+
+    curl --request POST \
+         --header "Content-Type: application/vnd.eci.stg.receipt.1.5.0.xml; charset=utf-8" \
+         --user user123:password123 \
+         --basic \
+         --url http://vendor-host/vendor-receipt-endpoint
+         --data ''
+
+
+## Definition of Terms
 
 
 ## Use Cases
