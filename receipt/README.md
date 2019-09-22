@@ -16,6 +16,21 @@ Conceptually, a receipt extends an order e.g **`order V (package X shipment X tr
 the order schema with the receipt schema, ignoring a few details, and the additions in defined in the
 tuple above are easy to see.
 
+    diff ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.json
+    echo
+
+    2c2
+    <   "id": "./vnd.eci.stg.order.1.5.0.json",
+    ---
+    >   "id": "./vnd.eci.stg.receipt.1.5.0.json",
+    4c4
+    <   "title": "order",
+    ---
+    >   "title": "receipt",
+    64c64
+    <     "location": { "$ref": "#" },
+    ---
+    >     "location": { "$ref": "#/definitions/address" },
     106a107,127
     >     "package": {
     >       "description": "",
@@ -37,6 +52,7 @@ tuple above are easy to see.
     >       "minLength": 1,
     >       "maxLength": 32
     >     },
+    >
 
 The example diff below shows the most commonly added extension to the order, a tracking number.
 
@@ -52,7 +68,7 @@ The example diff below shows the most commonly added extension to the order, a t
 
 ### Example receipt
 
-The Seller may create a receipt by make a few small modifications to an order.
+The Seller may create a receipt by making a few small modifications to an order.
 
 -   [required] Add a tracking number
 -   [optional] Populate the date when the shipment was sent or omit `when` from the receipt
@@ -157,7 +173,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T15:16:37Z</td>
+<td class="org-left">2019-09-22T06:57:26Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -235,7 +251,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-08-29T15:16:38Z</td>
+<td class="org-left">2019-09-22T06:57:26Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>

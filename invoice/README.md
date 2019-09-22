@@ -10,6 +10,88 @@
     Accept: application/vnd.eci.stg.invoice-1.5.0.xml
 
 
+## tl;dr
+
+Conceptually, an invoice extends an order e.g **`order V terms`**. Compare the order
+schema with the receipt schema, ignoring a few details, and the additions in defined
+in the tuple above are easy to see.
+
+    diff ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json ../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.json
+    echo
+
+    2c2
+    <   "id": "./vnd.eci.stg.order.1.5.0.json",
+    ---
+    >   "id": "./vnd.eci.stg.invoice.1.5.0.json",
+    4c4
+    <   "title": "order",
+    ---
+    >   "title": "invoice",
+    104a105,106
+    >     "terms": { "$ref": "#/definitions/terms"},
+    >
+    831a834,892
+    >     "terms": {
+    >       "type": "object",
+    >       "additionalProperties": false,
+    >       "properties" : {
+    >
+    >         "code": {
+    >           "description": "",
+    >           "type": "string",
+    >           "minLength": 1,
+    >           "maxLength": 32
+    >         },
+    >
+    >         "name": {
+    >           "description": "",
+    >           "type": "string",
+    >           "minLength": 1,
+    >           "maxLength": 32
+    >         },
+    >
+    >         "description": {
+    >           "description": "",
+    >           "type": "string",
+    >           "minLength": 1,
+    >           "maxLength": 128
+    >         },
+    >
+    >         "amount": {
+    >           "description": "",
+    >           "type": "number",
+    >           "minimum" : 0,
+    >           "maximum" : 999999999999.999999
+    >         },
+    >
+    >         "rate": {
+    >           "description": "",
+    >           "type": "number",
+    >           "minimum" : 0,
+    >           "maximum" : 999999999999.999999
+    >         },
+    >
+    >         "date": {
+    >           "type" : "string",
+    >           "format": "date-time"
+    >         },
+    >
+    >         "dateExpected": {
+    >           "type" : "string",
+    >           "format": "date-time"
+    >         },
+    >
+    >         "remarks": {
+    >           "description": "human to human information",
+    >           "type": "string",
+    >           "minLength": 1,
+    >           "maxLength": 256
+    >         }
+    >       }
+    >     },
+    >
+
+
 ## Test Results
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
@@ -27,7 +109,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-09-22T06:40:54Z</td>
+<td class="org-left">2019-09-22T06:57:48Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -57,7 +139,7 @@
 
 
 <tr>
-<td class="org-left">2019-09-22T06:40:54Z</td>
+<td class="org-left">2019-09-22T06:57:48Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>

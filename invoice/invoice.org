@@ -16,6 +16,17 @@ Accept: application/vnd.eci.stg.invoice-1.5.0.json
 Accept: application/vnd.eci.stg.invoice-1.5.0.xml
 #+END_EXAMPLE
 
+** tl;dr
+
+Conceptually, an invoice extends an order e.g *~order V terms~*. Compare the order
+schema with the receipt schema, ignoring a few details, and the additions in defined
+in the tuple above are easy to see.
+
+#+begin_src shell :exports both :results code
+  diff ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json ../rsrc-schema/src/vnd.eci.stg.invoice.1.5.0.json
+  echo
+#+end_src
+
 ** Test Results
 
 #+BEGIN_SRC shell :exports both :results table replace

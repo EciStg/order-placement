@@ -22,28 +22,9 @@ Conceptually, a receipt extends an order e.g *~order V (package X shipment X tra
 the order schema with the receipt schema, ignoring a few details, and the additions in defined in the
 tuple above are easy to see.
 
-#+begin_src diff
-106a107,127
->     "package": {
->       "description": "",
->       "type": "string",
->       "minLength": 1,
->       "maxLength": 32
->     },
->
->     "shipment": {
->       "description": "",
->       "type": "string",
->       "minLength": 1,
->       "maxLength": 32
->     },
->
->     "tracking": {
->       "description": "",
->       "type": "string",
->       "minLength": 1,
->       "maxLength": 32
->     },
+#+begin_src shell :exports both :results code
+  diff ../rsrc-schema/src/vnd.eci.stg.order.1.5.0.json ../rsrc-schema/src/vnd.eci.stg.receipt.1.5.0.json
+  echo
 #+end_src
 
 The example diff below shows the most commonly added extension to the order, a tracking number.
