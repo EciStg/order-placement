@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-28T17:10:52Z</td>
+<td class="org-left">2019-11-08T19:47:49Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -124,6 +124,12 @@
 
 <tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-e.xml</td>
+<td class="org-left">validates</td>
+</tr>
+
+
+<tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-multiple-warehouse.xml</td>
 <td class="org-left">validates</td>
 </tr>
 
@@ -297,6 +303,12 @@
 
 
 <tr>
+<td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-quantity-response-multiple-warehouse.json</td>
+<td class="org-left">valid</td>
+</tr>
+
+
+<tr>
 <td class="org-left">../rsrc-schema/tst/vnd.eci.stg.stock.1.5.0-shipping-cost-request.json</td>
 <td class="org-left">valid</td>
 </tr>
@@ -351,7 +363,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-28T17:10:54Z</td>
+<td class="org-left">2019-11-08T19:47:49Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1024,21 +1036,6 @@ empty, or zero.
 
 ### As a buyer I would like to know which location items will be shipped from
 
-This use case is supported in the current PO Processor, but as we look more closely, we do think it
-is a valid use case. In fact, we have had some sellers express a concern that this might set an
-expectation that buyers can order stock from a specific warehouse, which they cannot do. We asked our
-head of training about providing the warehouse, this was his reply:
-
-> The customers that I have worked with had said they "like" knowing the warehouse. When I pushed them
-> as to why, they really liked knowing because they knew the expected delivery time. It was not the
-> warehouse that was the key, it was knowing when they could expect to deliver. I agree that they really
-> don’t need to know the warehouse, they need to know if they can get the order to a certain location,
-> for the money, in an estimated time frame.
-
-So while we support this use case to be compatible with older seller implementations and with the
-current version of PO Processor, we expect to deprecate it. We have added additional use cases to
-support time to delivery with an estimated cost for shipping.
-
 1.  Sellers may respond with a name that is meaningful to the dealer
 
     In this example, the seller is responding with `Main Warehouse`
@@ -1097,6 +1094,52 @@ support time to delivery with an estimated cost for shipping.
                     <city>Dallas</city>
                     <region>TX</region>
                   </location>
+                </item>
+              </items>
+            </stock>
+
+3.  Sellers may respond with multiple locations.
+
+    In this example the vendor is not dipslaying the address, only showing a name of a location
+
+    1.  JSON
+
+            { "itemsCount": 2,
+              "items": [{ "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "location": { "name": "Texas Warehouse" },
+                          "quantity": 16},
+                        { "reference": { "code": "abc-123",
+                                         "type": "seller" },
+                          "location": { "name": "New Mexico Warehouse" },
+                          "quantity": 8}]}
+
+    2.  XML
+
+            <?xml version='1.0' encoding='utf-8'?>
+
+            <stock>
+              <itemsCount>1</itemsCount>
+              <items>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <location>
+                    <name>Texas Warehouse</name>
+                  </location>
+                  <quantity>16</quantity>
+                </item>
+                <item>
+                  <reference>
+                    <code>abc-123</code>
+                    <type>seller</type>
+                  </reference>
+                  <location>
+                    <name>New Mexico Warehouse</name>
+                  </location>
+                  <quantity>8</quantity>
                 </item>
               </items>
             </stock>

@@ -15,7 +15,7 @@
                                 "type": "seller" }},
 
   "shipTo": { "location": { "mtn": "Jane Doe",
-                             "rcp": "ECi Solutions, STG",
+                             "rcp": "ECI Solutions, STG",
                              "alt": "Suite #200",
                              "dal": "4626 N 300 W",
                              "city": "Provo",

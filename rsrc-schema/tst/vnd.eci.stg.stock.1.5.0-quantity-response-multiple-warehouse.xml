@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<stock>
+  <itemsCount>1</itemsCount>
+  <items>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+      <location>
+        <name>Texas Warehouse</name>
+      </location>
+      <quantity>16</quantity>
+    </item>
+    <item>
+      <reference>
+        <code>abc-123</code>
+        <type>seller</type>
+      </reference>
+      <location>
+        <name>New Mexico Warehouse</name>
+      </location>
+      <quantity>8</quantity>
+    </item>
+  </items>
+</stock>

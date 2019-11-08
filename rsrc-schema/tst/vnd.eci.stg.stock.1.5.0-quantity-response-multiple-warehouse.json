@@ -1,0 +1,9 @@
+{ "itemsCount": 2,
+  "items": [{ "reference": { "code": "abc-123",
+                             "type": "seller" },
+              "location": { "name": "Texas Warehouse" },
+              "quantity": 16},
+            { "reference": { "code": "abc-123",
+                             "type": "seller" },
+              "location": { "name": "New Mexico Warehouse" },
+              "quantity": 8}]}
