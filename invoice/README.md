@@ -71,12 +71,12 @@ in the tuple above are easy to see.
     >           "maximum" : 999999999999.999999
     >         },
     >
-    >         "date": {
+    >         "when": {
     >           "type" : "string",
     >           "format": "date-time"
     >         },
     >
-    >         "dateExpected": {
+    >         "whenExpected": {
     >           "type" : "string",
     >           "format": "date-time"
     >         },
@@ -109,7 +109,7 @@ in the tuple above are easy to see.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-09-22T06:57:48Z</td>
+<td class="org-left">2019-12-05T21:15:43Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -139,7 +139,7 @@ in the tuple above are easy to see.
 
 
 <tr>
-<td class="org-left">2019-09-22T06:57:48Z</td>
+<td class="org-left">2019-12-05T21:15:45Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1094,12 +1094,12 @@ No longer published
                   "maximum" : 999999999999.999999
                 },
 
-                "date": {
+                "when": {
                   "type" : "string",
                   "format": "date-time"
                 },
 
-                "dateExpected": {
+                "whenExpected": {
                   "type" : "string",
                   "format": "date-time"
                 },

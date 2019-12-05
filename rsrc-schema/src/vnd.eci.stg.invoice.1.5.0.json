@@ -871,12 +871,12 @@
           "maximum" : 999999999999.999999
         },
 
-        "date": {
+        "when": {
           "type" : "string",
           "format": "date-time"
         },
 
-        "dateExpected": {
+        "whenExpected": {
           "type" : "string",
           "format": "date-time"
         },
