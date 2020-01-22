@@ -3,7 +3,7 @@
 # Probe
 
 Client applications that do not send an `Accept` header, or choose to accept non-vendor content types,
-or ab unversioned vendor content type, should receive the latest version of the probe representation.
+or unversioned vendor content types, should receive the latest version of the probe representation.
 
     Accept: application/json
     Accept: application/xml
@@ -15,9 +15,9 @@ or ab unversioned vendor content type, should receive the latest version of the 
 
 ## Test Results
 
-All examples in this document are validated against its [schema](#orgd523d7a) when it is published *(C-c C-e)* or
+All examples in this document are validated against its [schema](#org7f387ec) when it is published *(C-c C-e)* or
 when working in this document e.g. *(C-c C-c)* in the source buffer. Readers can test their work
-similar to what we have done below or can copy the [schema](#orgd523d7a) and document into an online validator/lint
+similar to what we have done below or can copy the [schema](#org7f387ec) and document into an online validator/lint
 such as [this one.](https://www.jsonschemavalidator.net)
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
@@ -35,7 +35,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-29T19:27:21Z</td>
+<td class="org-left">2020-01-22T18:23:33Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -65,7 +65,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 
 
 <tr>
-<td class="org-left">2019-07-29T19:27:22Z</td>
+<td class="org-left">2020-01-22T18:23:34Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -124,11 +124,11 @@ including white listing.
 
 ![img](../images/probe-class-diagram.puml.png)
 
--   **code:** software facing value that uniquely identifies the probe. If `code` is not populated, `name` must be.
--   **description:** human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.
+-   **code:** software facing value that uniquely identifies the probe. If `code` is not populated, `name` must be populated.
 -   **name:** human facing value that uniquely identifies the probe. If `name` is not populated, `description` must be.
--   **remarks:** human facing text, populated when there is a failure or warning. The text should give the human user some idea of where and why the failure or warning is occurring and what can be done to correct the problem.
--   **status:** human and Software facing value populated in the returned body of an HTTP GET for all probes except the top probe. Values in the **200s** are successful, values in the **500s** indicate something is wrong with the API. If `status` is populated, `when` must also be populated.
+-   **description:** human facing text that describes the purpose of the probe and the purpose of the activity or function being probed.
+-   **remarks:** human facing text, populated when there is a failure or warning. The text should give the human user additional information about the probe and the state of the system.
+-   **status:** human and Software facing value populated in the returned body of an HTTP GET for all probes except the top probe. Values in the **200s** are successful, values in the **400**, **500** indicate something is wrong. If `status` is populated, `when` must also be populated.
 -   **when:** date and time of probe execution. If `when` is populated, `status` must be.
 -   **self:** URL identifying the probe that was executed. It is always required.
 -   **itemsCount:** if the resource is being used as a collection of probes, not an instance of a probe, this value tells us how many probes are to be expected in the items collection
@@ -150,12 +150,15 @@ including white listing.
 >
 > Recommended for Seller implementations
 
-This probe must be a light weight and fast running indicator of API availability; think of it like
-a **ping**. It must do as little as possible yet still be able to announce that the API is up and
-running. It is expected this probe will be called one or more times per minute. Calling applications
-are required to check the HTTP Status Code and interpret it as pass, **200 - 299**, or fail, **500 - 599**.
+This probe must be a light weight and fast running indicator of API availability;
+think of it like a **ping**. It must do as little as possible yet still be able to
+announce that the API is up and running. It is expected this probe will be called
+one or more times per minute. Calling applications are required to check the HTTP
+Status Code and interpret it as pass if it falls in the range **200 - 299**.
 
-A body must not be returned to the caller.
+A body must not be returned to the caller, therefore callers can expect the
+successful HTTP Status Code to be 204 (No Content), but not all implementors
+will be so precise.
 
 Example of calling the top probe from the command line:
 
@@ -286,7 +289,7 @@ systems and applications.
 
 ## Resource Schema
 
-<a id="orgd523d7a"></a>
+<a id="org7f387ec"></a>
 
 
 ### Version 1.0
