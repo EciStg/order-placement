@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-07-18T20:34:11Z</td>
+<td class="org-left">2020-03-06T18:41:32Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -63,7 +63,7 @@
 
 
 <tr>
-<td class="org-left">2019-07-18T20:34:11Z</td>
+<td class="org-left">2020-03-06T18:41:32Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -178,7 +178,7 @@ It is assumed that the caller will make the http *GET* call with the required he
     2.  Seller does not support buyer selection of, or influence on, the shipping method
 
         If the seller does not now or in the future intend on providing this capability, do not provide
-        an endpoint, instead, when discussing your implementation with ECi let them know and when adding
+        an endpoint, instead, when discussing your implementation with ECI let them know and when adding
         the seller to the order placement system they will configure things such that no attempt will be
         made to contact the seller system.
 
@@ -274,7 +274,6 @@ No longer published
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
-              "uniqueItems": true,
               "items": {
                 "$ref": "#"
               }
@@ -432,4 +431,4 @@ No longer published
         </xs:schema>
 
 
-## © 2018-2019 ECi Software Solutions, Inc. All rights reserved.
+## © 2018-2019 ECI Software Solutions, Inc. All rights reserved.

@@ -15,9 +15,9 @@ or unversioned vendor content types, should receive the latest version of the pr
 
 ## Test Results
 
-All examples in this document are validated against its [schema](#org7f387ec) when it is published *(C-c C-e)* or
+All examples in this document are validated against its [schema](#org6af50ae) when it is published *(C-c C-e)* or
 when working in this document e.g. *(C-c C-c)* in the source buffer. Readers can test their work
-similar to what we have done below or can copy the [schema](#org7f387ec) and document into an online validator/lint
+similar to what we have done below or can copy the [schema](#org6af50ae) and document into an online validator/lint
 such as [this one.](https://www.jsonschemavalidator.net)
 
     echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") started
@@ -35,7 +35,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2020-01-22T18:23:33Z</td>
+<td class="org-left">2020-03-06T18:41:00Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -65,7 +65,7 @@ such as [this one.](https://www.jsonschemavalidator.net)
 
 
 <tr>
-<td class="org-left">2020-01-22T18:23:34Z</td>
+<td class="org-left">2020-03-06T18:41:00Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -289,7 +289,7 @@ systems and applications.
 
 ## Resource Schema
 
-<a id="org7f387ec"></a>
+<a id="org6af50ae"></a>
 
 
 ### Version 1.0

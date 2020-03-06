@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-08-29T02:36:36Z</td>
+<td class="org-left">2020-03-06T18:40:09Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2019-08-29T02:36:36Z</td>
+<td class="org-left">2020-03-06T18:40:09Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -540,7 +540,6 @@ No longer published
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
-              "uniqueItems": true,
               "items": {
                 "$ref": "#"
               }
@@ -1117,7 +1116,6 @@ No longer published
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/shippingMethod"
                   }
@@ -1243,7 +1241,6 @@ No longer published
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/tax"
                   }

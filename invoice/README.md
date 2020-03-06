@@ -30,7 +30,13 @@ in the tuple above are easy to see.
     104a105,106
     >     "terms": { "$ref": "#/definitions/terms"},
     >
-    831a834,892
+    119d120
+    <       "uniqueItems": true,
+    696d696
+    <           "uniqueItems": true,
+    822d821
+    <           "uniqueItems": true,
+    831a831,889
     >     "terms": {
     >       "type": "object",
     >       "additionalProperties": false,
@@ -109,7 +115,7 @@ in the tuple above are easy to see.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-12-05T21:15:43Z</td>
+<td class="org-left">2020-03-06T18:39:49Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -139,7 +145,7 @@ in the tuple above are easy to see.
 
 
 <tr>
-<td class="org-left">2019-12-05T21:15:45Z</td>
+<td class="org-left">2020-03-06T18:39:52Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -341,7 +347,6 @@ No longer published
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
-              "uniqueItems": true,
               "items": {
                 "$ref": "#"
               }
@@ -918,7 +923,6 @@ No longer published
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/shippingMethod"
                   }
@@ -1044,7 +1048,6 @@ No longer published
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/tax"
                   }

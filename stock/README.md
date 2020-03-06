@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-11-08T19:47:49Z</td>
+<td class="org-left">2020-03-06T18:41:45Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -363,7 +363,7 @@
 
 
 <tr>
-<td class="org-left">2019-11-08T19:47:49Z</td>
+<td class="org-left">2020-03-06T18:41:45Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1663,7 +1663,6 @@ empty, or zero.
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
-              "uniqueItems": true,
               "items": {
                 "$ref": "#"
               }
@@ -2239,7 +2238,6 @@ empty, or zero.
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/shippingMethod"
                   }
@@ -2365,7 +2363,6 @@ empty, or zero.
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/tax"
                   }

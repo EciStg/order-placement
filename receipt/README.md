@@ -53,6 +53,8 @@ tuple above are easy to see.
     >       "maxLength": 32
     >     },
     >
+    819a841
+    >           "uniqueItems": true,
 
 The example diff below shows the most commonly added extension to the order, a tracking number.
 
@@ -173,7 +175,7 @@ ways the receipt can be expressed.
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2019-09-22T06:57:26Z</td>
+<td class="org-left">2020-03-06T18:41:17Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -251,7 +253,7 @@ ways the receipt can be expressed.
 
 
 <tr>
-<td class="org-left">2019-09-22T06:57:26Z</td>
+<td class="org-left">2020-03-06T18:41:17Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -747,7 +749,6 @@ No longer published
               "type": "array",
               "minItems": 1,
               "maxItems": 1000,
-              "uniqueItems": true,
               "items": {
                 "$ref": "#"
               }
@@ -1324,7 +1325,6 @@ No longer published
                   "type": "array",
                   "minItems": 1,
                   "maxItems": 1000,
-                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/definitions/shippingMethod"
                   }
