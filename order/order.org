@@ -62,9 +62,9 @@ call with the required headers e.g.
 
   .. is-a code ..
   {field} + code : string-32
-  {field} + description : string
-  {field} + name : string
-  {field} + remarks : string
+  {field} + name : string-32
+  {field} + description : string-128
+  {field} + remarks : string-25
 
   .. is-an-order ..
   {field} + when : datetime
@@ -75,11 +75,11 @@ call with the required headers e.g.
   {field} + seller : seller
   {field} + shipTo : shipTo
   {field} + shippingMethod : shippingMethod
-  {field} + location : order (item)
-  {field} + make : string
-  {field} + model : string
-  {field} + serialNumber : string
-  {field} + quantity : float
+  {field} + location : order
+  {field} + make : string-32
+  {field} + model : string-32
+  {field} + serialNumber : string-32
+  {field} + quantity : decimal
   {field} + unitMeasure : unitMeasure
   {field} + unitCost : decimal
   {field} + total : decimal
