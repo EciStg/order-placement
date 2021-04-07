@@ -30,10 +30,11 @@
       <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-      <xs:element name='location'    type='ItemType'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'    type='ItemType'      minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='contact'     type='ContactType'   minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
@@ -47,8 +48,10 @@
       <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='contact'     type='ContactType'   minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
+
   <xs:complexType name='ConsumerType'>
     <xs:sequence>
       <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
@@ -60,6 +63,20 @@
       <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='contact'     type='ContactType'   minOccurs='0' maxOccurs='1' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name='ContactType'>
+    <xs:sequence>
+      <xs:element name='reference'   type='ReferenceType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='code'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
+      <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
@@ -131,7 +148,6 @@
       <xs:element name='description' type='xs:string' minOccurs='0' maxOccurs='1' />
       <xs:element name='remarks'     type='xs:string' minOccurs='0' maxOccurs='1' />
       <xs:element name='type'        type='ReferenceTypeEnum' minOccurs='0' maxOccurs='1' />
-
       <xs:element name='referencesCount'   type='xs:integer'     minOccurs='0' maxOccurs='1' />
       <xs:element name='references'        type='ReferencesType' minOccurs='0' maxOccurs='1' />
     </xs:sequence>
@@ -162,6 +178,7 @@
       <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='contact'     type='ContactType'   minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
 
@@ -195,6 +212,7 @@
       <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
       <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
+      <xs:element name='contact'     type='ContactType'   minOccurs='0' maxOccurs='1' />
       <xs:element name='isDropShip'  type='xs:boolean'    minOccurs='0' maxOccurs='1' />
     </xs:sequence>
   </xs:complexType>
