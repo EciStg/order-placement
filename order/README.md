@@ -27,7 +27,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">2021-04-07T00:57:01Z</td>
+<td class="org-left">2021-04-07T01:46:14Z</td>
 <td class="org-left">started</td>
 </tr>
 
@@ -69,7 +69,7 @@
 
 
 <tr>
-<td class="org-left">2021-04-07T00:57:01Z</td>
+<td class="org-left">2021-04-07T01:46:15Z</td>
 <td class="org-left">stopped</td>
 </tr>
 </tbody>
@@ -1371,7 +1371,7 @@ No longer published
               <xs:element name='name'        type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='description' type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='remarks'     type='xs:string'     minOccurs='0' maxOccurs='1' />
-              <xs:element name='location'    type='ItemType'      minOccurs='0' maxOccurs='1' />
+              <xs:element name='location'    type='AddressType'   minOccurs='0' maxOccurs='1' />
               <xs:element name='email'       type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='phone'       type='xs:string'     minOccurs='0' maxOccurs='1' />
               <xs:element name='taxID'       type='xs:string'     minOccurs='0' maxOccurs='1' />
@@ -1584,11 +1584,11 @@ No longer published
 
           <xs:complexType name='UnitMeasureType'>
             <xs:sequence>
-              <xs:element name='name'        type='xs:string'  />
-              <xs:element name='description' type='xs:string'  />
-              <xs:element name='remarks'     type='xs:string'  />
-              <xs:element name='code'        type='xs:string'  />
-              <xs:element name='quantity'    type='xs:decimal' />
+              <xs:element name='code'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='name'        type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='description' type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='remarks'     type='xs:string'  minOccurs='0' maxOccurs='1' />
+              <xs:element name='quantity'    type='xs:decimal' minOccurs='0' maxOccurs='1' />
             </xs:sequence>
           </xs:complexType>
 
